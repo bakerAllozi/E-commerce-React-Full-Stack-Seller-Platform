@@ -1,0 +1,90 @@
+import { useEffect, useState } from "react";
+import useInsertMassage from "../../../../hooks/UseInsertMassage";
+import useRedux from "../../../../hooks/useRedux";
+import useUser from "../../../../hooks/useUser";
+import { v4 as uuidv4 } from "uuid";
+import { getDataChats, showChatUser } from "../../userSlice";
+import useReadChats from "../../../../hooks/useReadChats";
+import ChatMassage from "./../cahtUser/ChatMassage";
+import Spinner from "../../../../ui/Spinner";
+import { Link } from "react-router-dom";
+
+function ChatPage() {
+  const uniqueId = uuidv4();
+
+  const { dispatch, appSelector } = useRedux();
+  const { user } = useUser();
+  const { data: chatData } = useReadChats(user.id);
+
+  const { forHowYouChat } = appSelector((state) => state.UserData);
+  const { id, name, avatar } = forHowYouChat;
+
+  const userId = user.id;
+  const youCantMassageYourSelf = userId === id;
+
+  useEffect(() => {
+    if (!chatData || !userId) return;
+    dispatch(getDataChats(chatData, userId));
+    dispatch(showChatUser(id, userId, name, avatar));
+  }, [chatData, dispatch, userId, id, name, avatar]);
+
+  const { isLoading, mutate } = useInsertMassage();
+  const [message, setMassage] = useState([]);
+  const handelInsertMassage = () => {
+    const newRow = {
+      message: message,
+      message_id: uniqueId,
+      sender_id: user.id,
+      receiver_id: id,
+    };
+    mutate(newRow);
+    setMassage("");
+  };
+
+  return (
+    <>
+      {!youCantMassageYourSelf ? (
+        <div className="h-screen  flex items-center justify-center p-4">
+          <div className="w-full  bg-white rounded-lg shadow-lg p-6 h-full flex flex-col justify-between">
+            <ChatMassage />
+            <div className="mt-4">
+              <input
+                onChange={(e) => {
+                  setMassage(e.target.value);
+                }}
+                value={message}
+                type="text"
+                placeholder="Type your message..."
+                className="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+              <button
+                disabled={isLoading}
+                className="mt-2 w-full bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600 transition duration-300"
+                onClick={handelInsertMassage}
+              >
+                {isLoading ? <Spinner /> : "Send"}
+              </button>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div className="flex items-center justify-center h-screen bg-gradient-to-r from-blue-500 to-purple-600">
+          <div className="bg-white p-6 rounded-lg shadow-lg text-center">
+            <p className="text-2xl font-bold text-gray-800 mb-4">Oops!</p>
+            <p className="text-lg text-gray-600 mb-4">
+              You can t message yourself 🙂
+            </p>
+            <Link
+              to={-1}
+              className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition duration-300"
+            >
+              Go Back
+            </Link>
+          </div>
+        </div>
+      )}
+    </>
+  );
+}
+
+export default ChatPage;
