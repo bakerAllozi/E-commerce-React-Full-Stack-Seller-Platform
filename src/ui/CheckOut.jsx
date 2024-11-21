@@ -1,12 +1,15 @@
 import { useState } from "react";
+import useRedux from "../hooks/useRedux";
+import { RemoveALLFromCart } from "../features/Cart/CartSlice";
 
 export default function CheckOut() {
+  const { dispatch } = useRedux();
   const [agreed, setAgreed] = useState(false);
 
   const handlePayPalCheckout = (e) => {
     e.preventDefault();
     if (agreed) {
-      // هنا يمكنك استدعاء API الخاصة بـ PayPal للتعامل مع عملية الدفع الحقيقية
+      dispatch(RemoveALLFromCart());
       alert("Processing PayPal payment...");
     } else {
       alert("You must agree to the terms and conditions before proceeding.");
@@ -196,7 +199,7 @@ export default function CheckOut() {
         </div>
         <div className="mt-6">
           <button
-            type="submit"
+            onClick={handlePayPalCheckout}
             className="w-full flex justify-center rounded-md bg-red-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
           >
             Pay with PayPal

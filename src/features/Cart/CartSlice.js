@@ -15,7 +15,6 @@ const cartReducer = createSlice({
         : [action.payload];
 
       newItems.forEach((item) => {
-        // Check if the item already exists (based on a unique identifier like `id`)
         if (!state.cartData.some((cartItem) => cartItem.id === item.id)) {
           state.cartData.push(item);
         }
