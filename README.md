@@ -140,7 +140,13 @@ To set up the project locally, follow these steps:
 - **Dashboard with Inventory Charts:**  
   ![Dashboard Screenshot](/public/read/Vite%20+%20React%20-%20Google%20Chrome%2011_21_2024%209_14_45%20PM.png)
   ![Dashboard Screenshot2](/public/read/Vite%20+%20React%20-%20Google%20Chrome%2011_21_2024%209_15_13%20PM.png)
-  ![Dashboard Screenshot3](/public/read/Vite%20+%20React%20-%20Google%20Chrome%2011_21_2024%209_15_05%20PM.png)
+  ![Dashboard Screenshot3](/public/more/Vite%20+%20React%20-%20Google%20Chrome%2011_21_2024%209_28_11%20PM.png)
+
+  - **more about store**  
+    ![Cart](/public/more/Vite%20+%20React%20-%20Google%20Chrome%2011_21_2024%209_28_55%20PM.png)
+    ![checkout](/public/more/Vite%20+%20React%20-%20Google%20Chrome%2011_21_2024%209_29_55%20PM.png)
+    ![searcher](/public/more/Vite%20+%20React%20-%20Google%20Chrome%2011_21_2024%209_30_12%20PM.png)
+    ![login](/public/more/Vite%20+%20React%20-%20Google%20Chrome%2011_21_2024%209_30_58%20PM.png)
 
 - **Product Comments and Replies:**  
   ![Comments Screenshot](/public//read/Vite%20+%20React%20-%20Google%20Chrome%2011_21_2024%209_14_24%20PM.png)
