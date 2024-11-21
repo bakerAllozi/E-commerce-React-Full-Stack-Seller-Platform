@@ -8,7 +8,6 @@ import useRedux from "../../hooks/useRedux";
 function Wishlist() {
   const { dispatch, appSelector } = useRedux();
   const { wishlistData } = appSelector((state) => state.wishlistData);
-
   const handelMoveAll = () => {
     dispatch(gitCartItem(wishlistData));
     dispatch(deleteAllFromWishList());

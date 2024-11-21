@@ -6,11 +6,20 @@ const initialState = {
 };
 
 const cartReducer = createSlice({
-  name: "Wishlist",
+  name: "Cart",
   initialState,
   reducers: {
     gitCartItem(state, action) {
-      state.cartData.push(...action.payload);
+      const newItems = Array.isArray(action.payload)
+        ? action.payload
+        : [action.payload];
+
+      newItems.forEach((item) => {
+        // Check if the item already exists (based on a unique identifier like `id`)
+        if (!state.cartData.some((cartItem) => cartItem.id === item.id)) {
+          state.cartData.push(item);
+        }
+      });
     },
     increaseQuantity(state, action) {
       state.cartData = state.cartData.map((item) => {
