@@ -1,10 +1,12 @@
 /*eslint react/prop-types:0*/
 
-import useUserPresence from "../../../../hooks/useUserPresence";
-
-function ReceiverUser({ handleNavigate, e, userId }) {
-  const { status } = useUserPresence(e.sender_id); // تعقب حالة الاتصال لكل مستخدم
-
+function ReceiverUser({
+  handleNavigate,
+  e,
+  userId,
+  onlineUsersCount,
+  isLoading,
+}) {
   return (
     <div className="flex gap-4 justify-center flex-wrap cursor-pointer bg-gray-100 p-5 rounded-lg shadow-lg">
       <div
@@ -28,8 +30,8 @@ function ReceiverUser({ handleNavigate, e, userId }) {
             </div>
           )}
 
-          {/* حالة الاتصال (دائرة خضراء) */}
-          {status === "متصل" && (
+          {/* عرض حالة الاتصال (عدد المستخدمين المتصلين) */}
+          {!isLoading && onlineUsersCount > 0 && (
             <div className="absolute bottom-0 right-0 w-4 h-4 bg-green-500 rounded-full border-2 border-white"></div>
           )}
         </div>
@@ -39,8 +41,10 @@ function ReceiverUser({ handleNavigate, e, userId }) {
           {e.created_at?.slice(0, 10)}
         </p>
 
-        {status === "متصل" && (
-          <p className="text-center text-green-500 text-xs">متصل</p>
+        {!isLoading && onlineUsersCount > 0 && (
+          <p className="text-center text-green-500 text-xs">
+            {onlineUsersCount} متصل
+          </p>
         )}
       </div>
     </div>

@@ -110,35 +110,43 @@ export async function updateCurrentUser(newRow) {
   return updateUser;
 }
 
-export async function trackUserPresence(userId, onStatusChange) {
-  const channel = supabase.channel("online-users", {
+export async function trackUserPresence(userId) {
+  console.log(userId);
+
+  const channel = supabase.channel(`online-users`, {
     config: {
       presence: {
-        key: userId, // يتم استخدام ID المستخدم للتتبع
+        key: userId,
       },
     },
   });
 
+  let onlineUsersCount = 0; // عداد المستخدمين المتصلين
+
   // الاشتراك في القناة
   await channel.subscribe(async (status) => {
     if (status === "SUBSCRIBED") {
-      console.log("تم الاشتراك في القناة.");
-
-      // تعقب المستخدم كمتصل
+      console.log(`تم الاشتراك في القناة`);
       await channel.track({ userId });
     }
   });
 
-  // التحقق من الانضمام أو المغادرة
-  channel.on("presence", { event: "join" }, () => {
-    console.log("متصل");
-    onStatusChange("متصل");
-  });
+  return new Promise((resolve) => {
+    // مراقبة انضمام المستخدمين
+    channel.on("presence", { event: "join" }, ({ newPresences }) => {
+      onlineUsersCount += newPresences.length; // زيادة العدد
+      console.log(`عدد المستخدمين المتصلين: ${onlineUsersCount}`);
+      resolve(onlineUsersCount); // إرجاع العدد
+    });
 
-  channel.on("presence", { event: "leave" }, () => {
-    console.log("غير متصل");
-    onStatusChange("غير متصل");
-  });
+    // مراقبة مغادرة المستخدمين
+    channel.on("presence", { event: "leave" }, ({ leftPresences }) => {
+      onlineUsersCount -= leftPresences.length; // تقليل العدد
+      console.log(`عدد المستخدمين المتصلين: ${onlineUsersCount}`);
+      resolve(onlineUsersCount); // إرجاع العدد
+    });
 
-  return channel;
+    // في حال لم يحدث أي تغيير خلال المهلة، إرجاع العدد الحالي
+    // setTimeout(() => resolve(onlineUsersCount), 1000);
+  });
 }

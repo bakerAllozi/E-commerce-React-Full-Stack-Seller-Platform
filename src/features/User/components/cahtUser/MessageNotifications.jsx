@@ -5,6 +5,8 @@ import usePublicUser from "../../../../hooks/usePublicUser";
 import Spinner from "../../../../ui/Spinner";
 import useUser from "../../../../hooks/useUser";
 import ReceiverUser from "./ReceiverUser";
+import useOnlineUsersCount from "../../../../hooks/useOnlineUsersCount";
+import { useEffect } from "react";
 
 function MessageNotifications() {
   const { appSelector, dispatch } = useRedux();
@@ -13,7 +15,10 @@ function MessageNotifications() {
   const navigate = useNavigate();
   const userId = user?.id;
   const { data: ALLUserData, isLoading } = usePublicUser();
-
+  const { onlineUsersCount, isLoading: Loading } = useOnlineUsersCount(userId);
+  useEffect(() => {
+    console.log("okkkkkkkkkkkkkkk", onlineUsersCount);
+  }, [onlineUsersCount]);
   const handleNavigate = (receiverId) => {
     if (!userId || !ALLUserData) return; // تأكد من وجود بيانات المستخدمين
 
@@ -37,6 +42,8 @@ function MessageNotifications() {
               handleNavigate={handleNavigate}
               e={e}
               userId={userId}
+              onlineUsersCount={onlineUsersCount}
+              isLoading={Loading}
             />
           ))}
         </div>
