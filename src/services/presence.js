@@ -19,30 +19,30 @@ export async function trackUserPresence(userId, onUpdate) {
     }
   });
 
-  let updatedCount = 0;
-
-  const updateCount = (change) => {
-    updatedCount += change;
-    console.log(`عدد المستخدمين المتصلين: ${updatedCount}`);
-    if (onUpdate) onUpdate(updatedCount); // استدعاء الدالة الممررة
+  const updatePresence = (change, users) => {
+    if (onUpdate) onUpdate(change, users); // إرسال التغييرات وعدد المستخدمين إلى المكون
   };
 
   // مراقبة انضمام المستخدمين
-  const handleJoin = ({ newPresences }) => updateCount(newPresences.length);
+  const handleJoin = ({ newPresences }) => {
+    const users = newPresences.map((presence) => presence.userId); // الحصول على الـ ID أو أي معلومات إضافية
+    updatePresence(newPresences.length, users);
+  };
 
   // مراقبة مغادرة المستخدمين
-  const handleLeave = ({ leftPresences }) => updateCount(-leftPresences.length);
+  const handleLeave = ({ leftPresences }) => {
+    const users = leftPresences.map((presence) => presence.userId); // الحصول على الـ ID أو أي معلومات إضافية
+    updatePresence(-leftPresences.length, users);
+  };
 
   channel.on("presence", { event: "join" }, handleJoin);
   channel.on("presence", { event: "leave" }, handleLeave);
 
   // وظيفة لإلغاء الاشتراك عند الحاجة
   const unsubscribe = () => {
-    channel.off("presence", { event: "join" }, handleJoin);
-    channel.off("presence", { event: "leave" }, handleLeave);
     channel.unsubscribe();
     console.log("تم إلغاء الاشتراك في القناة");
   };
 
-  return unsubscribe; // إرجاع وظيفة الإلغاء فقط
+  return unsubscribe;
 }

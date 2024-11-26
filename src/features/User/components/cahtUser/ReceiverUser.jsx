@@ -1,12 +1,6 @@
 /*eslint react/prop-types:0*/
 
-function ReceiverUser({
-  handleNavigate,
-  e,
-  userId,
-  onlineUsersCount,
-  isLoading,
-}) {
+function ReceiverUser({ handleNavigate, e, userId }) {
   return (
     <div className="flex gap-4 justify-center flex-wrap cursor-pointer bg-gray-100 p-5 rounded-lg shadow-lg">
       <div
@@ -31,21 +25,12 @@ function ReceiverUser({
           )}
 
           {/* عرض حالة الاتصال (عدد المستخدمين المتصلين) */}
-          {!isLoading && onlineUsersCount > 0 && (
-            <div className="absolute bottom-0 right-0 w-4 h-4 bg-green-500 rounded-full border-2 border-white"></div>
-          )}
         </div>
 
         <p className="font-extrabold text-center mb-1">{e.name}</p>
         <p className="absolute top-2 right-2 text-gray-500 text-xs">
           {e.created_at?.slice(0, 10)}
         </p>
-
-        {!isLoading && onlineUsersCount > 0 && (
-          <p className="text-center text-green-500 text-xs">
-            {onlineUsersCount} متصل
-          </p>
-        )}
       </div>
     </div>
   );
