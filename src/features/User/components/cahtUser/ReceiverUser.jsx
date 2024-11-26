@@ -1,6 +1,8 @@
 /*eslint react/prop-types:0*/
 
-function ReceiverUser({ handleNavigate, e, userId }) {
+function ReceiverUser({ handleNavigate, e, userId, onlineUsers }) {
+  const useOnline = onlineUsers.find((user) => user === e.sender_id);
+
   return (
     <div className="flex gap-4 justify-center flex-wrap cursor-pointer bg-gray-100 p-5 rounded-lg shadow-lg">
       <div
@@ -24,10 +26,18 @@ function ReceiverUser({ handleNavigate, e, userId }) {
             </div>
           )}
 
-          {/* عرض حالة الاتصال (عدد المستخدمين المتصلين) */}
+          {/* دائرة خضراء عند الاتصال */}
+          {useOnline && (
+            <span className="absolute bottom-1 right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-white "></span>
+          )}
         </div>
 
         <p className="font-extrabold text-center mb-1">{e.name}</p>
+        {useOnline && (
+          <p className="text-green-500 text-center text-sm font-semibold ">
+            متصل
+          </p>
+        )}
         <p className="absolute top-2 right-2 text-gray-500 text-xs">
           {e.created_at?.slice(0, 10)}
         </p>

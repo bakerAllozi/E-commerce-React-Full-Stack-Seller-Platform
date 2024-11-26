@@ -1,11 +1,13 @@
 // src/components/ChatComponent.js
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { trackUserPresence } from "../services/presence";
 import useUser from "../hooks/useUser";
 
-const ChatComponent = () => {
-  const [onlineUsersCount, setOnlineUsersCount] = useState(0);
-  const [onlineUsers, setOnlineUsers] = useState([]);
+const ChatComponent = ({
+  onlineUsersCount,
+  setOnlineUsersCount,
+  setOnlineUsers,
+}) => {
   const { user } = useUser();
   const userId = user.id;
 
@@ -30,7 +32,7 @@ const ChatComponent = () => {
     initPresence();
 
     return () => {
-      if (unsubscribe) unsubscribe(); // إلغاء الاشتراك عند مغادرة الصفحة
+      if (unsubscribe) unsubscribe();
     };
   }, [userId]);
 
@@ -39,15 +41,6 @@ const ChatComponent = () => {
       <div>
         There are <span className="mx-1 font-bold">{onlineUsersCount}</span>{" "}
         users online now!
-      </div>
-      <div>
-        {/* عرض قائمة المستخدمين المتصلين */}
-        <p className="mt-2">Users Online:</p>
-        <ul>
-          {onlineUsers.map((userId, index) => (
-            <li key={index}>{userId}</li> // عرض ID المستخدم المتصل
-          ))}
-        </ul>
       </div>
     </div>
   );

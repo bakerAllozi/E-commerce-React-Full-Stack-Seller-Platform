@@ -44,7 +44,7 @@ function Homepage() {
           </NavLink>
         </div>
         <Sidebar />
-        <ChatComponent />
+        {/* <ChatComponent /> */}
 
         <SearchBar />
         <RandomProduct />

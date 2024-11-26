@@ -5,6 +5,8 @@ import usePublicUser from "../../../../hooks/usePublicUser";
 import Spinner from "../../../../ui/Spinner";
 import useUser from "../../../../hooks/useUser";
 import ReceiverUser from "./ReceiverUser";
+import ChatComponent from "../../../../ui/ChatComponent ";
+import { useState } from "react";
 
 function MessageNotifications() {
   const { appSelector, dispatch } = useRedux();
@@ -12,7 +14,8 @@ function MessageNotifications() {
   const { user } = useUser();
   const navigate = useNavigate();
   const userId = user?.id;
-
+  const [onlineUsersCount, setOnlineUsersCount] = useState(0);
+  const [onlineUsers, setOnlineUsers] = useState([]);
   const { data: ALLUserData, isLoading } = usePublicUser();
 
   const handleNavigate = (receiverId) => {
@@ -28,7 +31,14 @@ function MessageNotifications() {
 
   return (
     <div>
-      {isLoading ? ( // عرض الـ Spinner أثناء تحميل البيانات
+      <ChatComponent
+        onlineUsersCount={onlineUsersCount}
+        setOnlineUsersCount={setOnlineUsersCount}
+        setOnlineUsers={setOnlineUsers}
+        onlineUsers={onlineUsers}
+      />
+
+      {isLoading && onlineUsers > 0 ? ( // عرض الـ Spinner أثناء تحميل البيانات
         <Spinner />
       ) : ReceiverChat?.length > 0 ? (
         <div className="flex gap-4 justify-center flex-wrap cursor-pointer bg-gray-100 p-5 rounded-lg shadow-lg">
@@ -38,6 +48,7 @@ function MessageNotifications() {
               handleNavigate={handleNavigate}
               e={e}
               userId={userId}
+              onlineUsers={onlineUsers}
             />
           ))}
         </div>

@@ -38,7 +38,6 @@ export async function trackUserPresence(userId, onUpdate) {
   channel.on("presence", { event: "join" }, handleJoin);
   channel.on("presence", { event: "leave" }, handleLeave);
 
-  // وظيفة لإلغاء الاشتراك عند الحاجة
   const unsubscribe = () => {
     channel.unsubscribe();
     console.log("تم إلغاء الاشتراك في القناة");
