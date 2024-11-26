@@ -14,7 +14,7 @@ function Homepage() {
     <div className="flex flex-col gap-[500px] overflow-hidden">
       <div className="flex justify-center items-center gap-4   flex-col">
         <div
-          className={`  
+          className={`
          bg-black text-white font-bold  flex text-[3vw] sm:hidden w-full  p-2   items-center flex-row justify-around gap-2  cursor-pointer  `}
         >
           <NavLink

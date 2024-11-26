@@ -9,7 +9,6 @@ export async function login({ email, password }) {
   if (error) {
     throw new Error(error.message);
   }
-  console.log(data);
 
   return data;
 }
@@ -27,17 +26,17 @@ export async function signup({ email, password, name }) {
   });
 
   if (error) {
-    throw (new Error(error.message), console.log(error.message));
+    throw new Error(error.message);
   }
-  console.log(data);
 
   return data;
 }
+
 export async function getCurrentUser() {
   const { data: session } = await supabase.auth.getSession();
 
   if (!session.session) return null;
-  console.log(session.session);
+  // console.log(session.session);
 
   const { data, error } = await supabase.auth.getUser();
 
@@ -108,45 +107,4 @@ export async function updateCurrentUser(newRow) {
 
   if (error2) throw new Error(error2.message);
   return updateUser;
-}
-
-export async function trackUserPresence(userId) {
-  console.log(userId);
-
-  const channel = supabase.channel(`online-users`, {
-    config: {
-      presence: {
-        key: userId,
-      },
-    },
-  });
-
-  let onlineUsersCount = 0; // عداد المستخدمين المتصلين
-
-  // الاشتراك في القناة
-  await channel.subscribe(async (status) => {
-    if (status === "SUBSCRIBED") {
-      console.log(`تم الاشتراك في القناة`);
-      await channel.track({ userId });
-    }
-  });
-
-  return new Promise((resolve) => {
-    // مراقبة انضمام المستخدمين
-    channel.on("presence", { event: "join" }, ({ newPresences }) => {
-      onlineUsersCount += newPresences.length; // زيادة العدد
-      console.log(`عدد المستخدمين المتصلين: ${onlineUsersCount}`);
-      resolve(onlineUsersCount); // إرجاع العدد
-    });
-
-    // مراقبة مغادرة المستخدمين
-    channel.on("presence", { event: "leave" }, ({ leftPresences }) => {
-      onlineUsersCount -= leftPresences.length; // تقليل العدد
-      console.log(`عدد المستخدمين المتصلين: ${onlineUsersCount}`);
-      resolve(onlineUsersCount); // إرجاع العدد
-    });
-
-    // في حال لم يحدث أي تغيير خلال المهلة، إرجاع العدد الحالي
-    // setTimeout(() => resolve(onlineUsersCount), 1000);
-  });
 }

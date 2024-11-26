@@ -6,6 +6,7 @@ import Container from "../ui/Container";
 import ProtectedRoute from "../ui/ProtectedRoute";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";
+import ChatComponent from "../services/ChatComponent ";
 
 // import ListItem from "../components/Navbar/components/ListItem";
 
@@ -19,7 +20,8 @@ function AppLayout() {
 
   return (
     <ProtectedRoute>
-      <Navbar />
+      {/* <Navbar /> */}
+      <ChatComponent />
       <button
         onClick={() => navigate(-1)}
         className=" z-50  text-[20px] absolute top-[60px]  left-2   cursor-pointer  "
