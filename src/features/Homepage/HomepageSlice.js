@@ -11,7 +11,7 @@ const initialState = {
 };
 
 const HomepageReducer = createSlice({
-  name: " Homepage",
+  name: "Homepage",
   initialState,
   reducers: {
     fetchProductItem(state, action) {

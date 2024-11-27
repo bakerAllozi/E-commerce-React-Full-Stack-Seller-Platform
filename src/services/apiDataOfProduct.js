@@ -44,9 +44,8 @@ export async function deleteProduct(id) {
   }
   return data;
 }
-export async function updateProduct(gg) {
-  console.log(gg);
 
+export async function updateProduct(gg) {
   const { data, error } = await supabase
     .from("DataOfProduct")
     .update({ ...gg.EditRow })
@@ -56,4 +55,26 @@ export async function updateProduct(gg) {
     throw new Error("Error updating product");
   }
   return data;
+}
+
+export async function updateProductsInBulk(products) {
+  console.log(products);
+
+  const updates = products.map(
+    (product) =>
+      supabase
+        .from("DataOfProduct")
+        .update(product.updateData) // البيانات المخصصة لكل منتج
+        .eq("id", product.id) // التحديد باستخدام ID المنتج
+  );
+
+  const results = await Promise.all(updates); // تنفيذ جميع الطلبات بالتوازي
+  const errors = results.filter((result) => result.error); // التحقق من الأخطاء
+
+  if (errors.length > 0) {
+    console.error(errors);
+    throw new Error("Error updating some products");
+  }
+
+  return results.map((result) => result.data);
 }

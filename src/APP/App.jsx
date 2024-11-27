@@ -51,6 +51,8 @@ const Commentpage = lazy(() =>
   import("../components/Navbar/components/Comment/Commentpage")
 );
 import AppLayout from "./AppLayout";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
 
 function App() {
   const { dispatch, appSelector } = useRedux();
@@ -90,7 +92,9 @@ function App() {
       dispatch(splitDataChat(userId));
     }
   }, [Data, chatData, dispatch, userId, ALLUserData]);
-
+  const stripePromise = loadStripe(
+    "pk_test_51QPYMAKxnNgqIQklhBT5FTH7UU1rPPpPP78wG0n7dsGfze107LYUk1WhLbMs5mzZj6DPfYOpRkLQD88UvgZdbD6P00dGYGvcBE"
+  );
   // Routes configuration
   return (
     <BrowserRouter>
@@ -102,7 +106,15 @@ function App() {
             <Route path="Contact" element={<ContactPage />} />
             <Route path="About" element={<About />} />
             <Route path="Cart" element={<Cart />} />
-            <Route path="CheckOut" element={<CheckOut />} />
+
+            <Route
+              path="CheckOut"
+              element={
+                <Elements stripe={stripePromise}>
+                  <CheckOut />
+                </Elements>
+              }
+            />
             <Route path="LikePage" element={<LikePage />} />
             <Route path="Wishlist" element={<Wishlist />} />
             <Route path="Messages" element={<MessageNotifications />} />

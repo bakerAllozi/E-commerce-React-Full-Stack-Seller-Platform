@@ -12,10 +12,14 @@ const useWishlistAndCart = (idItem) => {
   const arrOfIsSelectedToCart = cartData.map((e) => e.id);
   const checkIfItIsInCart = arrOfIsSelectedToCart.includes(idItem);
   const checkIfItIsInWishlist = arrOfIsSelectedToWishlist.includes(idItem);
+  const checkIfSoldOut =
+    cartData.find((e) => e.id === idItem).piecesRemaining === 0;
   const itemStatus = checkIfItIsInCart
     ? "in cart"
     : checkIfItIsInWishlist
     ? "in wishlist"
+    : checkIfSoldOut
+    ? "sold out"
     : "in stack";
 
   const [itAdd, setItAdd] = useState(false);
