@@ -47,7 +47,11 @@ This platform is packed with features for store owners and customers, such as re
 - Fully responsive design using **Tailwind CSS**.
 - Engaging animations powered by **Framer Motion** for smooth transitions.
 
----
+### 💳 **Stripe Payment Integration**
+
+- **Modern and Secure:** Provides a seamless and safe checkout experience.
+- **Real-Time Updates:** Automatically reduces inventory stock after successful purchases.
+- **User-Friendly Design:** Ensures an intuitive and smooth payment process.
 
 ## 🛠️ Technologies Used
 
@@ -158,6 +162,6 @@ To set up the project locally, follow these steps:
 
 ---
 
-## 🧑‍💻 Developers
+## 🧑‍💻 Developer
 
 - **baker Allozi** - [GitHub Profile](https://github.com/bakerAllozi)
