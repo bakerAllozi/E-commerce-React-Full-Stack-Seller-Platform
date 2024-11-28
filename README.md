@@ -49,8 +49,6 @@ This platform is packed with features for store owners and customers, such as re
 
 ### 💳 **Stripe Payment Integration**
 
-<<<<<<< HEAD
-
 - **Modern and Secure:** Provides a seamless and safe checkout experience.
 - **Real-Time Updates:** Automatically reduces inventory stock after successful purchases.
 - # **User-Friendly Design:** Ensures an intuitive and smooth payment process.
@@ -60,7 +58,6 @@ This platform is packed with features for store owners and customers, such as re
 - **Modern and Secure:** Provides a seamless and safe checkout experience.
 - **Real-Time Updates:** Automatically reduces inventory stock after successful purchases.
 - **User-Friendly Design:** Ensures an intuitive and smooth payment process.
-  > > > > > > > aa25d96 (Add Stripe integration with Supabase, connect with Redux, and create Checkout component with updateDataProduct)
 
 ## 🛠️ Technologies Used
 
@@ -170,8 +167,6 @@ To set up the project locally, follow these steps:
   ![Chat Screenshot](/public/read/Vite%20+%20React%20-%20Google%20Chrome%2011_21_2024%209_16_20%20PM.png)
 
 ---
-
-## 🧑‍💻 Developer
 
 ## 🧑‍💻 Developer
 
