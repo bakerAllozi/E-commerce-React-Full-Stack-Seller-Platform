@@ -3,6 +3,7 @@ import useRedux from "../hooks/useRedux";
 import { RemoveALLFromCart } from "../features/Cart/CartSlice";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import useUpdateProducts from "../hooks/useUpdateProducts";
+import { useNavigate } from "react-router-dom";
 
 const CheckOut = () => {
   const stripe = useStripe();
@@ -10,6 +11,7 @@ const CheckOut = () => {
   const { dispatch, appSelector } = useRedux();
   const [status, setStatus] = useState("");
   const { cartData } = appSelector((state) => state.cartItem);
+  const navigate = useNavigate();
 
   const { updateMultipleProducts, isLoading } = useUpdateProducts();
 
@@ -45,6 +47,7 @@ const CheckOut = () => {
 
       updateMultipleProducts(productsToUpdate);
       dispatch(RemoveALLFromCart());
+      navigate("/");
 
       console.log("PaymentMethod:", paymentMethod);
     }

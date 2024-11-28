@@ -6,12 +6,10 @@ function useUpdateProducts() {
 
   const { isLoading, mutate: updateMultipleProducts } = useMutation({
     mutationFn: async (products) => {
-      // تمرير البيانات إلى دالة التحديث
       return updateProductsInBulk(products);
     },
     onSuccess: (data) => {
       console.log("Products updated successfully:", data);
-      // تحديث البيانات بعد النجاح
       queryClient.invalidateQueries(["DataOfProduct"]);
     },
     onError: (error) => {

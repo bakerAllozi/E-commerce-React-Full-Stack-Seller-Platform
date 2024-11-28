@@ -12,6 +12,8 @@ function ImgEffects({ product, AddTo, idItem, noButton = false }) {
     itAdd,
     handelAddToWishlist,
   } = useWishlistAndCart(idItem);
+
+  const check = checkIfItIsInCart || checkIfItIsInWishlist;
   return (
     <div
       className={`group/item  bg-white relative w-full   h-64 flex justify-center items-center border-2  `}
@@ -38,7 +40,7 @@ function ImgEffects({ product, AddTo, idItem, noButton = false }) {
       />
       {noButton || (
         <>
-          {checkIfItIsInCart || checkIfItIsInWishlist ? (
+          {check && product.piecesRemaining === 0 ? (
             <p className=" absolute left-[100px] bottom-2  text-black font-bold ">
               {itemStatus}
             </p>
