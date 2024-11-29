@@ -15,7 +15,7 @@ const wishlistReducer = createSlice({
         price2: item.price,
       }));
     },
-    gitWishlistData(state, action) {
+    getWishlistData(state, action) {
       const findProduct = state.Data.find((data) => data.id === action.payload);
       if (findProduct) {
         if (!state.wishlistData.some((e) => e.id === action.payload)) {
@@ -38,6 +38,6 @@ export default wishlistReducer.reducer;
 export const {
   deleteFromWishList,
   getProductToWishlist,
-  gitWishlistData,
+  getWishlistData,
   deleteAllFromWishList,
 } = wishlistReducer.actions;

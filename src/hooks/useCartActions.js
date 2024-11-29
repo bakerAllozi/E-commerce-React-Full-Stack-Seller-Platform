@@ -9,7 +9,7 @@ const useCartActions = () => {
   const { dispatch, appSelector } = useRedux();
 
   const { cartData } = appSelector((state) => state.cartItem);
-
+  //
   const handelIncrease = (id) => {
     dispatch(increaseQuantity(id));
     dispatch(calcPrice());

@@ -22,6 +22,7 @@ const TitleRow = () => {
     </div>
   );
 };
+
 const Purchases = () => {
   const { cartData, handelIncrease, handelDecrease } = useCartActions();
 

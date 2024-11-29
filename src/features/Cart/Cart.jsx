@@ -16,7 +16,7 @@ function Cart() {
     dispatch(RemoveALLFromCart());
   };
   return (
-    <div className=" ">
+    <div className="">
       <BoxItem />
       <div className=" flex justify-around items-center mt-6 ">
         <Button handelRemoveALLFromCart={handelRemoveALLFromCart}>

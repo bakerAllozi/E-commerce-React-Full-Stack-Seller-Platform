@@ -21,9 +21,7 @@ const Details = ({ ProductDetails, productId }) => {
   const { cartData, handelIncrease, handelDecrease } = useCartActions();
   const updateQuantity = cartData?.find((e) => e.id === productId);
 
-  const { checkIfItIsInCart, itemStatus } = useWishlistAndCart(
-    ProductDetails.id
-  );
+  const { checkIfItIsInCart, itemStatus } = useWishlistAndCart(ProductDetails);
 
   const handelViewProduct = () => {
     checkIfItIsInCart
@@ -111,33 +109,40 @@ const Details = ({ ProductDetails, productId }) => {
         </div>
       </div>
       <div className="flex gap-6">
-        {checkIfItIsInCart && (
-          <div className="flex gap-4 justify-between  border-[1px] rounded-sm  w-20 h-8">
-            <p
-              className="bg-red-600 text-white  p-2  border-[1px] flex justify-center items-center cursor-pointer"
-              onClick={() =>
-                updateQuantity.quantity === 1 ||
-                handelDecrease(updateQuantity.id)
-              }
+        {itemStatus === "Out Of Stock" ? (
+          <p className="  font-bold"> Out Of Stock</p>
+        ) : (
+          <>
+            {checkIfItIsInCart && (
+              <div className="flex gap-4 justify-between  border-[1px] rounded-sm  w-20 h-8">
+                <p
+                  className="bg-red-600 text-white  p-2  border-[1px] flex justify-center items-center cursor-pointer"
+                  onClick={() =>
+                    updateQuantity.quantity === 1 ||
+                    handelDecrease(updateQuantity.id)
+                  }
+                >
+                  -
+                </p>
+                <p>{updateQuantity.quantity}</p>
+                <p
+                  className="bg-red-600 text-white  p-2  border-[1px] flex justify-center items-center cursor-pointer"
+                  onClick={() => handelIncrease(ProductDetails.id)}
+                >
+                  +
+                </p>
+              </div>
+            )}
+
+            <button
+              className=" p-1 px-8 rounded-sm bg-red-600 text-white "
+              onClick={() => handelViewProduct()}
             >
-              -
-            </p>
-            <p>{updateQuantity.quantity}</p>
-            <p
-              className="bg-red-600 text-white  p-2  border-[1px] flex justify-center items-center cursor-pointer"
-              onClick={() => handelIncrease(ProductDetails.id)}
-            >
-              +
-            </p>
-          </div>
+              Buy Now
+            </button>
+          </>
         )}
 
-        <button
-          className=" p-1 px-8 rounded-sm bg-red-600 text-white "
-          onClick={() => handelViewProduct()}
-        >
-          Buy Now
-        </button>
         <p
           className=" border-[1px] border-black flex justify-center items-center w-fit px-[5px]  cursor-pointer"
           onClick={handleLiked}

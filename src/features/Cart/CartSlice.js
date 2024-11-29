@@ -22,15 +22,21 @@ const cartReducer = createSlice({
     },
     increaseQuantity(state, action) {
       state.cartData = state.cartData.map((item) => {
-        if (item.id === action.payload) {
+        if (
+          item.id === action.payload &&
+          item.quantity < item.piecesRemaining
+        ) {
           item.quantity++;
           const CQuantity = item.price * item.quantity;
 
           return { ...item, price2: parseFloat(CQuantity.toFixed(2)) };
+        } else if (item.piecesRemaining === 0) {
+          return { ...item, quantity: 0 };
         }
         return item;
       });
     },
+
     decreaseQuantity(state, action) {
       state.cartData = state.cartData.map((item) => {
         if (item.id === action.payload) {
