@@ -18,9 +18,10 @@ const YouMayLike = ({ ProductDetails }) => {
   );
   return (
     <div className=" w-[100%] relative">
-      <h1 className=" text-[5vw] sm:text-[10vw]   font-bold text-red-600 mx-3">
+      <h1 className="text-3xl sm:text-4xl font-bold text-red-600 mx-3 sm:mx-5 text-center drop-shadow-md my-10 ">
         You May Like
       </h1>
+
       <ShowProduct
         noTime={false}
         noSwiper={false}

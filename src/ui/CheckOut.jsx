@@ -70,7 +70,6 @@ const CheckOut = () => {
           </div>
         </div>
 
-        {/* Submit Button */}
         <button
           type="submit"
           disabled={!stripe || isLoading}
@@ -79,7 +78,6 @@ const CheckOut = () => {
           {isLoading ? "جارٍ التحديث..." : "دفع"}
         </button>
 
-        {/* Status Message */}
         {status && (
           <p className="text-center mt-4 text-lg text-green-600 font-semibold">
             {status}
