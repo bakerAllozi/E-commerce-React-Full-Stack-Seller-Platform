@@ -40,7 +40,7 @@ export async function getCurrentUser() {
   const { data: userData, error: userError } = await supabase.auth.getUser();
   if (userError) throw new Error(userError.message);
 
-  const { error: fetchError } = await supabase
+  const { data, error: fetchError } = await supabase
     .from("User")
     .select("*")
     .eq("id", userData.user.id)
@@ -64,37 +64,70 @@ export async function logout() {
 
   if (error) throw new Error(error.message);
 }
+// export async function updateCurrentUser({ password, name, avatar }) {
+//   let updateData;
+//   if (password) updateData = { password };
+//   if (name) updateData = { data: { name } };
+//   const { data: hh, error } = await supabase.auth.updateUser(name);
+//   if (error) throw new Error(error.message);
+//   if (!avatar) return hh;
 
-export async function updateCurrentUser({ password, name, avatar }) {
+//   const fileName = `avatar-${data.user.id}-${Math.random()}`;
+//   const { error: storageError } = await supabase.storage
+//     .from("avatar")
+//     .update(fileName, avatar);
+
+//   if (storageError) throw new Error(storageError.message);
+//   const { data: updateUser, error: error2 } = supabase.auth.updateUser({
+//     data: {
+//       avatar: `https://taqdpudyhenvaibczyar.supabase.co/storage/v1/object/public/avatar/${fileName}`,
+//     },
+//   });
+//   if (error2) throw new Error(error2.message);
+//   return updateUser;
+// }
+export async function updateCurrentUser(newRow) {
   try {
-    let updateData = {};
-    if (password) updateData.password = password;
-    if (name) updateData.data = { name };
+    let avatarUrl;
+    if (newRow.image) {
+      const fileName = `avatar-${Math.random().toString(36).substring(2, 15)}`;
 
-    const { data: userData, error: userError } = await supabase.auth.updateUser(
-      updateData
-    );
-    if (userError) throw new Error(userError.message);
+      const { error: storageError } = await supabase.storage
+        .from("avatar")
+        .upload(fileName, newRow.image);
 
-    if (!avatar) return userData;
+      if (storageError)
+        throw new Error(`Storage error: ${storageError.message}`);
 
-    const fileName = `avatar-${userData.user.id}-${Math.random()
-      .toString(36)
-      .substring(2, 15)}`;
-    const { error: storageError } = await supabase.storage
-      .from("avatar")
-      .upload(fileName, avatar);
+      avatarUrl = `https://taqdpudyhenvaibczyar.supabase.co/storage/v1/object/public/avatar/${fileName}`;
+    }
 
-    if (storageError) throw new Error(storageError.message);
+    const updateData = {
+      data: {
+        name: newRow.name,
+        ...(avatarUrl && { avatar: avatarUrl }),
+      },
+      ...(newRow.password && { password: newRow.password }),
+    };
 
-    const avatarUrl = `https://taqdpudyhenvaibczyar.supabase.co/storage/v1/object/public/avatar/${fileName}`;
-    const { data: updatedUser, error: updateError } =
-      await supabase.auth.updateUser({
-        data: { avatar: avatarUrl },
-      });
+    const { data: updateUser, error: authError } =
+      await supabase.auth.updateUser(updateData);
 
-    if (updateError) throw new Error(updateError.message);
-    return updatedUser;
+    if (authError) throw new Error(`Auth error: ${authError.message}`);
+
+    const dbUpdate = {
+      name: newRow.name,
+      ...(avatarUrl && { avatar: avatarUrl }),
+    };
+
+    const { error: dbError } = await supabase
+      .from("User")
+      .update(dbUpdate)
+      .eq("id", newRow.id);
+
+    if (dbError) throw new Error(`Database error: ${dbError.message}`);
+
+    return updateUser;
   } catch (error) {
     console.error("Error updating user:", error.message);
     throw error;

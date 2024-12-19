@@ -7,9 +7,7 @@ import useUser from "../../../hooks/useUser";
 
 function MyAccount() {
   const { register, handleSubmit, reset } = useForm();
-
   const { updateUser, isUpdating } = useUpdateUser();
-
   const { user } = useUser();
 
   async function onSubmit(newRow) {
