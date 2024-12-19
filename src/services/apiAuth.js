@@ -40,8 +40,7 @@ export async function getCurrentUser() {
   const { data: userData, error: userError } = await supabase.auth.getUser();
   if (userError) throw new Error(userError.message);
 
-  // التحقق من وجود المستخدم في الجدول
-  const { data: existingUser, error: fetchError } = await supabase
+  const { error: fetchError } = await supabase
     .from("User")
     .select("*")
     .eq("id", userData.user.id)
@@ -65,52 +64,39 @@ export async function logout() {
 
   if (error) throw new Error(error.message);
 }
-// export async function updateCurrentUser({ password, name, avatar }) {
-//   let updateData;
-//   if (password) updateData = { password };
-//   if (name) updateData = { data: { name } };
-//   const { data: hh, error } = await supabase.auth.updateUser(name);
-//   if (error) throw new Error(error.message);
-//   if (!avatar) return hh;
 
-//   const fileName = `avatar-${data.user.id}-${Math.random()}`;
-//   const { error: storageError } = await supabase.storage
-//     .from("avatar")
-//     .update(fileName, avatar);
+export async function updateCurrentUser({ password, name, avatar }) {
+  try {
+    let updateData = {};
+    if (password) updateData.password = password;
+    if (name) updateData.data = { name };
 
-//   if (storageError) throw new Error(storageError.message);
-//   const { data: updateUser, error: error2 } = supabase.auth.updateUser({
-//     data: {
-//       avatar: `https://taqdpudyhenvaibczyar.supabase.co/storage/v1/object/public/avatar/${fileName}`,
-//     },
-//   });
-//   if (error2) throw new Error(error2.message);
-//   return updateUser;
-// }
-export async function updateCurrentUser(newRow) {
-  const fileName =
-    `avatar-gg${Math.random()}sgigiusgiugsiugsugsiugsiug`.replaceAll("/", "");
+    const { data: userData, error: userError } = await supabase.auth.updateUser(
+      updateData
+    );
+    if (userError) throw new Error(userError.message);
 
-  const { error: storageError } = await supabase.storage
-    .from("avatar")
-    .upload(fileName, newRow.image);
+    if (!avatar) return userData;
 
-  if (storageError) throw new Error(storageError.message);
+    const fileName = `avatar-${userData.user.id}-${Math.random()
+      .toString(36)
+      .substring(2, 15)}`;
+    const { error: storageError } = await supabase.storage
+      .from("avatar")
+      .upload(fileName, avatar);
 
-  const { data: updateUser, error: error2 } = supabase.auth.updateUser({
-    data: {
-      name: newRow.name,
-      avatar: `https://taqdpudyhenvaibczyar.supabase.co/storage/v1/object/public/avatar/${fileName}`,
-    },
-  });
-  await supabase
-    .from("User")
-    .update({
-      name: newRow.name,
-      avatar: `https://taqdpudyhenvaibczyar.supabase.co/storage/v1/object/public/avatar/${fileName}`,
-    })
-    .eq("id", newRow.id);
+    if (storageError) throw new Error(storageError.message);
 
-  if (error2) throw new Error(error2.message);
-  return updateUser;
+    const avatarUrl = `https://taqdpudyhenvaibczyar.supabase.co/storage/v1/object/public/avatar/${fileName}`;
+    const { data: updatedUser, error: updateError } =
+      await supabase.auth.updateUser({
+        data: { avatar: avatarUrl },
+      });
+
+    if (updateError) throw new Error(updateError.message);
+    return updatedUser;
+  } catch (error) {
+    console.error("Error updating user:", error.message);
+    throw error;
+  }
 }
