@@ -36,22 +36,28 @@ export async function getCurrentUser() {
   const { data: session } = await supabase.auth.getSession();
 
   if (!session.session) return null;
-  // console.log(session.session);
 
-  const { data, error } = await supabase.auth.getUser();
+  const { data: userData, error: userError } = await supabase.auth.getUser();
+  if (userError) throw new Error(userError.message);
 
-  await supabase
+  // التحقق من وجود المستخدم في الجدول
+  const { data: existingUser, error: fetchError } = await supabase
     .from("User")
-    .insert({
-      id: data?.user.id,
-      name: data?.user.user_metadata.name,
-      avatar: data?.user.user_metadata.avatar,
-    })
-    .select();
+    .select("*")
+    .eq("id", userData.user.id)
+    .single();
 
-  if (error) throw new Error(error.message);
+  if (fetchError) {
+    const { error: insertError } = await supabase.from("User").insert({
+      id: userData.user.id,
+      name: userData.user.user_metadata.name,
+      avatar: userData.user.user_metadata.avatar,
+    });
 
-  return data?.user;
+    if (insertError) throw new Error(insertError.message);
+  }
+
+  return userData.user;
 }
 
 export async function logout() {
