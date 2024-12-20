@@ -1,23 +1,18 @@
-//اشعار كستم
-
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import useRedux from "../../../hooks/useRedux";
 import Spinner from "../../../ui/Spinner";
 
-import React, { useRef } from "react";
-// Import Swiper React components
+import { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 import "../../../../index.css";
 
-// import required modules
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
 function RandomProduct() {

@@ -12,7 +12,6 @@ function Wishlist() {
     dispatch(gitCartItem(wishlistData));
     dispatch(deleteAllFromWishList());
   };
-  console.log(wishlistData);
 
   return (
     <div className="relative  pt-28 ">

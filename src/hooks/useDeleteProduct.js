@@ -8,7 +8,6 @@ function useDeleteProduct() {
   const { isLoading, mutate: deleteProductById } = useMutation({
     mutationFn: deleteProduct,
     onSuccess: (data) => {
-      console.log("Product deleted successfully:", data);
       queryClient.invalidateQueries(["DataOfProduct"]);
     },
     onError: (error) => {

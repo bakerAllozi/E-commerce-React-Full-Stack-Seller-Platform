@@ -22,7 +22,6 @@ const CheckOut = () => {
 
     const cardElement = elements.getElement(CardElement);
 
-    // إنشاء PaymentMethod من بطاقة المستخدم
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: "card",
       card: cardElement,
@@ -48,8 +47,6 @@ const CheckOut = () => {
       updateMultipleProducts(productsToUpdate);
       dispatch(RemoveALLFromCart());
       navigate("/");
-
-      console.log("PaymentMethod:", paymentMethod);
     }
   };
 
@@ -60,7 +57,6 @@ const CheckOut = () => {
       </h2>
 
       <form onSubmit={handleSubmit}>
-        {/* Card Element Wrapper */}
         <div className="mb-4">
           <label htmlFor="card-element" className="block text-gray-600 mb-2">
             أدخل تفاصيل بطاقة الائتمان

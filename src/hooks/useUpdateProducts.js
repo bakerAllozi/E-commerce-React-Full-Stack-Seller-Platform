@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { updateProductsInBulk } from "../services/apiDataOfProduct"; // استيراد الدالة المخصصة لتحديث المنتجات
+import { updateProductsInBulk } from "../services/apiDataOfProduct";
 
 function useUpdateProducts() {
   const queryClient = useQueryClient();
@@ -9,7 +9,6 @@ function useUpdateProducts() {
       return updateProductsInBulk(products);
     },
     onSuccess: (data) => {
-      console.log("Products updated successfully:", data);
       queryClient.invalidateQueries(["DataOfProduct"]);
     },
     onError: (error) => {

@@ -9,12 +9,11 @@ function Time({
   setSecond = 5,
   timer2On = false,
 }) {
-  // حساب الوقت المستهدف بناءً على الأيام والساعات والدقائق والثواني المعطاة
   const targetTime = new Date();
-  targetTime.setDate(targetTime.getDate() + setDay); // إضافة 3 أيام
-  targetTime.setHours(targetTime.getHours() + setHour); // إضافة 23 ساعة
-  targetTime.setMinutes(targetTime.getMinutes() + setMinute); // إضافة 5 دقائق
-  targetTime.setSeconds(targetTime.getSeconds() + setSecond); // إضافة 40 ثانية
+  targetTime.setDate(targetTime.getDate() + setDay);
+  targetTime.setHours(targetTime.getHours() + setHour);
+  targetTime.setMinutes(targetTime.getMinutes() + setMinute);
+  targetTime.setSeconds(targetTime.getSeconds() + setSecond);
 
   const [days, setDays] = useState(0);
   const [hours, setHours] = useState(0);
@@ -46,7 +45,7 @@ function Time({
   return (
     <>
       {timer2On ? (
-        <div className=" flex gap-4  sm:gap-4    ">
+        <div className=" flex gap-4  sm:gap-4 ">
           <Timer2 timeIn="days" num={days} />
 
           <Timer2 timeIn="hours" num={hours} />

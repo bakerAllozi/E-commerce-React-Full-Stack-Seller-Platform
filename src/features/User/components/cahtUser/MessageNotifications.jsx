@@ -19,11 +19,11 @@ function MessageNotifications() {
   const { data: ALLUserData, isLoading } = usePublicUser();
 
   const handleNavigate = (receiverId) => {
-    if (!userId || !ALLUserData) return; // تأكد من وجود بيانات المستخدمين
+    if (!userId || !ALLUserData) return;
 
     const dataUser = ALLUserData.find((arr) => arr.id === receiverId);
 
-    if (!dataUser) return; // التأكد من أن المستخدم موجود في البيانات
+    if (!dataUser) return;
 
     dispatch(showChatUser(receiverId, userId, dataUser.name, dataUser.avatar));
     navigate(`/ChatPage`);
@@ -38,7 +38,7 @@ function MessageNotifications() {
         onlineUsers={onlineUsers}
       />
 
-      {isLoading && onlineUsers > 0 ? ( // عرض الـ Spinner أثناء تحميل البيانات
+      {isLoading && onlineUsers > 0 ? (
         <Spinner />
       ) : ReceiverChat?.length > 0 ? (
         <div className="flex gap-4 justify-center flex-wrap cursor-pointer bg-gray-100 p-5 rounded-lg shadow-lg">

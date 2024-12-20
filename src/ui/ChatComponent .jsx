@@ -1,4 +1,3 @@
-// src/components/ChatComponent.js
 import { useEffect } from "react";
 import { trackUserPresence } from "../services/presence";
 import useUser from "../hooks/useUser";
@@ -16,16 +15,14 @@ const ChatComponent = ({
 
     const initPresence = async () => {
       unsubscribe = await trackUserPresence(userId, (change, users) => {
-        setOnlineUsersCount((prevCount) => prevCount + change); // تحديث عدد المستخدمين المتصلين
+        setOnlineUsersCount((prevCount) => prevCount + change);
         setOnlineUsers((prevUsers) => {
           if (change > 0) {
-            // إضافة المستخدمين الجدد إذا انضموا
             return [...prevUsers, ...users];
           } else {
-            // إزالة المستخدمين الذين غادروا
             return prevUsers.filter((user) => !users.includes(user));
           }
-        }); // تحديث قائمة المستخدمين المتصلين
+        });
       });
     };
 

@@ -3,7 +3,7 @@ import useRedux from "../../../hooks/useRedux";
 import { useParams } from "react-router-dom";
 import Details from "./components/Details";
 import YouMayLike from "./components/YouMayLike";
-import ProductReviews from "./components/ProductReviews"; // Import the new component
+import ProductReviews from "./components/ProductReviews";
 import useReviews from "../../../hooks/useReviews";
 
 function ViewProductDetails() {

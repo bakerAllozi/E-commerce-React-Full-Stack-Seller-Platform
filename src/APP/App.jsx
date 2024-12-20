@@ -20,7 +20,6 @@ import {
 import { getProductToWishlist } from "../features/Wishlist/wishlistSlice";
 import { getDataOfProduct } from "../services/apiDataOfProduct";
 
-// Lazy loading for routes
 const Cart = lazy(() => import("../features/Cart/Cart"));
 const MyAccount = lazy(() => import("../features/User/components/MyAccount"));
 const CheckOut = lazy(() => import("../ui/CheckOut"));
@@ -69,7 +68,6 @@ function App() {
   const { data: chatData } = useReadChats(userId);
   const { data: ALLUserData } = usePublicUser();
 
-  // Update product data with a default quantity
   const updateData = useCallback(() => {
     if (data) {
       const updatedData = data.map((item) => ({ ...item, quantity: 1 }));
@@ -81,7 +79,6 @@ function App() {
     updateData();
   }, [updateData]);
 
-  // Dispatch actions based on fetched data
   useEffect(() => {
     if (Data && chatData && userId && ALLUserData) {
       dispatch(gitRandomProduct());
@@ -95,12 +92,10 @@ function App() {
   const stripePromise = loadStripe(
     "pk_test_51QPYMAKxnNgqIQklhBT5FTH7UU1rPPpPP78wG0n7dsGfze107LYUk1WhLbMs5mzZj6DPfYOpRkLQD88UvgZdbD6P00dGYGvcBE"
   );
-  // Routes configuration
   return (
     <BrowserRouter>
       <Suspense fallback={<Loading />}>
         <Routes>
-          {/* Protected routes wrapped in AppLayout */}
           <Route element={<AppLayout />}>
             <Route index element={<Homepage />} />
             <Route path="Contact" element={<ContactPage />} />
@@ -129,7 +124,6 @@ function App() {
             <Route path="*" element={<Error />} />
           </Route>
 
-          {/* Public routes */}
           <Route path="SignUp" element={<SignUp />} />
           <Route path="LogIn" element={<Login />} />
         </Routes>

@@ -1,6 +1,3 @@
-// StarRating.js
-import React from "react";
-
 function StarRating({ rating }) {
   const totalStars = 5;
   return (

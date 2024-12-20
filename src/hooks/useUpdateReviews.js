@@ -7,7 +7,6 @@ function useUpdateReview() {
   const { isLoading, mutate: updateReviewId } = useMutation({
     mutationFn: updateReview,
     onSuccess: () => {
-      //   queryClient.setQueryData(["Comments_of_product"], Review);
       queryClient.invalidateQueries(["Reviews"]);
     },
     onError: (error) => {

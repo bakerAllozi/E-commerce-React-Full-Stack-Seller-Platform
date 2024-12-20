@@ -7,8 +7,6 @@ import ProtectedRoute from "../ui/ProtectedRoute";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";
 
-// import ListItem from "../components/Navbar/components/ListItem";
-
 function AppLayout() {
   const location = useLocation();
   const navigate = useNavigate();

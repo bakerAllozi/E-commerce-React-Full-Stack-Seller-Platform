@@ -7,7 +7,6 @@ import MusicBox from "./components/MusicBox";
 import ExploreProducts from "./components/ExploreProducts";
 import Information from "./components/Information";
 import SearchBar from "./components/Searsch/SearchBar";
-// import ChatComponent from "../../ui/ChatComponent ";
 import { NavLink } from "react-router-dom";
 
 function Homepage() {
@@ -44,8 +43,6 @@ function Homepage() {
           </NavLink>
         </div>
         <Sidebar />
-        {/* <ChatComponent /> */}
-
         <SearchBar />
         <RandomProduct />
       </div>

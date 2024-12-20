@@ -21,7 +21,6 @@ function AddNew({ product }) {
         <Spinner />
       ) : (
         <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl flex flex-col rounded-lg shadow-lg bg-white overflow-hidden">
-          {/* Product Image */}
           <div className="relative w-full h-56 sm:h-64 md:h-72 lg:h-80">
             <img
               className="absolute top-0 left-0 w-full h-full object-cover"
@@ -30,20 +29,16 @@ function AddNew({ product }) {
             />
           </div>
 
-          {/* Product Details */}
           <div className="w-full px-4 py-4 sm:px-6 sm:py-6 flex flex-col justify-between">
             <div>
-              {/* Product Title */}
               <div className="font-bold text-xl mb-2 text-gray-800">
                 {product.title}
               </div>
 
-              {/* Product Description */}
               <p className="text-gray-600 text-sm sm:text-base">
                 {product.description}
               </p>
 
-              {/* Product Info */}
               <div className="mt-3 space-y-1 text-gray-600">
                 <p className="text-sm">
                   <strong>Price:</strong> ${product.price}

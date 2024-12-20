@@ -1,8 +1,6 @@
 import supabase from "./supabase";
 
 export async function getReviews(productId) {
-  console.log(productId);
-
   const { data, error } = await supabase
     .from("Comments_of_product")
     .select("*")

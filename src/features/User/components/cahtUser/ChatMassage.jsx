@@ -2,7 +2,6 @@
 import useRedux from "../../../../hooks/useRedux";
 import useUser from "../../../../hooks/useUser";
 import useUpdateChat from "../../../../hooks/useUpdateChat";
-// import { useEffect } from "react";
 import { IoCheckmarkDone } from "react-icons/io5";
 import { useEffect } from "react";
 

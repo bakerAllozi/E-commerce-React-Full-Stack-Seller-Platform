@@ -21,7 +21,6 @@ export async function insertNewProduct(newRow) {
     console.error("Error uploading file:", ee);
     return;
   }
-  console.log("File uploaded successfully:", gg);
 
   const { data, error } = await supabase
     .from("DataOfProduct")
@@ -58,18 +57,15 @@ export async function updateProduct(gg) {
 }
 
 export async function updateProductsInBulk(products) {
-  console.log(products);
-
-  const updates = products.map(
-    (product) =>
-      supabase
-        .from("DataOfProduct")
-        .update(product.updateData) // البيانات المخصصة لكل منتج
-        .eq("id", product.id) // التحديد باستخدام ID المنتج
+  const updates = products.map((product) =>
+    supabase
+      .from("DataOfProduct")
+      .update(product.updateData)
+      .eq("id", product.id)
   );
 
-  const results = await Promise.all(updates); // تنفيذ جميع الطلبات بالتوازي
-  const errors = results.filter((result) => result.error); // التحقق من الأخطاء
+  const results = await Promise.all(updates);
+  const errors = results.filter((result) => result.error);
 
   if (errors.length > 0) {
     console.error(errors);

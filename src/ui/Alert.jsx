@@ -19,9 +19,6 @@ function Alert({ showAlert, text }) {
           className="shadow-lg shadow-teal-400"
         >
           <MuiAlert severity="success"> {text} success </MuiAlert>
-          {/* <MuiAlert severity="info">This is an info alert.</MuiAlert>
-          <MuiAlert severity="warning">This is a warning alert.</MuiAlert>
-          <MuiAlert severity="error">This is an error alert.</MuiAlert> */}
         </Stack>
       </Transition>
     </div>

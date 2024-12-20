@@ -1,7 +1,6 @@
 import Input2 from "../../ui/Input2";
 import { useForm } from "react-hook-form";
 import useLogin from "../../hooks/useLogin";
-// import Spinner from "../../ui/Spinner";
 import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";

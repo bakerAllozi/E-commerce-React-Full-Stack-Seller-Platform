@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 
 function Spinner({ size = "medium" }) {
-  // Define sizes
   const sizes = {
     small: { width: 20, height: 20, borderWidth: 3 },
     medium: { width: 30, height: 30, borderWidth: 5 },

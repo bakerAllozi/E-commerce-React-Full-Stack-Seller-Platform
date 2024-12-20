@@ -22,8 +22,6 @@ export async function insertMassage(newRow) {
 }
 
 export async function updateChat(newRow) {
-  console.log(newRow);
-
   const { data, error } = await supabase
     .from("Chats")
     .update(newRow)
