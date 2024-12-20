@@ -26,7 +26,6 @@ function ReceiverUser({ handleNavigate, e, userId, onlineUsers }) {
             </div>
           )}
 
-          {/* دائرة خضراء عند الاتصال */}
           {useOnline && (
             <span className="absolute bottom-1 right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-white "></span>
           )}

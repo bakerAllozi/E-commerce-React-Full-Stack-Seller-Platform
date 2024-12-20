@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";
 import useUser from "../../hooks/useUser";
+import Image from "../../assets/Side Image.png";
 
 function Login() {
   const {
@@ -66,10 +67,7 @@ function Login() {
             create new account!
           </Link>
         </form>
-        {/* <img
-          src="../../../public/Side Image.png"
-          className=" hidden lg:block   "
-        /> */}
+        <img src={Image} className=" hidden lg:block   " />
       </div>
     </div>
   );

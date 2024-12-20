@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import useSignup from "../../hooks/useSignup";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";
+import Image from "../../assets/Side Image.png";
 
 function SignUp() {
   const { isLoading, signup } = useSignup();
@@ -73,10 +74,7 @@ function SignUp() {
             Already have account? <Link to="/LogIn">Log in</Link>
           </p>
         </form>
-        <img
-          src="../../../public/Side Image.png"
-          className=" hidden lg:block   "
-        />
+        <img src={Image} className=" hidden lg:block   " />
       </div>
     </div>
   );

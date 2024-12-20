@@ -40,7 +40,7 @@ export async function getCurrentUser() {
   const { data: userData, error: userError } = await supabase.auth.getUser();
   if (userError) throw new Error(userError.message);
 
-  const { data, error: fetchError } = await supabase
+  const { error: fetchError } = await supabase
     .from("User")
     .select("*")
     .eq("id", userData.user.id)

@@ -1,34 +1,44 @@
 /*eslint react/prop-types:0*/
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import ShowProduct from "../../features/Homepage/ui/ShowProduct";
 import {
   faLuggageCart,
   faMoneyBill,
   faStore,
 } from "@fortawesome/free-solid-svg-icons";
 import { faMoneyBillAlt } from "@fortawesome/free-solid-svg-icons/faMoneyBillAlt";
+import ShowProduct from "../../features/Homepage/ui/ShowProduct";
 import Information from "../../features/Homepage/components/Information";
+import BlackFridayImage from "../../assets/black-friday-elements-assortment_23-2149074075.avif";
+
+const categories = [
+  { name: "Monthly Product Sale", icons: faMoneyBill },
+  { name: "Customers active on our site", icons: faLuggageCart },
+  { name: "Annual gross sale on our site", icons: faMoneyBillAlt },
+  { name: "Sellers active on our site", icons: faStore },
+];
 
 function About() {
   return (
-    <div className="flex justify-center items-center flex-col gap-[150px]  mt-12 container mx-auto p-4">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4  ">
-        <span className=" max-w-96 ">
-          <h1 className=" text-[30px] ">Our Story</h1>
+    <div className="flex justify-center items-center flex-col gap-[150px] mt-12 container mx-auto p-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
+        <span className="max-w-96">
+          <h1 className="text-[30px]">Our Story</h1>
           <p>
-            Launced in 2015, Exclusive is South Asia’s premier online shopping
-            makterplace with an active presense in Bangladesh. Supported by wide
-            range of tailored marketing, data and service solutions, Exclusive
-            has 10,500 sallers and 300 brands and serves 3 millioons customers
-            across the region. Exclusive has more than 1 Million products to
-            offer, growing at a very fast. Exclusive offers a diverse assotment
-            in categories ranging from consumer.
+            Launched in 2015, Exclusive is South Asia’s premier online shopping
+            marketplace with an active presence in Bangladesh. Supported by a
+            wide range of tailored marketing, data, and service solutions,
+            Exclusive has 10,500 sellers and 300 brands and serves 3 million
+            customers across the region. Exclusive has more than 1 million
+            products to offer, growing at a very fast pace. Exclusive offers a
+            diverse assortment in categories ranging from consumer electronics
+            to fashion.
           </p>
         </span>
         <img
-          className=" w-[5006px]"
-          src="../../public/black-friday-elements-assortment_23-2149074075.avif"
+          className="w-[500px]"
+          src={BlackFridayImage}
+          alt="Our Story Illustration"
         />
       </div>
       <ShowProduct
@@ -37,28 +47,26 @@ function About() {
         noTextAbout={false}
         NoWScreen={false}
       >
-        <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-sm ">
-          <BoxCategory name="Mopnthly Produduct Sale" icons={faMoneyBill} />
-          <BoxCategory
-            name="Customer active in our site"
-            icons={faLuggageCart}
-          />
-          <BoxCategory
-            name="Anual gross sale in our site"
-            icons={faMoneyBillAlt}
-          />
-          <BoxCategory name="Sallers active our site" icons={faStore} />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-sm">
+          {categories.map((category, index) => (
+            <BoxCategory key={index} {...category} />
+          ))}
         </div>
       </ShowProduct>
       <Information />
     </div>
   );
 }
+
 const BoxCategory = ({ name, icons }) => {
   return (
-    <div className="  cursor-pointer border-2 w-44 h-44  flex justify-center items-center  flex-col gap-5  hover:bg-red-600  hover:text-white">
-      <FontAwesomeIcon icon={icons} className="w-[30px] h-[30px]" />
-      <p>{name}</p>
+    <div className="cursor-pointer border-2  p-1 w-48 h-48 flex justify-center items-center flex-col gap-5 bg-gradient-to-br from-gray-50 via-white to-gray-100 shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 ease-in-out rounded-lg group">
+      <div className="w-16 h-16 flex justify-center items-center bg-red-500 text-white rounded-full group-hover:animate-bounce">
+        <FontAwesomeIcon icon={icons} className="w-8 h-8" />
+      </div>
+      <p className="text-lg font-semibold text-gray-700 group-hover:text-red-600 transition-all duration-300">
+        {name}
+      </p>
     </div>
   );
 };

@@ -1,6 +1,7 @@
 /*eslint react/prop-types:0*/
 
 import Time from "../ui/Time";
+import Image from "../../../assets/Frame 694.png";
 
 function MusicBox() {
   return (
@@ -23,7 +24,7 @@ function MusicBox() {
       </div>
       <div className=" relative  w-[200px] h-[200px] sm:w-[250px] sm:h-[250px]  lg:w-[300px] lg:h-[300px]        ">
         <img
-          src="Frame 694.png"
+          src={Image}
           alt="Frame"
           className="  absolute w-[100%] h-[100%]   top-0 left-0 "
         />

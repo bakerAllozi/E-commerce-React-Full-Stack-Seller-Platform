@@ -6,6 +6,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
+import Image from "../../assets/Frame 720.png";
 
 function Footer() {
   return (
@@ -45,7 +46,7 @@ function Footer() {
         <div className=" justify-center items-center flex flex-col gap-2 lg:justify-start ">
           <h1 className=" mb-3 font-bold  text-lg ">Download App</h1>
           <Link to="/">
-            <img src="Frame 720.png" alt="bakerQ1" />
+            <img src={Image} alt="bakerQ1" />
           </Link>
 
           <div className=" flex gap-5 text-lg justify-center items-center lg:justify-start ">
