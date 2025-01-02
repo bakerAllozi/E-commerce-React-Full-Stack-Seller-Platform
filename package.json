@@ -47,11 +47,12 @@
     "redux": "^5.0.1",
     "styled-components": "^6.1.13",
     "swiper": "^11.1.4",
+    "typescript": "^5.7.2",
     "uuid": "^10.0.0"
   },
   "devDependencies": {
-    "@types/react": "^18.2.66",
-    "@types/react-dom": "^18.2.22",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
     "@vitejs/plugin-react": "^4.2.1",
     "autoprefixer": "^10.4.19",
     "eslint": "^8.57.0",
