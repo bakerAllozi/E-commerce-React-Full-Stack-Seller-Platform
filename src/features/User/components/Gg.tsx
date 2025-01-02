@@ -1,21 +1,39 @@
-import { useForm } from "react-hook-form";
+import { useForm, SubmitHandler } from "react-hook-form";
 import Input from "../../../ui/Input";
 import { useState } from "react";
 import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
 import useUpdateProduct from "../../../hooks/useUpdateProduct";
 import useRedux from "../../../hooks/useRedux";
+import MyProductType from "@/types/product.type";
 
-function Gg() {
-  const [sortBy, setSortBy] = useState("From the latest");
+interface ProductToEditType {
+  id: string;
+  title: string;
+  description: string;
+  price: number;
+  category: string;
+  color: {
+    color1: string;
+    color2: string;
+  };
+  piecesRemaining: number;
+  rating: {
+    rate: number;
+    count: number;
+  };
+}
+
+const Gg = () => {
+  const [sortBy, setSortBy] = useState<string>("From the latest");
   const { updateProductById, isLoading } = useUpdateProduct();
   const { appSelector } = useRedux();
   const { ProductToEdit } = appSelector((state) => state.UserData);
 
-  const { register, handleSubmit, reset } = useForm();
+  const { register, handleSubmit, reset } = useForm<MyProductType>();
 
-  async function onSubmit(newRow) {
-    const EditRow = {
+  const onSubmit: SubmitHandler<MyProductType> = async (newRow) => {
+    const EditRow: MyProductType = {
       ...newRow,
       price: Number(newRow.price),
       color: {
@@ -29,14 +47,15 @@ function Gg() {
       },
       piecesRemaining: Number(newRow.piecesRemaining),
     };
+
     delete EditRow.color1;
     delete EditRow.color2;
 
     updateProductById({ id: ProductToEdit.id, EditRow });
     reset();
-  }
+  };
 
-  const colors = [
+  const colors: string[] = [
     "Red",
     "Green",
     "Blue",
@@ -74,7 +93,6 @@ function Gg() {
         className="mt-9 flex flex-col gap-6 p-6 bg-white rounded-lg shadow-lg max-w-xl mx-auto"
       >
         <select
-          className="p-2 mb-4 border border-gray-300 rounded-md focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
           {...register("category", { required: true })}
           onChange={(e) => setSortBy(e.target.value)}
         >
@@ -89,12 +107,7 @@ function Gg() {
           <option>Health & Beauty</option>
         </select>
 
-        <Input
-          label="Description"
-          register={register}
-          name="description"
-          className="p-2 mb-4 border border-gray-300 rounded-md focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
-        />
+        <Input label="Description" register={register} name="description" />
 
         <Input
           label="Price"
@@ -103,21 +116,12 @@ function Gg() {
           type="number"
           min={0}
           max={99999}
-          className="p-2 mb-4 border border-gray-300 rounded-md focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
         />
 
-        <Input
-          label="Title"
-          register={register}
-          name="title"
-          className="p-2 mb-4 border border-gray-300 rounded-md focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
-        />
+        <Input label="Title" register={register} name="title" />
 
         <label>Color 1</label>
-        <select
-          {...register("color1")}
-          className="p-2 mb-4 border border-gray-300 rounded-md focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
-        >
+        <select {...register("color1")}>
           {colors.map((color) => (
             <option key={color} value={color.toLowerCase()}>
               {color}
@@ -126,10 +130,7 @@ function Gg() {
         </select>
 
         <label>Color 2</label>
-        <select
-          {...register("color2")}
-          className="p-2 mb-4 border border-gray-300 rounded-md focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
-        >
+        <select {...register("color2")}>
           {colors.map((color) => (
             <option key={color} value={color.toLowerCase()}>
               {color}
@@ -144,7 +145,6 @@ function Gg() {
           type="number"
           min={0}
           max={99999}
-          className="p-2 mb-4 border border-gray-300 rounded-md focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
         />
 
         <button
@@ -157,6 +157,6 @@ function Gg() {
       </form>
     </>
   );
-}
+};
 
 export default Gg;

@@ -7,8 +7,24 @@ interface forHowYouChatType {
   name: string;
   avatar: string;
 }
+interface ProductToEditType {
+  id: string;
+  title: string;
+  description: string;
+  price: number;
+  category: string;
+  color: {
+    color1: string;
+    color2: string;
+  };
+  piecesRemaining: number;
+  rating: {
+    rate: number;
+    count: number;
+  };
+}
 interface InitialStateType {
-  ProductToEdit: MyProductType[];
+  ProductToEdit: ProductToEditType | any;
   Senders: ChatMessageType[];
   newMassage: ChatMessageType[];
   SenderChat: ChatMessageType[];
@@ -21,7 +37,7 @@ interface InitialStateType {
 }
 
 const initialState: InitialStateType = {
-  ProductToEdit: [],
+  ProductToEdit: null,
   Senders: [],
   newMassage: [],
   SenderChat: [],

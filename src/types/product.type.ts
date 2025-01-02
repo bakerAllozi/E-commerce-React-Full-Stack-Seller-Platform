@@ -1,4 +1,4 @@
-interface MyProductType {
+export interface MyProductType {
   id: string;
   name: string;
   price: number;
@@ -14,6 +14,8 @@ interface MyProductType {
     count: number;
   };
   discount: number;
+  color: {
+    color1: string;
+    color2: string;
+  };
 }
-
-export default MyProductType;

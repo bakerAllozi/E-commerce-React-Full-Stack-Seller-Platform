@@ -1,11 +1,22 @@
-interface InputProps {
-  register: (name: string) => {
-    onChange: () => void;
-    onBlur: () => void;
-    ref: (instance: HTMLInputElement | null) => void;
-  };
-  type?: "text" | "number" | "email" | "password" | "file";
+import { UseFormRegister } from "react-hook-form";
+
+interface FormData {
   name: string;
+  image: string;
+  password: string;
+  email: string;
+  price: number;
+  description: string;
+  category: string;
+  title: string;
+  piecesRemaining: number;
+  color1: string;
+  color2: string;
+}
+interface InputProps {
+  register: UseFormRegister<FormData>;
+  type?: "text" | "number" | "email" | "password" | "file";
+  name: keyof FormData;
   label?: string;
   placeholder?: string;
   min?: number;

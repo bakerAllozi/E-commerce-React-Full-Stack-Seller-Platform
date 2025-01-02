@@ -11,7 +11,11 @@ function useUpdateProduct() {
     },
     onError: (error) => {
       console.error("Error updating product:", error);
-      alert(error.message);
+      if (error instanceof Error) {
+        alert(error.message);
+      } else {
+        console.error("Unexpected error:", error);
+      }
     },
   });
 

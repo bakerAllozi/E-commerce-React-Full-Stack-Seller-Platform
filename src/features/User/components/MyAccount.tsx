@@ -3,23 +3,26 @@ import Input from "../../../ui/Input";
 import Spinner from "../../../ui/Spinner";
 import { useUpdateUser } from "../../../hooks/useUpdateUser";
 import useUser from "../../../hooks/useUser";
+type FormData = {
+  name: string;
+  image: string;
+  password: string;
+};
 
 function MyAccount() {
-  const { register, handleSubmit, reset } = useForm();
+  const { register, handleSubmit, reset } = useForm<FormData>();
   const { updateUser, isUpdating } = useUpdateUser();
   const { user } = useUser();
-  async function onSubmit(newRow: {
-    name: string;
-    image: string;
-    password: string | undefined;
-  }) {
-    updateUser({
-      ...newRow,
-      image: newRow.image[0],
-      id: user.id as string,
-      password: newRow.password || undefined,
-    });
-    reset();
+  async function onSubmit(newRow: FormData) {
+    if (user) {
+      updateUser({
+        ...newRow,
+        image: newRow.image[0],
+        id: user.id,
+        password: newRow.password,
+      });
+      reset();
+    }
   }
 
   return (
@@ -38,15 +41,14 @@ function MyAccount() {
             name={"name"}
             min={0}
             max={99999}
-            className="p-2 border border-gray-300 rounded-md shadow-sm focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50"
           />
+          {/* className="p-2 border border-gray-300 rounded-md shadow-sm focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50" */}
 
           <Input
             label={"Image"}
             register={register}
             type={"file"}
             name={"image"}
-            className="p-2 border border-gray-300 rounded-md shadow-sm focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50"
           />
 
           <Input
@@ -54,7 +56,6 @@ function MyAccount() {
             register={register}
             type={"password"}
             name={"password"}
-            className="p-2 border border-gray-300 rounded-md shadow-sm focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50"
           />
 
           <button

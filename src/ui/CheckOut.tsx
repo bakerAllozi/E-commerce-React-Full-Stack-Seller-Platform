@@ -15,7 +15,7 @@ const CheckOut = () => {
 
   const { updateMultipleProducts, isLoading } = useUpdateProducts();
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event: { preventDefault: () => void }) => {
     event.preventDefault();
 
     if (!stripe || !elements) return;
@@ -39,7 +39,7 @@ const CheckOut = () => {
         },
       }));
 
-      productsToUpdate.forEach((product) => {
+      productsToUpdate.forEach((product: any) => {
         delete product.updateData.quantity;
         delete product.updateData.price2;
       });

@@ -24,6 +24,7 @@ const Cart = lazy(() => import("../features/Cart/Cart"));
 const MyAccount = lazy(() => import("../features/User/components/MyAccount"));
 const CheckOut = lazy(() => import("../ui/CheckOut"));
 const Gg = lazy(() => import("../features/User/components/Gg"));
+
 const ChatPage = lazy(
   () => import("../features/User/components/cahtUser/ChatPage")
 );
