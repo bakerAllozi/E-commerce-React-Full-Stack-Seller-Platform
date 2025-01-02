@@ -5,9 +5,11 @@ export interface MyProductType {
   title: string;
   image: string;
   description: string;
+  userId: string;
   piecesRemaining: number;
   category: string;
   quantity: number;
+  product_like: string[];
   price2?: number;
   rating: {
     rate: number;

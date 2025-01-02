@@ -8,8 +8,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import useLikedProducts from "../../../hooks/useLikedProducts";
 import Spinner from "../../../ui/Spinner";
-import React from "react";
-import MyProductType from "../../../types/product.type";
+import { MyProductType } from "../../../types/product.type";
 
 interface BoxBroductProps {
   product: MyProductType;

@@ -1,4 +1,3 @@
-/*eslint react/prop-types:0*/
 import useInsertNewReview from "../../../../hooks/useInsertReviews";
 import Input from "../../../../ui/Input";
 import StarRating from "./StarRating";
@@ -7,7 +6,13 @@ import { useForm } from "react-hook-form";
 import useUser from "../../../../hooks/useUser";
 import Replies from "./Replies";
 
-function ProductReviews({ reviews, productId }) {
+function ProductReviews({
+  reviews,
+  productId,
+}: {
+  reviews: any;
+  productId: string;
+}) {
   const uniqueId = uuidv4();
   const { user } = useUser();
   const { mutate } = useInsertNewReview();
@@ -18,7 +23,8 @@ function ProductReviews({ reviews, productId }) {
     formState: { errors },
   } = useForm();
 
-  async function onSubmit(newRow) {
+  async function onSubmit(newRow: { rating: number; comment: string }) {
+    if (!user) return;
     const newRowWithId = {
       ...newRow,
       id: uniqueId,

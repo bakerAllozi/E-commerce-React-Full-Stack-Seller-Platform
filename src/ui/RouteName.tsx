@@ -1,8 +1,11 @@
-/*eslint react/prop-types:0*/
-
+import { MyProductType } from "@/types/product.type";
 import { BarChart } from "@mui/x-charts/BarChart";
 
-export default function ChartsOverviewDemo({ userProduct }) {
+export default function ChartsOverviewDemo({
+  userProduct,
+}: {
+  userProduct: MyProductType[];
+}) {
   const randomNumbersArray = userProduct.map((p) => p.piecesRemaining);
   const randomNameArray = userProduct.map((p) => p.title);
 

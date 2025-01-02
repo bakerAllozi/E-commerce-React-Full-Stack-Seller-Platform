@@ -1,4 +1,3 @@
-/*eslint react/prop-types:0*/
 
 import { useState } from "react";
 import useUpdateReview from "../../../../hooks/useUpdateReviews";

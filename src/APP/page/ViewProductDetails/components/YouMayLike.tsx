@@ -1,5 +1,3 @@
-/*eslint react/prop-types:0*/
-
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
@@ -9,8 +7,9 @@ import useRedux from "../../../../hooks/useRedux";
 import ShowProduct from "../../../../features/Homepage/ui/ShowProduct";
 
 import { Swiper, SwiperSlide } from "swiper/react";
+import { MyProductType } from "@/types/product.type";
 
-const YouMayLike = ({ ProductDetails }) => {
+const YouMayLike = ({ ProductDetails }: { ProductDetails: MyProductType }) => {
   const { appSelector } = useRedux();
   const { Data } = appSelector((state) => state.product);
   const dataMayLike = Data.filter(
@@ -23,8 +22,6 @@ const YouMayLike = ({ ProductDetails }) => {
       </h1>
 
       <ShowProduct
-        noTime={false}
-        noSwiper={false}
         noButton={false}
         buttonText="View All Products"
         noTextAbout={false}

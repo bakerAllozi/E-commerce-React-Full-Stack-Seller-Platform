@@ -1,4 +1,4 @@
-function StarRating({ rating }) {
+function StarRating({ rating }: { rating: number }) {
   const totalStars = 5;
   return (
     <div className="flex gap-1">

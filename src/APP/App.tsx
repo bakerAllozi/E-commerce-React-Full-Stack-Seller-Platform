@@ -28,6 +28,7 @@ const Gg = lazy(() => import("../features/User/components/Gg"));
 const ChatPage = lazy(
   () => import("../features/User/components/cahtUser/ChatPage")
 );
+
 const MessageNotifications = lazy(
   () => import("../features/User/components/cahtUser/MessageNotifications")
 );
@@ -35,6 +36,7 @@ const Login = lazy(() => import("../features/auth/Login"));
 const SignUp = lazy(() => import("../features/auth/SignUp"));
 const Homepage = lazy(() => import("../features/Homepage/Homepage"));
 const ContactPage = lazy(() => import("./page/ContactPage"));
+
 const About = lazy(() => import("./page/About"));
 const Wishlist = lazy(() => import("../features/Wishlist/Wishlist"));
 const LikePage = lazy(() => import("./page/LikePage"));
@@ -53,7 +55,7 @@ const Commentpage = lazy(
 import AppLayout from "./AppLayout";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe, Stripe } from "@stripe/stripe-js";
-import MyProductType from "../types/product.type";
+import { MyProductType } from "../types/product.type";
 
 function App() {
   const { dispatch, appSelector } = useRedux();

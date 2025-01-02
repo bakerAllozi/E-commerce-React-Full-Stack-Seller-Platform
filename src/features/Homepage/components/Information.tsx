@@ -1,3 +1,4 @@
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import {
   faHeadphones,
   faTruckFast,
@@ -26,7 +27,15 @@ function Information() {
     </div>
   );
 }
-const ReuseableItem = ({ icon, text1, text2 }) => {
+const ReuseableItem = ({
+  icon,
+  text1,
+  text2,
+}: {
+  icon: IconProp;
+  text1: string;
+  text2: string;
+}) => {
   return (
     <div className=" flex  flex-col gap-3 items-center justify-center">
       <h1 className=" w-12 h-12 p-2 rounded-full bg-black text-white flex justify-center items-center border-8  border-[#aaa] ">

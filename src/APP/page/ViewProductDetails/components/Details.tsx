@@ -1,5 +1,3 @@
-/*eslint react/prop-types:0*/
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import useLikedProducts from "../../../../hooks/useLikedProducts";
@@ -12,7 +10,14 @@ import { showChatUser } from "../../../../features/User/userSlice";
 import useUser from "../../../../hooks/useUser";
 import Stars from "../../../../features/Homepage/ui/Stars";
 import useRedux from "../../../../hooks/useRedux";
-const Details = ({ ProductDetails, productId }) => {
+import { MyProductType } from "@/types/product.type";
+const Details = ({
+  ProductDetails,
+  productId,
+}: {
+  ProductDetails: MyProductType;
+  productId: string;
+}) => {
   const navigate = useNavigate();
   const { user } = useUser();
   const { isLiked, handleLiked } = useLikedProducts(ProductDetails);
@@ -33,11 +38,21 @@ const Details = ({ ProductDetails, productId }) => {
   };
 
   const { forHowYouChat } = appSelector((state) => state.UserData);
-  const { name, avatar } = forHowYouChat;
+  const { name, avatar } = forHowYouChat as any;
 
   const handelOpenChatPage = () => {
-    dispatch(showChatUser(ProductDetails.userId, user.id, name, avatar));
-
+    if (!user) {
+      navigate("/Login");
+      return;
+    }
+    dispatch(
+      showChatUser({
+        receiverId: ProductDetails.userId,
+        userId: user.id,
+        seller_name: name,
+        avatar,
+      })
+    );
     navigate(`/ChatPage`);
   };
 

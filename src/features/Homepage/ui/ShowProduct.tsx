@@ -1,7 +1,7 @@
 import React from "react";
 interface ShowProductProps {
-  title: string;
-  viewBecause: string;
+  title?: string;
+  viewBecause?: string;
   noButton?: boolean;
   buttonText?: string;
   children?: React.ReactNode;

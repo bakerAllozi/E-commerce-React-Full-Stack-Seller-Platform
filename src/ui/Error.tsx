@@ -1,11 +1,12 @@
-/*eslint react/prop-types:0*/
-
 import { Link } from "react-router-dom";
-
 function Error({
   type = "404 Not Found",
   text = "Your visited page not found You may go home page.",
   NoBack = false,
+}: {
+  type?: string;
+  text?: string;
+  NoBack?: boolean;
 }) {
   return (
     <div className="flex justify-center items-center flex-col h-svh ">

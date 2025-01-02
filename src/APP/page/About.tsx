@@ -1,5 +1,3 @@
-/*eslint react/prop-types:0*/
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faLuggageCart,
@@ -9,7 +7,8 @@ import {
 import { faMoneyBillAlt } from "@fortawesome/free-solid-svg-icons/faMoneyBillAlt";
 import ShowProduct from "../../features/Homepage/ui/ShowProduct";
 import Information from "../../features/Homepage/components/Information";
-import BlackFridayImage from "../../assets/black-friday-elements-assortment_23-2149074075.avif";
+import BlackFridayImage from "../../assets/black-friday-elements-assortment_23-2149074075.png";
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
 
 const categories = [
   { name: "Monthly Product Sale", icons: faMoneyBill },
@@ -45,7 +44,6 @@ function About() {
         title="Browse By Category"
         viewBecause="Categories"
         noTextAbout={false}
-        NoWScreen={false}
       >
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-sm">
           {categories.map((category, index) => (
@@ -58,7 +56,7 @@ function About() {
   );
 }
 
-const BoxCategory = ({ name, icons }) => {
+const BoxCategory = ({ name, icons }: { name: string; icons: IconProp }) => {
   return (
     <div className="cursor-pointer border-2  p-1 w-48 h-48 flex justify-center items-center flex-col gap-5 bg-gradient-to-br from-gray-50 via-white to-gray-100 shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 ease-in-out rounded-lg group">
       <div className="w-16 h-16 flex justify-center items-center bg-red-500 text-white rounded-full group-hover:animate-bounce">

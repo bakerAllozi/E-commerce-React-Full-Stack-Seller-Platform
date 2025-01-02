@@ -1,8 +1,9 @@
 import { useState } from "react";
 import useRedux from "./useRedux";
 import { getWishlistData } from "../features/Wishlist/wishlistSlice";
+import { MyProductType } from "@/types/product.type";
 
-const useWishlistAndCart = (ProductDetails) => {
+const useWishlistAndCart = (ProductDetails: MyProductType) => {
   const idItem = ProductDetails.id;
   const { dispatch, appSelector } = useRedux();
   const { wishlistData } = appSelector((state) => state.wishlistData);

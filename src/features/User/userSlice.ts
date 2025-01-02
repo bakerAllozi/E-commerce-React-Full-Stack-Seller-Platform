@@ -1,5 +1,4 @@
 import { ChatMessageType } from "@/types/chats.type";
-import MyProductType from "@/types/product.type";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface forHowYouChatType {

@@ -1,4 +1,3 @@
-/*eslint react/prop-types:0*/
 import useRedux from "../../../hooks/useRedux";
 import { useParams } from "react-router-dom";
 import Details from "./components/Details";

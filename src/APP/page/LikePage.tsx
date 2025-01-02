@@ -2,10 +2,12 @@ import { Link } from "react-router-dom";
 import BoxBroduct from "../../features/Homepage/ui/BoxBroduct";
 import useRedux from "../../hooks/useRedux";
 import useUser from "../../hooks/useUser";
+import { MyProductType } from "@/types/product.type";
 function LikePage() {
   const { appSelector } = useRedux();
   const { Data } = appSelector((state) => state.product);
   const { user } = useUser();
+  if (!user) return;
   const productsILiked = Data.filter((e) => e.product_like?.includes(user.id));
   return (
     <>

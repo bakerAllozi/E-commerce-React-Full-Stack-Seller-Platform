@@ -25,7 +25,7 @@ function Wishlist() {
           </Link>
         </div>
       ) : (
-        <ShowProduct NoWScreen={false}>
+        <ShowProduct>
           <button
             className=" border-2 bg-red-600 text-white   p-2 mb-8 absolute top-[-60px]  left-32"
             onClick={() => handelMoveAll()}

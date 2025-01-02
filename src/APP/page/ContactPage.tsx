@@ -30,7 +30,7 @@ function ContactPage() {
 
         <button
           className=" p-1 rounded-sm bg-red-600 text-white  mt-5 "
-          type=" submit"
+          type="submit"
         >
           Send Massage
         </button>
