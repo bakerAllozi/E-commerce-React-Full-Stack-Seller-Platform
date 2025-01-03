@@ -1,4 +1,4 @@
-import { UseFormRegister } from "react-hook-form";
+import { FieldValues, UseFormRegister } from "react-hook-form";
 
 interface FormData {
   name: string;
@@ -12,9 +12,13 @@ interface FormData {
   piecesRemaining: number;
   color1: string;
   color2: string;
+  yourRating: number;
+  comment: string;
+  yourName: string;
 }
+
 interface InputProps {
-  register: UseFormRegister<FormData>;
+  register: UseFormRegister<FormData>; // عدلنا النوع هنا
   type?: "text" | "number" | "email" | "password" | "file";
   name: keyof FormData;
   label?: string;

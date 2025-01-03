@@ -3,7 +3,7 @@ export interface MyProductType {
   name: string;
   price: number;
   title: string;
-  image: string;
+  image: File[];
   description: string;
   userId: string;
   piecesRemaining: number;
@@ -16,6 +16,8 @@ export interface MyProductType {
     count: number;
   };
   discount: number;
+  color1?: string;
+  color2?: string;
   color: {
     color1: string;
     color2: string;

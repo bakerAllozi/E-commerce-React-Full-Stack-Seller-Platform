@@ -14,18 +14,25 @@ function MessageNotifications() {
   const { user } = useUser();
   const navigate = useNavigate();
   const userId = user?.id;
-  const [onlineUsersCount, setOnlineUsersCount] = useState(0);
-  const [onlineUsers, setOnlineUsers] = useState([]);
+  const [onlineUsersCount, setOnlineUsersCount] = useState<number>(0);
+  const [onlineUsers, setOnlineUsers] = useState<string[]>([]);
   const { data: ALLUserData, isLoading } = usePublicUser();
 
-  const handleNavigate = (receiverId) => {
+  const handleNavigate = (receiverId: string) => {
     if (!userId || !ALLUserData) return;
 
     const dataUser = ALLUserData.find((arr) => arr.id === receiverId);
 
     if (!dataUser) return;
 
-    dispatch(showChatUser(receiverId, userId, dataUser.name, dataUser.avatar));
+    dispatch(
+      showChatUser({
+        receiverId,
+        userId,
+        seller_name: dataUser.name,
+        avatar: dataUser.avatar,
+      })
+    );
     navigate(`/ChatPage`);
   };
 
@@ -35,10 +42,9 @@ function MessageNotifications() {
         onlineUsersCount={onlineUsersCount}
         setOnlineUsersCount={setOnlineUsersCount}
         setOnlineUsers={setOnlineUsers}
-        onlineUsers={onlineUsers}
       />
 
-      {isLoading && onlineUsers > 0 ? (
+      {isLoading && onlineUsers.length > 0 ? (
         <Spinner />
       ) : ReceiverChat?.length > 0 ? (
         <div className="flex gap-4 justify-center flex-wrap cursor-pointer bg-gray-100 p-5 rounded-lg shadow-lg">
@@ -47,7 +53,7 @@ function MessageNotifications() {
               key={e.sender_id}
               handleNavigate={handleNavigate}
               e={e}
-              userId={userId}
+              userId={`${userId}`}
               onlineUsers={onlineUsers}
             />
           ))}

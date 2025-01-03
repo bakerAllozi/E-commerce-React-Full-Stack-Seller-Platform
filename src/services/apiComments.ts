@@ -1,3 +1,4 @@
+import { CommentType } from "@/types/comment.type";
 import supabase from "./supabase";
 
 export async function getComments() {
@@ -9,7 +10,7 @@ export async function getComments() {
   return data;
 }
 
-export async function insertNewComment(newRow) {
+export async function insertNewComment(newRow: CommentType) {
   const { data: dataa, error } = await supabase
     .from("Comments")
     .insert(newRow)

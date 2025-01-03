@@ -34,6 +34,7 @@ const MessageNotifications = lazy(
 );
 const Login = lazy(() => import("../features/auth/Login"));
 const SignUp = lazy(() => import("../features/auth/SignUp"));
+
 const Homepage = lazy(() => import("../features/Homepage/Homepage"));
 const ContactPage = lazy(() => import("./page/ContactPage"));
 
@@ -69,7 +70,9 @@ function App() {
   });
 
   const { Data } = appSelector((state) => state.product);
+
   const { data: chatData } = useReadChats(userId);
+
   const { data: ALLUserData } = usePublicUser();
 
   const updateData = useCallback(() => {

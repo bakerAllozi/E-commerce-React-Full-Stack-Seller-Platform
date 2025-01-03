@@ -1,7 +1,7 @@
 import { Transition } from "@headlessui/react";
 import { Stack, Alert as MuiAlert } from "@mui/material";
 
-function Alert({ showAlert, text }) {
+function Alert({ showAlert, text }: { showAlert: boolean; text: string }) {
   return (
     <div>
       <Transition

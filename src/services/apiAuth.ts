@@ -1,3 +1,4 @@
+import { UserType } from "@/types/user.type";
 import supabase from "./supabase";
 
 export async function login({
@@ -46,7 +47,7 @@ export async function signup({
   return data;
 }
 
-export async function getCurrentUser() {
+export async function getCurrentUser(): Promise<UserType | null> {
   const { data: session } = await supabase.auth.getSession();
 
   if (!session.session) return null;
@@ -70,7 +71,13 @@ export async function getCurrentUser() {
     if (insertError) throw new Error(insertError.message);
   }
 
-  return userData.user;
+  return {
+    id: userData.user.id,
+    name: userData.user.user_metadata.name,
+    email: userData.user.email,
+    role: userData.user.role,
+    avatar: userData.user.user_metadata.avatar,
+  } as UserType;
 }
 
 export async function logout() {

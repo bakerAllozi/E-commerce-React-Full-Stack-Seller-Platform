@@ -1,42 +1,59 @@
-/*eslint react/prop-types:0*/
-
 import { insertNewComment } from "../../../../../services/apiComments";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { v4 as uuidv4 } from "uuid";
 import Input from "../../../../../ui/Input";
-import { useForm } from "react-hook-form";
+import { useForm, SubmitHandler } from "react-hook-form";
+import { CommentType } from "@/types/comment.type";
 
-function Form({ setShowForm }) {
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm();
+function Form({ setShowForm }: { setShowForm: (e: boolean) => void }) {
+  interface FormData {
+    name: string;
+    image: string;
+    password: string;
+    email: string;
+    price: number;
+    description: string;
+    category: string;
+    title: string;
+    piecesRemaining: number;
+    color1: string;
+    color2: string;
+    yourRating: number;
+    comment: string;
+    yourName: string;
+  }
+  const { register, handleSubmit, reset } = useForm<FormData>();
   const uniqueId = uuidv4();
 
   const queryClient = useQueryClient();
 
   const { isLoading, mutate } = useMutation({
-    mutationFn: (row) => insertNewComment(row),
+    mutationFn: (row: CommentType) => insertNewComment(row),
     onSuccess: () => {
       alert("Comment posted successfully");
       queryClient.invalidateQueries({ queryKey: ["comments"] });
       reset();
     },
-    onError: (err) => alert(err.message),
+    onError: (err) => {
+      if (err instanceof Error) {
+        alert(err.message);
+      } else {
+        alert("An unknown error occurred");
+      }
+    },
   });
 
-  async function onSubmit(newRow) {
-    const newRowWithId = {
-      ...newRow,
+  const onSubmit: SubmitHandler<FormData> = (data) => {
+    const newRowWithId: CommentType = {
       id: uniqueId,
-      yourRating: Number(newRow.yourRating),
+      yourName: data.yourName,
+      comment: data.comment,
+      yourRating: Number(data.yourRating),
     };
 
     mutate(newRowWithId);
     setShowForm(false);
-  }
+  };
 
   return (
     <form
@@ -52,7 +69,6 @@ function Form({ setShowForm }) {
         register={register}
         type={"text"}
         name={"yourName"}
-        errors={errors}
       />
 
       <Input
@@ -73,7 +89,7 @@ function Form({ setShowForm }) {
 
       <button
         disabled={isLoading}
-        className="p-2  mt-8 rounded-sm bg-red-600 text-white font-bold hover:bg-red-700 transition duration-300 disabled:bg-gray-400"
+        className="p-2 mt-8 rounded-sm bg-red-600 text-white font-bold hover:bg-red-700 transition duration-300 disabled:bg-gray-400"
         type="submit"
       >
         {isLoading ? "Posting..." : "Post Comment"}

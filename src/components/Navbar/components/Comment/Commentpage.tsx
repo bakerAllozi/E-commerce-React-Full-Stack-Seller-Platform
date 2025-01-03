@@ -4,21 +4,26 @@ import Stars from "../../../../features/Homepage/ui/Stars";
 import Loading from "../../../../ui/Loading";
 import { useState } from "react";
 import Form from "./components/Form";
+import { CommentType } from "@/types/comment.type";
 
 function Commentpage() {
-  const [sortBy, setSortBy] = useState("From the latest");
-  const [showForm, setShowForm] = useState(false);
+  const [sortBy, setSortBy] = useState<string>("From the latest");
+  const [showForm, setShowForm] = useState<boolean>(false);
 
   const { data } = useQuery({
     queryKey: ["comments"],
     queryFn: getComments,
   });
 
-  const sortFunctions = {
+  const sortFunctions: {
+    [key: string]: (a: CommentType, b: CommentType) => number;
+  } = {
     "From the latest": (a, b) =>
-      new Date(b.created_at) - new Date(a.created_at),
+      new Date(b.created_at ?? 0).getTime() -
+      new Date(a.created_at ?? 0).getTime(),
     "From the oldest": (a, b) =>
-      new Date(a.created_at) - new Date(b.created_at),
+      new Date(a.created_at ?? 0).getTime() -
+      new Date(b.created_at ?? 0).getTime(),
     "Least rating": (a, b) => a.yourRating - b.yourRating,
     "Highest rating": (a, b) => b.yourRating - a.yourRating,
     "alphabetical order": (a, b) => a.comment?.localeCompare(b.comment),

@@ -7,4 +7,7 @@ export interface ChatMessageType {
   sender_id: string;
   receiver_id: string;
   created_at: Date;
+  message_id: string;
+  avatar: string;
+  name: string;
 }

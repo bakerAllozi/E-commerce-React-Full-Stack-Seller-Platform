@@ -1,7 +1,17 @@
-/*eslint react/prop-types:0*/
+import { ChatMessageType } from "@/types/chats.type";
 
-function ReceiverUser({ handleNavigate, e, userId, onlineUsers }) {
-  const useOnline = onlineUsers.find((user) => user === e.sender_id);
+function ReceiverUser({
+  handleNavigate,
+  e,
+  userId,
+  onlineUsers,
+}: {
+  handleNavigate: (receiverId: string) => void;
+  e: ChatMessageType;
+  userId: string;
+  onlineUsers: string[];
+}) {
+  const useOnline = onlineUsers.find((user) => String(user) === e.sender_id);
 
   return (
     <div className="flex gap-4 justify-center flex-wrap cursor-pointer bg-gray-100 p-5 rounded-lg shadow-lg">
@@ -38,7 +48,7 @@ function ReceiverUser({ handleNavigate, e, userId, onlineUsers }) {
           </p>
         )}
         <p className="absolute top-2 right-2 text-gray-500 text-xs">
-          {e.created_at?.slice(0, 10)}
+          {e.created_at?.toISOString().slice(0, 10)}
         </p>
       </div>
     </div>

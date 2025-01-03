@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { useForm } from "react-hook-form";
+import { useForm, UseFormRegister } from "react-hook-form";
 import { v4 as uuidv4 } from "uuid";
 import Input from "../../../ui/Input";
 import { insertNewProduct } from "../../../services/apiDataOfProduct";
@@ -7,12 +7,15 @@ import useUser from "../../../hooks/useUser";
 import { useState } from "react";
 import useProductData from "../../../hooks/useUpdateData";
 import Alert from "../../../ui/Alert";
+import { MyProductType } from "@/types/product.type";
 
 function AddNewProduct() {
   const [sortBy, setSortBy] = useState("From the latest");
   const [showAlert, setShowAlert] = useState(false);
-
-  const { register, handleSubmit, reset } = useForm();
+  interface FromType {
+    register: UseFormRegister<MyProductType>;
+  }
+  const { register, handleSubmit, reset } = useForm<FromType>();
 
   const uniqueId = uuidv4();
   const queryClient = useQueryClient();
@@ -20,7 +23,7 @@ function AddNewProduct() {
 
   const { updateData } = useProductData();
   const { isLoading, mutate } = useMutation({
-    mutationFn: (row) => insertNewProduct(row),
+    mutationFn: (row: { image: File }) => insertNewProduct(row),
     onSuccess: () => {
       setShowAlert(true);
       updateData();
@@ -29,10 +32,11 @@ function AddNewProduct() {
       reset();
       setTimeout(() => setShowAlert(false), 3000);
     },
-    onError: (err) => alert(err.message),
+    onError: (err: any) => alert((err as Error).message),
   });
 
-  async function onSubmit(newRow) {
+  async function onSubmit(newRow: MyProductType) {
+    if (!user) return;
     const newRowWithId = {
       ...newRow,
       id: uniqueId,

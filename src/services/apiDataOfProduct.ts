@@ -1,4 +1,4 @@
-import MyProductType from "@/types/product.type";
+import { MyProductType } from "@/types/product.type";
 import supabase from "./supabase";
 
 export async function getDataOfProduct() {
