@@ -2,7 +2,7 @@ import { getReviews } from "../services/apiReviews";
 
 import { useQuery } from "@tanstack/react-query";
 
-const useReviews = (id) => {
+const useReviews = (id: string) => {
   const { data, isLoading } = useQuery({
     queryKey: ["Reviews"],
     queryFn: () => getReviews(id),

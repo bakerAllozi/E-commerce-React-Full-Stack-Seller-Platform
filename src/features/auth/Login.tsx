@@ -12,18 +12,18 @@ function Login() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm<{ email: string; password: string }>();
   const { login, isLoading } = useLogin();
 
   const { isAuthenticated } = useUser();
 
-  async function onSubmit(newRow) {
+  async function onSubmit(newRow: { email: string; password: string }) {
     login(newRow);
   }
   const navigate = useNavigate();
 
   return (
-    <div className="   flex justify-center items-center  flex-col   p-20 gap-24 ">
+    <div className=" flex justify-center items-center  flex-col   p-20 gap-24 ">
       {isAuthenticated && (
         <p
           onClick={() => navigate(-1)}
@@ -35,7 +35,7 @@ function Login() {
       <div className="  flex  flex-row-reverse gap-3 h-[80vh]">
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="   min-w-[300px]  h-[350px]  flex flex-col  gap-7 p-4     "
+          className="   min-w-[300px]  h-[350px]  flex flex-col  gap-7 p-4"
         >
           <h1 className="  text-2xl    font-bold">Log in to Exclusive</h1>
           <p>Enter your details below</p>
@@ -45,10 +45,8 @@ function Login() {
             register={register}
             type={"text"}
             name={"email"}
-            errors={errors}
           />
           <Input2
-            disabled={isLoading}
             label={"password"}
             register={register}
             type={"text"}
@@ -57,7 +55,7 @@ function Login() {
           <button
             disabled={isLoading}
             className=" p-1 rounded-sm bg-red-600 text-white  "
-            type=" submit"
+            type="submit"
           >
             Log In
           </button>

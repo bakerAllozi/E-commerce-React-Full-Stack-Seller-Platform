@@ -1,22 +1,24 @@
-/*eslint react/prop-types:0*/
 import useRedux from "../../../../hooks/useRedux";
 import useUser from "../../../../hooks/useUser";
 import useUpdateChat from "../../../../hooks/useUpdateChat";
 import { IoCheckmarkDone } from "react-icons/io5";
 import { useEffect } from "react";
+import { ChatMessageType } from "@/types/chats.type";
 
 function ChatMassage() {
   const { appSelector } = useRedux();
   const { ChatUser, forHowYouChat } = appSelector((state) => state.UserData);
   const { user } = useUser();
   const { updateChatsById } = useUpdateChat();
-  const newMessages = ChatUser?.filter((arr) => arr.is_red !== true);
-  const handleAddEmoji = (newEmoji) => {
+  const newMessages = ChatUser?.filter(
+    (arr: ChatMessageType) => arr.is_red !== true
+  );
+  const handleAddEmoji = (newEmoji: { icon: string; id: string }) => {
     updateChatsById({ emoji: newEmoji.icon, message_id: newEmoji.id });
   };
 
   useEffect(() => {
-    if (newMessages.length > 0 && user.id !== newMessages[0].sender_id) {
+    if (newMessages.length > 0 && user?.id !== newMessages[0].sender_id) {
       newMessages.forEach((message) => {
         updateChatsById({ ...message, is_red: true });
       });
@@ -26,24 +28,24 @@ function ChatMassage() {
   return (
     <div>
       <p className="font-bold text-2xl text-center mb-4 text-gray-500 ">
-        chatting with {forHowYouChat.name}
+        chatting with {forHowYouChat?.name}
       </p>
       <div className="flex-grow overflow-y-auto bg-gray-100 p-4 rounded-lg shadow-inner h-[50vh]">
         {ChatUser?.map((msg) => (
           <div
             className={`flex ${
-              msg.sender_id === user.id ? "justify-end" : "justify-start"
+              msg.sender_id === user?.id ? "justify-end" : "justify-start"
             } mb-4`}
             key={msg.message_id}
           >
             <div
               className={`max-w-xs p-3 rounded-lg shadow group/item  relative  ${
-                msg.sender_id === user.id
+                msg.sender_id === user?.id
                   ? "bg-green-500 text-white"
                   : "bg-gray-300 text-gray-800"
               }`}
             >
-              {user.id === msg.sender_id || (
+              {user?.id === msg.sender_id || (
                 <div className="absolute bottom-2 right-2 invisible group-hover/item:visible bg-white w-28 h-8 rounded-lg flex justify-around items-center">
                   <ReactEmoji
                     msg={msg}
@@ -98,7 +100,15 @@ function ChatMassage() {
   );
 }
 
-const ReactEmoji = ({ icon, handleAddEmoji, msg }) => {
+const ReactEmoji = ({
+  icon,
+  handleAddEmoji,
+  msg,
+}: {
+  icon: any;
+  handleAddEmoji: (newEmoji: { icon: string; id: string }) => void;
+  msg: ChatMessageType;
+}) => {
   const nweIcon = icon === msg.emoji ? "" : icon;
   return (
     <p

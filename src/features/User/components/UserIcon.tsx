@@ -49,13 +49,13 @@ function UserIcon() {
             <FontAwesomeIcon icon={faStar} className="w-6 h-6" />
             <span className="font-medium">Reviews Of Website</span>
           </Link>
-          <p
+          <div
             className="flex items-center space-x-3 cursor-pointer hover:text-red-400 transition-colors duration-300"
-            onClick={logout}
+            onClick={() => logout()}
           >
             <FontAwesomeIcon icon={faRightFromBracket} className="w-6 h-6" />
             <span className="font-medium">Logout</span>
-          </p>
+          </div>
         </div>
       )}
       <div

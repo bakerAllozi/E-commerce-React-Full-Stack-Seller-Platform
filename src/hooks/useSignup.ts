@@ -5,7 +5,7 @@ function useSignup() {
     mutationFn: signupApi,
     onSuccess: (user) => {},
 
-    onError: (err) => alert(err.message),
+    onError: (err) => alert((err as Error).message),
   });
 
   return { signup, isLoading };

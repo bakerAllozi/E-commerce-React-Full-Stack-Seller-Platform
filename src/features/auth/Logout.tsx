@@ -4,7 +4,7 @@ function Logout() {
   const { logout, isLoading } = useLogout();
 
   return (
-    <button disabled={isLoading} onClick={logout}>
+    <button disabled={isLoading} onClick={() => logout()}>
       logout
     </button>
   );

@@ -1,5 +1,3 @@
-/*eslint react/prop-types:0*/
-
 const Input = ({
   register,
   type = "text",
@@ -9,6 +7,15 @@ const Input = ({
   max = 5,
   step = "0.01",
   placeholder = "",
+}: {
+  register: any;
+  type?: string;
+  name: string;
+  label?: string;
+  min?: number;
+  max?: number;
+  step?: string;
+  placeholder?: string;
 }) => {
   return (
     <div className="flex flex-col gap-3">

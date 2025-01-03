@@ -4,7 +4,6 @@ import Basket from "./ui/Basket";
 import CartIcon from "./ui/CartIcon";
 import MessagesIcon from "../../features/User/components/cahtUser/MessagesIcon";
 import UserIcon from "../../features/User/components/UserIcon";
-import React from "react";
 const Navbar = () => {
   return (
     <div className="   h-14  flex   justify-around items-center  fixed top-0 left-0 w-full bg-white shadow  z-[100] ">

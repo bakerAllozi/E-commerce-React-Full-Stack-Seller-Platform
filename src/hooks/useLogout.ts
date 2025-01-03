@@ -8,7 +8,7 @@ function useLogout() {
   const { mutate: logout, isLoading } = useMutation({
     mutationFn: logoutApi,
     onSuccess: () => {
-      queryClient.removeQueries(); //
+      queryClient.removeQueries();
       navigate("/login", { replace: true });
     },
   });

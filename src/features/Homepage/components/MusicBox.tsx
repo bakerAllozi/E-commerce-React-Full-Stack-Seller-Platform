@@ -1,5 +1,3 @@
-/*eslint react/prop-types:0*/
-
 import Time from "../ui/Time";
 import Image from "../../../assets/Frame 694.png";
 

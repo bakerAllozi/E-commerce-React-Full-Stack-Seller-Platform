@@ -20,7 +20,7 @@ const useInsertMassage = () => {
     },
   });
 
-  return { isLoadiang, mutate };
+  return { isLoading, mutate };
 };
 
 export default useInsertMassage;

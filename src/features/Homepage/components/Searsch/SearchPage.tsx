@@ -1,11 +1,15 @@
-/*eslint react/prop-types:0*/
-
 import { useNavigate } from "react-router-dom";
 
-function SearchPage({ setSearchWorld, searchedProduct }) {
+function SearchPage({
+  setSearchWorld,
+  searchedProduct,
+}: {
+  setSearchWorld: (value: string) => void;
+  searchedProduct: { id: number; title: string; image: string }[];
+}) {
   const navigate = useNavigate();
 
-  function handelSetProductDetails(product) {
+  function handelSetProductDetails(product: { id: number; title: string }) {
     navigate(`/${product.id}`);
     setSearchWorld("");
   }

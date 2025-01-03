@@ -6,12 +6,19 @@ function useLogin() {
   const queryClient = useQueryClient(); //
   const navigate = useNavigate();
   const { isLoading, mutate: login } = useMutation({
-    mutationFn: ({ email, password }) => loginApi({ email, password }),
+    mutationFn: ({ email, password }: { email: string; password: string }) =>
+      loginApi({ email, password }),
     onSuccess: (user) => {
       queryClient.setQueryData(["user"], user.user);
       navigate("/", { replace: true });
     },
-    onError: (err) => alert(err.message),
+    onError: (err) => {
+      if (err instanceof Error) {
+        alert(err.message);
+      } else {
+        alert("An unknown error occurred");
+      }
+    },
   });
   return { login, isLoading };
 }

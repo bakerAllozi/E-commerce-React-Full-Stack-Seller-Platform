@@ -12,7 +12,11 @@ function useDeleteProduct() {
     },
     onError: (error) => {
       console.error("Error deleting product:", error);
-      alert(error.message);
+      if (error instanceof Error) {
+        alert(error.message);
+      } else {
+        alert("An unknown error occurred");
+      }
     },
   });
 

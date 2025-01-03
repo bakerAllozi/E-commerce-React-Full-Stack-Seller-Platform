@@ -6,9 +6,10 @@ import useRedux from "../../../../hooks/useRedux";
 function MessagesIcon() {
   const { appSelector } = useRedux();
   const { ReceiverChat } = appSelector((state) => state.UserData);
+
   return (
     <>
-      {ReceiverChat > 0 || (
+      {ReceiverChat.length > 0 || (
         <div className=" relative">
           <Link to="/Messages" className=" relative ">
             <FontAwesomeIcon

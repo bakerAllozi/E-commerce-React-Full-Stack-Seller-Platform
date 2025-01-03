@@ -29,8 +29,6 @@ function FlachSales() {
       </div>
 
       <ShowProduct
-        noTime={false}
-        noSwiper={false}
         noButton={false}
         buttonText="View All Products"
         noTextAbout={false}

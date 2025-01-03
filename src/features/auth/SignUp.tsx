@@ -7,17 +7,20 @@ import { faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";
 import Image from "../../assets/Side Image.png";
 
 function SignUp() {
+  interface IFormInput {
+    name: string;
+    email: string;
+    password: string;
+  }
   const { isLoading, signup } = useSignup();
-
   const navigate = useNavigate();
-
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm<IFormInput>();
 
-  async function onSubmit(newRow) {
+  async function onSubmit(newRow: IFormInput) {
     signup(newRow);
     navigate("/");
   }
@@ -42,14 +45,12 @@ function SignUp() {
             register={register}
             type={"text"}
             name={"name"}
-            errors={errors}
           />
           <Input2
             label={"email"}
             register={register}
             type={"text"}
             name={"email"}
-            errors={errors}
           />
           <Input2
             label={"password"}
@@ -60,7 +61,7 @@ function SignUp() {
           <button
             disabled={isLoading}
             className=" p-1 rounded-sm bg-red-600 text-white   "
-            type=" submit"
+            type="submit"
           >
             Create Account
           </button>

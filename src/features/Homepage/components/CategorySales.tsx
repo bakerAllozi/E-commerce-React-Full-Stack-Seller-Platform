@@ -1,5 +1,3 @@
-/*eslint react/prop-types:0*/
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ShowProduct from "../ui/ShowProduct";
 import {
@@ -12,6 +10,7 @@ import {
   faPersonDress,
   faSyringe,
   faTent,
+  IconDefinition,
 } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import useRedux from "../../../hooks/useRedux";
@@ -39,7 +38,13 @@ function CategorySales() {
   );
 }
 
-const CreateNaveLink = ({ name, icons }) => {
+const CreateNaveLink = ({
+  name,
+  icons,
+}: {
+  name: string;
+  icons: IconDefinition;
+}) => {
   const navigate = useNavigate();
   const { dispatch } = useRedux();
   const handleBaker = () => {

@@ -1,4 +1,5 @@
 export interface ChatMessageType {
+  icon: any;
   id: string;
   senderId: string;
   receiverId: string;
@@ -10,4 +11,6 @@ export interface ChatMessageType {
   message_id: string;
   avatar: string;
   name: string;
+  emoji: string;
+  is_red: boolean;
 }

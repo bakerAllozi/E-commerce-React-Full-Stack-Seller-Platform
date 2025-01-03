@@ -1,14 +1,9 @@
+import { ChatMessageType } from "@/types/chats.type";
 import supabase from "./supabase";
 
-interface ChatRow {
-  message_id: number;
-  sender_id: number;
-  receiver_id: number;
-  message: string;
-  created_at?: string;
-}
-
-export async function getDataOfChats(id: string): Promise<ChatRow[] | null> {
+export async function getDataOfChats(
+  id: string
+): Promise<ChatMessageType[] | null> {
   const { data, error } = await supabase
     .from("Chats")
     .select("*")
@@ -23,8 +18,8 @@ export async function getDataOfChats(id: string): Promise<ChatRow[] | null> {
 }
 
 export async function insertMassage(
-  newRow: Omit<ChatRow, "message_id">
-): Promise<ChatRow[] | null> {
+  newRow: Omit<ChatMessageType, "message_id">
+): Promise<ChatMessageType[] | null> {
   const { data, error } = await supabase.from("Chats").insert(newRow).select();
 
   if (error) {
@@ -36,8 +31,8 @@ export async function insertMassage(
 }
 
 export async function updateChat(
-  newRow: Pick<ChatRow, "message_id"> & Partial<ChatRow>
-): Promise<ChatRow[] | null> {
+  newRow: Pick<ChatMessageType, "message_id"> & Partial<ChatMessageType>
+): Promise<ChatMessageType[] | null> {
   const { data, error } = await supabase
     .from("Chats")
     .update(newRow)

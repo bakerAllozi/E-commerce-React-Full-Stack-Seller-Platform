@@ -5,37 +5,41 @@ import useUser from "../../../../hooks/useUser";
 import { v4 as uuidv4 } from "uuid";
 import { getDataChats, showChatUser } from "../../userSlice";
 import useReadChats from "../../../../hooks/useReadChats";
-import ChatMassage from "./../cahtUser/ChatMassage";
+import ChatMassage from "./ChatMassage";
 import Spinner from "../../../../ui/Spinner";
 import { Link } from "react-router-dom";
+import { ChatMessageType } from "@/types/chats.type";
 
 function ChatPage() {
   const uniqueId = uuidv4();
-
   const { dispatch, appSelector } = useRedux();
   const { user } = useUser();
-  const { data: chatData } = useReadChats(user.id);
-
+  const userId = user?.id;
   const { forHowYouChat } = appSelector((state) => state.UserData);
-  const { id, name, avatar } = forHowYouChat;
-
-  const userId = user.id;
+  const { id, name, avatar } = forHowYouChat || {};
+  const { data: chatData } = useReadChats(userId || "");
   const youCantMassageYourSelf = userId === id;
 
   useEffect(() => {
     if (!chatData || !userId) return;
-    dispatch(getDataChats(chatData, userId));
-    dispatch(showChatUser(id, userId, name, avatar));
+    dispatch(getDataChats(chatData));
+    dispatch(showChatUser({ id, userId, name, avatar }));
   }, [chatData, dispatch, userId, id, name, avatar]);
 
   const { isLoading, mutate } = useInsertMassage();
-  const [message, setMassage] = useState([]);
+  const [message, setMassage] = useState<string>("");
   const handelInsertMassage = () => {
-    const newRow = {
-      message: message,
+    if (!message) return;
+    const newRow: {
+      message: string;
+      message_id: string;
+      sender_id: string | undefined;
+      receiver_id: string | undefined;
+    } = {
+      message,
       message_id: uniqueId,
-      sender_id: user.id,
-      receiver_id: id,
+      sender_id: userId || "",
+      receiver_id: id || "",
     };
     mutate(newRow);
     setMassage("");
@@ -75,7 +79,7 @@ function ChatPage() {
               You can t message yourself 🙂
             </p>
             <Link
-              to={-1}
+              to="-1"
               className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition duration-300"
             >
               Go Back

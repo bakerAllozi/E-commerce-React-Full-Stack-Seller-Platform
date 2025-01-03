@@ -71,7 +71,7 @@ function App() {
 
   const { Data } = appSelector((state) => state.product);
 
-  const { data: chatData } = useReadChats(userId);
+  const { data: chatData } = useReadChats(userId || "");
 
   const { data: ALLUserData } = usePublicUser();
 

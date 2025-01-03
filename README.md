@@ -102,8 +102,8 @@ src/
 ├── pages/           # Complete pages (e.g., Dashboard, Login, Product Listing)
 ├── services/        # API handling and Supabase integration
 ├── utils/           # Utility functions and helpers
-├── App.jsx          # Main application entry point
-└── main.jsx         # Starting point with Vite integration and rendering
+├── App.tsx          # Main application entry point
+└── main.tsx         # Starting point with Vite integration and rendering
 ```
 
 ---

@@ -108,7 +108,7 @@ const wishlistReducer = createSlice({
         receiverId: string;
         userId: string;
         seller_name: string;
-        avatar: string;
+        avatar: string | null;
       }>
     ) {
       const data = state.dataChats.filter(
@@ -123,7 +123,7 @@ const wishlistReducer = createSlice({
       state.forHowYouChat = {
         id: action.payload.receiverId,
         name: action.payload.seller_name,
-        avatar: action.payload.avatar,
+        avatar: action.payload.avatar || "",
       };
     },
   },
