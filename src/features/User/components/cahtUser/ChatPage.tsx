@@ -8,7 +8,6 @@ import useReadChats from "../../../../hooks/useReadChats";
 import ChatMassage from "./ChatMassage";
 import Spinner from "../../../../ui/Spinner";
 import { Link } from "react-router-dom";
-import { ChatMessageType } from "@/types/chats.type";
 
 function ChatPage() {
   const uniqueId = uuidv4();
@@ -16,30 +15,40 @@ function ChatPage() {
   const { user } = useUser();
   const userId = user?.id;
   const { forHowYouChat } = appSelector((state) => state.UserData);
-  const { id, name, avatar } = forHowYouChat || {};
+  // const { id, name, avatar } = forHowYouChat || {};
   const { data: chatData } = useReadChats(userId || "");
-  const youCantMassageYourSelf = userId === id;
+  if (!forHowYouChat) return null;
+  const youCantMassageYourSelf = userId === forHowYouChat.id;
 
   useEffect(() => {
     if (!chatData || !userId) return;
     dispatch(getDataChats(chatData));
-    dispatch(showChatUser({ id, userId, name, avatar }));
-  }, [chatData, dispatch, userId, id, name, avatar]);
+    dispatch(
+      showChatUser({
+        receiverId: forHowYouChat.id,
+        userId,
+        seller_name: forHowYouChat.name,
+        avatar: forHowYouChat.avatar,
+      })
+    );
+  }, [
+    chatData,
+    dispatch,
+    userId,
+    forHowYouChat.id,
+    forHowYouChat.name,
+    forHowYouChat.avatar,
+  ]);
 
   const { isLoading, mutate } = useInsertMassage();
   const [message, setMassage] = useState<string>("");
   const handelInsertMassage = () => {
     if (!message) return;
-    const newRow: {
-      message: string;
-      message_id: string;
-      sender_id: string | undefined;
-      receiver_id: string | undefined;
-    } = {
+    const newRow: any = {
       message,
       message_id: uniqueId,
-      sender_id: userId || "",
-      receiver_id: id || "",
+      sender_id: userId,
+      receiver_id: forHowYouChat.id,
     };
     mutate(newRow);
     setMassage("");

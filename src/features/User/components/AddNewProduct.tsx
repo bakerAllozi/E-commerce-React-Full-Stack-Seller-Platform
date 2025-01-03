@@ -12,10 +12,8 @@ import { MyProductType } from "@/types/product.type";
 function AddNewProduct() {
   const [sortBy, setSortBy] = useState("From the latest");
   const [showAlert, setShowAlert] = useState(false);
-  interface FromType {
-    register: UseFormRegister<MyProductType>;
-  }
-  const { register, handleSubmit, reset } = useForm<FromType>();
+
+  const { register, handleSubmit, reset } = useForm<MyProductType>();
 
   const uniqueId = uuidv4();
   const queryClient = useQueryClient();
@@ -118,7 +116,6 @@ function AddNewProduct() {
           register={register}
           type={"text"}
           name={"description"}
-          className="p-2 border border-gray-300 rounded-md shadow-sm focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50"
         />
         <Input
           label={"Price"}
@@ -127,14 +124,12 @@ function AddNewProduct() {
           name={"price"}
           min={0}
           max={99999}
-          className="p-2 border border-gray-300 rounded-md shadow-sm focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50"
         />
         <Input
           label={"Title"}
           register={register}
           type={"text"}
           name={"title"}
-          className="p-2 border border-gray-300 rounded-md shadow-sm focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50"
         />
         <label>Color 1</label>
         <select
@@ -165,14 +160,12 @@ function AddNewProduct() {
           name={"piecesRemaining"}
           min={0}
           max={99999}
-          className="p-2 border border-gray-300 rounded-md shadow-sm focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50"
         />
         <Input
           label={"Image"}
           register={register}
           type={"file"}
           name={"image"}
-          className="p-2 border border-gray-300 rounded-md shadow-sm focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50"
         />
 
         <button

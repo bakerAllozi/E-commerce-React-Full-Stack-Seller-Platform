@@ -3,8 +3,9 @@ import useDeleteProduct from "../../../hooks/useDeleteProduct";
 import Spinner from "../../../ui/Spinner";
 import useRedux from "../../../hooks/useRedux";
 import { setProductToEdit } from "../userSlice";
+import { MyProductType } from "@/types/product.type";
 
-function AddNew({ product }) {
+function AddNew({ product }: { product: MyProductType }) {
   const { dispatch } = useRedux();
   const navigate = useNavigate();
 
@@ -23,7 +24,7 @@ function AddNew({ product }) {
           <div className="relative w-full h-56 sm:h-64 md:h-72 lg:h-80">
             <img
               className="absolute top-0 left-0 w-full h-full object-cover"
-              src={product.image}
+              src={`${product.image}`}
               alt="Product"
             />
           </div>

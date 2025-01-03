@@ -5,24 +5,7 @@ import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
 import useUpdateProduct from "../../../hooks/useUpdateProduct";
 import useRedux from "../../../hooks/useRedux";
-import MyProductType from "@/types/product.type";
-
-interface ProductToEditType {
-  id: string;
-  title: string;
-  description: string;
-  price: number;
-  category: string;
-  color: {
-    color1: string;
-    color2: string;
-  };
-  piecesRemaining: number;
-  rating: {
-    rate: number;
-    count: number;
-  };
-}
+import { MyProductType } from "@/types/product.type";
 
 const Gg = () => {
   const [sortBy, setSortBy] = useState<string>("From the latest");

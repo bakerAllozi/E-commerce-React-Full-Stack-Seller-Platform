@@ -5,13 +5,8 @@ import { ChatMessageType } from "@/types/chats.type";
 const useInsertMassage = () => {
   const queryClient = useQueryClient();
 
-  const { isLoading, mutate } = useMutation<void, Error, ChatMessageType>({
-    mutationFn: (row: {
-      message: string;
-      message_id: string;
-      sender_id: string;
-      receiver_id: string;
-    }) => insertMassage(row),
+  const { isLoading, mutate } = useMutation({
+    mutationFn: (row: ChatMessageType) => insertMassage(row),
     onSuccess: () => {
       queryClient.invalidateQueries(["Chats"]);
     },

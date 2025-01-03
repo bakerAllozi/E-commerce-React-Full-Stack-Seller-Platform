@@ -22,6 +22,11 @@ const CheckOut = () => {
 
     const cardElement = elements.getElement(CardElement);
 
+    if (!cardElement) {
+      setStatus("خطأ: لم يتم العثور على عنصر البطاقة");
+      return;
+    }
+
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: "card",
       card: cardElement,

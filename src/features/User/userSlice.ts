@@ -30,7 +30,7 @@ interface InitialStateType {
   ReceiverChat: ChatMessageType[];
   dataChats: ChatMessageType[];
   NewDataChats: ChatMessageType[];
-  forHowYouChat: forHowYouChatType | null;
+  forHowYouChat: any;
   ChatUser: ChatMessageType[];
   AllChat: ChatMessageType[];
 }
@@ -43,7 +43,7 @@ const initialState: InitialStateType = {
   ReceiverChat: [],
   dataChats: [],
   NewDataChats: [],
-  forHowYouChat: null,
+  forHowYouChat: {},
   ChatUser: [],
   AllChat: [],
 };
@@ -108,7 +108,7 @@ const wishlistReducer = createSlice({
         receiverId: string;
         userId: string;
         seller_name: string;
-        avatar: string | null;
+        avatar: string;
       }>
     ) {
       const data = state.dataChats.filter(

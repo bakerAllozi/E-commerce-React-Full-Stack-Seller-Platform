@@ -1,4 +1,5 @@
 export interface MyProductType {
+  created_at: any;
   id: string;
   name: string;
   price: number;
@@ -11,6 +12,7 @@ export interface MyProductType {
   quantity: number;
   product_like: string[];
   price2?: number;
+  stock: number;
   rating: {
     rate: number;
     count: number;
@@ -19,7 +21,7 @@ export interface MyProductType {
   color1?: string;
   color2?: string;
   color: {
-    color1: string;
-    color2: string;
+    color1?: string;
+    color2?: string;
   };
 }

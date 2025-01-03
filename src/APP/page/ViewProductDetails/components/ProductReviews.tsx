@@ -25,7 +25,13 @@ function ProductReviews({
 
   async function onSubmit(newRow: { rating: number; comment: string }) {
     if (!user) return;
-    const newRowWithId = {
+    const newRowWithId: {
+      id: string;
+      name: string;
+      Product_ID: string;
+      rating: number;
+      comment: string;
+    } = {
       ...newRow,
       id: uniqueId,
       name: user.user_metadata.name,
@@ -35,7 +41,8 @@ function ProductReviews({
     reset();
   }
   const sortedReviews = reviews?.sort(
-    (a, b) => new Date(a.created_at) - new Date(b.created_at)
+    (a, b) =>
+      new Date(a.created_at).getTime() - new Date(b.created_at).getTime()
   );
   return (
     <div className="flex flex-col gap-6 p-6 border-t border-gray-300 bg-white rounded-md shadow-sm mt-10">

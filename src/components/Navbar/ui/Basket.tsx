@@ -1,6 +1,5 @@
 import { faShoppingBasket } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
 import useRedux from "@/hooks/useRedux";
