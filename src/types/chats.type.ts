@@ -1,19 +1,20 @@
 export interface ChatMessageType {
-  icon: {
-    name: string;
-    emoji: string;
+  icon?: {
+    icon: string;
+    id: string;
   };
-  id: string;
-  senderId: string;
-  receiverId: string;
+
+  id?: string;
+  // senderId: string;
+  // receiverId: string;
   message: string;
-  timestamp: Date;
+  timestamp?: Date;
   sender_id: string;
   receiver_id: string;
-  created_at: Date;
+  created_at?: Date;
   message_id: string;
-  avatar: string;
-  name: string;
-  emoji: string;
-  is_red: boolean;
+  avatar?: string;
+  name?: string;
+  emoji?: string;
+  is_red?: boolean;
 }

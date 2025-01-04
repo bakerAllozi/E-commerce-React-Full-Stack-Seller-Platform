@@ -91,7 +91,9 @@ function ChatMassage() {
               </p>
               <p className="font-semibold">{msg.message}</p>
               <p className="text-xs mt-2">
-                {new Date(msg.created_at).toLocaleString()}
+                {msg.created_at
+                  ? `${new Date(msg.created_at).toLocaleString()}`
+                  : "Invalid date"}
               </p>
             </div>
           </div>

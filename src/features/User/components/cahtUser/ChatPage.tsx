@@ -8,6 +8,7 @@ import useReadChats from "../../../../hooks/useReadChats";
 import ChatMassage from "./ChatMassage";
 import Spinner from "../../../../ui/Spinner";
 import { Link } from "react-router-dom";
+import { ChatMessageType } from "@/types/chats.type";
 
 function ChatPage() {
   const uniqueId = uuidv4();
@@ -43,12 +44,7 @@ function ChatPage() {
   const [message, setMassage] = useState<string>("");
   const handelInsertMassage = () => {
     if (!message) return;
-    const newRow: {
-      message: string;
-      message_id: string;
-      sender_id: string;
-      receiver: string;
-    } = {
+    const newRow: ChatMessageType = {
       message,
       message_id: uniqueId,
       sender_id: String(userId),
