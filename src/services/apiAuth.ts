@@ -50,7 +50,14 @@ export async function signup({
 export async function getCurrentUser(): Promise<UserType> {
   const { data: session } = await supabase.auth.getSession();
 
-  // if (!session.session) return null;
+  if (!session.session)
+    return {
+      id: "",
+      name: "",
+      email: "",
+      role: "",
+      avatar: "",
+    } as UserType;
 
   const { data: userData, error: userError } = await supabase.auth.getUser();
   if (userError) throw new Error(userError.message);

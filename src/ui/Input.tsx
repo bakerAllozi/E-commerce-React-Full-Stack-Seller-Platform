@@ -19,7 +19,7 @@ interface FormData {
 }
 
 interface InputProps {
-  register: UseFormRegister<FormData>;
+  register: UseFormRegister<{ [key: string]: any }> | any;
   type?: "text" | "number" | "email" | "password" | "file";
   name: keyof FormData;
   label?: string;
