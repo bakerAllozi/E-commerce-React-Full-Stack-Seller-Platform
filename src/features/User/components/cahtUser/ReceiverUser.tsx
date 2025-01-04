@@ -48,7 +48,7 @@ function ReceiverUser({
           </p>
         )}
         <p className="absolute top-2 right-2 text-gray-500 text-xs">
-          {e.created_at?.toISOString().slice(0, 10)}
+          {String(e.created_at).slice(0, 10)}
         </p>
       </div>
     </div>
