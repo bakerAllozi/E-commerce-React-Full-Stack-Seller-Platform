@@ -7,25 +7,17 @@ import useProductData from "../../hooks/useUpdateData";
 import { useEffect } from "react";
 
 function UserPage() {
-  interface userTypes {
-    user_metadata: {
-      name: string;
-    };
-    id: string;
-  }
   const { appSelector } = useRedux();
   const { Data } = appSelector((state) => state.product);
   const { user } = useUser();
+  console.log(user?.id);
 
   const userProduct = Data.filter((arr) => arr.userId === user?.id);
   const { updateData } = useProductData();
-
   useEffect(() => {
     updateData();
   }, [updateData]);
-
-  const userName = user?.user_metadata.name;
-
+  const userName = user?.name;
   return (
     <div className="relative p-6 bg-gray-50 min-h-screen">
       <div className="mb-8">

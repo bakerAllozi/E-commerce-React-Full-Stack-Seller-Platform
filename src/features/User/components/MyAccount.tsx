@@ -3,10 +3,12 @@ import Input from "../../../ui/Input";
 import Spinner from "../../../ui/Spinner";
 import { useUpdateUser } from "../../../hooks/useUpdateUser";
 import useUser from "../../../hooks/useUser";
+import { UserType } from "@/types/user.type";
 type FormData = {
   name: string;
   image: string;
   password: string;
+  user: UserType;
 };
 
 function MyAccount() {

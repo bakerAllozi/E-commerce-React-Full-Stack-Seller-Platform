@@ -47,10 +47,10 @@ export async function signup({
   return data;
 }
 
-export async function getCurrentUser(): Promise<UserType | null> {
+export async function getCurrentUser(): Promise<UserType> {
   const { data: session } = await supabase.auth.getSession();
 
-  if (!session.session) return null;
+  // if (!session.session) return null;
 
   const { data: userData, error: userError } = await supabase.auth.getUser();
   if (userError) throw new Error(userError.message);

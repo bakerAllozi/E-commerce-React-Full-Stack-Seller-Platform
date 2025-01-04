@@ -10,7 +10,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "../../../../index.css";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
-import MyProductType from "../../../types/product.type";
+import { MyProductType } from "../../../types/product.type";
 
 function RandomProduct() {
   const { appSelector } = useRedux();
@@ -72,7 +72,7 @@ function RandomProduct() {
                 </div>
                 <div className="relative w-24 h-24 sm:w-48 sm:h-48 md:w-64 md:h-64 lg:w-80 lg:h-80">
                   <img
-                    src={data.image}
+                    src={`${data.image}`}
                     alt={data.id}
                     className="absolute top-0 left-0 w-full h-full object-cover rounded-lg"
                   />

@@ -1,9 +1,9 @@
-
 import { useState } from "react";
 import useUpdateReview from "../../../../hooks/useUpdateReviews";
 import useUser from "../../../../hooks/useUser";
+import { ReviewType } from "@/types/review.type";
 
-function Replies({ review }) {
+function Replies({ review }: { review: ReviewType }) {
   const [showReplies, setShowReplies] = useState(false);
 
   const { updateReviewId } = useUpdateReview();
@@ -15,7 +15,7 @@ function Replies({ review }) {
       const newReply = {
         id: review.id,
         reply,
-        name: user.user_metadata.name,
+        name: user?.name || "Anonymous",
         createdAt: new Date().toISOString(),
       };
 

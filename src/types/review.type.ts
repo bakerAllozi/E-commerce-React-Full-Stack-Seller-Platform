@@ -1,8 +1,15 @@
 export interface ReviewType {
   id: string;
   Product_ID: string;
-  Comment: string;
-  Rating: number;
+  comment: string;
+  rating: number;
+  name: string;
   User_ID: string;
-  Created_at: string;
+  created_at: string;
+  Replies: {
+    id: string;
+    reply: string;
+    name: string;
+    createdAt: string;
+  }[];
 }

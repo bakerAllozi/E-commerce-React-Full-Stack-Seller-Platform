@@ -1,9 +1,14 @@
+interface UserMetadata {
+  avatar: string;
+  name: string;
+}
 export interface UserType {
   id: string;
   name: string;
   email: string;
   identities: { id: string; provider: string }[];
-  role: string; // e.g., "authenticated", "admin", etc.
-  avatar: string; // Optional fields
-  [key: string]: any; // If you expect additional fields
+  user_metadata: UserMetadata;
+  role: string;
+  avatar: string;
+  [key: string]: any;
 }

@@ -30,7 +30,7 @@ function AddNewProduct() {
       reset();
       setTimeout(() => setShowAlert(false), 3000);
     },
-    onError: (err: any) => alert((err as Error).message),
+    onError: (err) => alert((err as Error).message),
   });
 
   async function onSubmit(newRow: MyProductType) {
@@ -38,14 +38,12 @@ function AddNewProduct() {
     const newRowWithId = {
       ...newRow,
       id: uniqueId,
-      userId: user.identities[0].id,
+      userId: user.id,
       price: Number(newRow.price),
       color: {
         color1: newRow.color1,
         color2: newRow.color2,
       },
-      avatar: user.avatar,
-      seller_name: user.name,
       rating: {
         rate: 4.5,
         count: 89,

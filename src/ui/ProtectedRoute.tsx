@@ -1,12 +1,13 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import useUser from "../hooks/useUser";
 import { useNavigate, useLocation } from "react-router-dom";
 import Spinner from "./Spinner";
 
-function ProtectedRoute({ children }) {
+function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const navigate = useNavigate();
   const location = useLocation();
   const { isAuthenticated, isLoading } = useUser();
+  console.log(isAuthenticated);
 
   useEffect(() => {
     if (!isAuthenticated && !isLoading) {

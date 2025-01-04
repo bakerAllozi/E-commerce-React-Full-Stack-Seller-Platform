@@ -5,12 +5,13 @@ import { v4 as uuidv4 } from "uuid";
 import { useForm } from "react-hook-form";
 import useUser from "../../../../hooks/useUser";
 import Replies from "./Replies";
+import { ReviewType } from "@/types/review.type";
 
 function ProductReviews({
   reviews,
   productId,
 }: {
-  reviews: any;
+  reviews: ReviewType[];
   productId: string;
 }) {
   const uniqueId = uuidv4();
@@ -21,21 +22,18 @@ function ProductReviews({
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm();
+  } = useForm<{ rating: number; comment: string }>();
 
   async function onSubmit(newRow: { rating: number; comment: string }) {
     if (!user) return;
-    const newRowWithId: {
-      id: string;
-      name: string;
-      Product_ID: string;
-      rating: number;
-      comment: string;
-    } = {
+    const newRowWithId: ReviewType = {
       ...newRow,
       id: uniqueId,
-      name: user.user_metadata.name,
+      name: user.name,
       Product_ID: productId,
+      User_ID: user.id,
+      created_at: new Date().toISOString(),
+      Replies: [],
     };
     mutate(newRowWithId);
     reset();
@@ -49,7 +47,7 @@ function ProductReviews({
       <h2 className="text-xl font-semibold text-gray-800">Product Reviews</h2>
 
       {sortedReviews && sortedReviews.length > 0 ? (
-        sortedReviews.map((review, index) => (
+        sortedReviews.map((review: ReviewType, index: number) => (
           <div
             key={review.id}
             className="flex flex-col gap-3 p-4 border border-gray-200 rounded-lg shadow-sm bg-gray-50"
@@ -101,8 +99,10 @@ function ProductReviews({
               </option>
             ))}
           </select>
-          {errors.rating && (
-            <span className="text-red-500">{errors.rating.message}</span>
+          {errors.rating?.message && (
+            <span className="text-red-500">
+              {String(errors.rating.message)}
+            </span>
           )}
         </div>
 
@@ -112,10 +112,9 @@ function ProductReviews({
           name="comment"
           type="text"
           placeholder="Write your comment here"
-          validation={{ required: "Comment is required" }}
         />
-        {errors.comment && (
-          <span className="text-red-500">{errors.comment.message}</span>
+        {errors.rating?.message && (
+          <span className="text-red-500">{String(errors.rating.message)}</span>
         )}
 
         <button

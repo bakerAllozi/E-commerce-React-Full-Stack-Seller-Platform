@@ -3,7 +3,7 @@ import { getCurrentUser } from "../services/apiAuth";
 import { UserType } from "../types/user.type";
 
 export default function useUser() {
-  const { isLoading, data: user } = useQuery<UserType | null>({
+  const { isLoading, data: user } = useQuery<UserType>({
     queryKey: ["user"],
     queryFn: getCurrentUser,
   });
@@ -14,3 +14,12 @@ export default function useUser() {
     isAuthenticated: user?.role === "authenticated",
   };
 }
+
+// export default function useUser() {
+//   const { data: user } = useQuery<UserType>({
+//     queryKey: ["user"],
+//     queryFn: getCurrentUser,
+//   });
+
+//   return { user };
+// }
