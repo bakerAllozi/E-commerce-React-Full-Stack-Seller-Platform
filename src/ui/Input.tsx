@@ -1,25 +1,25 @@
 import { FieldValues, UseFormRegister } from "react-hook-form";
 
 interface FormData {
-  name: string;
-  image: string;
-  password: string;
-  email: string;
-  price: number;
-  description: string;
-  category: string;
-  title: string;
-  piecesRemaining: number;
-  color1: string;
-  color2: string;
-  yourRating: number;
-  comment: string;
-  yourName: string;
+  name?: string;
+  image?: string;
+  password?: string;
+  email?: string;
+  price?: number;
+  description?: string;
+  category?: string;
+  title?: string;
+  piecesRemaining?: number;
+  color1?: string;
+  color2?: string;
+  yourRating?: number;
+  yourName?: string;
+  rating?: number;
+  comment?: string;
 }
 
 interface InputProps {
-  // register: UseFormRegister<FormData>; // عدلنا النوع هنا
-  register: any;
+  register: UseFormRegister<FormData>;
   type?: "text" | "number" | "email" | "password" | "file";
   name: keyof FormData;
   label?: string;

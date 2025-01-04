@@ -1,3 +1,5 @@
+import { UseFormRegister } from "react-hook-form";
+
 const Input = ({
   register,
   type = "text",
@@ -8,7 +10,7 @@ const Input = ({
   step = "0.01",
   placeholder = "",
 }: {
-  register: any;
+  register: UseFormRegister<{ [key: string]: any }> | any;
   type?: string;
   name: string;
   label?: string;

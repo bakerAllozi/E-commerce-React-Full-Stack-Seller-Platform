@@ -38,7 +38,10 @@ const Details = ({
   };
 
   const { forHowYouChat } = appSelector((state) => state.UserData);
-  const { name, avatar } = forHowYouChat as any;
+  const { name, avatar } = forHowYouChat as {
+    name: string;
+    avatar: string;
+  };
 
   const handelOpenChatPage = () => {
     if (!user) {

@@ -14,12 +14,3 @@ export default function useUser() {
     isAuthenticated: user?.role === "authenticated",
   };
 }
-
-// export default function useUser() {
-//   const { data: user } = useQuery<UserType>({
-//     queryKey: ["user"],
-//     queryFn: getCurrentUser,
-//   });
-
-//   return { user };
-// }

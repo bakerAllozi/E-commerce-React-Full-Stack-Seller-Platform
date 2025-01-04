@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 import useUser from "../../../hooks/useUser";
 import useLogout from "../../../hooks/useLogout";
 
-const defaultAvatar = "/default-avatar.png"; // Replace with actual default avatar path
+const defaultAvatar = "/default-avatar.png";
 
 function UserIcon() {
   const { logout } = useLogout();

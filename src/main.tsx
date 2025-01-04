@@ -6,7 +6,6 @@ import App from "./APP/App";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
-// تعريف نوع queryClient لضمان التوافق مع TypeScript
 export const queryClient: QueryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -16,7 +15,6 @@ export const queryClient: QueryClient = new QueryClient({
   },
 });
 
-// تحديد النوع الصحيح لعناصر DOM
 const rootElement = document.getElementById("root");
 if (!rootElement) {
   throw new Error("Root element not found");

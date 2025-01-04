@@ -2,7 +2,7 @@ import { ChatMessageType } from "@/types/chats.type";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface forHowYouChatType {
-  id: string;
+  id?: string;
   name: string;
   avatar: string;
 }
@@ -30,7 +30,7 @@ interface InitialStateType {
   ReceiverChat: ChatMessageType[];
   dataChats: ChatMessageType[];
   NewDataChats: ChatMessageType[];
-  forHowYouChat: any;
+  forHowYouChat: forHowYouChatType;
   ChatUser: ChatMessageType[];
   AllChat: ChatMessageType[];
 }
@@ -43,7 +43,10 @@ const initialState: InitialStateType = {
   ReceiverChat: [],
   dataChats: [],
   NewDataChats: [],
-  forHowYouChat: {},
+  forHowYouChat: {
+    name: "",
+    avatar: "",
+  },
   ChatUser: [],
   AllChat: [],
 };

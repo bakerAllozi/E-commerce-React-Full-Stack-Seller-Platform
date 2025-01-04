@@ -15,7 +15,6 @@ function ChatPage() {
   const { user } = useUser();
   const userId = user?.id;
   const { forHowYouChat } = appSelector((state) => state.UserData);
-  // const { id, name, avatar } = forHowYouChat || {};
   const { data: chatData } = useReadChats(userId || "");
   if (!forHowYouChat) return null;
   const youCantMassageYourSelf = userId === forHowYouChat.id;
@@ -25,7 +24,7 @@ function ChatPage() {
     dispatch(getDataChats(chatData));
     dispatch(
       showChatUser({
-        receiverId: forHowYouChat.id,
+        receiverId: String(forHowYouChat.id),
         userId,
         seller_name: forHowYouChat.name,
         avatar: forHowYouChat.avatar,
@@ -44,11 +43,16 @@ function ChatPage() {
   const [message, setMassage] = useState<string>("");
   const handelInsertMassage = () => {
     if (!message) return;
-    const newRow: any = {
+    const newRow: {
+      message: string;
+      message_id: string;
+      sender_id: string;
+      receiver: string;
+    } = {
       message,
       message_id: uniqueId,
-      sender_id: userId,
-      receiver_id: forHowYouChat.id,
+      sender_id: String(userId),
+      receiver_id: String(forHowYouChat.id),
     };
     mutate(newRow);
     setMassage("");

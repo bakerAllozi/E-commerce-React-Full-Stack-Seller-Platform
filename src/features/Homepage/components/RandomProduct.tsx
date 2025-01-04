@@ -20,7 +20,7 @@ function RandomProduct() {
   const progressCircle = useRef<HTMLDivElement | null>(null);
   const progressContent = useRef<HTMLDivElement | null>(null);
 
-  const onAutoplayTimeLeft = (s: any, time: number, progress: number) => {
+  const onAutoplayTimeLeft = (_: any, time: number, progress: number) => {
     if (progressCircle.current) {
       progressCircle.current.style.setProperty("--progress", `${1 - progress}`);
     }

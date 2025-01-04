@@ -1,5 +1,8 @@
 export interface ChatMessageType {
-  icon: any;
+  icon: {
+    name: string;
+    emoji: string;
+  };
   id: string;
   senderId: string;
   receiverId: string;

@@ -44,10 +44,12 @@ const CheckOut = () => {
         },
       }));
 
-      productsToUpdate.forEach((product: any) => {
-        delete product.updateData.quantity;
-        delete product.updateData.price2;
-      });
+      productsToUpdate.forEach(
+        (product: { updateData: { quantity?: number; price2?: number } }) => {
+          delete product.updateData.quantity;
+          delete product.updateData.price2;
+        }
+      );
 
       updateMultipleProducts(productsToUpdate);
       dispatch(RemoveALLFromCart());

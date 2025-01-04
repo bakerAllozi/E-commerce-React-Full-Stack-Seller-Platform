@@ -1,5 +1,5 @@
 export interface MyProductType {
-  created_at: any;
+  created_at: string;
   id: string;
   name: string;
   price: number;

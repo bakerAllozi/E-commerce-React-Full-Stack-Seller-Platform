@@ -4,6 +4,7 @@ import useUpdateChat from "../../../../hooks/useUpdateChat";
 import { IoCheckmarkDone } from "react-icons/io5";
 import { useEffect } from "react";
 import { ChatMessageType } from "@/types/chats.type";
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
 
 function ChatMassage() {
   const { appSelector } = useRedux();
@@ -105,17 +106,18 @@ const ReactEmoji = ({
   handleAddEmoji,
   msg,
 }: {
-  icon: any;
+  icon: IconProp | string;
   handleAddEmoji: (newEmoji: { icon: string; id: string }) => void;
   msg: ChatMessageType;
 }) => {
-  const nweIcon = icon === msg.emoji ? "" : icon;
+  const nweIcon =
+    typeof icon === "string" ? (icon === msg.emoji ? "" : icon) : "";
   return (
     <p
       onClick={() => handleAddEmoji({ icon: nweIcon, id: msg.message_id })}
       className="cursor-pointer hover:mb-2"
     >
-      {icon}
+      {nweIcon}
     </p>
   );
 };
