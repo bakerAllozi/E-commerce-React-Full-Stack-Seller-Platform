@@ -19,9 +19,10 @@ const useLikedProducts = (product: MyProductType): UseLikedProductsReturn => {
   }
 
   const isLiked =
-    (product.product_like as { userId: string }[]).some(
-      (like) => like.userId === user.id
-    ) ?? false;
+    Array.isArray(product.product_like) &&
+    product.product_like.find((like) => like === user.id)
+      ? true
+      : false;
 
   const handleLiked = () => {
     const productLikes: string[] = Array.isArray(product.product_like)
