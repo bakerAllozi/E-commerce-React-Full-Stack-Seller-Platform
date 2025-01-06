@@ -18,9 +18,10 @@ const useLikedProducts = (product: MyProductType): UseLikedProductsReturn => {
     return { isLiked: false, handleLiked: () => {}, isLoading: false };
   }
 
-  const isLiked = product.product_like?.find((like) => like.userId === user.id)
-    ? true
-    : false;
+  const isLiked =
+    (product.product_like as { userId: string }[]).some(
+      (like) => like.userId === user.id
+    ) ?? false;
 
   const handleLiked = () => {
     const productLikes: string[] = Array.isArray(product.product_like)
@@ -31,7 +32,7 @@ const useLikedProducts = (product: MyProductType): UseLikedProductsReturn => {
       ? productLikes.filter((id) => id !== user.id)
       : [...productLikes, user.id];
 
-    const EditRow = { product_like: updatedProductLikes };
+    const EditRow = { ...product, product_like: updatedProductLikes };
 
     updateProductById({ id: product.id, EditRow });
     dispatch(getProductsILiked(product.id));
