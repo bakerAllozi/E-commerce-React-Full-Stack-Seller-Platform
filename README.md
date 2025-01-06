@@ -1,9 +1,9 @@
 # [E-commerce Platform] - Build Your Own Store
 
-[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)  
-[![React](https://img.shields.io/badge/React-v18-blue)](https://reactjs.org/)  
-[![Supabase](https://img.shields.io/badge/Supabase-backend-green)](https://supabase.com/)  
-[![Vite](https://img.shields.io/badge/Vite-5.2-yellow)](https://vitejs.dev/)
+[![MIT License](https:/img.shields.io/badge/license-MIT-blue.svg)](LICENSE)  
+[![React](https:/img.shields.io/badge/React-v18-blue)](https:/reactjs.org/)  
+[![Supabase](https:/img.shields.io/badge/Supabase-backend-green)](https:/supabase.com/)  
+[![Vite](https:/img.shields.io/badge/Vite-5.2-yellow)](https:/vitejs.dev/)
 
 ## 🌟 Introduction
 
@@ -115,7 +115,7 @@ To set up the project locally, follow these steps:
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/bakerAllozi/e-commerce-react-Final-version-
+   git clone https:/github.com/bakerAllozi/e-commerce-react-Final-version-
 
    ```
 
@@ -149,25 +149,25 @@ To set up the project locally, follow these steps:
 ## 🎥 Screenshots
 
 - **Dashboard with Inventory Charts:**  
-  ![Dashboard Screenshot](/public/read/Vite%20+%20React%20-%20Google%20Chrome%2011_21_2024%209_14_45%20PM.png)
-  ![Dashboard Screenshot2](/public/read/Vite%20+%20React%20-%20Google%20Chrome%2011_21_2024%209_15_13%20PM.png)
-  ![Dashboard Screenshot3](/public/more/Vite%20+%20React%20-%20Google%20Chrome%2011_21_2024%209_28_11%20PM.png)
+  ![Dashboard Screenshot](/src/assets/read/Vite%20+%20React%20-%20Google%20Chrome%2011_21_2024%209_14_45%20PM.png)
+  ![Dashboard Screenshot2](/src/assets/read/Vite%20+%20React%20-%20Google%20Chrome%2011_21_2024%209_15_13%20PM.png)
+  ![Dashboard Screenshot3](/src/assets/more/Vite%20+%20React%20-%20Google%20Chrome%2011_21_2024%209_28_11%20PM.png)
 
   - **more about store**  
-    ![Cart](/public/more/Vite%20+%20React%20-%20Google%20Chrome%2011_21_2024%209_28_55%20PM.png)
-    ![checkout](/public/more/Vite%20+%20React%20-%20Google%20Chrome%2011_21_2024%209_29_55%20PM.png)
-    ![searcher](/public/more/Vite%20+%20React%20-%20Google%20Chrome%2011_21_2024%209_30_12%20PM.png)
-    ![login](/public/more/Vite%20+%20React%20-%20Google%20Chrome%2011_21_2024%209_30_58%20PM.png)
+    ![Cart](/src/assets/more/Vite%20+%20React%20-%20Google%20Chrome%2011_21_2024%209_28_55%20PM.png)
+    ![checkout](/src/assets/more/Vite%20+%20React%20-%20Google%20Chrome%2011_21_2024%209_29_55%20PM.png)
+    ![searcher](/src/assets/more/Vite%20+%20React%20-%20Google%20Chrome%2011_21_2024%209_30_12%20PM.png)
+    ![login](/src/assets/more/Vite%20+%20React%20-%20Google%20Chrome%2011_21_2024%209_30_58%20PM.png)
 
 - **Product Comments and Replies:**  
-  ![Comments Screenshot](/public//read/Vite%20+%20React%20-%20Google%20Chrome%2011_21_2024%209_14_24%20PM.png)
-  ![Comments Screenshot2](/public//read/Vite%20+%20React%20-%20Google%20Chrome%2011_21_2024%209_15_58%20PM.png)
+  ![Comments Screenshot](/src/assets/read/Vite%20+%20React%20-%20Google%20Chrome%2011_21_2024%209_14_24%20PM.png)
+  ![Comments Screenshot2](/src/assets/read/Vite%20+%20React%20-%20Google%20Chrome%2011_21_2024%209_15_58%20PM.png)
 
 - **Real-Time Chat:**  
-  ![Chat Screenshot](/public/read/Vite%20+%20React%20-%20Google%20Chrome%2011_21_2024%209_16_20%20PM.png)
+  ![Chat Screenshot](/src/assets/read/Vite%20+%20React%20-%20Google%20Chrome%2011_21_2024%209_16_20%20PM.png)
 
 ---
 
 ## 🧑‍💻 Developer
 
-- **baker Allozi** - [GitHub Profile](https://github.com/bakerAllozi)
+- **baker Allozi** - [GitHub Profile](https:/github.com/bakerAllozi)
