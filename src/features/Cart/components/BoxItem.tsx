@@ -1,4 +1,4 @@
-import MyProductType from '@/types/product.type';
+import { MyProductType } from '@/types/product.type';
 import useCartActions from '../../../hooks/useCartActions';
 
 function BoxItem() {
@@ -35,7 +35,7 @@ const Purchases = () => {
           className=" h-[72px] flex  justify-around      items-center  shadow-md  "
         >
           <span className="flex justify-around  items-center gap-3 w-[100px] sm:w-[250px]">
-            <img src={data.image} className=" w-10 h-10" />
+            <img src={String(data.image)} className=" w-10 h-10" />
             <p className=" text-[] ">
               {data.title.split(' ').slice(0, 3).join(' ')}
             </p>

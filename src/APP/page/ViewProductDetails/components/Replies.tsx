@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import useUpdateReview from '../../../../hooks/useUpdateReviews';
 import useUser from '../../../../hooks/useUser';
-import { ReviewType } from '@/types/review.type';
+import { CommentsOfProductType } from '@/types/CommentsOfProduct.type';
 
-function Replies({ review }: { review: ReviewType }) {
+function Replies({ review }: { review: CommentsOfProductType }) {
   const [showReplies, setShowReplies] = useState(false);
 
   const { updateReviewId } = useUpdateReview();

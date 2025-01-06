@@ -1,4 +1,4 @@
-import MyProductType from '@/types/product.type';
+import { MyProductType } from '@/types/product.type';
 import { createSlice } from '@reduxjs/toolkit';
 
 interface initialStateType {

@@ -1,5 +1,3 @@
-import { FieldValues, UseFormRegister } from 'react-hook-form';
-
 export interface CommentType {
   comment: string;
   yourRating: number;

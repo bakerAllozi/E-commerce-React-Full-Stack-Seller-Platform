@@ -136,13 +136,13 @@ const Details = ({
                 <p
                   className="bg-red-600 text-white  p-2  border-[1px] flex justify-center items-center cursor-pointer"
                   onClick={() =>
-                    updateQuantity.quantity === 1 ||
-                    handelDecrease(updateQuantity.id)
+                    updateQuantity?.quantity === 1 ||
+                    handelDecrease(String(updateQuantity?.id))
                   }
                 >
                   -
                 </p>
-                <p>{updateQuantity.quantity}</p>
+                <p>{updateQuantity?.quantity}</p>
                 <p
                   className="bg-red-600 text-white  p-2  border-[1px] flex justify-center items-center cursor-pointer"
                   onClick={() => handelIncrease(ProductDetails.id)}

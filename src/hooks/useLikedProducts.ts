@@ -18,7 +18,9 @@ const useLikedProducts = (product: MyProductType): UseLikedProductsReturn => {
     return { isLiked: false, handleLiked: () => {}, isLoading: false };
   }
 
-  const isLiked = product.product_like?.includes(user.id) || false;
+  const isLiked = product.product_like?.find((like) => like.userId === user.id)
+    ? true
+    : false;
 
   const handleLiked = () => {
     const productLikes: string[] = Array.isArray(product.product_like)

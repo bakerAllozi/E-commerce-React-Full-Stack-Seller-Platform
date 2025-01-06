@@ -10,7 +10,7 @@ export interface MyProductType {
   piecesRemaining: number;
   category: string;
   quantity: number;
-  product_like: string[];
+  product_like: string[] | unknown;
   price2?: number;
   stock: number;
   rating: {

@@ -1,4 +1,4 @@
-import MyProductType from '@/types/product.type';
+import { MyProductType } from '@/types/product.type';
 import { createSlice } from '@reduxjs/toolkit';
 
 interface initialStateType {
@@ -55,7 +55,7 @@ const cartReducer = createSlice({
     },
     calcPrice(state) {
       state.totalPrice = state.cartData.reduce(
-        (accumulator, item) => accumulator + item.price2,
+        (accumulator, item) => accumulator + (item.price2 ?? 0),
         0
       );
     },

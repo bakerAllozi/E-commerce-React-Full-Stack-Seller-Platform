@@ -5,13 +5,13 @@ import { v4 as uuidv4 } from 'uuid';
 import { useForm } from 'react-hook-form';
 import useUser from '../../../../hooks/useUser';
 import Replies from './Replies';
-import { ReviewType } from '@/types/review.type';
+import { CommentsOfProductType } from '@/types/CommentsOfProduct.type';
 
 function ProductReviews({
   reviews,
   productId,
 }: {
-  reviews: ReviewType[];
+  reviews: CommentsOfProductType[];
   productId: string;
 }) {
   const uniqueId = uuidv4();
@@ -26,13 +26,13 @@ function ProductReviews({
 
   async function onSubmit(newRow: { rating: number; comment: string }) {
     if (!user) return;
-    const newRowWithId: ReviewType = {
+    const newRowWithId: CommentsOfProductType = {
       ...newRow,
       id: uniqueId,
       name: user.name,
       Product_ID: productId,
       User_ID: user.id,
-      created_at: new Date().toISOString(),
+      created_at: new Date(),
       Replies: [],
     };
     mutate(newRowWithId);
@@ -47,7 +47,7 @@ function ProductReviews({
       <h2 className="text-xl font-semibold text-gray-800">Product Reviews</h2>
 
       {sortedReviews && sortedReviews.length > 0 ? (
-        sortedReviews.map((review: ReviewType, index: number) => (
+        sortedReviews.map((review: CommentsOfProductType, index: number) => (
           <div
             key={review.id}
             className="flex flex-col gap-3 p-4 border border-gray-200 rounded-lg shadow-sm bg-gray-50"

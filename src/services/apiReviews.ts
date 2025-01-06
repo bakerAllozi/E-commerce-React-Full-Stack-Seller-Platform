@@ -1,5 +1,5 @@
-import { ReviewType } from '@/types/review.type';
 import supabase from './supabase';
+import { CommentsOfProductType } from '@/types/CommentsOfProduct.type';
 
 export async function getReviews(productId: string) {
   const { data, error } = await supabase
@@ -12,9 +12,9 @@ export async function getReviews(productId: string) {
     throw new Error('Failed to fetch product reviews.');
   }
 
-  return data;
+  return data as CommentsOfProductType[];
 }
-export async function insertNewReview(newReview: ReviewType) {
+export async function insertNewReview(newReview: CommentsOfProductType) {
   const { data, error } = await supabase
     .from('Comments_of_product')
     .insert(newReview)
@@ -25,7 +25,7 @@ export async function insertNewReview(newReview: ReviewType) {
   }
   return data;
 }
-export async function updateReview(newRow: ReviewType) {
+export async function updateReview(newRow: CommentsOfProductType) {
   const { data, error } = await supabase
     .from('Comments_of_product')
     .update(newRow)

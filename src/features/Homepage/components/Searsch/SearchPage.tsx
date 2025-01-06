@@ -1,3 +1,4 @@
+import { MyProductType } from '@/types/product.type';
 import { useNavigate } from 'react-router-dom';
 
 function SearchPage({
@@ -5,11 +6,11 @@ function SearchPage({
   searchedProduct,
 }: {
   setSearchWorld: (value: string) => void;
-  searchedProduct: { id: number; title: string; image: string }[];
+  searchedProduct: MyProductType[];
 }) {
   const navigate = useNavigate();
 
-  function handelSetProductDetails(product: { id: number; title: string }) {
+  function handelSetProductDetails(product: { id: string; title: string }) {
     navigate(`/${product.id}`);
     setSearchWorld('');
   }
@@ -23,7 +24,7 @@ function SearchPage({
           onClick={() => handelSetProductDetails(product)}
         >
           <p>{product.title}</p>
-          <img src={product.image} className=" w-10 h-10" alt="" />
+          <img src={String(product.image)} className=" w-10 h-10" alt="" />
         </div>
       ))}
     </div>

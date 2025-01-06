@@ -121,7 +121,8 @@ const wishlistReducer = createSlice({
       );
       state.ChatUser = data.sort(
         (a, b) =>
-          new Date(a.created_at).getTime() - new Date(b.created_at).getTime()
+          new Date(a.created_at ?? 0).getTime() -
+          new Date(b.created_at ?? 0).getTime()
       );
       state.forHowYouChat = {
         id: action.payload.receiverId,

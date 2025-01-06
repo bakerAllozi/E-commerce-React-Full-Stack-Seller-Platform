@@ -4,13 +4,17 @@ import Details from './components/Details';
 import YouMayLike from './components/YouMayLike';
 import ProductReviews from './components/ProductReviews';
 import useReviews from '../../../hooks/useReviews';
+import { MyProductType } from '@/types/product.type';
 
 function ViewProductDetails() {
   const { appSelector } = useRedux();
   const { productId } = useParams();
-  const { data: Reviews } = useReviews(productId);
+  const productIdAsString = String(productId);
+  const { data: Reviews } = useReviews(productIdAsString);
   const { Data } = appSelector((state) => state.product);
-  const ProductDetails = Data.find((e) => e.id === productId);
+  const ProductDetails: MyProductType[] | any = Data.find(
+    (e) => e.id === productId
+  );
 
   return (
     <div className="flex flex-col gap-8">
@@ -22,9 +26,12 @@ function ViewProductDetails() {
             alt="Product"
           />
         </div>
-        <Details ProductDetails={ProductDetails} productId={productId} />
+        <Details
+          ProductDetails={ProductDetails}
+          productId={productIdAsString}
+        />
       </div>
-      <ProductReviews reviews={Reviews} productId={productId} />
+      <ProductReviews reviews={Reviews || []} productId={productIdAsString} />
 
       <YouMayLike ProductDetails={ProductDetails} />
     </div>

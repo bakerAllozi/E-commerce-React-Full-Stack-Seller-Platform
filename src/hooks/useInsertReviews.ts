@@ -1,11 +1,11 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { insertNewReview } from '../services/apiReviews';
-import { ReviewType } from '@/types/review.type';
+import { CommentsOfProductType } from '@/types/CommentsOfProduct.type';
 
 const useInsertNewReview = () => {
   const queryClient = useQueryClient();
   const { isLoading, mutate } = useMutation({
-    mutationFn: (row: ReviewType) => insertNewReview(row),
+    mutationFn: (row: CommentsOfProductType) => insertNewReview(row),
     onSuccess: () => {
       queryClient.invalidateQueries(['Reviews']);
     },

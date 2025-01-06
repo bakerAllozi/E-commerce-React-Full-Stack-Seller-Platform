@@ -2,9 +2,17 @@ import { motion } from 'framer-motion';
 import { faShoppingBasket } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import useWishlistAndCart from '../../../hooks/useWishlistAndCart';
-import React from 'react';
+import { MyProductType } from '@/types/product.type';
 
-function ImgEffects({ product, AddTo, noButton = false }) {
+function ImgEffects({
+  product,
+  AddTo,
+  noButton = false,
+}: {
+  product: MyProductType;
+  AddTo: string;
+  noButton?: boolean;
+}) {
   const { itemStatus, itAdd, handleAddToWishlist } =
     useWishlistAndCart(product);
 
@@ -29,7 +37,7 @@ function ImgEffects({ product, AddTo, noButton = false }) {
         }}
         transition={{ delay: 0, type: 'tween', duration: 2 }}
         className="  h-44 w-44"
-        src={product.image}
+        src={String(product.image)}
         alt={product.id}
       />
 

@@ -9,7 +9,9 @@ function Like() {
   const { appSelector } = useRedux();
   const { Data } = appSelector((state) => state.product);
   const { user } = useUser();
-  const productsILiked = Data.filter((e) => e.product_like?.includes(user?.id));
+  const productsILiked = Data.filter((e) =>
+    e.product_like?.includes(String(user?.id))
+  );
 
   return (
     <div>
