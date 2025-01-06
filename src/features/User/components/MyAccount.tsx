@@ -1,9 +1,9 @@
-import { useForm } from "react-hook-form";
-import Input from "../../../ui/Input";
-import Spinner from "../../../ui/Spinner";
-import { useUpdateUser } from "../../../hooks/useUpdateUser";
-import useUser from "../../../hooks/useUser";
-import { UserType } from "@/types/user.type";
+import { useForm } from 'react-hook-form';
+import Input from '../../../ui/Input';
+import Spinner from '../../../ui/Spinner';
+import { useUpdateUser } from '../../../hooks/useUpdateUser';
+import useUser from '../../../hooks/useUser';
+import { UserType } from '@/types/user.type';
 type FormData = {
   name: string;
   image: string;
@@ -37,27 +37,27 @@ function MyAccount() {
           className="mt-9 flex flex-col gap-12 p-6 bg-white rounded-lg shadow-lg"
         >
           <Input
-            label={"Name"}
+            label={'Name'}
             register={register}
-            type={"text"}
-            name={"name"}
+            type={'text'}
+            name={'name'}
             min={0}
             max={99999}
           />
           {/* className="p-2 border border-gray-300 rounded-md shadow-sm focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50" */}
 
           <Input
-            label={"Image"}
+            label={'Image'}
             register={register}
-            type={"file"}
-            name={"image"}
+            type={'file'}
+            name={'image'}
           />
 
           <Input
-            label={"Password"}
+            label={'Password'}
             register={register}
-            type={"password"}
-            name={"password"}
+            type={'password'}
+            name={'password'}
           />
 
           <button

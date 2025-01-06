@@ -3,11 +3,11 @@ import {
   faInstagram,
   faLinkedin,
   faTwitter,
-} from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "react-router-dom";
-import Image from "../../assets/Frame 720.png";
-import React from "react";
+} from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from 'react-router-dom';
+import Image from '../../assets/Frame 720.png';
+import React from 'react';
 function Footer() {
   return (
     <>

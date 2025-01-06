@@ -1,5 +1,5 @@
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { updateCurrentUser } from "../services/apiAuth";
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { updateCurrentUser } from '../services/apiAuth';
 
 export function useUpdateUser() {
   const queryClient = useQueryClient();
@@ -7,8 +7,8 @@ export function useUpdateUser() {
   const { mutate: updateUser, isLoading: isUpdating } = useMutation({
     mutationFn: updateCurrentUser,
     onSuccess: (user) => {
-      queryClient.setQueryData(["user"], user);
-      queryClient.invalidateQueries(["user"]);
+      queryClient.setQueryData(['user'], user);
+      queryClient.invalidateQueries(['user']);
     },
     onError: (err) => console.log(err),
   });

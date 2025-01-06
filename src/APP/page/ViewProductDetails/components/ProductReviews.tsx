@@ -1,11 +1,11 @@
-import useInsertNewReview from "../../../../hooks/useInsertReviews";
-import Input from "../../../../ui/Input";
-import StarRating from "./StarRating";
-import { v4 as uuidv4 } from "uuid";
-import { useForm } from "react-hook-form";
-import useUser from "../../../../hooks/useUser";
-import Replies from "./Replies";
-import { ReviewType } from "@/types/review.type";
+import useInsertNewReview from '../../../../hooks/useInsertReviews';
+import Input from '../../../../ui/Input';
+import StarRating from './StarRating';
+import { v4 as uuidv4 } from 'uuid';
+import { useForm } from 'react-hook-form';
+import useUser from '../../../../hooks/useUser';
+import Replies from './Replies';
+import { ReviewType } from '@/types/review.type';
 
 function ProductReviews({
   reviews,
@@ -61,12 +61,12 @@ function ProductReviews({
             <p className="text-base text-gray-800">{review.comment}</p>
             <p className="text-xs text-gray-500">By {review.name}</p>
             <div className="text-xs text-gray-400">
-              {new Date(review.created_at).toLocaleDateString("en-US", {
-                year: "numeric",
-                month: "short",
-                day: "numeric",
-                hour: "2-digit",
-                minute: "2-digit",
+              {new Date(review.created_at).toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
               })}
             </div>
 
@@ -86,8 +86,8 @@ function ProductReviews({
         <div className="flex items-center gap-2">
           <label className="text-sm text-gray-600">Rating:</label>
           <select
-            {...register("rating", {
-              required: "Rating is required",
+            {...register('rating', {
+              required: 'Rating is required',
               valueAsNumber: true,
             })}
             className="p-2 border border-gray-300 rounded"
@@ -107,7 +107,7 @@ function ProductReviews({
         </div>
 
         <Input
-          label={"Comment"}
+          label={'Comment'}
           register={register}
           name="comment"
           type="text"

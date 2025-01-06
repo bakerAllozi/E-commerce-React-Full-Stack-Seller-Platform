@@ -1,8 +1,8 @@
-import { MyProductType } from "@/types/product.type";
-import { getProductsILiked } from "../features/Homepage/HomepageSlice";
-import useRedux from "./useRedux";
-import useUpdateProduct from "./useUpdateProduct";
-import useUser from "./useUser";
+import { MyProductType } from '@/types/product.type';
+import { getProductsILiked } from '../features/Homepage/HomepageSlice';
+import useRedux from './useRedux';
+import useUpdateProduct from './useUpdateProduct';
+import useUser from './useUser';
 interface UseLikedProductsReturn {
   isLiked: boolean;
   handleLiked: () => void;

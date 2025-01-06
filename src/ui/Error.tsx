@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 function Error({
-  type = "404 Not Found",
-  text = "Your visited page not found You may go home page.",
+  type = '404 Not Found',
+  text = 'Your visited page not found You may go home page.',
   NoBack = false,
 }: {
   type?: string;

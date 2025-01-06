@@ -2,8 +2,8 @@ import {
   calcPrice,
   decreaseQuantity,
   increaseQuantity,
-} from "../features/Cart/CartSlice";
-import useRedux from "./useRedux";
+} from '../features/Cart/CartSlice';
+import useRedux from './useRedux';
 
 const useCartActions = () => {
   const { dispatch, appSelector } = useRedux();

@@ -1,5 +1,5 @@
-import { UserType } from "@/types/user.type";
-import supabase from "./supabase";
+import { UserType } from '@/types/user.type';
+import supabase from './supabase';
 
 export async function login({
   email,
@@ -35,7 +35,7 @@ export async function signup({
     options: {
       data: {
         name,
-        avatar: "",
+        avatar: '',
       },
     },
   });
@@ -52,24 +52,24 @@ export async function getCurrentUser(): Promise<UserType> {
 
   if (!session.session)
     return {
-      id: "",
-      name: "",
-      email: "",
-      role: "",
-      avatar: "",
+      id: '',
+      name: '',
+      email: '',
+      role: '',
+      avatar: '',
     } as UserType;
 
   const { data: userData, error: userError } = await supabase.auth.getUser();
   if (userError) throw new Error(userError.message);
 
   const { error: fetchError } = await supabase
-    .from("User")
-    .select("*")
-    .eq("id", userData.user.id)
+    .from('User')
+    .select('*')
+    .eq('id', userData.user.id)
     .single();
 
   if (fetchError) {
-    const { error: insertError } = await supabase.from("User").insert({
+    const { error: insertError } = await supabase.from('User').insert({
       id: userData.user.id,
       name: userData.user.user_metadata.name,
       avatar: userData.user.user_metadata.avatar,
@@ -105,7 +105,7 @@ export async function updateCurrentUser(newRow: {
       const fileName = `avatar-${Math.random().toString(36).substring(2, 15)}`;
 
       const { error: storageError } = await supabase.storage
-        .from("avatar")
+        .from('avatar')
         .upload(fileName, newRow.image);
 
       if (storageError)
@@ -133,18 +133,18 @@ export async function updateCurrentUser(newRow: {
     };
 
     const { error: dbError } = await supabase
-      .from("User")
+      .from('User')
       .update(dbUpdate)
-      .eq("id", newRow.id);
+      .eq('id', newRow.id);
 
     if (dbError) throw new Error(`Database error: ${dbError.message}`);
 
     return updateUser;
   } catch (error) {
     if (error instanceof Error) {
-      console.error("Error updating user:", error.message);
+      console.error('Error updating user:', error.message);
     } else {
-      console.error("Error updating user:", error);
+      console.error('Error updating user:', error);
     }
     throw error;
   }

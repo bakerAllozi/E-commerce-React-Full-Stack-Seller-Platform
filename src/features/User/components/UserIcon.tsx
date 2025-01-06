@@ -5,15 +5,15 @@ import {
   faStar,
   faStore,
   faUser,
-} from "@fortawesome/free-solid-svg-icons";
+} from '@fortawesome/free-solid-svg-icons';
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState, useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
-import useUser from "../../../hooks/useUser";
-import useLogout from "../../../hooks/useLogout";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useState, useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import useUser from '../../../hooks/useUser';
+import useLogout from '../../../hooks/useLogout';
 
-const defaultAvatar = "/default-avatar.png";
+const defaultAvatar = '/default-avatar.png';
 
 function UserIcon() {
   const { logout } = useLogout();
@@ -27,9 +27,9 @@ function UserIcon() {
         setOpine(false);
       }
     };
-    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside);
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
 

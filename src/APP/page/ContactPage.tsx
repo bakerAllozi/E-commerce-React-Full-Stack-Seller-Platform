@@ -1,5 +1,5 @@
-import { faInbox, faPhone } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faInbox, faPhone } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function ContactPage() {
   return (
@@ -7,12 +7,12 @@ function ContactPage() {
       <form className="shadow-md w-[100%] lg:max-w-[800px] h-[100%] md:h-[557px] p-12    ">
         <div className="flex  lg:flex-row   flex-col  gap-8   mb-11">
           <input
-            type={"text"}
+            type={'text'}
             className=" rounded-sm h-8 focus:outline-none  px-2 bg-[#F5F5F5] w-[100%]     "
             placeholder="Your Name "
           />
           <input
-            type={"text"}
+            type={'text'}
             className=" rounded-sm h-8 focus:outline-none  px-2 bg-[#F5F5F5] w-[100%]     "
             placeholder="Your Name "
           />

@@ -1,13 +1,13 @@
-import RandomProduct from "./components/RandomProduct";
-import Sidebar from "./components/Sidebar";
-import FlachSales from "./components/FlachSales";
-import CategorySales from "./components/CategorySales";
-import BestSellingProducts from "./components/BestSellingProducts";
-import MusicBox from "./components/MusicBox";
-import ExploreProducts from "./components/ExploreProducts";
-import Information from "./components/Information";
-import SearchBar from "./components/Searsch/SearchBar";
-import { NavLink } from "react-router-dom";
+import RandomProduct from './components/RandomProduct';
+import Sidebar from './components/Sidebar';
+import FlachSales from './components/FlachSales';
+import CategorySales from './components/CategorySales';
+import BestSellingProducts from './components/BestSellingProducts';
+import MusicBox from './components/MusicBox';
+import ExploreProducts from './components/ExploreProducts';
+import Information from './components/Information';
+import SearchBar from './components/Searsch/SearchBar';
+import { NavLink } from 'react-router-dom';
 function Homepage() {
   return (
     <div className="flex flex-col gap-[500px] overflow-hidden">

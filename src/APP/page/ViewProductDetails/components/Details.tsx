@@ -1,16 +1,16 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart } from "@fortawesome/free-solid-svg-icons";
-import useLikedProducts from "../../../../hooks/useLikedProducts";
-import { gitCartItem } from "../../../../features/Cart/CartSlice";
-import { useNavigate } from "react-router-dom";
-import useWishlistAndCart from "../../../../hooks/useWishlistAndCart";
-import useCartActions from "../../../../hooks/useCartActions";
-import "swiper/css";
-import { showChatUser } from "../../../../features/User/userSlice";
-import useUser from "../../../../hooks/useUser";
-import Stars from "../../../../features/Homepage/ui/Stars";
-import useRedux from "../../../../hooks/useRedux";
-import { MyProductType } from "@/types/product.type";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import useLikedProducts from '../../../../hooks/useLikedProducts';
+import { gitCartItem } from '../../../../features/Cart/CartSlice';
+import { useNavigate } from 'react-router-dom';
+import useWishlistAndCart from '../../../../hooks/useWishlistAndCart';
+import useCartActions from '../../../../hooks/useCartActions';
+import 'swiper/css';
+import { showChatUser } from '../../../../features/User/userSlice';
+import useUser from '../../../../hooks/useUser';
+import Stars from '../../../../features/Homepage/ui/Stars';
+import useRedux from '../../../../hooks/useRedux';
+import { MyProductType } from '@/types/product.type';
 const Details = ({
   ProductDetails,
   productId,
@@ -30,11 +30,11 @@ const Details = ({
 
   const handelViewProduct = () => {
     checkIfItIsInCart
-      ? navigate("/Cart")
+      ? navigate('/Cart')
       : dispatch(
           gitCartItem([{ ...ProductDetails, price2: ProductDetails.price }])
         );
-    navigate("/Cart");
+    navigate('/Cart');
   };
 
   const { forHowYouChat } = appSelector((state) => state.UserData);
@@ -45,7 +45,7 @@ const Details = ({
 
   const handelOpenChatPage = () => {
     if (!user) {
-      navigate("/Login");
+      navigate('/Login');
       return;
     }
     dispatch(
@@ -88,20 +88,20 @@ const Details = ({
         <div className="flex gap-1 ">
           <p
             style={{
-              width: "15px",
-              height: "15px",
-              borderRadius: "50%",
+              width: '15px',
+              height: '15px',
+              borderRadius: '50%',
               backgroundColor: ProductDetails.color.color1,
-              cursor: "pointer",
+              cursor: 'pointer',
             }}
           ></p>
           <p
             style={{
-              width: "15px",
-              height: "15px",
-              borderRadius: "50%",
+              width: '15px',
+              height: '15px',
+              borderRadius: '50%',
               backgroundColor: ProductDetails.color.color2,
-              cursor: "pointer",
+              cursor: 'pointer',
             }}
           ></p>
         </div>
@@ -127,7 +127,7 @@ const Details = ({
         </div>
       </div>
       <div className="flex gap-6">
-        {itemStatus === "Out Of Stock" ? (
+        {itemStatus === 'Out Of Stock' ? (
           <p className="  font-bold"> Out Of Stock</p>
         ) : (
           <>
@@ -167,7 +167,7 @@ const Details = ({
         >
           <FontAwesomeIcon
             icon={faHeart}
-            className={`${isLiked && "text-red-600"}`}
+            className={`${isLiked && 'text-red-600'}`}
           />
         </p>
       </div>

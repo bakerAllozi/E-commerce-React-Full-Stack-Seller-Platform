@@ -1,10 +1,10 @@
-import supabase from "./supabase";
+import supabase from './supabase';
 
 export async function trackUserPresence(
   userId: string,
   onUpdate: (change: number, users: string[]) => void
 ): Promise<() => void> {
-  const channel = supabase.channel("online-users", {
+  const channel = supabase.channel('online-users', {
     config: {
       presence: {
         key: userId,
@@ -13,7 +13,7 @@ export async function trackUserPresence(
   });
 
   await channel.subscribe((status: string) => {
-    if (status === "SUBSCRIBED") {
+    if (status === 'SUBSCRIBED') {
       channel.track({ userId });
     }
   });
@@ -34,8 +34,8 @@ export async function trackUserPresence(
     updatePresence(-event.leftPresences.length, users);
   };
 
-  channel.on("presence", { event: "join" }, handleJoin);
-  channel.on("presence", { event: "leave" }, handleLeave);
+  channel.on('presence', { event: 'join' }, handleJoin);
+  channel.on('presence', { event: 'leave' }, handleLeave);
 
   const unsubscribe = (): void => {
     channel.unsubscribe();

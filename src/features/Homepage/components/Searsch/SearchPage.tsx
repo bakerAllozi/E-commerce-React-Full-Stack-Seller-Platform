@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 function SearchPage({
   setSearchWorld,
@@ -11,7 +11,7 @@ function SearchPage({
 
   function handelSetProductDetails(product: { id: number; title: string }) {
     navigate(`/${product.id}`);
-    setSearchWorld("");
+    setSearchWorld('');
   }
   return (
     <div className=" w-full   h-fit   max-h-96   bg-white  border-[1px] absolute overflow-y-scroll right-0 top-10 z-50  ">

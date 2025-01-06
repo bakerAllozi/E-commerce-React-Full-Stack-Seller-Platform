@@ -1,10 +1,10 @@
-import { getReviews } from "../services/apiReviews";
+import { getReviews } from '../services/apiReviews';
 
-import { useQuery } from "@tanstack/react-query";
+import { useQuery } from '@tanstack/react-query';
 
 const useReviews = (id: string) => {
   const { data, isLoading } = useQuery({
-    queryKey: ["Reviews"],
+    queryKey: ['Reviews'],
     queryFn: () => getReviews(id),
     refetchInterval: 5000,
   });

@@ -1,69 +1,69 @@
-import "../../index.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { lazy, Suspense, useEffect, useCallback } from "react";
-import { useQuery } from "@tanstack/react-query";
-import Loading from "../ui/Loading";
-import useReadChats from "../hooks/useReadChats";
-import useUser from "../hooks/useUser";
-import useRedux from "../hooks/useRedux";
-import usePublicUser from "../hooks/usePublicUser";
+import '../../index.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { lazy, Suspense, useEffect, useCallback } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import Loading from '../ui/Loading';
+import useReadChats from '../hooks/useReadChats';
+import useUser from '../hooks/useUser';
+import useRedux from '../hooks/useRedux';
+import usePublicUser from '../hooks/usePublicUser';
 import {
   fetchProductItem,
   gitBestSellingProducts,
   gitRandomProduct,
-} from "../features/Homepage/HomepageSlice";
+} from '../features/Homepage/HomepageSlice';
 import {
   getDataChats,
   splitDataChat,
   setNewAvatarUser,
-} from "../features/User/userSlice";
-import { getProductToWishlist } from "../features/Wishlist/wishlistSlice";
-import { getDataOfProduct } from "../services/apiDataOfProduct";
+} from '../features/User/userSlice';
+import { getProductToWishlist } from '../features/Wishlist/wishlistSlice';
+import { getDataOfProduct } from '../services/apiDataOfProduct';
 
-const Cart = lazy(() => import("../features/Cart/Cart"));
-const MyAccount = lazy(() => import("../features/User/components/MyAccount"));
-const CheckOut = lazy(() => import("../ui/CheckOut"));
-const Gg = lazy(() => import("../features/User/components/Gg"));
+const Cart = lazy(() => import('../features/Cart/Cart'));
+const MyAccount = lazy(() => import('../features/User/components/MyAccount'));
+const CheckOut = lazy(() => import('../ui/CheckOut'));
+const Gg = lazy(() => import('../features/User/components/Gg'));
 
 const ChatPage = lazy(
-  () => import("../features/User/components/cahtUser/ChatPage")
+  () => import('../features/User/components/cahtUser/ChatPage')
 );
 
 const MessageNotifications = lazy(
-  () => import("../features/User/components/cahtUser/MessageNotifications")
+  () => import('../features/User/components/cahtUser/MessageNotifications')
 );
-const Login = lazy(() => import("../features/auth/Login"));
-const SignUp = lazy(() => import("../features/auth/SignUp"));
+const Login = lazy(() => import('../features/auth/Login'));
+const SignUp = lazy(() => import('../features/auth/SignUp'));
 
-const Homepage = lazy(() => import("../features/Homepage/Homepage"));
-const ContactPage = lazy(() => import("./page/ContactPage"));
+const Homepage = lazy(() => import('../features/Homepage/Homepage'));
+const ContactPage = lazy(() => import('./page/ContactPage'));
 
-const About = lazy(() => import("./page/About"));
-const Wishlist = lazy(() => import("../features/Wishlist/Wishlist"));
-const LikePage = lazy(() => import("./page/LikePage"));
-const UserPage = lazy(() => import("../features/User/UserPage"));
-const Error = lazy(() => import("../ui/Error"));
-const ViewByCategory = lazy(() => import("./page/ViewByCategory"));
+const About = lazy(() => import('./page/About'));
+const Wishlist = lazy(() => import('../features/Wishlist/Wishlist'));
+const LikePage = lazy(() => import('./page/LikePage'));
+const UserPage = lazy(() => import('../features/User/UserPage'));
+const Error = lazy(() => import('../ui/Error'));
+const ViewByCategory = lazy(() => import('./page/ViewByCategory'));
 const ViewProductDetails = lazy(
-  () => import("./page/ViewProductDetails/ViewProductDetails")
+  () => import('./page/ViewProductDetails/ViewProductDetails')
 );
 const AddNewProduct = lazy(
-  () => import("../features/User/components/AddNewProduct")
+  () => import('../features/User/components/AddNewProduct')
 );
 const Commentpage = lazy(
-  () => import("../components/Navbar/components/Comment/Commentpage")
+  () => import('../components/Navbar/components/Comment/Commentpage')
 );
-import AppLayout from "./AppLayout";
-import { Elements } from "@stripe/react-stripe-js";
-import { loadStripe, Stripe } from "@stripe/stripe-js";
-import { MyProductType } from "../types/product.type";
+import AppLayout from './AppLayout';
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe, Stripe } from '@stripe/stripe-js';
+import { MyProductType } from '../types/product.type';
 
 function App() {
   const { dispatch, appSelector } = useRedux();
   const { user } = useUser();
   const userId = user?.id;
   const { data } = useQuery<MyProductType[]>({
-    queryKey: ["DataOfProduct"],
+    queryKey: ['DataOfProduct'],
     queryFn: getDataOfProduct,
     staleTime: 5 * 60 * 1000,
     cacheTime: 10 * 60 * 1000,
@@ -71,7 +71,7 @@ function App() {
 
   const { Data } = appSelector((state) => state.product);
 
-  const { data: chatData } = useReadChats(userId || "");
+  const { data: chatData } = useReadChats(userId || '');
 
   const { data: ALLUserData } = usePublicUser();
 
@@ -101,7 +101,7 @@ function App() {
   }, [Data, chatData, dispatch, userId, ALLUserData]);
 
   const stripePromise: Promise<Stripe | null> = loadStripe(
-    "pk_test_51QPYMAKxnNgqIQklhBT5FTH7UU1rPPpPP78wG0n7dsGfze107LYUk1WhLbMs5mzZj6DPfYOpRkLQD88UvgZdbD6P00dGYGvcBE"
+    'pk_test_51QPYMAKxnNgqIQklhBT5FTH7UU1rPPpPP78wG0n7dsGfze107LYUk1WhLbMs5mzZj6DPfYOpRkLQD88UvgZdbD6P00dGYGvcBE'
   );
 
   return (

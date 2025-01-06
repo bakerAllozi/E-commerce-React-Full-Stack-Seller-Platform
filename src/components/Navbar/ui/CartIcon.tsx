@@ -1,8 +1,8 @@
-import { faCreditCard } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { NavLink } from "react-router-dom";
-import { motion } from "framer-motion";
-import useRedux from "@/hooks/useRedux";
+import { faCreditCard } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { NavLink } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import useRedux from '@/hooks/useRedux';
 
 function CartIcon() {
   const { appSelector } = useRedux();
@@ -13,7 +13,7 @@ function CartIcon() {
         {cartData.length > 0 && (
           <motion.p
             animate={{ y: [0, -10, 0] }}
-            transition={{ delay: 0, type: "tween", duration: 0.2 }}
+            transition={{ delay: 0, type: 'tween', duration: 0.2 }}
             className=" bg-red-600  w-2 h-2  p-2  right-1   top-[-10px]  flex justify-center items-center text-xs  rounded-full  absolute  text-white"
           >
             {cartData.length}

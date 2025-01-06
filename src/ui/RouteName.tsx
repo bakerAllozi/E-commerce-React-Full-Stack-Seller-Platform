@@ -1,5 +1,5 @@
-import { MyProductType } from "@/types/product.type";
-import { BarChart } from "@mui/x-charts/BarChart";
+import { MyProductType } from '@/types/product.type';
+import { BarChart } from '@mui/x-charts/BarChart';
 
 export default function ChartsOverviewDemo({
   userProduct,
@@ -16,7 +16,7 @@ export default function ChartsOverviewDemo({
       xAxis={[
         {
           data: randomNameArray,
-          scaleType: "band",
+          scaleType: 'band',
         },
       ]}
       margin={{ top: 10, bottom: 30, left: 40, right: 10 }}

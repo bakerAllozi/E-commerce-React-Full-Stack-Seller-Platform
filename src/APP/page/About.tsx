@@ -1,20 +1,20 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faLuggageCart,
   faMoneyBill,
   faStore,
-} from "@fortawesome/free-solid-svg-icons";
-import { faMoneyBillAlt } from "@fortawesome/free-solid-svg-icons/faMoneyBillAlt";
-import ShowProduct from "../../features/Homepage/ui/ShowProduct";
-import Information from "../../features/Homepage/components/Information";
-import BlackFridayImage from "../../assets/black-friday-elements-assortment_23-2149074075.png";
-import { IconProp } from "@fortawesome/fontawesome-svg-core";
+} from '@fortawesome/free-solid-svg-icons';
+import { faMoneyBillAlt } from '@fortawesome/free-solid-svg-icons/faMoneyBillAlt';
+import ShowProduct from '../../features/Homepage/ui/ShowProduct';
+import Information from '../../features/Homepage/components/Information';
+import BlackFridayImage from '../../assets/black-friday-elements-assortment_23-2149074075.png';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
 const categories = [
-  { name: "Monthly Product Sale", icons: faMoneyBill },
-  { name: "Customers active on our site", icons: faLuggageCart },
-  { name: "Annual gross sale on our site", icons: faMoneyBillAlt },
-  { name: "Sellers active on our site", icons: faStore },
+  { name: 'Monthly Product Sale', icons: faMoneyBill },
+  { name: 'Customers active on our site', icons: faLuggageCart },
+  { name: 'Annual gross sale on our site', icons: faMoneyBillAlt },
+  { name: 'Sellers active on our site', icons: faStore },
 ];
 
 function About() {

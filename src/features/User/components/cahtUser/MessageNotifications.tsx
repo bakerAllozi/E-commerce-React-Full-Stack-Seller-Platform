@@ -1,12 +1,12 @@
-import { useNavigate } from "react-router-dom";
-import useRedux from "../../../../hooks/useRedux";
-import { showChatUser } from "../../userSlice";
-import usePublicUser from "../../../../hooks/usePublicUser";
-import Spinner from "../../../../ui/Spinner";
-import useUser from "../../../../hooks/useUser";
-import ReceiverUser from "./ReceiverUser";
-import ChatComponent from "../../../../ui/ChatComponent ";
-import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
+import useRedux from '../../../../hooks/useRedux';
+import { showChatUser } from '../../userSlice';
+import usePublicUser from '../../../../hooks/usePublicUser';
+import Spinner from '../../../../ui/Spinner';
+import useUser from '../../../../hooks/useUser';
+import ReceiverUser from './ReceiverUser';
+import ChatComponent from '../../../../ui/ChatComponent ';
+import { useState } from 'react';
 
 function MessageNotifications() {
   const { appSelector, dispatch } = useRedux();

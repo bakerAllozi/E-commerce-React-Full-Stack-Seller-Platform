@@ -1,6 +1,6 @@
-import ShowProduct from "../ui/ShowProduct";
-import BoxBroduct from "../ui/BoxBroduct";
-import useRedux from "../../../hooks/useRedux";
+import ShowProduct from '../ui/ShowProduct';
+import BoxBroduct from '../ui/BoxBroduct';
+import useRedux from '../../../hooks/useRedux';
 
 function BestSellingProducts() {
   const { appSelector } = useRedux();

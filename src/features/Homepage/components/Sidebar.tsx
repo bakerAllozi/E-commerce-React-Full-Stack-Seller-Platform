@@ -1,6 +1,6 @@
-import { useNavigate } from "react-router-dom";
-import useRedux from "../../../hooks/useRedux";
-import { setCategoryName } from "../HomepageSlice";
+import { useNavigate } from 'react-router-dom';
+import useRedux from '../../../hooks/useRedux';
+import { setCategoryName } from '../HomepageSlice';
 
 function Sidebar() {
   return (
@@ -28,7 +28,7 @@ const CreateNaveLink = ({ categoryName }: { categoryName: string }) => {
   const { dispatch } = useRedux();
 
   const handleBaker = () => {
-    navigate("/CategoryPage");
+    navigate('/CategoryPage');
     dispatch(setCategoryName(categoryName));
   };
   return (

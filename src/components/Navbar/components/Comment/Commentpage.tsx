@@ -1,32 +1,32 @@
-import { useQuery } from "@tanstack/react-query";
-import { getComments } from "../../../../services/apiComments";
-import Stars from "../../../../features/Homepage/ui/Stars";
-import Loading from "../../../../ui/Loading";
-import { useState } from "react";
-import Form from "./components/Form";
-import { CommentType } from "@/types/comment.type";
+import { useQuery } from '@tanstack/react-query';
+import { getComments } from '../../../../services/apiComments';
+import Stars from '../../../../features/Homepage/ui/Stars';
+import Loading from '../../../../ui/Loading';
+import { useState } from 'react';
+import Form from './components/Form';
+import { CommentType } from '@/types/comment.type';
 
 function Commentpage() {
-  const [sortBy, setSortBy] = useState<string>("From the latest");
+  const [sortBy, setSortBy] = useState<string>('From the latest');
   const [showForm, setShowForm] = useState<boolean>(false);
 
   const { data } = useQuery({
-    queryKey: ["comments"],
+    queryKey: ['comments'],
     queryFn: getComments,
   });
 
   const sortFunctions: {
     [key: string]: (a: CommentType, b: CommentType) => number;
   } = {
-    "From the latest": (a, b) =>
+    'From the latest': (a, b) =>
       new Date(b.created_at ?? 0).getTime() -
       new Date(a.created_at ?? 0).getTime(),
-    "From the oldest": (a, b) =>
+    'From the oldest': (a, b) =>
       new Date(a.created_at ?? 0).getTime() -
       new Date(b.created_at ?? 0).getTime(),
-    "Least rating": (a, b) => a.yourRating - b.yourRating,
-    "Highest rating": (a, b) => b.yourRating - a.yourRating,
-    "alphabetical order": (a, b) => a.comment?.localeCompare(b.comment),
+    'Least rating': (a, b) => a.yourRating - b.yourRating,
+    'Highest rating': (a, b) => b.yourRating - a.yourRating,
+    'alphabetical order': (a, b) => a.comment?.localeCompare(b.comment),
   };
 
   if (sortBy && sortFunctions[sortBy]) {
@@ -64,7 +64,7 @@ function Commentpage() {
             )}
             <div
               className={`flex  gap-3 flex-col    items-center sm:w-[100%] min-w-[300px] m-4  ml-6 relative  h-[500px]  overflow-y-scroll ${
-                showForm && "mt-80  sm:mt-0"
+                showForm && 'mt-80  sm:mt-0'
               }`}
             >
               {data.map((arr) => (

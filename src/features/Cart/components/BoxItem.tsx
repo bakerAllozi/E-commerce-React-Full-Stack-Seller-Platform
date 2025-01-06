@@ -1,5 +1,5 @@
-import MyProductType from "@/types/product.type";
-import useCartActions from "../../../hooks/useCartActions";
+import MyProductType from '@/types/product.type';
+import useCartActions from '../../../hooks/useCartActions';
 
 function BoxItem() {
   return (
@@ -37,7 +37,7 @@ const Purchases = () => {
           <span className="flex justify-around  items-center gap-3 w-[100px] sm:w-[250px]">
             <img src={data.image} className=" w-10 h-10" />
             <p className=" text-[] ">
-              {data.title.split(" ").slice(0, 3).join(" ")}
+              {data.title.split(' ').slice(0, 3).join(' ')}
             </p>
           </span>
           <span className=" w-[60px] ">

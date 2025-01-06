@@ -1,4 +1,4 @@
-import { FieldValues, UseFormRegister } from "react-hook-form";
+import { FieldValues, UseFormRegister } from 'react-hook-form';
 
 interface FormData {
   name?: string;
@@ -20,7 +20,7 @@ interface FormData {
 
 interface InputProps {
   register: UseFormRegister<{ [key: string]: any }> | any;
-  type?: "text" | "number" | "email" | "password" | "file";
+  type?: 'text' | 'number' | 'email' | 'password' | 'file';
   name: keyof FormData;
   label?: string;
   placeholder?: string;
@@ -33,15 +33,15 @@ interface InputProps {
 
 const Input = ({
   register,
-  type = "text",
+  type = 'text',
   name,
   label,
-  placeholder = "",
+  placeholder = '',
   min,
   max,
   step = 1,
   required = true,
-  additionalClasses = "",
+  additionalClasses = '',
 }: InputProps) => {
   return (
     <div className="flex flex-col gap-2">
@@ -54,11 +54,11 @@ const Input = ({
         </label>
       )}
 
-      {type !== "number" ? (
+      {type !== 'number' ? (
         <input
           id={name}
           type={type}
-          accept={type === "file" ? "image/*" : undefined}
+          accept={type === 'file' ? 'image/*' : undefined}
           placeholder={placeholder}
           className={`w-full px-3 py-3 rounded-md border border-gray-300 bg-gray-100 text-gray-800 placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-200 transition-shadow duration-300 ease-in-out ${additionalClasses}`}
           {...register(name)}

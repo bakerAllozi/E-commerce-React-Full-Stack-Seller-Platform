@@ -1,5 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { MyProductType } from "../../types/product.type";
+import { createSlice } from '@reduxjs/toolkit';
+import { MyProductType } from '../../types/product.type';
 
 interface initialStateType {
   Data: MyProductType[];
@@ -21,7 +21,7 @@ const initialState: initialStateType = {
 };
 
 const HomepageReducer = createSlice({
-  name: "Homepage",
+  name: 'Homepage',
   initialState,
   reducers: {
     fetchProductItem(state, action) {

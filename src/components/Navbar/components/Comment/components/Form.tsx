@@ -1,9 +1,9 @@
-import { insertNewComment } from "../../../../../services/apiComments";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { v4 as uuidv4 } from "uuid";
-import Input from "../../../../../ui/Input";
-import { useForm, SubmitHandler } from "react-hook-form";
-import { CommentType } from "@/types/comment.type";
+import { insertNewComment } from '../../../../../services/apiComments';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { v4 as uuidv4 } from 'uuid';
+import Input from '../../../../../ui/Input';
+import { useForm, SubmitHandler } from 'react-hook-form';
+import { CommentType } from '@/types/comment.type';
 
 function Form({ setShowForm }: { setShowForm: (e: boolean) => void }) {
   interface FormData {
@@ -30,15 +30,15 @@ function Form({ setShowForm }: { setShowForm: (e: boolean) => void }) {
   const { isLoading, mutate } = useMutation({
     mutationFn: (row: CommentType) => insertNewComment(row),
     onSuccess: () => {
-      alert("Comment posted successfully");
-      queryClient.invalidateQueries({ queryKey: ["comments"] });
+      alert('Comment posted successfully');
+      queryClient.invalidateQueries({ queryKey: ['comments'] });
       reset();
     },
     onError: (err) => {
       if (err instanceof Error) {
         alert(err.message);
       } else {
-        alert("An unknown error occurred");
+        alert('An unknown error occurred');
       }
     },
   });
@@ -65,24 +65,24 @@ function Form({ setShowForm }: { setShowForm: (e: boolean) => void }) {
       </h2>
 
       <Input
-        label={"Your Name"}
+        label={'Your Name'}
         register={register}
-        type={"text"}
-        name={"yourName"}
+        type={'text'}
+        name={'yourName'}
       />
 
       <Input
-        label={"Comment"}
+        label={'Comment'}
         register={register}
-        type={"text"}
-        name={"comment"}
+        type={'text'}
+        name={'comment'}
       />
 
       <Input
-        label={"Your Rating"}
+        label={'Your Rating'}
         register={register}
-        type={"number"}
-        name={"yourRating"}
+        type={'number'}
+        name={'yourRating'}
         min={1}
         max={5}
       />
@@ -92,7 +92,7 @@ function Form({ setShowForm }: { setShowForm: (e: boolean) => void }) {
         className="p-2 mt-8 rounded-sm bg-red-600 text-white font-bold hover:bg-red-700 transition duration-300 disabled:bg-gray-400"
         type="submit"
       >
-        {isLoading ? "Posting..." : "Post Comment"}
+        {isLoading ? 'Posting...' : 'Post Comment'}
       </button>
     </form>
   );

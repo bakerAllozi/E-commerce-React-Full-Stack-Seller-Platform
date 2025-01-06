@@ -1,11 +1,11 @@
-import { MyProductType } from "@/types/product.type";
-import supabase from "./supabase";
+import { MyProductType } from '@/types/product.type';
+import supabase from './supabase';
 
 export async function getDataOfProduct() {
-  const { data, error } = await supabase.from("DataOfProduct").select("*");
+  const { data, error } = await supabase.from('DataOfProduct').select('*');
   if (error) {
     console.error(error);
-    throw new Error("baker");
+    throw new Error('baker');
   }
   return data;
 }
@@ -13,36 +13,36 @@ export async function getDataOfProduct() {
 export async function insertNewProduct(newRow: { image: File }) {
   console.log(newRow);
 
-  const imageName = `${Math.random()}-${newRow.image.name}`.replaceAll("/", "");
+  const imageName = `${Math.random()}-${newRow.image.name}`.replaceAll('/', '');
   const imagePath = `https://taqdpudyhenvaibczyar.supabase.co/storage/v1/object/public/baker1/${imageName}`;
 
   const { data: gg, error: ee } = await supabase.storage
-    .from("baker1")
+    .from('baker1')
     .upload(imageName, newRow.image);
 
   if (ee) {
-    console.error("Error uploading file:", ee);
+    console.error('Error uploading file:', ee);
     return;
   }
 
   const { data, error } = await supabase
-    .from("DataOfProduct")
+    .from('DataOfProduct')
     .insert({ ...newRow, image: imagePath })
     .select();
   if (error) {
     console.error(error);
-    throw new Error("Error inserting new product");
+    throw new Error('Error inserting new product');
   }
   return data;
 }
 export async function deleteProduct(id: string) {
   const { data, error } = await supabase
-    .from("DataOfProduct")
+    .from('DataOfProduct')
     .delete()
-    .eq("id", id);
+    .eq('id', id);
   if (error) {
     console.error(error);
-    throw new Error("bakeroooooerrerer");
+    throw new Error('bakeroooooerrerer');
   }
   return data;
 }
@@ -52,12 +52,12 @@ export async function updateProduct(newData: {
   EditRow: MyProductType;
 }) {
   const { data, error } = await supabase
-    .from("DataOfProduct")
+    .from('DataOfProduct')
     .update({ ...newData.EditRow })
-    .eq("id", newData.id);
+    .eq('id', newData.id);
   if (error) {
     console.error(error);
-    throw new Error("Error updating product");
+    throw new Error('Error updating product');
   }
   return data;
 }
@@ -67,9 +67,9 @@ export async function updateProductsInBulk(
 ) {
   const updates = products.map((product) =>
     supabase
-      .from("DataOfProduct")
+      .from('DataOfProduct')
       .update(product.updateData)
-      .eq("id", product.id)
+      .eq('id', product.id)
   );
 
   const results = await Promise.all(updates);
@@ -77,7 +77,7 @@ export async function updateProductsInBulk(
 
   if (errors.length > 0) {
     console.error(errors);
-    throw new Error("Error updating some products");
+    throw new Error('Error updating some products');
   }
 
   return results.map((result) => result.data);

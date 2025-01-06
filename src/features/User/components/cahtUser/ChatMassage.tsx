@@ -1,10 +1,10 @@
-import useRedux from "../../../../hooks/useRedux";
-import useUser from "../../../../hooks/useUser";
-import useUpdateChat from "../../../../hooks/useUpdateChat";
-import { IoCheckmarkDone } from "react-icons/io5";
-import { useEffect } from "react";
-import { ChatMessageType } from "@/types/chats.type";
-import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import useRedux from '../../../../hooks/useRedux';
+import useUser from '../../../../hooks/useUser';
+import useUpdateChat from '../../../../hooks/useUpdateChat';
+import { IoCheckmarkDone } from 'react-icons/io5';
+import { useEffect } from 'react';
+import { ChatMessageType } from '@/types/chats.type';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
 function ChatMassage() {
   const { appSelector } = useRedux();
@@ -35,15 +35,15 @@ function ChatMassage() {
         {ChatUser?.map((msg) => (
           <div
             className={`flex ${
-              msg.sender_id === user?.id ? "justify-end" : "justify-start"
+              msg.sender_id === user?.id ? 'justify-end' : 'justify-start'
             } mb-4`}
             key={msg.message_id}
           >
             <div
               className={`max-w-xs p-3 rounded-lg shadow group/item  relative  ${
                 msg.sender_id === user?.id
-                  ? "bg-green-500 text-white"
-                  : "bg-gray-300 text-gray-800"
+                  ? 'bg-green-500 text-white'
+                  : 'bg-gray-300 text-gray-800'
               }`}
             >
               {user?.id === msg.sender_id || (
@@ -77,14 +77,14 @@ function ChatMassage() {
               )}
               <p
                 className={` absolute top-2 right-2 ${
-                  msg.is_red ? "text-blue-500" : "text-white"
+                  msg.is_red ? 'text-blue-500' : 'text-white'
                 } `}
               >
                 <IoCheckmarkDone />
               </p>
               <p
                 className={` bg-slate-500  text-[15px]  absolute bottom-[-15px] right-2 rounded-full ${
-                  msg?.emoji && " p-[2px]"
+                  msg?.emoji && ' p-[2px]'
                 } w-fit`}
               >
                 {msg?.emoji}
@@ -93,7 +93,7 @@ function ChatMassage() {
               <p className="text-xs mt-2">
                 {msg.created_at
                   ? `${new Date(msg.created_at).toLocaleString()}`
-                  : "Invalid date"}
+                  : 'Invalid date'}
               </p>
             </div>
           </div>
@@ -113,7 +113,7 @@ const ReactEmoji = ({
   msg: ChatMessageType;
 }) => {
   const nweIcon =
-    typeof icon === "string" ? (icon === msg.emoji ? "" : icon) : "";
+    typeof icon === 'string' ? (icon === msg.emoji ? '' : icon) : '';
   return (
     <p
       onClick={() => handleAddEmoji({ icon: nweIcon, id: msg.message_id })}

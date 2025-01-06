@@ -1,14 +1,14 @@
-import { useEffect, useState } from "react";
-import useInsertMassage from "../../../../hooks/UseInsertMassage";
-import useRedux from "../../../../hooks/useRedux";
-import useUser from "../../../../hooks/useUser";
-import { v4 as uuidv4 } from "uuid";
-import { getDataChats, showChatUser } from "../../userSlice";
-import useReadChats from "../../../../hooks/useReadChats";
-import ChatMassage from "./ChatMassage";
-import Spinner from "../../../../ui/Spinner";
-import { Link } from "react-router-dom";
-import { ChatMessageType } from "@/types/chats.type";
+import { useEffect, useState } from 'react';
+import useInsertMassage from '../../../../hooks/UseInsertMassage';
+import useRedux from '../../../../hooks/useRedux';
+import useUser from '../../../../hooks/useUser';
+import { v4 as uuidv4 } from 'uuid';
+import { getDataChats, showChatUser } from '../../userSlice';
+import useReadChats from '../../../../hooks/useReadChats';
+import ChatMassage from './ChatMassage';
+import Spinner from '../../../../ui/Spinner';
+import { Link } from 'react-router-dom';
+import { ChatMessageType } from '@/types/chats.type';
 
 function ChatPage() {
   const uniqueId = uuidv4();
@@ -16,7 +16,7 @@ function ChatPage() {
   const { user } = useUser();
   const userId = user?.id;
   const { forHowYouChat } = appSelector((state) => state.UserData);
-  const { data: chatData } = useReadChats(userId || "");
+  const { data: chatData } = useReadChats(userId || '');
   if (!forHowYouChat) return null;
   const youCantMassageYourSelf = userId === forHowYouChat.id;
 
@@ -41,7 +41,7 @@ function ChatPage() {
   ]);
 
   const { isLoading, mutate } = useInsertMassage();
-  const [message, setMassage] = useState<string>("");
+  const [message, setMassage] = useState<string>('');
   const handelInsertMassage = () => {
     if (!message) return;
     const newRow: ChatMessageType = {
@@ -51,7 +51,7 @@ function ChatPage() {
       receiver_id: String(forHowYouChat.id),
     };
     mutate(newRow);
-    setMassage("");
+    setMassage('');
   };
 
   return (
@@ -75,7 +75,7 @@ function ChatPage() {
                 className="mt-2 w-full bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600 transition duration-300"
                 onClick={handelInsertMassage}
               >
-                {isLoading ? <Spinner /> : "Send"}
+                {isLoading ? <Spinner /> : 'Send'}
               </button>
             </div>
           </div>

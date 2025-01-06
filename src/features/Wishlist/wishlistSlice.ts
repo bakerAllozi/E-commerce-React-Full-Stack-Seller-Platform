@@ -1,5 +1,5 @@
-import MyProductType from "@/types/product.type";
-import { createSlice } from "@reduxjs/toolkit";
+import MyProductType from '@/types/product.type';
+import { createSlice } from '@reduxjs/toolkit';
 
 interface initialStateType {
   wishlistData: MyProductType[];
@@ -11,7 +11,7 @@ const initialState: initialStateType = {
 };
 
 const wishlistReducer = createSlice({
-  name: " Wishlist",
+  name: ' Wishlist',
   initialState,
   reducers: {
     getProductToWishlist(state, action) {

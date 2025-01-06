@@ -1,10 +1,10 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import { Provider } from "react-redux";
-import store from "./store";
-import App from "./APP/App";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { Provider } from 'react-redux';
+import store from './store';
+import App from './APP/App';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
 export const queryClient: QueryClient = new QueryClient({
   defaultOptions: {
@@ -15,9 +15,9 @@ export const queryClient: QueryClient = new QueryClient({
   },
 });
 
-const rootElement = document.getElementById("root");
+const rootElement = document.getElementById('root');
 if (!rootElement) {
-  throw new Error("Root element not found");
+  throw new Error('Root element not found');
 }
 
 ReactDOM.createRoot(rootElement).render(

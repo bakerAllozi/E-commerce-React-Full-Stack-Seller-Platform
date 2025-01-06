@@ -1,5 +1,5 @@
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { updateChat } from "../services/apiChat";
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { updateChat } from '../services/apiChat';
 
 function useUpdateChat() {
   const queryClient = useQueryClient();
@@ -7,15 +7,15 @@ function useUpdateChat() {
   const { isLoading, mutate: updateChatsById } = useMutation({
     mutationFn: updateChat,
     onSuccess: (chats) => {
-      queryClient.setQueryData(["Chats"], chats);
-      queryClient.invalidateQueries(["Chats"]);
+      queryClient.setQueryData(['Chats'], chats);
+      queryClient.invalidateQueries(['Chats']);
     },
     onError: (error) => {
-      console.error("Error updating product:", error);
+      console.error('Error updating product:', error);
       if (error instanceof Error) {
         alert(error.message);
       } else {
-        console.error("Unexpected error:", error);
+        console.error('Unexpected error:', error);
       }
     },
   });

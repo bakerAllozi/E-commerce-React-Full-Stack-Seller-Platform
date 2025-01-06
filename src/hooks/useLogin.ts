@@ -1,6 +1,6 @@
-import { useNavigate } from "react-router-dom";
-import { login as loginApi } from "../services/apiAuth";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useNavigate } from 'react-router-dom';
+import { login as loginApi } from '../services/apiAuth';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 function useLogin() {
   const queryClient = useQueryClient(); //
@@ -9,14 +9,14 @@ function useLogin() {
     mutationFn: ({ email, password }: { email: string; password: string }) =>
       loginApi({ email, password }),
     onSuccess: (user) => {
-      queryClient.setQueryData(["user"], user.user);
-      navigate("/", { replace: true });
+      queryClient.setQueryData(['user'], user.user);
+      navigate('/', { replace: true });
     },
     onError: (err) => {
       if (err instanceof Error) {
         alert(err.message);
       } else {
-        alert("An unknown error occurred");
+        alert('An unknown error occurred');
       }
     },
   });

@@ -1,4 +1,4 @@
-import { ChatMessageType } from "@/types/chats.type";
+import { ChatMessageType } from '@/types/chats.type';
 
 function ReceiverUser({
   handleNavigate,
@@ -32,7 +32,7 @@ function ReceiverUser({
             />
           ) : (
             <div className="w-full h-full bg-gray-300 flex justify-center items-center text-white font-bold">
-              <span>{e.name?.charAt(0) || "U"}</span>
+              <span>{e.name?.charAt(0) || 'U'}</span>
             </div>
           )}
 

@@ -1,10 +1,10 @@
-import { useForm } from "react-hook-form";
-import Input2 from "../../ui/Input2";
-import { Link, useNavigate } from "react-router-dom";
-import useSignup from "../../hooks/useSignup";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";
-import Image from "../../assets/Side Image.png";
+import { useForm } from 'react-hook-form';
+import Input2 from '../../ui/Input2';
+import { Link, useNavigate } from 'react-router-dom';
+import useSignup from '../../hooks/useSignup';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons';
+import Image from '../../assets/Side Image.png';
 
 function SignUp() {
   interface IFormInput {
@@ -22,7 +22,7 @@ function SignUp() {
 
   async function onSubmit(newRow: IFormInput) {
     signup(newRow);
-    navigate("/");
+    navigate('/');
   }
   return (
     <div className="   flex justify-center items-center  flex-col   p-20 gap-24 ">
@@ -41,22 +41,22 @@ function SignUp() {
           <p>Enter your details below</p>
 
           <Input2
-            label={"name"}
+            label={'name'}
             register={register}
-            type={"text"}
-            name={"name"}
+            type={'text'}
+            name={'name'}
           />
           <Input2
-            label={"email"}
+            label={'email'}
             register={register}
-            type={"text"}
-            name={"email"}
+            type={'text'}
+            name={'email'}
           />
           <Input2
-            label={"password"}
+            label={'password'}
             register={register}
-            type={"text"}
-            name={"password"}
+            type={'text'}
+            name={'password'}
           />
           <button
             disabled={isLoading}

@@ -1,5 +1,5 @@
-import { signup as signupApi } from "../services/apiAuth";
-import { useMutation } from "@tanstack/react-query";
+import { signup as signupApi } from '../services/apiAuth';
+import { useMutation } from '@tanstack/react-query';
 function useSignup() {
   const { isLoading, mutate: signup } = useMutation({
     mutationFn: signupApi,

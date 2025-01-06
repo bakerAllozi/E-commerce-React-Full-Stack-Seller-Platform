@@ -1,5 +1,5 @@
-import { Transition } from "@headlessui/react";
-import { Stack, Alert as MuiAlert } from "@mui/material";
+import { Transition } from '@headlessui/react';
+import { Stack, Alert as MuiAlert } from '@mui/material';
 
 function Alert({ showAlert, text }: { showAlert: boolean; text: string }) {
   return (
@@ -14,7 +14,7 @@ function Alert({ showAlert, text }: { showAlert: boolean; text: string }) {
         leaveTo="opacity-0 scale-90"
       >
         <Stack
-          sx={{ width: "100%" }}
+          sx={{ width: '100%' }}
           spacing={2}
           className="shadow-lg shadow-teal-400"
         >

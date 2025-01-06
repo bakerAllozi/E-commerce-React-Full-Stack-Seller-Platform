@@ -1,11 +1,11 @@
-import { useCallback } from "react";
-import { getDataOfProduct } from "../services/apiDataOfProduct";
-import { fetchProductItem } from "../features/Homepage/HomepageSlice";
-import useRedux from "./useRedux";
-import { useQuery } from "@tanstack/react-query";
-import { getDataChats } from "../features/User/userSlice";
-import useUser from "./useUser";
-import useReadChats from "./useReadChats";
+import { useCallback } from 'react';
+import { getDataOfProduct } from '../services/apiDataOfProduct';
+import { fetchProductItem } from '../features/Homepage/HomepageSlice';
+import useRedux from './useRedux';
+import { useQuery } from '@tanstack/react-query';
+import { getDataChats } from '../features/User/userSlice';
+import useUser from './useUser';
+import useReadChats from './useReadChats';
 
 interface ProductData {
   id: string;
@@ -27,10 +27,10 @@ const useProductData = (): UseProductDataReturn => {
   const { dispatch } = useRedux();
   const { user } = useUser();
 
-  const { data: chatData } = useReadChats(user?.id || "");
+  const { data: chatData } = useReadChats(user?.id || '');
 
   const { data, isLoading } = useQuery<ProductData[]>({
-    queryKey: ["DataOfProduct"],
+    queryKey: ['DataOfProduct'],
     queryFn: getDataOfProduct,
   });
 

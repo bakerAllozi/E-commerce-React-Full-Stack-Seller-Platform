@@ -1,9 +1,9 @@
-import { Link, NavLink } from "react-router-dom";
-import Like from "./ui/Like";
-import Basket from "./ui/Basket";
-import CartIcon from "./ui/CartIcon";
-import MessagesIcon from "../../features/User/components/cahtUser/MessagesIcon";
-import UserIcon from "../../features/User/components/UserIcon";
+import { Link, NavLink } from 'react-router-dom';
+import Like from './ui/Like';
+import Basket from './ui/Basket';
+import CartIcon from './ui/CartIcon';
+import MessagesIcon from '../../features/User/components/cahtUser/MessagesIcon';
+import UserIcon from '../../features/User/components/UserIcon';
 const Navbar = () => {
   return (
     <div className="   h-14  flex   justify-around items-center  fixed top-0 left-0 w-full bg-white shadow  z-[100] ">

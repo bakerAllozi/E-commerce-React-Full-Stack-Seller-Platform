@@ -1,9 +1,9 @@
-import { useQuery } from "@tanstack/react-query";
-import { getDataOfChats } from "../services/apiChat";
+import { useQuery } from '@tanstack/react-query';
+import { getDataOfChats } from '../services/apiChat';
 
 const useReadChats = (id: string) => {
   const { data, isLoading } = useQuery({
-    queryKey: ["Chats"],
+    queryKey: ['Chats'],
     queryFn: () => getDataOfChats(id),
     refetchInterval: 5000,
   });

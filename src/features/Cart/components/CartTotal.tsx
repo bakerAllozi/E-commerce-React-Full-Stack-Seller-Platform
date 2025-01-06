@@ -1,6 +1,6 @@
-import useRedux from "@/hooks/useRedux";
-import Button from "../ui/Button";
-import { Link } from "react-router-dom";
+import useRedux from '@/hooks/useRedux';
+import Button from '../ui/Button';
+import { Link } from 'react-router-dom';
 
 function CartTotal() {
   const { appSelector } = useRedux();

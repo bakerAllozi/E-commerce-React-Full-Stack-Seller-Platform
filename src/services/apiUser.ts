@@ -1,10 +1,10 @@
-import supabase from "./supabase";
+import supabase from './supabase';
 
 export async function getPublicUser() {
-  const { data, error } = await supabase.from("User").select("*");
+  const { data, error } = await supabase.from('User').select('*');
   if (error) {
     console.error(error);
-    throw new Error("error fetching users");
+    throw new Error('error fetching users');
   }
   return data;
 }

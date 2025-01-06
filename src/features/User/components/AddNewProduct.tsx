@@ -1,16 +1,16 @@
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { useForm, UseFormRegister } from "react-hook-form";
-import { v4 as uuidv4 } from "uuid";
-import Input from "../../../ui/Input";
-import { insertNewProduct } from "../../../services/apiDataOfProduct";
-import useUser from "../../../hooks/useUser";
-import { useState } from "react";
-import useProductData from "../../../hooks/useUpdateData";
-import Alert from "../../../ui/Alert";
-import { MyProductType } from "@/types/product.type";
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { useForm, UseFormRegister } from 'react-hook-form';
+import { v4 as uuidv4 } from 'uuid';
+import Input from '../../../ui/Input';
+import { insertNewProduct } from '../../../services/apiDataOfProduct';
+import useUser from '../../../hooks/useUser';
+import { useState } from 'react';
+import useProductData from '../../../hooks/useUpdateData';
+import Alert from '../../../ui/Alert';
+import { MyProductType } from '@/types/product.type';
 
 function AddNewProduct() {
-  const [sortBy, setSortBy] = useState("From the latest");
+  const [sortBy, setSortBy] = useState('From the latest');
   const [showAlert, setShowAlert] = useState(false);
 
   const { register, handleSubmit, reset } = useForm<MyProductType>();
@@ -26,7 +26,7 @@ function AddNewProduct() {
       setShowAlert(true);
       updateData();
 
-      queryClient.invalidateQueries(["DataOfProduct"]);
+      queryClient.invalidateQueries(['DataOfProduct']);
       reset();
       setTimeout(() => setShowAlert(false), 3000);
     },
@@ -58,27 +58,27 @@ function AddNewProduct() {
   }
 
   const colors = [
-    "Red",
-    "Green",
-    "Blue",
-    "Black",
-    "Yellow",
-    "Pink",
-    "Purple",
-    "Orange",
-    "Brown",
-    "Gray",
-    "Cyan",
-    "Magenta",
-    "Lime",
-    "Maroon",
-    "Navy",
-    "Olive",
-    "Teal",
-    "Violet",
-    "Gold",
-    "Silver",
-    "Beige",
+    'Red',
+    'Green',
+    'Blue',
+    'Black',
+    'Yellow',
+    'Pink',
+    'Purple',
+    'Orange',
+    'Brown',
+    'Gray',
+    'Cyan',
+    'Magenta',
+    'Lime',
+    'Maroon',
+    'Navy',
+    'Olive',
+    'Teal',
+    'Violet',
+    'Gold',
+    'Silver',
+    'Beige',
   ];
 
   return (
@@ -95,7 +95,7 @@ function AddNewProduct() {
       >
         <select
           className="block p-2 bg-white border border-gray-300 rounded-md shadow-sm focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50"
-          {...register("category")}
+          {...register('category')}
           onChange={(e) => setSortBy(e.target.value)}
         >
           <option>Woman’s Fashion</option>
@@ -110,28 +110,28 @@ function AddNewProduct() {
         </select>
 
         <Input
-          label={"Description"}
+          label={'Description'}
           register={register}
-          type={"text"}
-          name={"description"}
+          type={'text'}
+          name={'description'}
         />
         <Input
-          label={"Price"}
+          label={'Price'}
           register={register}
-          type={"number"}
-          name={"price"}
+          type={'number'}
+          name={'price'}
           min={0}
           max={99999}
         />
         <Input
-          label={"Title"}
+          label={'Title'}
           register={register}
-          type={"text"}
-          name={"title"}
+          type={'text'}
+          name={'title'}
         />
         <label>Color 1</label>
         <select
-          {...register("color1")}
+          {...register('color1')}
           className="block p-2 bg-white border border-gray-300 rounded-md shadow-sm focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50"
         >
           {colors.map((color) => (
@@ -142,7 +142,7 @@ function AddNewProduct() {
         </select>
         <label>Color 2</label>
         <select
-          {...register("color2")}
+          {...register('color2')}
           className="block p-2 bg-white border border-gray-300 rounded-md shadow-sm focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50"
         >
           {colors.map((color) => (
@@ -152,18 +152,18 @@ function AddNewProduct() {
           ))}
         </select>
         <Input
-          label={"Pieces Remaining"}
+          label={'Pieces Remaining'}
           register={register}
-          type={"number"}
-          name={"piecesRemaining"}
+          type={'number'}
+          name={'piecesRemaining'}
           min={0}
           max={99999}
         />
         <Input
-          label={"Image"}
+          label={'Image'}
           register={register}
-          type={"file"}
-          name={"image"}
+          type={'file'}
+          name={'image'}
         />
 
         <button

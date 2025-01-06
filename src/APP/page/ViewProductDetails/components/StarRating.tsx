@@ -5,7 +5,7 @@ function StarRating({ rating }: { rating: number }) {
       {[...Array(totalStars)].map((_, index) => (
         <span
           key={index}
-          className={index < rating ? "text-yellow-500" : "text-gray-300"}
+          className={index < rating ? 'text-yellow-500' : 'text-gray-300'}
         >
           ★
         </span>

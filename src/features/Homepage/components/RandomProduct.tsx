@@ -1,16 +1,16 @@
-import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import useRedux from "../../../hooks/useRedux";
-import Spinner from "../../../ui/Spinner";
-import React, { useRef } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-import "../../../../index.css";
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
-import { MyProductType } from "../../../types/product.type";
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import useRedux from '../../../hooks/useRedux';
+import Spinner from '../../../ui/Spinner';
+import React, { useRef } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import '../../../../index.css';
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { MyProductType } from '../../../types/product.type';
 
 function RandomProduct() {
   const { appSelector } = useRedux();
@@ -22,7 +22,7 @@ function RandomProduct() {
 
   const onAutoplayTimeLeft = (_: any, time: number, progress: number) => {
     if (progressCircle.current) {
-      progressCircle.current.style.setProperty("--progress", `${1 - progress}`);
+      progressCircle.current.style.setProperty('--progress', `${1 - progress}`);
     }
     if (progressContent.current) {
       progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;

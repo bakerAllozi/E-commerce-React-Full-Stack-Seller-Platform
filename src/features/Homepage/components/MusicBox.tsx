@@ -1,5 +1,5 @@
-import Time from "../ui/Time";
-import Image from "../../../assets/Frame 694.png";
+import Time from '../ui/Time';
+import Image from '../../../assets/Frame 694.png';
 
 function MusicBox() {
   return (

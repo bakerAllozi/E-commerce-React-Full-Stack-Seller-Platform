@@ -1,11 +1,11 @@
-import Input2 from "../../ui/Input2";
-import { useForm } from "react-hook-form";
-import useLogin from "../../hooks/useLogin";
-import { Link, useNavigate } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";
-import useUser from "../../hooks/useUser";
-import Image from "../../assets/Side Image.png";
+import Input2 from '../../ui/Input2';
+import { useForm } from 'react-hook-form';
+import useLogin from '../../hooks/useLogin';
+import { Link, useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons';
+import useUser from '../../hooks/useUser';
+import Image from '../../assets/Side Image.png';
 
 function Login() {
   const {
@@ -41,16 +41,16 @@ function Login() {
           <p>Enter your details below</p>
 
           <Input2
-            label={"email"}
+            label={'email'}
             register={register}
-            type={"text"}
-            name={"email"}
+            type={'text'}
+            name={'email'}
           />
           <Input2
-            label={"password"}
+            label={'password'}
             register={register}
-            type={"text"}
-            name={"password"}
+            type={'text'}
+            name={'password'}
           />
           <button
             disabled={isLoading}

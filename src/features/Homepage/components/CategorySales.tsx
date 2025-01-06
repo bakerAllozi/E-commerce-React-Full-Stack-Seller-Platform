@@ -1,5 +1,5 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import ShowProduct from "../ui/ShowProduct";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import ShowProduct from '../ui/ShowProduct';
 import {
   faBaby,
   faBowlFood,
@@ -11,10 +11,10 @@ import {
   faSyringe,
   faTent,
   IconDefinition,
-} from "@fortawesome/free-solid-svg-icons";
-import { useNavigate } from "react-router-dom";
-import useRedux from "../../../hooks/useRedux";
-import { setCategoryName } from "../HomepageSlice";
+} from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from 'react-router-dom';
+import useRedux from '../../../hooks/useRedux';
+import { setCategoryName } from '../HomepageSlice';
 
 function CategorySales() {
   return (
@@ -48,7 +48,7 @@ const CreateNaveLink = ({
   const navigate = useNavigate();
   const { dispatch } = useRedux();
   const handleBaker = () => {
-    navigate("/CategoryPage");
+    navigate('/CategoryPage');
     dispatch(setCategoryName(name));
   };
   return (

@@ -1,5 +1,5 @@
-import MyProductType from "@/types/product.type";
-import { createSlice } from "@reduxjs/toolkit";
+import MyProductType from '@/types/product.type';
+import { createSlice } from '@reduxjs/toolkit';
 
 interface initialStateType {
   cartData: MyProductType[];
@@ -11,7 +11,7 @@ const initialState: initialStateType = {
 };
 
 const cartReducer = createSlice({
-  name: "Cart",
+  name: 'Cart',
   initialState,
   reducers: {
     gitCartItem(state, action) {

@@ -1,11 +1,11 @@
-import { Outlet, useLocation, useNavigate } from "react-router-dom";
-import Navbar from "../components/Navbar/Navbar";
-import Footer from "../components/Footer/Footer";
-import { useEffect } from "react";
-import Container from "../ui/Container";
-import ProtectedRoute from "../ui/ProtectedRoute";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";
+import { Outlet, useLocation, useNavigate } from 'react-router-dom';
+import Navbar from '../components/Navbar/Navbar';
+import Footer from '../components/Footer/Footer';
+import { useEffect } from 'react';
+import Container from '../ui/Container';
+import ProtectedRoute from '../ui/ProtectedRoute';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons';
 
 function AppLayout() {
   const location = useLocation();

@@ -1,7 +1,7 @@
-import { useEffect } from "react";
-import BoxBroduct from "../../features/Homepage/ui/BoxBroduct";
-import useRedux from "../../hooks/useRedux";
-import { setCategoryName } from "../../features/Homepage/HomepageSlice";
+import { useEffect } from 'react';
+import BoxBroduct from '../../features/Homepage/ui/BoxBroduct';
+import useRedux from '../../hooks/useRedux';
+import { setCategoryName } from '../../features/Homepage/HomepageSlice';
 
 function ViewByCategory() {
   const { appSelector, dispatch } = useRedux();

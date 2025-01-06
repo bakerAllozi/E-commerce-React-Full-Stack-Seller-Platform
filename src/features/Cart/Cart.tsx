@@ -1,10 +1,10 @@
-import { useEffect } from "react";
-import BoxItem from "./components/BoxItem";
-import CartTotal from "./components/CartTotal";
-import Button from "./ui/Button";
-import { calcPrice, RemoveALLFromCart } from "./CartSlice";
-import useRedux from "../../hooks/useRedux";
-import { Link } from "react-router-dom";
+import { useEffect } from 'react';
+import BoxItem from './components/BoxItem';
+import CartTotal from './components/CartTotal';
+import Button from './ui/Button';
+import { calcPrice, RemoveALLFromCart } from './CartSlice';
+import useRedux from '../../hooks/useRedux';
+import { Link } from 'react-router-dom';
 
 function Cart() {
   const { dispatch } = useRedux();

@@ -1,5 +1,5 @@
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { updateReview } from "../services/apiReviews";
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { updateReview } from '../services/apiReviews';
 
 function useUpdateReview() {
   const queryClient = useQueryClient();
@@ -7,14 +7,14 @@ function useUpdateReview() {
   const { isLoading, mutate: updateReviewId } = useMutation({
     mutationFn: updateReview,
     onSuccess: () => {
-      queryClient.invalidateQueries(["Reviews"]);
+      queryClient.invalidateQueries(['Reviews']);
     },
     onError: (error) => {
-      console.error("Error updating product:", error);
+      console.error('Error updating product:', error);
       if (error instanceof Error) {
         alert(error.message);
       } else {
-        alert("An unknown error occurred");
+        alert('An unknown error occurred');
       }
     },
   });

@@ -1,7 +1,7 @@
-import { useEffect } from "react";
-import useUser from "../hooks/useUser";
-import { useNavigate, useLocation } from "react-router-dom";
-import Spinner from "./Spinner";
+import { useEffect } from 'react';
+import useUser from '../hooks/useUser';
+import { useNavigate, useLocation } from 'react-router-dom';
+import Spinner from './Spinner';
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const navigate = useNavigate();
@@ -11,7 +11,7 @@ function ProtectedRoute({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     if (!isAuthenticated && !isLoading) {
-      navigate("/login", { state: { from: location } });
+      navigate('/login', { state: { from: location } });
     }
   }, [isAuthenticated, isLoading, navigate, location]);
 

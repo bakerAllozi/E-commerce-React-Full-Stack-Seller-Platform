@@ -1,6 +1,6 @@
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 
-import { deleteProduct } from "../services/apiDataOfProduct";
+import { deleteProduct } from '../services/apiDataOfProduct';
 
 function useDeleteProduct() {
   const queryClient = useQueryClient();
@@ -8,14 +8,14 @@ function useDeleteProduct() {
   const { isLoading, mutate: deleteProductById } = useMutation({
     mutationFn: deleteProduct,
     onSuccess: (data) => {
-      queryClient.invalidateQueries(["DataOfProduct"]);
+      queryClient.invalidateQueries(['DataOfProduct']);
     },
     onError: (error) => {
-      console.error("Error deleting product:", error);
+      console.error('Error deleting product:', error);
       if (error instanceof Error) {
         alert(error.message);
       } else {
-        alert("An unknown error occurred");
+        alert('An unknown error occurred');
       }
     },
   });

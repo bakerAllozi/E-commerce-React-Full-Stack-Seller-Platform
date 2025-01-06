@@ -1,5 +1,5 @@
-import { ChatMessageType } from "@/types/chats.type";
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { ChatMessageType } from '@/types/chats.type';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface forHowYouChatType {
   id?: string;
@@ -44,15 +44,15 @@ const initialState: InitialStateType = {
   dataChats: [],
   NewDataChats: [],
   forHowYouChat: {
-    name: "",
-    avatar: "",
+    name: '',
+    avatar: '',
   },
   ChatUser: [],
   AllChat: [],
 };
 
 const wishlistReducer = createSlice({
-  name: "User",
+  name: 'User',
   initialState,
   reducers: {
     setProductToEdit(state, action) {
@@ -126,7 +126,7 @@ const wishlistReducer = createSlice({
       state.forHowYouChat = {
         id: action.payload.receiverId,
         name: action.payload.seller_name,
-        avatar: action.payload.avatar || "",
+        avatar: action.payload.avatar || '',
       };
     },
   },

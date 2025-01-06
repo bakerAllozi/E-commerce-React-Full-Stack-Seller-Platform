@@ -1,13 +1,13 @@
-import { useState } from "react";
-import useUpdateReview from "../../../../hooks/useUpdateReviews";
-import useUser from "../../../../hooks/useUser";
-import { ReviewType } from "@/types/review.type";
+import { useState } from 'react';
+import useUpdateReview from '../../../../hooks/useUpdateReviews';
+import useUser from '../../../../hooks/useUser';
+import { ReviewType } from '@/types/review.type';
 
 function Replies({ review }: { review: ReviewType }) {
   const [showReplies, setShowReplies] = useState(false);
 
   const { updateReviewId } = useUpdateReview();
-  const [reply, setReply] = useState("");
+  const [reply, setReply] = useState('');
   const { user } = useUser();
 
   const handleReplySubmit = () => {
@@ -15,7 +15,7 @@ function Replies({ review }: { review: ReviewType }) {
       const newReply = {
         id: review.id,
         reply,
-        name: user?.name || "Anonymous",
+        name: user?.name || 'Anonymous',
         createdAt: new Date().toISOString(),
       };
 
@@ -25,7 +25,7 @@ function Replies({ review }: { review: ReviewType }) {
       };
 
       updateReviewId(updatedReview);
-      setReply("");
+      setReply('');
     }
   };
 
@@ -35,7 +35,7 @@ function Replies({ review }: { review: ReviewType }) {
         onClick={() => setShowReplies((e) => !e)}
         className="text-sm text-blue-600 hover:underline"
       >
-        {showReplies ? "Hide Replies" : "Show Replies"}
+        {showReplies ? 'Hide Replies' : 'Show Replies'}
       </button>
 
       {showReplies && (
@@ -47,7 +47,7 @@ function Replies({ review }: { review: ReviewType }) {
                 className="mb-2 p-2 bg-gray-100 rounded-md shadow-sm"
               >
                 <p className="text-sm font-medium text-gray-800">
-                  Reply {i + 1} by{" "}
+                  Reply {i + 1} by{' '}
                   <span className="text-blue-600">{e.name}</span>
                 </p>
                 <p className="text-sm text-gray-700 mt-1">{e.reply}</p>

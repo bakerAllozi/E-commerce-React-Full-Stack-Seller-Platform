@@ -1,13 +1,13 @@
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
-import SearchPage from "./SearchPage";
-import useRedux from "@/hooks/useRedux";
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useState } from 'react';
+import SearchPage from './SearchPage';
+import useRedux from '@/hooks/useRedux';
 
 function SearchBar() {
   const { appSelector } = useRedux();
   const { Data } = appSelector((state) => state.product);
-  const [searchWorld, setSearchWorld] = useState("");
+  const [searchWorld, setSearchWorld] = useState('');
   const searchedProduct =
     searchWorld.length > 0
       ? Data.filter((data) =>

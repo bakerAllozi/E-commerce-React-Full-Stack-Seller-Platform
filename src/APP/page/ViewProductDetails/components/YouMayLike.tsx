@@ -1,13 +1,13 @@
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-import { FreeMode, Pagination } from "swiper/modules";
-import BoxBroduct from "../../../../features/Homepage/ui/BoxBroduct";
-import useRedux from "../../../../hooks/useRedux";
-import ShowProduct from "../../../../features/Homepage/ui/ShowProduct";
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import { FreeMode, Pagination } from 'swiper/modules';
+import BoxBroduct from '../../../../features/Homepage/ui/BoxBroduct';
+import useRedux from '../../../../hooks/useRedux';
+import ShowProduct from '../../../../features/Homepage/ui/ShowProduct';
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import { MyProductType } from "@/types/product.type";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { MyProductType } from '@/types/product.type';
 
 const YouMayLike = ({ ProductDetails }: { ProductDetails: MyProductType }) => {
   const { appSelector } = useRedux();

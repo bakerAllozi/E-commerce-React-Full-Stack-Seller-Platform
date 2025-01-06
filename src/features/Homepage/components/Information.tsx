@@ -1,10 +1,10 @@
-import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import {
   faHeadphones,
   faTruckFast,
   faVault,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function Information() {
   return (

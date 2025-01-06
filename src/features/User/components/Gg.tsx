@@ -1,14 +1,14 @@
-import { useForm, SubmitHandler } from "react-hook-form";
-import Input from "../../../ui/Input";
-import { useState } from "react";
-import Alert from "@mui/material/Alert";
-import Stack from "@mui/material/Stack";
-import useUpdateProduct from "../../../hooks/useUpdateProduct";
-import useRedux from "../../../hooks/useRedux";
-import { MyProductType } from "@/types/product.type";
+import { useForm, SubmitHandler } from 'react-hook-form';
+import Input from '../../../ui/Input';
+import { useState } from 'react';
+import Alert from '@mui/material/Alert';
+import Stack from '@mui/material/Stack';
+import useUpdateProduct from '../../../hooks/useUpdateProduct';
+import useRedux from '../../../hooks/useRedux';
+import { MyProductType } from '@/types/product.type';
 
 const Gg = () => {
-  const [sortBy, setSortBy] = useState<string>("From the latest");
+  const [sortBy, setSortBy] = useState<string>('From the latest');
   const { updateProductById, isLoading } = useUpdateProduct();
   const { appSelector } = useRedux();
   const { ProductToEdit } = appSelector((state) => state.UserData);
@@ -39,34 +39,34 @@ const Gg = () => {
   };
 
   const colors: string[] = [
-    "Red",
-    "Green",
-    "Blue",
-    "Black",
-    "Yellow",
-    "Pink",
-    "Purple",
-    "Orange",
-    "Brown",
-    "Gray",
-    "Cyan",
-    "Magenta",
-    "Lime",
-    "Maroon",
-    "Navy",
-    "Olive",
-    "Teal",
-    "Violet",
-    "Gold",
-    "Silver",
-    "Beige",
+    'Red',
+    'Green',
+    'Blue',
+    'Black',
+    'Yellow',
+    'Pink',
+    'Purple',
+    'Orange',
+    'Brown',
+    'Gray',
+    'Cyan',
+    'Magenta',
+    'Lime',
+    'Maroon',
+    'Navy',
+    'Olive',
+    'Teal',
+    'Violet',
+    'Gold',
+    'Silver',
+    'Beige',
   ];
 
   return (
     <>
       <p className="text-center font-bold text-6xl mb-6">Edit Product</p>
       {isLoading && (
-        <Stack sx={{ width: "70%" }} spacing={2} className="mb-4">
+        <Stack sx={{ width: '70%' }} spacing={2} className="mb-4">
           <Alert severity="info">Updating product...</Alert>
         </Stack>
       )}
@@ -76,7 +76,7 @@ const Gg = () => {
         className="mt-9 flex flex-col gap-6 p-6 bg-white rounded-lg shadow-lg max-w-xl mx-auto"
       >
         <select
-          {...register("category", { required: true })}
+          {...register('category', { required: true })}
           onChange={(e) => setSortBy(e.target.value)}
         >
           <option>Woman’s Fashion</option>
@@ -104,7 +104,7 @@ const Gg = () => {
         <Input label="Title" register={register} name="title" />
 
         <label>Color 1</label>
-        <select {...register("color1")}>
+        <select {...register('color1')}>
           {colors.map((color) => (
             <option key={color} value={color.toLowerCase()}>
               {color}
@@ -113,7 +113,7 @@ const Gg = () => {
         </select>
 
         <label>Color 2</label>
-        <select {...register("color2")}>
+        <select {...register('color2')}>
           {colors.map((color) => (
             <option key={color} value={color.toLowerCase()}>
               {color}
@@ -135,7 +135,7 @@ const Gg = () => {
           className="p-2 mt-4 rounded-md bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
           type="submit"
         >
-          {isLoading ? "Posting..." : "Post New Product"}
+          {isLoading ? 'Posting...' : 'Post New Product'}
         </button>
       </form>
     </>

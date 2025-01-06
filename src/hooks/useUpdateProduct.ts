@@ -1,5 +1,5 @@
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { updateProduct } from "../services/apiDataOfProduct";
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { updateProduct } from '../services/apiDataOfProduct';
 
 function useUpdateProduct() {
   const queryClient = useQueryClient();
@@ -7,14 +7,14 @@ function useUpdateProduct() {
   const { isLoading, mutate: updateProductById } = useMutation({
     mutationFn: updateProduct,
     onSuccess: (data) => {
-      queryClient.invalidateQueries(["DataOfProduct"]);
+      queryClient.invalidateQueries(['DataOfProduct']);
     },
     onError: (error) => {
-      console.error("Error updating product:", error);
+      console.error('Error updating product:', error);
       if (error instanceof Error) {
         alert(error.message);
       } else {
-        console.error("Unexpected error:", error);
+        console.error('Unexpected error:', error);
       }
     },
   });

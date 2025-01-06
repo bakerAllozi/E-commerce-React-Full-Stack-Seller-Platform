@@ -1,15 +1,15 @@
-import { useState } from "react";
-import useRedux from "../hooks/useRedux";
-import { RemoveALLFromCart } from "../features/Cart/CartSlice";
-import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
-import useUpdateProducts from "../hooks/useUpdateProducts";
-import { useNavigate } from "react-router-dom";
+import { useState } from 'react';
+import useRedux from '../hooks/useRedux';
+import { RemoveALLFromCart } from '../features/Cart/CartSlice';
+import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
+import useUpdateProducts from '../hooks/useUpdateProducts';
+import { useNavigate } from 'react-router-dom';
 
 const CheckOut = () => {
   const stripe = useStripe();
   const elements = useElements();
   const { dispatch, appSelector } = useRedux();
-  const [status, setStatus] = useState("");
+  const [status, setStatus] = useState('');
   const { cartData } = appSelector((state) => state.cartItem);
   const navigate = useNavigate();
 
@@ -23,19 +23,19 @@ const CheckOut = () => {
     const cardElement = elements.getElement(CardElement);
 
     if (!cardElement) {
-      setStatus("خطأ: لم يتم العثور على عنصر البطاقة");
+      setStatus('خطأ: لم يتم العثور على عنصر البطاقة');
       return;
     }
 
     const { error, paymentMethod } = await stripe.createPaymentMethod({
-      type: "card",
+      type: 'card',
       card: cardElement,
     });
 
     if (error) {
       setStatus(`خطأ: ${error.message}`);
     } else {
-      setStatus("تم الدفع بنجاح!");
+      setStatus('تم الدفع بنجاح!');
       const productsToUpdate = cartData.map((item) => ({
         id: item.id,
         updateData: {
@@ -53,7 +53,7 @@ const CheckOut = () => {
 
       updateMultipleProducts(productsToUpdate);
       dispatch(RemoveALLFromCart());
-      navigate("/");
+      navigate('/');
     }
   };
 
@@ -78,7 +78,7 @@ const CheckOut = () => {
           disabled={!stripe || isLoading}
           className="w-full bg-blue-600 text-white py-3 px-4 rounded-lg text-lg font-semibold transition-all duration-300 ease-in-out hover:bg-blue-700 disabled:bg-gray-400"
         >
-          {isLoading ? "جارٍ التحديث..." : "دفع"}
+          {isLoading ? 'جارٍ التحديث...' : 'دفع'}
         </button>
 
         {status && (

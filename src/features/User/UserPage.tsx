@@ -1,10 +1,10 @@
-import useRedux from "../../hooks/useRedux";
-import useUser from "../../hooks/useUser";
-import AddNew from "./components/AddNew";
-import SalesChart from "../../ui/RouteName";
-import { Link } from "react-router-dom";
-import useProductData from "../../hooks/useUpdateData";
-import { useEffect } from "react";
+import useRedux from '../../hooks/useRedux';
+import useUser from '../../hooks/useUser';
+import AddNew from './components/AddNew';
+import SalesChart from '../../ui/RouteName';
+import { Link } from 'react-router-dom';
+import useProductData from '../../hooks/useUpdateData';
+import { useEffect } from 'react';
 
 function UserPage() {
   const { appSelector } = useRedux();

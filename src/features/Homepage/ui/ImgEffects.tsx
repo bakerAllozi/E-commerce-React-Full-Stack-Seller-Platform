@@ -1,8 +1,8 @@
-import { motion } from "framer-motion";
-import { faShoppingBasket } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import useWishlistAndCart from "../../../hooks/useWishlistAndCart";
-import React from "react";
+import { motion } from 'framer-motion';
+import { faShoppingBasket } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import useWishlistAndCart from '../../../hooks/useWishlistAndCart';
+import React from 'react';
 
 function ImgEffects({ product, AddTo, noButton = false }) {
   const { itemStatus, itAdd, handleAddToWishlist } =
@@ -24,10 +24,10 @@ function ImgEffects({ product, AddTo, noButton = false }) {
           width: itAdd ? [176, 50, 0, 0, 0, 0, 0, 0, 176] : 176,
           height: itAdd ? [176, 50, 0, 0, 0, 0, 0, 0, 176] : 176,
           transform: itAdd
-            ? ["translate(0, 0)", "translate(90px, 160px) ", "translate(0, 0)"]
-            : "translate(0, 0)",
+            ? ['translate(0, 0)', 'translate(90px, 160px) ', 'translate(0, 0)']
+            : 'translate(0, 0)',
         }}
-        transition={{ delay: 0, type: "tween", duration: 2 }}
+        transition={{ delay: 0, type: 'tween', duration: 2 }}
         className="  h-44 w-44"
         src={product.image}
         alt={product.id}
@@ -35,7 +35,7 @@ function ImgEffects({ product, AddTo, noButton = false }) {
 
       {noButton || (
         <>
-          {itemStatus !== "in stack" ? (
+          {itemStatus !== 'in stack' ? (
             <p className=" absolute left-[100px] bottom-2  text-black font-bold ">
               {itemStatus}
             </p>

@@ -1,9 +1,9 @@
-import { Link, useNavigate } from "react-router-dom";
-import useDeleteProduct from "../../../hooks/useDeleteProduct";
-import Spinner from "../../../ui/Spinner";
-import useRedux from "../../../hooks/useRedux";
-import { setProductToEdit } from "../userSlice";
-import { MyProductType } from "@/types/product.type";
+import { Link, useNavigate } from 'react-router-dom';
+import useDeleteProduct from '../../../hooks/useDeleteProduct';
+import Spinner from '../../../ui/Spinner';
+import useRedux from '../../../hooks/useRedux';
+import { setProductToEdit } from '../userSlice';
+import { MyProductType } from '@/types/product.type';
 
 function AddNew({ product }: { product: MyProductType }) {
   const { dispatch } = useRedux();
@@ -11,7 +11,7 @@ function AddNew({ product }: { product: MyProductType }) {
 
   const handelEditProduct = () => {
     dispatch(setProductToEdit(product));
-    navigate("/Gg");
+    navigate('/Gg');
   };
   const { deleteProductById, isLoading } = useDeleteProduct();
 
@@ -78,7 +78,7 @@ function AddNew({ product }: { product: MyProductType }) {
             </div>
 
             <p className=" bottom-2 right-2 text-xs text-gray-500">
-              👍: {product.product_like?.length || "No Like"}
+              👍: {product.product_like?.length || 'No Like'}
             </p>
           </div>
         </div>

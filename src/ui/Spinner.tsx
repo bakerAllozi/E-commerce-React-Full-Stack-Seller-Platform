@@ -1,7 +1,7 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React from 'react';
+import { motion } from 'framer-motion';
 
-function Spinner({ size = "medium" }: { size?: "small" | "medium" | "large" }) {
+function Spinner({ size = 'medium' }: { size?: 'small' | 'medium' | 'large' }) {
   const sizes = {
     small: { width: 20, height: 20, borderWidth: 3 },
     medium: { width: 30, height: 30, borderWidth: 5 },
@@ -19,14 +19,14 @@ function Spinner({ size = "medium" }: { size?: "small" | "medium" | "large" }) {
         transition={{
           repeat: Infinity,
           duration: 1,
-          ease: "linear",
+          ease: 'linear',
         }}
         style={{
           width,
           height,
           border: `${borderWidth}px solid lightgray`,
           borderTop: `${borderWidth}px solid blue`,
-          borderRadius: "50%",
+          borderRadius: '50%',
         }}
       />
     </div>

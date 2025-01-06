@@ -1,7 +1,7 @@
-import { useState } from "react";
-import useRedux from "./useRedux";
-import { getWishlistData } from "../features/Wishlist/wishlistSlice";
-import { MyProductType } from "@/types/product.type";
+import { useState } from 'react';
+import useRedux from './useRedux';
+import { getWishlistData } from '../features/Wishlist/wishlistSlice';
+import { MyProductType } from '@/types/product.type';
 
 const useWishlistAndCart = (ProductDetails: MyProductType) => {
   const idItem = ProductDetails.id;
@@ -13,12 +13,12 @@ const useWishlistAndCart = (ProductDetails: MyProductType) => {
 
   const itemStatus =
     ProductDetails.piecesRemaining === 0
-      ? "Out Of Stock"
+      ? 'Out Of Stock'
       : checkIfItIsInCart
-      ? "in cart"
-      : checkIfItIsInWishlist
-      ? "in wishlist"
-      : "in stack";
+        ? 'in cart'
+        : checkIfItIsInWishlist
+          ? 'in wishlist'
+          : 'in stack';
 
   const [itAdd, setItAdd] = useState(false);
   const handleAddToWishlist = () => {

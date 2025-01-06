@@ -1,14 +1,14 @@
-import { faEye, faHeart, faTrashCan } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Stars from "./Stars";
-import ImgEffects from "./ImgEffects";
-import { deleteFromWishList } from "../../Wishlist/wishlistSlice";
-import useRedux from "../../../hooks/useRedux";
-import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
-import useLikedProducts from "../../../hooks/useLikedProducts";
-import Spinner from "../../../ui/Spinner";
-import { MyProductType } from "../../../types/product.type";
+import { faEye, faHeart, faTrashCan } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Stars from './Stars';
+import ImgEffects from './ImgEffects';
+import { deleteFromWishList } from '../../Wishlist/wishlistSlice';
+import useRedux from '../../../hooks/useRedux';
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import useLikedProducts from '../../../hooks/useLikedProducts';
+import Spinner from '../../../ui/Spinner';
+import { MyProductType } from '../../../types/product.type';
 
 interface BoxBroductProps {
   product: MyProductType;
@@ -19,7 +19,7 @@ interface BoxBroductProps {
 }
 function BoxBroduct({
   product,
-  AddTo = "Add To WishList",
+  AddTo = 'Add To WishList',
   idItem,
   WasteBasket = false,
   noButton,
@@ -43,7 +43,7 @@ function BoxBroduct({
       className="relative h-96 w-72"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ type: "spring", stiffness: 50 }}
+      transition={{ type: 'spring', stiffness: 50 }}
     >
       <p className="absolute top-2 left-2 rounded-sm flex justify-center items-center z-10 bg-red-600 w-14 h-6">
         -{product.discount}%
@@ -59,14 +59,14 @@ function BoxBroduct({
       ) : (
         <motion.p
           animate={heartAnimation}
-          transition={{ delay: 0, type: "tween", duration: 0.4 }}
+          transition={{ delay: 0, type: 'tween', duration: 0.4 }}
           className="absolute right-2 top-2 z-10 cursor-pointer"
           onClick={handleLiked}
         >
           {!isLoading ? (
             <FontAwesomeIcon
               icon={faHeart}
-              className={`${isLiked && "text-red-600"}`}
+              className={`${isLiked && 'text-red-600'}`}
             />
           ) : (
             <Spinner size="small" />

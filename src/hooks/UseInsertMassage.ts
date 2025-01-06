@@ -1,6 +1,6 @@
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { insertMassage } from "../services/apiChat";
-import { ChatMessageType } from "@/types/chats.type";
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { insertMassage } from '../services/apiChat';
+import { ChatMessageType } from '@/types/chats.type';
 
 const useInsertMassage = () => {
   const queryClient = useQueryClient();
@@ -8,7 +8,7 @@ const useInsertMassage = () => {
   const { isLoading, mutate } = useMutation({
     mutationFn: (row: ChatMessageType) => insertMassage(row),
     onSuccess: () => {
-      queryClient.invalidateQueries(["Chats"]);
+      queryClient.invalidateQueries(['Chats']);
     },
     onError: (err: Error) => {
       alert(err.message);

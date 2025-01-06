@@ -1,7 +1,7 @@
-import { faComment } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "react-router-dom";
-import useRedux from "../../../../hooks/useRedux";
+import { faComment } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from 'react-router-dom';
+import useRedux from '../../../../hooks/useRedux';
 
 function MessagesIcon() {
   const { appSelector } = useRedux();
@@ -21,7 +21,7 @@ function MessagesIcon() {
             {ReceiverChat.length}
           </p>
         ) : (
-          ""
+          ''
         )}
       </div>
     </>
