@@ -1,5 +1,6 @@
 import { UserType } from '@/types/user.type';
 import supabase from './supabase';
+import { z } from 'zod';
 
 export async function login({
   email,
@@ -20,6 +21,12 @@ export async function login({
   return data;
 }
 
+const signupSchema = z.object({
+  email: z.string().email(),
+  password: z.string().min(6),
+  name: z.string().min(1),
+});
+
 export async function signup({
   email,
   password,
@@ -29,6 +36,8 @@ export async function signup({
   password: string;
   name: string;
 }) {
+  signupSchema.parse({ email, password, name });
+
   const { data, error } = await supabase.auth.signUp({
     email,
     password,

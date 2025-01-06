@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { updateProductsInBulk } from '../services/apiDataOfProduct';
-import MyProductType from '@/types/product.type';
+import { MyProductType } from '@/types/product.type';
 
 function useUpdateProducts() {
   const queryClient = useQueryClient();
