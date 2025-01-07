@@ -29,7 +29,7 @@ const Purchases = () => {
 
   return (
     <div className=" w-[100%]">
-      {cartData.map((data: MyProductType) => (
+      {cartData.map((data) => (
         <div
           key={data.id}
           className=" h-[72px] flex  justify-around      items-center  shadow-md  "

@@ -49,7 +49,7 @@ export async function deleteProduct(id: string) {
 
 export async function updateProduct(newData: {
   id: string;
-  EditRow: MyProductType;
+  EditRow: Partial<MyProductType>;
 }) {
   console.log(newData);
 

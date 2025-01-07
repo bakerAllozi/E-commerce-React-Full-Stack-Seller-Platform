@@ -55,7 +55,7 @@ const cartReducer = createSlice({
     },
     calcPrice(state) {
       state.totalPrice = state.cartData.reduce(
-        (accumulator, item) => accumulator + (item.price2 ?? 0),
+        (accumulator, item) => accumulator + item.price2,
         0
       );
     },
