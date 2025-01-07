@@ -3,7 +3,6 @@ import { updateProduct } from '../services/apiDataOfProduct';
 
 function useUpdateProduct() {
   const queryClient = useQueryClient();
-
   const { isLoading, mutate: updateProductById } = useMutation({
     mutationFn: updateProduct,
     onSuccess: (data) => {

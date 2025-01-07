@@ -51,6 +51,8 @@ export async function updateProduct(newData: {
   id: string;
   EditRow: MyProductType;
 }) {
+  console.log(newData);
+
   const { data, error } = await supabase
     .from('DataOfProduct')
     .update({ ...newData.EditRow })

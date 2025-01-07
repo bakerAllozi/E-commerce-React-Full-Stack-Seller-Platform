@@ -8,7 +8,7 @@ function LikePage() {
   const { user } = useUser();
   if (!user) return;
 
-  const productsILiked = Data.filter((e) => e.product_like.includes(user.id));
+  const productsILiked = Data.filter((e) => e.product_like?.includes(user.id));
 
   return (
     <>

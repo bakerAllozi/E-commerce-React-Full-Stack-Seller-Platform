@@ -9,7 +9,7 @@ export interface MyProductType {
   userId: string;
   piecesRemaining: number;
   category: string;
-  quantity: number;
+  quantity?: number;
   product_like: string[];
   price2?: number;
   stock: number;

@@ -33,7 +33,8 @@ const useLikedProducts = (product: MyProductType): UseLikedProductsReturn => {
       ? productLikes.filter((id) => id !== user.id)
       : [...productLikes, user.id];
 
-    const EditRow = { ...product, product_like: updatedProductLikes };
+    const { quantity, ...rest } = product;
+    const EditRow = { ...rest, product_like: updatedProductLikes };
 
     updateProductById({ id: product.id, EditRow });
     dispatch(getProductsILiked(product.id));
