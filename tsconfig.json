@@ -12,7 +12,10 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
-    }
+    },
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "noEmit": true
   },
   "include": ["src", "vite-env.d.ts"],
   "exclude": ["node_modules"]

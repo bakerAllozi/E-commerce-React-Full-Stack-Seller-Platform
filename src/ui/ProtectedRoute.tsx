@@ -7,7 +7,6 @@ function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const navigate = useNavigate();
   const location = useLocation();
   const { isAuthenticated, isLoading } = useUser();
-  console.log(isAuthenticated);
 
   useEffect(() => {
     if (!isAuthenticated && !isLoading) {

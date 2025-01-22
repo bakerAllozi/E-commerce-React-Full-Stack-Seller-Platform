@@ -57,6 +57,7 @@ import AppLayout from './AppLayout';
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe, Stripe } from '@stripe/stripe-js';
 import { MyProductType } from '../types/product.type';
+import ProtectedRoute from '@/ui/ProtectedRoute';
 
 function App() {
   const { dispatch, appSelector } = useRedux();
@@ -108,7 +109,13 @@ function App() {
     <BrowserRouter>
       <Suspense fallback={<Loading />}>
         <Routes>
-          <Route element={<AppLayout />}>
+          <Route
+            element={
+              <ProtectedRoute>
+                <AppLayout />
+              </ProtectedRoute>
+            }
+          >
             <Route index element={<Homepage />} />
             <Route path="Contact" element={<ContactPage />} />
             <Route path="About" element={<About />} />

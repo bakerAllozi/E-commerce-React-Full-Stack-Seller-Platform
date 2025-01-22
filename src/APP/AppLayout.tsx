@@ -16,7 +16,7 @@ function AppLayout() {
   }, [location.pathname]);
 
   return (
-    <ProtectedRoute>
+    <div>
       <Navbar />
       <button
         onClick={() => navigate(-1)}
@@ -28,7 +28,7 @@ function AppLayout() {
         <Outlet />
       </Container>
       <Footer />
-    </ProtectedRoute>
+    </div>
   );
 }
 
