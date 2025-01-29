@@ -1,16 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { MyProductType } from '../../types/product.type';
 
-interface initialStateType {
-  Data: MyProductType[];
-  randomProduct: MyProductType[];
-  BestSellingProducts: MyProductType[];
-  wishlistData: MyProductType[];
-  productsILiked: MyProductType[];
-  ProductDetails: MyProductType[];
-  categoryName: MyProductType[];
+type ProductArray = MyProductType[];
+
+interface InitialState {
+  [key: string]: ProductArray;
 }
-const initialState: initialStateType = {
+
+const initialState: InitialState = {
   Data: [],
   randomProduct: [],
   BestSellingProducts: [],
