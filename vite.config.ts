@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite';
+import { defineConfig } from 'vitest/config'; // ✅ استخدم vitest/config بدلاً من vite
 import path from 'path';
 
 export default defineConfig({
@@ -18,5 +18,10 @@ export default defineConfig({
       },
     },
     chunkSizeWarningLimit: 500,
+  },
+  test: {
+    globals: true, // ✅ يجعل `expect` و `test` متاحين عالميًا
+    environment: 'jsdom', // ✅ محاكاة بيئة المتصفح
+    setupFiles: './src/setupTests.ts', // ✅ تحميل `setupTests.ts`
   },
 });

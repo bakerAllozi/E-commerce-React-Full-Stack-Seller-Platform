@@ -10,7 +10,6 @@ function UserPage() {
   const { appSelector } = useRedux();
   const { Data } = appSelector((state) => state.product);
   const { user } = useUser();
-  console.log(user?.id);
 
   const userProduct = Data.filter((arr) => arr.userId === user?.id);
   const { updateData } = useProductData();

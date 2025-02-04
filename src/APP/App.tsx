@@ -142,7 +142,6 @@ function App() {
             <Route path="/:productId" element={<ViewProductDetails />} />
             <Route path="*" element={<Error />} />
           </Route>
-
           <Route path="SignUp" element={<SignUp />} />
           <Route path="LogIn" element={<Login />} />
         </Routes>
