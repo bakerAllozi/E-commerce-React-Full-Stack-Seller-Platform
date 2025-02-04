@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+
 function Error({
   type = '404 Not Found',
   text = 'Your visited page not found You may go home page.',
