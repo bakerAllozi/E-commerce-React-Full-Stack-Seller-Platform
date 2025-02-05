@@ -29,4 +29,5 @@ export interface InputProps {
   step?: number;
   required?: boolean;
   additionalClasses?: string;
+  labelStyle?: boolean;
 }

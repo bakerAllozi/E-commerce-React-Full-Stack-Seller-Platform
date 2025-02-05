@@ -9,11 +9,15 @@ const TestWrapper = ({
   type,
   label,
   placeholder,
+  min,
+  max,
 }: {
   name: string;
   type?: string;
   label?: string;
   placeholder?: string;
+  min?: number;
+  max?: number;
 }) => {
   const { register } = useForm();
 
@@ -45,13 +49,15 @@ describe('Input component', () => {
     ).toBeInTheDocument();
   });
   test('يجب أن يسمح بإدخال الأرقام عند type="number"', async () => {
-    render(<TestWrapper name="price" type="number" />);
+    render(<TestWrapper name="price" type="number" min={20} max={50} />);
 
-    const input = screen.getByRole('spinbutton'); // عنصر إدخال رقمي
-    await userEvent.type(input, '123');
+    const input = screen.getByRole('spinbutton');
+    await userEvent.clear(input);
+    await userEvent.type(input, '120');
 
-    expect(input).toHaveValue(123);
+    expect(input).toHaveValue(120);
   });
+
   test('يجب أن يسمح برفع ملف عند type="file"', async () => {
     render(<TestWrapper label="Image" name="image" type="file" />);
 

@@ -1,5 +1,5 @@
 import { useForm } from 'react-hook-form';
-import Input2 from '../../ui/Input2';
+import Input from '../../ui/Input/Input';
 import { Link, useNavigate } from 'react-router-dom';
 import useSignup from '../../hooks/useSignup';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -40,23 +40,26 @@ function SignUp() {
           <h1 className="  text-2xl    font-bold">Create an account</h1>
           <p>Enter your details below</p>
 
-          <Input2
+          <Input
             label={'name'}
             register={register}
             type={'text'}
             name={'name'}
+            labelStyle={true}
           />
-          <Input2
+          <Input
             label={'email'}
             register={register}
             type={'text'}
             name={'email'}
+            labelStyle={true}
           />
-          <Input2
+          <Input
             label={'password'}
             register={register}
             type={'text'}
             name={'password'}
+            labelStyle={true}
           />
           <button
             disabled={isLoading}

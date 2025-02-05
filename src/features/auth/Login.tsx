@@ -1,4 +1,4 @@
-import Input2 from '../../ui/Input2';
+import Input from '../../ui/Input/Input';
 import { useForm } from 'react-hook-form';
 import useLogin from '../../hooks/useLogin';
 import { Link, useNavigate } from 'react-router-dom';
@@ -40,17 +40,19 @@ function Login() {
           <h1 className="  text-2xl    font-bold">Log in to Exclusive</h1>
           <p>Enter your details below</p>
 
-          <Input2
+          <Input
             label={'email'}
             register={register}
             type={'text'}
             name={'email'}
+            labelStyle={true}
           />
-          <Input2
+          <Input
             label={'password'}
             register={register}
             type={'text'}
             name={'password'}
+            labelStyle={true}
           />
           <button
             disabled={isLoading}

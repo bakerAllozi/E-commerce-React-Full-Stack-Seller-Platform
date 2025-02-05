@@ -11,7 +11,10 @@ const Input = ({
   step = 1,
   required = true,
   additionalClasses = '',
+  labelStyle = false,
 }: InputProps) => {
+  const style1 = `w-full px-3 py-3 rounded-md border border-gray-300 bg-gray-100 text-gray-800 placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-200 transition-shadow duration-300 ease-in-out ${additionalClasses}`;
+  const style2 = `rounded-md h-10 px-3 border border-gray-300 bg-white text-gray-700 placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-shadow duration-300 ease-in-out`;
   return (
     <div className="flex flex-col gap-2">
       {label && (
@@ -29,7 +32,7 @@ const Input = ({
           type={type}
           accept={type === 'file' ? 'image/*' : undefined}
           placeholder={placeholder}
-          className={`w-full px-3 py-3 rounded-md border border-gray-300 bg-gray-100 text-gray-800 placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-200 transition-shadow duration-300 ease-in-out ${additionalClasses}`}
+          className={labelStyle ? style2 : style1}
           {...register(name)}
           required={required}
         />
@@ -38,7 +41,7 @@ const Input = ({
           id={name}
           type="number"
           placeholder={placeholder}
-          className={`w-full h-10 px-3 rounded-md border border-gray-300 bg-gray-100 text-gray-800 placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-200 transition-shadow duration-300 ease-in-out ${additionalClasses}`}
+          className={style1 && style2}
           {...register(name)}
           min={min}
           max={max}
