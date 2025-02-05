@@ -1,5 +1,5 @@
 import useInsertNewReview from '../../../../hooks/useInsertReviews';
-import Input from '../../../../ui/Input';
+import Input from '../../../../ui/Input/Input';
 import StarRating from './StarRating';
 import { v4 as uuidv4 } from 'uuid';
 import { useForm } from 'react-hook-form';

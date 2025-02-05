@@ -1,7 +1,7 @@
 import { insertNewComment } from '../../../../../services/apiComments';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { v4 as uuidv4 } from 'uuid';
-import Input from '../../../../../ui/Input';
+import Input from '../../../../../ui/Input/Input';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { CommentType } from '@/types/comment.type';
 

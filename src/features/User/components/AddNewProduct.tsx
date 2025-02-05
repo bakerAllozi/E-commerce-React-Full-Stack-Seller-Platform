@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useForm, UseFormRegister } from 'react-hook-form';
 import { v4 as uuidv4 } from 'uuid';
-import Input from '../../../ui/Input';
+import Input from '../../../ui/Input/Input';
 import { insertNewProduct } from '../../../services/apiDataOfProduct';
 import useUser from '../../../hooks/useUser';
 import { useState } from 'react';

@@ -1,5 +1,5 @@
 import { useForm } from 'react-hook-form';
-import Input from '../../../ui/Input';
+import Input from '../../../ui/Input/Input';
 import Spinner from '../../../ui/Spinner';
 import { useUpdateUser } from '../../../hooks/useUpdateUser';
 import useUser from '../../../hooks/useUser';

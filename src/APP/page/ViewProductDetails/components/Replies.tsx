@@ -5,7 +5,6 @@ import { CommentsOfProductType } from '@/types/CommentsOfProduct.type';
 
 function Replies({ review }: { review: CommentsOfProductType }) {
   const [showReplies, setShowReplies] = useState(false);
-
   const { updateReviewId } = useUpdateReview();
   const [reply, setReply] = useState('');
   const { user } = useUser();

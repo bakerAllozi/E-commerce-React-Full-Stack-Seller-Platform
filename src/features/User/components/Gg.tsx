@@ -1,5 +1,5 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
-import Input from '../../../ui/Input';
+import Input from '../../../ui/Input/Input';
 import { useState } from 'react';
 import Alert from '@mui/material/Alert';
 import Stack from '@mui/material/Stack';
