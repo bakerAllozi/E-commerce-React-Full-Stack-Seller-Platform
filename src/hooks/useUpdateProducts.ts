@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { updateProductsInBulk } from '../services/apiDataOfProduct';
+import { updateProductsInBulk } from '../backend/apiDataOfProduct';
 import { MyProductType } from '@/types/product.type';
 
 function useUpdateProducts() {

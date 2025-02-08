@@ -1,11 +1,11 @@
 import { useCallback } from 'react';
-import { getDataOfProduct } from '../services/apiDataOfProduct';
-import { fetchProductItem } from '../features/Homepage/HomepageSlice';
+import { getDataOfProduct } from '../backend/apiDataOfProduct';
 import useRedux from './useRedux';
 import { useQuery } from '@tanstack/react-query';
-import { getDataChats } from '../features/User/userSlice';
 import useUser from './useUser';
 import useReadChats from './useReadChats';
+import { fetchProductItem } from '@/components/features/Homepage/HomepageSlice';
+import { getDataChats } from '@/components/features/User/userSlice';
 
 interface ProductData {
   id: string;

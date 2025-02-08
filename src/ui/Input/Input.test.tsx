@@ -61,7 +61,7 @@ describe('Input component', () => {
   test('يجب أن يسمح برفع ملف عند type="file"', async () => {
     render(<TestWrapper label="Image" name="image" type="file" />);
 
-    const input = screen.getByLabelText(/image/i);
+    const input = screen.getByLabelText(/image/i) as HTMLInputElement;
     expect(input).toBeInTheDocument();
     expect(input).toHaveAttribute('type', 'file');
     const file = new File(['dummy content'], 'test-image.png', {
@@ -70,6 +70,7 @@ describe('Input component', () => {
     await userEvent.upload(input, file);
 
     expect(input.files).toHaveLength(1);
-    expect(input.files[0].name).toBe('test-image.png');
+    expect(input.files).not.toBeNull();
+    expect(input.files![0].name).toBe('test-image.png');
   });
 });

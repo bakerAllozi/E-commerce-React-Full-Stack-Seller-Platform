@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { updateChat } from '../services/apiChat';
+import { updateChat } from '../backend/apiChat';
 
 function useUpdateChat() {
   const queryClient = useQueryClient();

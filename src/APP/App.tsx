@@ -7,49 +7,46 @@ import useReadChats from '../hooks/useReadChats';
 import useUser from '../hooks/useUser';
 import useRedux from '../hooks/useRedux';
 import usePublicUser from '../hooks/usePublicUser';
-import {
-  fetchProductItem,
-  gitBestSellingProducts,
-  gitRandomProduct,
-} from '../features/Homepage/HomepageSlice';
-import {
-  getDataChats,
-  splitDataChat,
-  setNewAvatarUser,
-} from '../features/User/userSlice';
-import { getProductToWishlist } from '../features/Wishlist/wishlistSlice';
-import { getDataOfProduct } from '../services/apiDataOfProduct';
+import { getDataOfProduct } from '../backend/apiDataOfProduct';
 
-const Cart = lazy(() => import('../features/Cart/Cart'));
-const MyAccount = lazy(() => import('../features/User/components/MyAccount'));
-const CheckOut = lazy(() => import('../ui/CheckOut'));
-const Gg = lazy(() => import('../features/User/components/Gg'));
-
+const Cart = lazy(() => import('@/components/features/Cart/Cart'));
+const MyAccount = lazy(
+  () => import('@/components/features/User/components/MyAccount')
+);
+const CheckOut = lazy(() => import('@/components/features/CheckOut/CheckOut'));
+const EditProducts = lazy(
+  () => import('@/components/features/User/components/EditProducts')
+);
 const ChatPage = lazy(
-  () => import('../features/User/components/cahtUser/ChatPage')
+  () => import('@/components/features/User/components/cahtUser/ChatPage')
 );
 
 const MessageNotifications = lazy(
-  () => import('../features/User/components/cahtUser/MessageNotifications')
+  () =>
+    import(
+      '@/components/features/User/components/cahtUser/MessageNotifications'
+    )
 );
-const Login = lazy(() => import('../features/auth/Login'));
-const SignUp = lazy(() => import('../features/auth/SignUp'));
+const Login = lazy(() => import('@/components/features/auth/Login'));
+const SignUp = lazy(() => import('@/components/features/auth/SignUp'));
 
-const Homepage = lazy(() => import('../features/Homepage/Homepage'));
-const ContactPage = lazy(() => import('./page/ContactPage'));
-
-const About = lazy(() => import('./page/About'));
-const Wishlist = lazy(() => import('../features/Wishlist/Wishlist'));
-const LikePage = lazy(() => import('./page/LikePage'));
-const UserPage = lazy(() => import('../features/User/UserPage'));
-const Error = lazy(() => import('../ui/Error'));
-const ViewByCategory = lazy(() => import('./page/ViewByCategory'));
-const ViewProductDetails = lazy(
-  () => import('./page/ViewProductDetails/ViewProductDetails')
-);
+const Homepage = lazy(() => import('@/components/features/Homepage/Homepage'));
 const AddNewProduct = lazy(
-  () => import('../features/User/components/AddNewProduct')
+  () => import('@/components/features/User/components/AddNewProduct')
 );
+const Wishlist = lazy(() => import('@/components/features/Wishlist/Wishlist'));
+const UserPage = lazy(() => import('@/components/features/User/UserPage'));
+
+const ContactPage = lazy(() => import('@/components/page/ContactPage'));
+const About = lazy(() => import('@/components/page/About'));
+const LikePage = lazy(() => import('@/components/page/LikePage'));
+const ViewByCategory = lazy(() => import('@/components/page/ViewByCategory'));
+const ViewProductDetails = lazy(
+  () => import('@/components/page/ViewProductDetails/ViewProductDetails')
+);
+
+const Error = lazy(() => import('@/ui/Error/Error'));
+
 const Commentpage = lazy(
   () => import('../components/Navbar/components/Comment/Commentpage')
 );
@@ -57,7 +54,18 @@ import AppLayout from './AppLayout';
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe, Stripe } from '@stripe/stripe-js';
 import { MyProductType } from '../types/product.type';
-import ProtectedRoute from '@/ui/ProtectedRoute';
+import ProtectedRoute from '@/APP/ProtectedRoute';
+import {
+  fetchProductItem,
+  gitBestSellingProducts,
+  gitRandomProduct,
+} from '@/components/features/Homepage/HomepageSlice';
+import {
+  getDataChats,
+  splitDataChat,
+  setNewAvatarUser,
+} from '@/components/features/User/userSlice';
+import { getProductToWishlist } from '@/components/features/Wishlist/wishlistSlice';
 
 function App() {
   const { dispatch, appSelector } = useRedux();
@@ -138,7 +146,7 @@ function App() {
             <Route path="AddNewProduct" element={<AddNewProduct />} />
             <Route path="ChatPage" element={<ChatPage />} />
             <Route path="Commentpage" element={<Commentpage />} />
-            <Route path="Gg" element={<Gg />} />
+            <Route path="Gg" element={<EditProducts />} />
             <Route path="/:productId" element={<ViewProductDetails />} />
             <Route path="*" element={<Error />} />
           </Route>

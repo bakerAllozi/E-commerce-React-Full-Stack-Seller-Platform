@@ -1,10 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
-import { getComments } from '../../../../services/apiComments';
-import Stars from '../../../../features/Homepage/ui/Stars';
+import { getComments } from '../../../../backend/apiComments';
 import Loading from '../../../../ui/Loading';
 import { useState } from 'react';
 import Form from './components/Form';
 import { CommentType } from '@/types/comment.type';
+import Stars from '@/components/features/Homepage/ui/Stars';
 
 function Commentpage() {
   const [sortBy, setSortBy] = useState<string>('From the latest');

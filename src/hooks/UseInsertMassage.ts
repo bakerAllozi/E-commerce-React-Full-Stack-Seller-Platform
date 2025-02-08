@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { insertMassage } from '../services/apiChat';
+import { insertMassage } from '../backend/apiChat';
 import { ChatMessageType } from '@/types/chats.type';
 
 const useInsertMassage = () => {

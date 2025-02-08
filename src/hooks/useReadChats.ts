@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { getDataOfChats } from '../services/apiChat';
+import { getDataOfChats } from '../backend/apiChat';
 
 const useReadChats = (id: string) => {
   const { data, isLoading } = useQuery({

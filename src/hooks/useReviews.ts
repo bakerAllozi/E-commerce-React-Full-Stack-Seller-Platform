@@ -1,4 +1,4 @@
-import { getReviews } from '../services/apiReviews';
+import { getReviews } from '../backend/apiReviews';
 
 import { useQuery } from '@tanstack/react-query';
 

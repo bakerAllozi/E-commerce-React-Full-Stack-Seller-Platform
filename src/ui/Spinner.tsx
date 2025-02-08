@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 
 function Spinner({ size = 'medium' }: { size?: 'small' | 'medium' | 'large' }) {

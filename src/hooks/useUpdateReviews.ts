@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { updateReview } from '../services/apiReviews';
+import { updateReview } from '../backend/apiReviews';
 
 function useUpdateReview() {
   const queryClient = useQueryClient();

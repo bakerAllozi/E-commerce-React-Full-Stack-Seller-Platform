@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { insertNewReview } from '../services/apiReviews';
+import { insertNewReview } from '../backend/apiReviews';
 import { CommentsOfProductType } from '@/types/CommentsOfProduct.type';
 
 const useInsertNewReview = () => {
