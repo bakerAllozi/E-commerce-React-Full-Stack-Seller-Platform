@@ -8,9 +8,10 @@ import 'swiper/css';
 import useUser from '../../../../hooks/useUser';
 import useRedux from '../../../../hooks/useRedux';
 import { MyProductType } from '@/types/product.type';
-import { gitCartItem } from '@/components/features/Cart/CartSlice';
-import { showChatUser } from '@/components/features/User/userSlice';
-import Stars from '@/components/features/Homepage/ui/Stars';
+import { gitCartItem } from '@/APP/features/Cart/CartSlice';
+import { showChatUser } from '@/APP/features/User/userSlice';
+import Stars from '@/APP/features/Homepage/ui/Stars';
+
 const Details = ({
   ProductDetails,
   productId,

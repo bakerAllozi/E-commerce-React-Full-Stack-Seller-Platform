@@ -9,33 +9,30 @@ import useRedux from '../hooks/useRedux';
 import usePublicUser from '../hooks/usePublicUser';
 import { getDataOfProduct } from '../backend/apiDataOfProduct';
 
-const Cart = lazy(() => import('@/components/features/Cart/Cart'));
+const Cart = lazy(() => import('@/APP/features/Cart/Cart'));
 const MyAccount = lazy(
-  () => import('@/components/features/User/components/MyAccount')
+  () => import('@/APP/features/User/components/MyAccount')
 );
-const CheckOut = lazy(() => import('@/components/features/CheckOut/CheckOut'));
+const CheckOut = lazy(() => import('@/APP/features/CheckOut/CheckOut'));
 const EditProducts = lazy(
-  () => import('@/components/features/User/components/EditProducts')
+  () => import('@/APP/features/User/components/EditProducts')
 );
 const ChatPage = lazy(
-  () => import('@/components/features/User/components/cahtUser/ChatPage')
+  () => import('@/APP/features/User/components/cahtUser/ChatPage')
 );
 
 const MessageNotifications = lazy(
-  () =>
-    import(
-      '@/components/features/User/components/cahtUser/MessageNotifications'
-    )
+  () => import('@/APP/features/User/components/cahtUser/MessageNotifications')
 );
-const Login = lazy(() => import('@/components/features/auth/Login'));
-const SignUp = lazy(() => import('@/components/features/auth/SignUp'));
+const Login = lazy(() => import('@/APP/features/auth/Login'));
+const SignUp = lazy(() => import('@/APP/features/auth/SignUp'));
 
-const Homepage = lazy(() => import('@/components/features/Homepage/Homepage'));
+const Homepage = lazy(() => import('@/APP/features/Homepage/Homepage'));
 const AddNewProduct = lazy(
-  () => import('@/components/features/User/components/AddNewProduct')
+  () => import('@/APP/features/User/components/AddNewProduct')
 );
-const Wishlist = lazy(() => import('@/components/features/Wishlist/Wishlist'));
-const UserPage = lazy(() => import('@/components/features/User/UserPage'));
+const Wishlist = lazy(() => import('@/APP/features/Wishlist/Wishlist'));
+const UserPage = lazy(() => import('@/APP/features/User/UserPage'));
 
 const ContactPage = lazy(() => import('@/components/page/ContactPage'));
 const About = lazy(() => import('@/components/page/About'));
@@ -59,13 +56,13 @@ import {
   fetchProductItem,
   gitBestSellingProducts,
   gitRandomProduct,
-} from '@/components/features/Homepage/HomepageSlice';
+} from '@/APP/features/Homepage/HomepageSlice';
 import {
   getDataChats,
   splitDataChat,
   setNewAvatarUser,
-} from '@/components/features/User/userSlice';
-import { getProductToWishlist } from '@/components/features/Wishlist/wishlistSlice';
+} from '@/APP/features/User/userSlice';
+import { getProductToWishlist } from '@/APP/features/Wishlist/wishlistSlice';
 
 function App() {
   const { dispatch, appSelector } = useRedux();

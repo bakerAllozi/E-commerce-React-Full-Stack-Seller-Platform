@@ -6,8 +6,8 @@ import { FreeMode, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { MyProductType } from '@/types/product.type';
 import useRedux from '@/hooks/useRedux';
-import ShowProduct from '@/components/features/Homepage/ui/ShowProduct';
-import BoxBroduct from '@/components/features/Homepage/ui/BoxBroduct';
+import ShowProduct from '@/APP/features/Homepage/ui/ShowProduct';
+import BoxBroduct from '@/APP/features/Homepage/ui/BoxBroduct';
 
 const YouMayLike = ({ ProductDetails }: { ProductDetails: MyProductType }) => {
   const { appSelector } = useRedux();

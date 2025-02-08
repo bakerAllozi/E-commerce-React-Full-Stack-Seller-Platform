@@ -7,8 +7,8 @@ import {
 import { faMoneyBillAlt } from '@fortawesome/free-solid-svg-icons/faMoneyBillAlt';
 import BlackFridayImage from '../../assets/black-friday-elements-assortment_23-2149074075.png';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
-import ShowProduct from '../features/Homepage/ui/ShowProduct';
-import Information from '../features/Homepage/components/Information';
+import ShowProduct from '@/APP/features/Homepage/ui/ShowProduct';
+import Information from '@/APP/features/Homepage/components/Information';
 
 const categories = [
   { name: 'Monthly Product Sale', icons: faMoneyBill },

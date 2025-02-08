@@ -2,7 +2,7 @@ import {
   calcPrice,
   decreaseQuantity,
   increaseQuantity,
-} from '@/components/features/Cart/CartSlice';
+} from '@/APP/features/Cart/CartSlice';
 import useRedux from './useRedux';
 
 const useCartActions = () => {
