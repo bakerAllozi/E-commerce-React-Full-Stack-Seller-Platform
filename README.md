@@ -1,9 +1,9 @@
 # [E-commerce Platform] - Build Your Own Store
 
-[![MIT License](https:/img.shields.io/badge/license-MIT-blue.svg)](LICENSE)  
-[![React](https:/img.shields.io/badge/React-v18-blue)](https:/reactjs.org/)  
-[![Supabase](https:/img.shields.io/badge/Supabase-backend-green)](https:/supabase.com/)  
-[![Vite](https:/img.shields.io/badge/Vite-5.2-yellow)](https:/vitejs.dev/)
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)  
+[![React](https://img.shields.io/badge/React-v18-blue)](https://reactjs.org/)  
+[![Supabase](https://img.shields.io/badge/Supabase-backend-green)](https://supabase.com/)  
+[![Vite](https://img.shields.io/badge/Vite-5.2-yellow)](https://vitejs.dev/)
 
 ## 🌟 Introduction
 

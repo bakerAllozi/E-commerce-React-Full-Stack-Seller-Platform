@@ -20,8 +20,8 @@ export default defineConfig({
     chunkSizeWarningLimit: 500,
   },
   test: {
-    globals: true, // ✅ يجعل `expect` و `test` متاحين عالميًا
-    environment: 'jsdom', // ✅ محاكاة بيئة المتصفح
-    setupFiles: './src/setupTests.ts', // ✅ تحميل `setupTests.ts`
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: './src/setupTests.ts',
   },
 });
