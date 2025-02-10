@@ -12,6 +12,7 @@ function Like() {
   const productsILiked = Data.filter((e) =>
     e.product_like?.includes(String(user?.id))
   );
+  
 
   return (
     <div>

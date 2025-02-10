@@ -12,7 +12,10 @@ const stripePromise: Promise<Stripe | null> =
 
 const store = configureStore({
   reducer: {
-    cartItem: (state = { cartData: [] }, action) => state,
+    product: (state = { data: []}, action) => state,
+    cartItem: (state = { cartData: []}, action) => state,
+    wishlistData: (state = { wishlistData: []}, action) => state,
+    UserData: (state = { cartData: []}, action) => state,
   },
   preloadedState: {
     cartItem: {
@@ -20,8 +23,29 @@ const store = configureStore({
         { id: 1, name: 'منتج 1', price2: 100, quantity: 2, piecesRemaining: 5 },
       ],
     },
+    product: {
+      Data: [
+        { id: 1, name: 'منتج 1', price2: 100, quantity: 2, piecesRemaining: 5 },
+      ],
+    },
+    wishlistData: {
+      wishlistData: [
+        { id: 1, name: 'منتج 1', price2: 100, quantity: 2, piecesRemaining: 5 },
+      ],
+    },
+    UserData: {
+      ReceiverChat: [
+        {
+          id: '1',
+          name: 'محمد',
+          avatar: ''
+          
+        },
+      ],
+    },
   },
 });
+
 
 const queryClient = new QueryClient();
 
