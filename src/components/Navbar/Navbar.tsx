@@ -2,7 +2,7 @@ import { Link, NavLink } from 'react-router-dom';
 import Like from './ui/Like';
 import Basket from './ui/Basket';
 import CartIcon from './ui/CartIcon';
-import UserIcon from '@/APP/features/User/components/UserIcon';
+import UserIcon from '@/components/Navbar/ui/UserIcon';
 import MessagesIcon from '@/APP/features/User/components/cahtUser/MessagesIcon';
 
 const Navbar = () => {
@@ -16,7 +16,7 @@ const Navbar = () => {
         Add Product+
       </Link>
 
-      <nav className="   gap-5     hidden   sm:flex md:visible ">
+      <nav className="gap-5 hidden   sm:flex md:visible ">
         <NavLink
           to="/"
           className="border-current border-zinc-300  p-2 p-b-4 hover:border-b-2 h-10  "
@@ -43,6 +43,7 @@ const Navbar = () => {
           Sign Up
         </NavLink>
       </nav>
+
 
       <div className=" flex  gap-10  items-center justify-center flex-row-reverse  ">
         <UserIcon />

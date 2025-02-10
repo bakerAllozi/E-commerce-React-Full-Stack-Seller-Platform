@@ -1,14 +1,14 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, test } from 'vitest';
-import Navbar from './Navbar';
 import { TestProviders } from '@/test/TestProviders';
 import userEvent from '@testing-library/user-event';
+import Navbar from '../Navbar';
 
 describe('Navbar Component', () => {
   test('renders Navbar correctly', () => {
     render(
         <TestProviders>
-        <Navbar />
+        <Navbar/>
         </TestProviders>
     );
 
@@ -21,15 +21,13 @@ describe('Navbar Component', () => {
 
 
     // userEvent.click(screen.getByText(/Home/i));
-    // expect(window.location.pathname).toBe('/');
-
+    // expect(screen.getByText(/Home Page/i)).toBeInTheDocument();
 
     // userEvent.click(screen.getByText(/Contact/i));
-    // expect(window.location.pathname).toBe('/Contact');
-
+    // expect(screen.getByText(/Contact Page/i)).toBeInTheDocument(); 
 
     // userEvent.click(screen.getByText(/About/i));
-    // expect(window.location.pathname).toBe('/About');
+    // expect(screen.getByText(/About Page/i)).toBeInTheDocument();
 
   });
 });

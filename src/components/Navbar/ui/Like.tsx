@@ -15,7 +15,7 @@ function Like() {
   
 
   return (
-    <div>
+    <div  data-testid="like-container">
       <Link to="/LikePage" className=" relative ">
         {productsILiked.length > 0 && (
           <motion.p
