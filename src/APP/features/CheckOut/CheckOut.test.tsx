@@ -7,36 +7,19 @@ import { configureStore } from '@reduxjs/toolkit';
 import { describe, expect, test } from 'vitest';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import CheckOut from './CheckOut';
+import { TestProviders } from '@/test/TestProviders';
 
-const stripePromise = loadStripe('pk_test_12345'); // استخدم مفتاح اختبار وهمي
 
-const store = configureStore({
-  reducer: {
-    cartItem: (state = { cartData: [] }, action) => state,
-  },
-  preloadedState: {
-    cartItem: {
-      cartData: [
-        { id: 1, name: 'منتج 1', price2: 100, quantity: 2, piecesRemaining: 5 },
-      ],
-    },
-  },
-});
+
 
 describe('CheckOut Component', () => {
-  const queryClient = new QueryClient();
 
   test('يجب أن يعرض نموذج الدفع', async () => {
     render(
-      <Provider store={store}>
-        <MemoryRouter>
-          <Elements stripe={stripePromise}>
-            <QueryClientProvider client={queryClient}>
-              <CheckOut />
-            </QueryClientProvider>
-          </Elements>
-        </MemoryRouter>
-      </Provider>
+      <TestProviders>
+      <CheckOut />
+      </TestProviders>
+  
     );
 
     expect(screen.getByText(/إتمام الدفع/i)).toBeInTheDocument();

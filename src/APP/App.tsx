@@ -8,7 +8,8 @@ import useUser from '../hooks/useUser';
 import useRedux from '../hooks/useRedux';
 import usePublicUser from '../hooks/usePublicUser';
 import { getDataOfProduct } from '../backend/apiDataOfProduct';
-const supabaseUrl = import.meta.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY;
+const stripeUrl ='pk_test_51QPYMAKxnNgqIQklhBT5FTH7UU1rPPpPP78wG0n7dsGfze107LYUk1WhLbMs5mzZj6DPfYOpRkLQD88UvgZdbD6P00dGYGvcBE'
+;
 
 const Cart = lazy(() => import('@/APP/features/Cart/Cart'));
 const MyAccount = lazy(
@@ -107,7 +108,7 @@ function App() {
     }
   }, [Data, chatData, dispatch, userId, ALLUserData]);
 
-  const stripePromise: Promise<Stripe | null> = loadStripe(supabaseUrl);
+  const stripePromise: Promise<Stripe | null> = loadStripe(stripeUrl);
 
   return (
     <BrowserRouter>
