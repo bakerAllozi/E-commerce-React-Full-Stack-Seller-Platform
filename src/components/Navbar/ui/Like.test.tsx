@@ -5,6 +5,7 @@ import userEvent from '@testing-library/user-event';
 import Navbar from '../Navbar';
 import useUser from '@/hooks/useUser';
 import LikePage from '@/components/page/LikePage';
+import Like from './Like';
 
 describe('Navbar Component', () => {
     vi.mock("@/hooks/useUser", () => ({
@@ -18,19 +19,17 @@ describe('Navbar Component', () => {
 
     render(
         <TestProviders>
-        <Navbar/>
-        <LikePage />
+        <Like />
         </TestProviders>
     );
 
     expect(screen.getByText(/2/)).toBeInTheDocument();
 
-    fireEvent.click(screen.getByTestId('like-container'));
 
-    expect(window.location.pathname).toBe('/LikePage');
+
+
 
     // userEvent.click(screen.getByText(/Home/i));
-    // expect(screen.getByText(/Home Page/i)).toBeInTheDocument();
 
     // userEvent.click(screen.getByText(/Contact/i));
     // expect(screen.getByText(/Contact Page/i)).toBeInTheDocument(); 

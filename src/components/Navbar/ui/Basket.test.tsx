@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, test, vi } from 'vitest';
 import { TestProviders } from '@/test/TestProviders';
-import CartIcon from './CartIcon';
-import useUser from '@/hooks/useUser';
+
+import Basket from './Basket';
 
 describe('cart icon Component', () => {
   
@@ -11,7 +11,7 @@ describe('cart icon Component', () => {
  
     render(
         <TestProviders>
-        <CartIcon/>
+        <Basket/>
         </TestProviders>
     );
     expect(screen.getByText(/1/)).toBeInTheDocument();

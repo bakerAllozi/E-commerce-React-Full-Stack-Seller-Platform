@@ -13,13 +13,13 @@ function LikePage() {
   return (
     <>
       {productsILiked.length > 0 ? (
-        <div className=" mt-[100px]  bg-slate-800/20 backdrop-blur-sm  ">
+        <div className=" mt-[100px]  bg-slate-800/20 backdrop-blur-sm  " >
           <h1 className="  text-center mb-12 text-red-700   font-bold text-[30px] ">
             Product Liked
           </h1>
           <div className="flex    flex-row  flex-wrap  gap-16 justify-evenly ">
             {productsILiked.map((data) => (
-              <div key={data.id}>
+              <div key={data.id} data-testid="like-product">
                 <BoxBroduct product={data} idItem={data.id} noButton={true} />
               </div>
             ))}

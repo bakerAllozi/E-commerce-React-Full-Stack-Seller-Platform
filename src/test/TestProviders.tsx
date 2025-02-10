@@ -48,8 +48,14 @@ const store = configureStore({
     },
     product: {
       Data: [
-        { id: 1, name: 'منتج 1', price2: 100, quantity: 2, piecesRemaining: 5, product_like:['123'] },
-        { id: 2, name: 'منتج 2', price2: 100, quantity: 2, piecesRemaining: 5, product_like:['123'] },
+        { id: 1, name: 'منتج 1', price2: 100, quantity: 2, piecesRemaining: 5, product_like:['123'],rating:{
+          rate: 4,
+          count: 5,
+        } },
+        { id: 2, name: 'منتج 2', price2: 100, quantity: 2, piecesRemaining: 5, product_like:['123'],rating:{
+          rate: 4,
+          count: 5,
+        } },
       ],
     },
     wishlistData: {
