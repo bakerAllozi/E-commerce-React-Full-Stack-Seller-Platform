@@ -13,7 +13,7 @@ function MessagesIcon() {
         <Link to="/Messages" className=" relative ">
           <FontAwesomeIcon
             icon={faComment}
-            className=" w-6 h-6 cursor-pointer  "
+            className=" w-6 h-6 cursor-pointer "
           />
         </Link>
         {ReceiverChat.length > 0 ? (

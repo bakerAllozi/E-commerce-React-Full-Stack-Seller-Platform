@@ -13,7 +13,7 @@ describe('Navbar Component', () => {
 
 
       
-  test('likePage is 0 like  ', () => {
+  test('likePage is 0 ===   ', () => {
     (useUser as vi.Mock).mockReturnValue({
         user: { id: "1235", name: "Baker" },
       });

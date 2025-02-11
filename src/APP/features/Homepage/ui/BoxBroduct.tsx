@@ -79,7 +79,7 @@ function BoxBroduct({
       )}
 
       <Link
-        to={`${product.category}/${idItem}`}
+        to={`/${product.category}/${idItem}`}
         className="absolute right-2 top-10 z-10 cursor-pointer text-gray-600 dark:text-white hover:text-blue-500 transition-all"
       >
         <FontAwesomeIcon icon={faEye} size="lg" />

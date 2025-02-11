@@ -43,24 +43,24 @@ const store = configureStore({
   preloadedState: {
     cartItem: {
       cartData: [
-        { id: 1, name: 'منتج 1', price2: 100, quantity: 2, piecesRemaining: 5 },
+        { id: 1, title: 'منتج 1', price2: 100, quantity: 2, piecesRemaining: 5 },
       ],
     },
     product: {
       Data: [
-        { id: 1, name: 'منتج 1', price2: 100, quantity: 2, piecesRemaining: 5, product_like:['123'],rating:{
+        { id: 1, title: 'Smartphone', price2: 100, quantity: 2, piecesRemaining: 5, product_like:['123'],category:'Electronics' ,rating:{
           rate: 4,
           count: 5,
         } },
-        { id: 2, name: 'منتج 2', price2: 100, quantity: 2, piecesRemaining: 5, product_like:['123'],rating:{
+        { id: 2, title: 'منتج 2', price2: 100, quantity: 2, piecesRemaining: 5, product_like:['123'],rating:{
           rate: 4,
           count: 5,
-        } },
+        },category:'Electronics' },
       ],
     },
     wishlistData: {
       wishlistData: [
-        { id: 1, name: 'منتج 1', price2: 100, quantity: 2, piecesRemaining: 5 },
+        { id: 1, title: 'منتج 1', price2: 100, quantity: 2, piecesRemaining: 5 },
       ],
     },
     UserData: {
@@ -81,46 +81,33 @@ const queryClient = new QueryClient();
 
 interface TestProvidersProps {
   children: ReactNode;
+  initialEntries?:string
 }
-export function TestProviders({ children }: TestProvidersProps) {
+// export function TestProviders({ children }: TestProvidersProps) {
+//   return (
+//     <Provider store={store}>
+//       <MemoryRouter initialEntries={["/CategoryPage/fakeCategory"]}>
+//         <QueryClientProvider client={queryClient}>
+//           <Elements stripe={stripePromise}>
+//           
+//             {children}
+//           </Elements>
+//         </QueryClientProvider>
+//       </MemoryRouter>
+//     </Provider>
+//   );
+// }
+export function TestProviders({ children , initialEntries='/' }: TestProvidersProps) {
   return (
     <Provider store={store}>
-      <MemoryRouter initialEntries={['/']}>
-        <QueryClientProvider client={queryClient}>
-          <Elements stripe={stripePromise}>
-            <Suspense fallback={<Loading />}>
-              <Routes>
-                <Route
-                  element={
-                    <ProtectedRoute>
-                      <AppLayout />
-                    </ProtectedRoute>
-                  }
-                >
-                  <Route index element={<Homepage />} />
-                  <Route path="Contact" element={<ContactPage />} />
-                  <Route path="About" element={<About />} />
-                  <Route path="Cart" element={<Cart />} />
-                  <Route path="LikePage" element={<LikePage />} />
-                  <Route path="Wishlist" element={<Wishlist />} />
-                  <Route path="Messages" element={<MessageNotifications />} />
-                  <Route path="UserPage" element={<UserPage />} />
-                  <Route path="MyAccount" element={<MyAccount />} />
-                  <Route path="CategoryPage" element={<ViewByCategory />} />
-                  <Route path="AddNewProduct" element={<AddNewProduct />} />
-                  <Route path="ChatPage" element={<ChatPage />} />
-                  <Route path="Commentpage" element={<Commentpage />} />
-                  <Route path="/:productId" element={<ViewProductDetails />} />
-                  <Route path="*" element={<Error />} />
-                </Route>
-                <Route path="SignUp" element={<SignUp />} />
-                <Route path="LogIn" element={<Login />} />
-              </Routes>
-            </Suspense>
-            {children}
-          </Elements>
-        </QueryClientProvider>
+         <QueryClientProvider client={queryClient}>
+           <Elements stripe={stripePromise}>  
+       <MemoryRouter initialEntries={[initialEntries]}>
+             {children}
       </MemoryRouter>
-    </Provider>
+
+           </Elements>
+         </QueryClientProvider>
+     </Provider>
   );
 }

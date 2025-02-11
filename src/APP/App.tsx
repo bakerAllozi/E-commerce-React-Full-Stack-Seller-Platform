@@ -141,7 +141,6 @@ function App() {
             <Route path="MyAccount" element={<MyAccount />} />
             <Route path="/:categoryName" element={<ViewByCategory />} />
             <Route path="/:categoryName/:productId" element={<ViewProductDetails />} />
-
             <Route path="AddNewProduct" element={<AddNewProduct />} />
             <Route path="ChatPage" element={<ChatPage />} />
             <Route path="Commentpage" element={<Commentpage />} />

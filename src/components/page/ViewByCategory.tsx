@@ -4,25 +4,27 @@ import { useParams } from 'react-router-dom';
 
 function ViewByCategory() {
   const { categoryName } = useParams();
+
   const { appSelector } = useRedux();
+
   const { Data } = appSelector((state) => state.product);
-
-  // تأكد من أن Data ليست undefined قبل الفلترة
-  const categoryProduct = Data ? Data.filter((e) => e.category === categoryName) : [];
-
+  
+  const categoryProuduct= Data.filter((e) => e.category === categoryName);
+  
   return (
-    <div className="mt-24">
-      <h1 className="text-2xl font-bold">{categoryName}</h1>
-
-      {/* عرض المنتجات داخل BoxBroduct
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
-        {categoryProduct.length > 0 ? (
-          categoryProduct.map((product) => <BoxBroduct key={product.id} product={product} />)
-        ) : (
-          <p className="text-gray-500">لا توجد منتجات لهذه الفئة.</p>
-        )}
-      </div> */}
+    <>
+<h1 className="mt-24 mb-10 text-center text-4xl font-extrabold bg-gradient-to-r from-blue-500 to-purple-500 text-transparent bg-clip-text drop-shadow-md animate-fadeIn">
+  {categoryName}
+</h1>
+    <div className="flex  flex-row  flex-wrap  gap-16 justify-evenly">
+      {categoryProuduct.map((arr) => (
+        <div key={arr.id}>
+          <BoxBroduct product={arr} idItem={arr.id} />
+        </div>
+      ))}
     </div>
+    </>
+  
   );
 }
 
