@@ -3,7 +3,7 @@ import Like from './ui/Like';
 import Basket from './ui/Basket';
 import CartIcon from './ui/CartIcon';
 import UserIcon from '@/components/Navbar/ui/UserIcon';
-import MessagesIcon from '@/APP/features/User/components/cahtUser/MessagesIcon';
+import MessagesIcon from './ui/MessagesIcon';
 
 const Navbar = () => {
   return (

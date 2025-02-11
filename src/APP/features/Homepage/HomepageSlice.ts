@@ -14,7 +14,6 @@ const initialState: InitialState = {
   wishlistData: [],
   productsILiked: [],
   ProductDetails: [],
-  categoryName: [],
 };
 
 const HomepageReducer = createSlice({
@@ -43,11 +42,7 @@ const HomepageReducer = createSlice({
     setProductDetails(state, action) {
       state.ProductDetails = action.payload;
     },
-    setCategoryName(state, action) {
-      state.categoryName = state.Data.filter(
-        (arr) => arr.category === action.payload
-      );
-    },
+
     getProductsILiked(state, action) {
       const findProduct = state.Data.find((data) => data.id === action.payload);
       if (findProduct) {
@@ -70,5 +65,4 @@ export const {
   gitBestSellingProducts,
   getProductsILiked,
   setProductDetails,
-  setCategoryName,
 } = HomepageReducer.actions;

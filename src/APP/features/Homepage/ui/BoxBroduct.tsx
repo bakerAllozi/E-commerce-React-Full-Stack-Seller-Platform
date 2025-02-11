@@ -1,14 +1,14 @@
-import { faEye, faHeart, faTrashCan } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Stars from './Stars';
-import ImgEffects from './ImgEffects';
-import { deleteFromWishList } from '../../Wishlist/wishlistSlice';
-import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import useRedux from '@/hooks/useRedux';
-import useLikedProducts from '@/hooks/useLikedProducts';
-import Spinner from '@/ui/Spinner';
-import { MyProductType } from '@/types/product.type';
+import { faEye, faHeart, faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Stars from "./Stars";
+import ImgEffects from "./ImgEffects";
+import { deleteFromWishList } from "../../Wishlist/wishlistSlice";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import useRedux from "@/hooks/useRedux";
+import useLikedProducts from "@/hooks/useLikedProducts";
+import Spinner from "@/ui/Spinner";
+import { MyProductType } from "@/types/product.type";
 
 interface BoxBroductProps {
   product: MyProductType;
@@ -17,9 +17,10 @@ interface BoxBroductProps {
   WasteBasket?: boolean;
   noButton?: boolean;
 }
+
 function BoxBroduct({
   product,
-  AddTo = 'Add To WishList',
+  AddTo = "Add To WishList",
   idItem,
   WasteBasket = false,
   noButton,
@@ -40,33 +41,36 @@ function BoxBroduct({
 
   return (
     <motion.div
-      className="relative h-96 w-72"
+      className="relative h-[400px] w-80 bg-white dark:bg-gray-900 rounded-2xl shadow-lg overflow-hidden 
+                 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ type: 'spring', stiffness: 50 }}
+      transition={{ type: "spring", stiffness: 50 }}
     >
-      <p className="absolute top-2 left-2 rounded-sm flex justify-center items-center z-10 bg-red-600 w-14 h-6">
+      <p className="absolute top-2 left-2 bg-red-600 text-white text-sm font-semibold px-2 py-1 rounded-md z-10">
         -{product.discount}%
       </p>
 
       {WasteBasket ? (
         <p
-          className="absolute right-2 top-2 z-10 cursor-pointer"
+          className="absolute right-2 top-2 z-10 cursor-pointer text-gray-700 dark:text-white hover:text-red-500 transition-all"
           onClick={handleDelete}
         >
-          <FontAwesomeIcon icon={faTrashCan} />
+          <FontAwesomeIcon icon={faTrashCan} size="lg" />
         </p>
       ) : (
         <motion.p
           animate={heartAnimation}
-          transition={{ delay: 0, type: 'tween', duration: 0.4 }}
+          transition={{ delay: 0, type: "tween", duration: 0.4 }}
           className="absolute right-2 top-2 z-10 cursor-pointer"
           onClick={handleLiked}
         >
           {!isLoading ? (
             <FontAwesomeIcon
               icon={faHeart}
-              className={`${isLiked && 'text-red-600'}`}
+              className={`text-xl transition-all ${
+                isLiked ? "text-red-600" : "text-gray-400 hover:text-red-600"
+              }`}
             />
           ) : (
             <Spinner size="small" />
@@ -75,31 +79,30 @@ function BoxBroduct({
       )}
 
       <Link
-        to={`/${idItem}`}
-        className="absolute right-2 top-8 z-10 cursor-pointer"
+        to={`${product.category}/${idItem}`}
+        className="absolute right-2 top-10 z-10 cursor-pointer text-gray-600 dark:text-white hover:text-blue-500 transition-all"
       >
-        <FontAwesomeIcon icon={faEye} />
+        <FontAwesomeIcon icon={faEye} size="lg" />
       </Link>
 
       <ImgEffects product={product} AddTo={AddTo} noButton={noButton} />
 
-      <p className="font-bold">{product.title}</p>
+      <div className="p-4">
+        <p className="font-semibold text-lg text-gray-800 dark:text-white truncate">
+          {product.title}
+        </p>
 
-      <div className="space-x-4 absolute right-2 bottom-2">
-        <span className="text-red-600">${product.price}</span>
-        <span className="text-zinc-500 relative">
-          ${calculateOriginalPrice()}
-          <p className="absolute right-0 bottom-1 text-slate-300">______</p>
-        </span>
-      </div>
+        <div className="flex items-center gap-3 mt-2">
+          <span className="text-red-600 font-bold text-lg">${product.price}</span>
+          <span className="text-gray-500 text-sm line-through">
+            ${calculateOriginalPrice()}
+          </span>
+        </div>
 
-      <div>
-        <span className="absolute left-2 bottom-2">
+        <div className="flex items-center gap-1 mt-2">
           <Stars numStare={product.rating.rate} />
-        </span>
-        <span className="absolute left-0 bottom-8 text-sm text-slate-300">
-          ({product.rating.count})
-        </span>
+          <span className="text-gray-400 text-sm">({product.rating.count})</span>
+        </div>
       </div>
     </motion.div>
   );

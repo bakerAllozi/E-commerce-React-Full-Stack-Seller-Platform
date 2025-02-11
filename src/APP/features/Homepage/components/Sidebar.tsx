@@ -1,6 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { setCategoryName } from '../HomepageSlice';
-import useRedux from '@/hooks/useRedux';
+
 
 function Sidebar() {
   return (
@@ -25,14 +24,14 @@ function Sidebar() {
 
 const CreateNaveLink = ({ categoryName }: { categoryName: string }) => {
   const navigate = useNavigate();
-  const { dispatch } = useRedux();
+const handleNav = () =>{
+  navigate(`/${categoryName}`);
 
-  const handleBaker = () => {
-    navigate('/CategoryPage');
-    dispatch(setCategoryName(categoryName));
-  };
+}
+
+
   return (
-    <div className="" onClick={() => handleBaker()}>
+    <div onClick={() => handleNav()}>
       {categoryName}
     </div>
   );

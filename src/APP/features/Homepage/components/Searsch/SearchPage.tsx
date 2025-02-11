@@ -10,8 +10,8 @@ function SearchPage({
 }) {
   const navigate = useNavigate();
 
-  function handelSetProductDetails(product: { id: string; title: string }) {
-    navigate(`/${product.id}`);
+  function handelSetProductDetails(product: MyProductType) {
+    navigate(`${product.category}/${product.id}`);
     setSearchWorld('');
   }
   return (

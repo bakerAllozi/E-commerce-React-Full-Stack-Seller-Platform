@@ -139,12 +139,13 @@ function App() {
             <Route path="Messages" element={<MessageNotifications />} />
             <Route path="UserPage" element={<UserPage />} />
             <Route path="MyAccount" element={<MyAccount />} />
-            <Route path="CategoryPage" element={<ViewByCategory />} />
+            <Route path="/:categoryName" element={<ViewByCategory />} />
+            <Route path="/:categoryName/:productId" element={<ViewProductDetails />} />
+
             <Route path="AddNewProduct" element={<AddNewProduct />} />
             <Route path="ChatPage" element={<ChatPage />} />
             <Route path="Commentpage" element={<Commentpage />} />
             <Route path="Gg" element={<EditProducts />} />
-            <Route path="/:productId" element={<ViewProductDetails />} />
             <Route path="*" element={<Error />} />
           </Route>
           <Route path="SignUp" element={<SignUp />} />

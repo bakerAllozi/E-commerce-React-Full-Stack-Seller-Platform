@@ -13,7 +13,6 @@ import {
   IconDefinition,
 } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
-import { setCategoryName } from '../HomepageSlice';
 import useRedux from '@/hooks/useRedux';
 
 function CategorySales() {
@@ -46,15 +45,13 @@ const CreateNaveLink = ({
   icons: IconDefinition;
 }) => {
   const navigate = useNavigate();
-  const { dispatch } = useRedux();
-  const handleBaker = () => {
-    navigate('/CategoryPage');
-    dispatch(setCategoryName(name));
+  const handleNav = () => {
+    navigate(`/${name}`);
   };
   return (
     <div
       className=" cursor-pointer border-2 w-32 h-32 p-4 flex justify-center items-center flex-col gap-5   text-lg hover:bg-red-600  hover:text-white "
-      onClick={() => handleBaker()}
+      onClick={() => handleNav()}
     >
       <FontAwesomeIcon icon={icons} />
       <p className=" text-sm text-center">{name}</p>

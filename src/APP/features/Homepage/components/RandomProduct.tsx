@@ -63,7 +63,7 @@ function RandomProduct() {
                     Up to {data.discount}% off Voucher
                   </h1>
                   <Link
-                    to={`/${data.id}`}
+                    to={`${data.category}/${data.id}`}
                     className="flex items-center justify-center gap-2"
                   >
                     <p className="border-b-black border-b-2">Buy Now</p>
