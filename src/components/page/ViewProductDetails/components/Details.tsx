@@ -21,10 +21,13 @@ const Details = ({
 }) => {
   const navigate = useNavigate();
   const { user } = useUser();
+
   const { isLiked, handleLiked } = useLikedProducts(ProductDetails);
 
   const { dispatch, appSelector } = useRedux();
+
   const { cartData, handelIncrease, handelDecrease } = useCartActions();
+  
   const updateQuantity = cartData?.find((e) => e.id === productId);
 
   const { checkIfItIsInCart, itemStatus } = useWishlistAndCart(ProductDetails);

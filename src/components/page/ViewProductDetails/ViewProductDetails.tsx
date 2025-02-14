@@ -10,12 +10,15 @@ import Error from '@/ui/Error/Error';
 function ViewProductDetails() {
   const { appSelector } = useRedux();
   const { productId } = useParams();
-  const { data: Reviews } = useReviews(String(productId));
+
+  // const { data: Reviews } = useReviews(String(productId));
+
   const { Data } = appSelector((state) => state.product);
 
   const ProductDetails: MyProductType[] | any = Data?.find(
     (e) => e.id === productId
   );
+
   return (
     ProductDetails && (
     <div className="flex flex-col gap-8">
@@ -27,12 +30,12 @@ function ViewProductDetails() {
             alt="Product"
           />
         </div>
-        <Details
+        {/* <Details
           ProductDetails={ProductDetails}
           productId={String(productId)}
-        />
+        /> */}
       </div>
-      <ProductReviews reviews={Reviews || []} productId={String(productId)} />
+      {/* <ProductReviews reviews={Reviews || []} productId={String(productId)} /> */}
 
       <YouMayLike ProductDetails={ProductDetails} />
     </div>

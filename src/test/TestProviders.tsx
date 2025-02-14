@@ -48,15 +48,51 @@ const store = configureStore({
     },
     product: {
       Data: [
-        { id: 1, title: 'Smartphone', price2: 100, quantity: 2, piecesRemaining: 5, product_like:['123'],category:'Electronics' ,rating:{
-          rate: 4,
-          count: 5,
-        } },
-        { id: 2, title: 'منتج 2', price2: 100, quantity: 2, piecesRemaining: 5, product_like:['123'],rating:{
-          rate: 4,
-          count: 5,
-        },category:'Electronics' },
-      ],
+        {
+          created_at: new Date().toISOString(),
+          id: "93a9d2b7-c7ab-42eb-83ed-440d4ba83df4",
+          name: "Smartphone",
+          price: 100,
+          title: "Smartphone",
+          image: [], 
+          description: "A high-quality smartphone",
+          userId: "user_123",
+          piecesRemaining: 5,
+          category: "Electronics",
+          quantity: 2,
+          product_like: ["123"],
+          price2: 100,
+          stock: 10,
+          rating: {
+            rate: 4,
+            count: 5,
+          },
+          discount: 0,
+          color: {},
+        },
+        {
+          created_at: new Date().toISOString(),
+          id: "2",
+          name: "منتج 2",
+          price: 100,
+          title: "منتج 2",
+          image: [], // تحتاج إلى توفير ملفات حقيقية هنا
+          description: "وصف المنتج 2",
+          userId: "user_456",
+          piecesRemaining: 5,
+          category: "Electronics",
+          quantity: 2,
+          product_like: ["123"],
+          price2: 100,
+          stock: 10,
+          rating: {
+            rate: 4,
+            count: 5,
+          },
+          discount: 0,
+          color: {},
+        }
+      ]
     },
     wishlistData: {
       wishlistData: [
