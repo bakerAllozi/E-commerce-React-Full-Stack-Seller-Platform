@@ -116,8 +116,8 @@ const store = configureStore({
 const queryClient = new QueryClient();
 
 interface TestProvidersProps {
+  initialEntriest?:string;
   children: ReactNode;
-  initialEntries?:string
 }
 // export function TestProviders({ children }: TestProvidersProps) {
 //   return (
@@ -133,17 +133,18 @@ interface TestProvidersProps {
 //     </Provider>
 //   );
 // }
-export function TestProviders({ children , initialEntries='/' }: TestProvidersProps) {
+export function TestProviders({ children, initialEntriest = '/' }: TestProvidersProps) {
   return (
+    <MemoryRouter initialEntries={[initialEntriest]}>
     <Provider store={store}>
          <QueryClientProvider client={queryClient}>
            <Elements stripe={stripePromise}>  
-       <MemoryRouter initialEntries={[initialEntries]}>
              {children}
-      </MemoryRouter>
 
            </Elements>
          </QueryClientProvider>
      </Provider>
+    </MemoryRouter>
+
   );
 }

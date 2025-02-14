@@ -11,7 +11,7 @@ function ViewProductDetails() {
   const { appSelector } = useRedux();
   const { productId } = useParams();
 
-  // const { data: Reviews } = useReviews(String(productId));
+  const { data: Reviews } = useReviews(String(productId));
 
   const { Data } = appSelector((state) => state.product);
 
@@ -35,9 +35,9 @@ function ViewProductDetails() {
           productId={String(productId)}
         /> */}
       </div>
-      {/* <ProductReviews reviews={Reviews || []} productId={String(productId)} /> */}
+      <ProductReviews reviews={Reviews || []} productId={String(productId)} />
 
-      <YouMayLike ProductDetails={ProductDetails} />
+      {/* <YouMayLike ProductDetails={ProductDetails} /> */}
     </div>
   ) 
 )

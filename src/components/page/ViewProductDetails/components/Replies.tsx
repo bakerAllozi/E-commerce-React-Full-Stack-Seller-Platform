@@ -46,7 +46,7 @@ function Replies({ review }: { review: CommentsOfProductType }) {
                 className="mb-2 p-2 bg-gray-100 rounded-md shadow-sm"
               >
                 <p className="text-sm font-medium text-gray-800">
-                  Reply {i + 1} by{' '}
+                  Reply {i + 1} by
                   <span className="text-blue-600">{e.name}</span>
                 </p>
                 <p className="text-sm text-gray-700 mt-1">{e.reply}</p>

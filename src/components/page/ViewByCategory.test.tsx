@@ -7,7 +7,7 @@ import ViewByCategory from "./ViewByCategory";
 describe("ViewByCategory Component", () => {
   it("يجب أن يعرض المنتجات التابعة للفئة المختارة", () => {
     render(
-        <TestProviders initialEntries='/CategoryPage/Electronics'>
+        <TestProviders initialEntriest='/CategoryPage/Electronics'>
           <Routes>
             <Route path="/CategoryPage/:categoryName" element={<ViewByCategory />} />
           </Routes>
@@ -21,7 +21,7 @@ describe("ViewByCategory Component", () => {
 
   it("يجب أن يعرض رسالة عند عدم وجود منتجات للفئة", () => {
     render(
-        <TestProviders initialEntries='/CategoryPage/fakeCategory'>
+        <TestProviders initialEntriest='/CategoryPage/fakeCategory'>
         <Routes>
           <Route path="/CategoryPage/:categoryName" element={<ViewByCategory />} />
         </Routes>
