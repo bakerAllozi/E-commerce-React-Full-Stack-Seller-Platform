@@ -15,22 +15,22 @@ import Stars from '@/APP/features/Homepage/ui/Stars';
 const Details = ({
   ProductDetails,
   productId,
+  testmode=false
 }: {
   ProductDetails: MyProductType;
   productId: string;
+  testmode:boolean
 }) => {
   const navigate = useNavigate();
   const { user } = useUser();
-
-  const { isLiked, handleLiked } = useLikedProducts(ProductDetails);
-
   const { dispatch, appSelector } = useRedux();
-
+  const { isLiked, handleLiked } = useLikedProducts(ProductDetails);
+  const { forHowYouChat } = appSelector((state) => state.UserData);
+  const { checkIfItIsInCart, itemStatus } = useWishlistAndCart(ProductDetails);
   const { cartData, handelIncrease, handelDecrease } = useCartActions();
-  
   const updateQuantity = cartData?.find((e) => e.id === productId);
 
-  const { checkIfItIsInCart, itemStatus } = useWishlistAndCart(ProductDetails);
+
 
   const handelViewProduct = () => {
     checkIfItIsInCart
@@ -41,11 +41,8 @@ const Details = ({
     navigate('/Cart');
   };
 
-  const { forHowYouChat } = appSelector((state) => state.UserData);
-  const { name, avatar } = forHowYouChat as {
-    name: string;
-    avatar: string;
-  };
+  const { name, avatar }:{  name: string;
+    avatar: string;} = forHowYouChat 
 
   const handelOpenChatPage = () => {
     if (!user) {
@@ -138,11 +135,14 @@ const Details = ({
             {checkIfItIsInCart && (
               <div className="flex gap-4 justify-between  border-[1px] rounded-sm  w-20 h-8">
                 <p
+                  data-testid='decrease-btn'
+
                   className="bg-red-600 text-white  p-2  border-[1px] flex justify-center items-center cursor-pointer"
                   onClick={() =>
                     updateQuantity?.quantity === 1 ||
                     handelDecrease(String(updateQuantity?.id))
                   }
+
                 >
                   -
                 </p>
@@ -150,6 +150,7 @@ const Details = ({
                 <p
                   className="bg-red-600 text-white  p-2  border-[1px] flex justify-center items-center cursor-pointer"
                   onClick={() => handelIncrease(ProductDetails.id)}
+                  data-testid='increase-btn'
                 >
                   +
                 </p>
@@ -158,7 +159,8 @@ const Details = ({
 
             <button
               className=" p-1 px-8 rounded-sm bg-red-600 text-white "
-              onClick={() => handelViewProduct()}
+              onClick={  () => handelViewProduct()}
+              disabled={testmode}
             >
               Buy Now
             </button>
@@ -168,6 +170,8 @@ const Details = ({
         <p
           className=" border-[1px] border-black flex justify-center items-center w-fit px-[5px]  cursor-pointer"
           onClick={handleLiked}
+          data-testid='Liked'
+          
         >
           <FontAwesomeIcon
             icon={faHeart}

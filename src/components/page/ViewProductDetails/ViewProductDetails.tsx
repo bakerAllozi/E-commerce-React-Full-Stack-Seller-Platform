@@ -7,7 +7,7 @@ import useReviews from '../../../hooks/useReviews';
 import { MyProductType } from '@/types/product.type';
 import Error from '@/ui/Error/Error';
 
-function ViewProductDetails() {
+function ViewProductDetails({testmode = false}:{testmode?:boolean}) {
   const { appSelector } = useRedux();
   const { productId } = useParams();
 
@@ -30,14 +30,15 @@ function ViewProductDetails() {
             alt="Product"
           />
         </div>
-        {/* <Details
+        <Details
           ProductDetails={ProductDetails}
           productId={String(productId)}
-        /> */}
+          testmode={true}
+        />
       </div>
       <ProductReviews reviews={Reviews || []} productId={String(productId)} />
 
-      {/* <YouMayLike ProductDetails={ProductDetails} /> */}
+      {testmode || <YouMayLike ProductDetails={ProductDetails} />}
     </div>
   ) 
 )

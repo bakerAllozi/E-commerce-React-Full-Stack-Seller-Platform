@@ -38,7 +38,7 @@ const store = configureStore({
     product: (state = { data: []}, action) => state,
     cartItem: (state = { cartData: []}, action) => state,
     wishlistData: (state = { wishlistData: []}, action) => state,
-    UserData: (state = { cartData: []}, action) => state,
+    UserData: (state = { cartData: [],forHowYouChat:[] }, action) => state,
   },
   preloadedState: {
     cartItem: {
@@ -108,6 +108,13 @@ const store = configureStore({
           
         },
       ],
+      forHowYouChat:[
+        {
+          id:"880e849d-2374-459c-84fd-3128f7ab41c0",
+name:"baker",
+avatar:"https://taqdpudyhenvaibczyar.supabase.co/storage/v1/object/public/avatar/avatar-cagm43f8veq"
+        }
+      ]
     },
   },
 });
