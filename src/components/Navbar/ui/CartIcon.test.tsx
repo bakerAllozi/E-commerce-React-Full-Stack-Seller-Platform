@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, test, vi } from 'vitest';
-import { TestProviders } from '@/test/TestProviders';
+import { TestProviders } from '@/mock/TestProviders';
 import CartIcon from './CartIcon';
 import useUser from '@/hooks/useUser';
 

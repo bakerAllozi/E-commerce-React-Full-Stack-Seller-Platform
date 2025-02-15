@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, test, vi } from 'vitest';
-import { TestProviders } from '@/test/TestProviders';
+import { TestProviders } from '@/mock/TestProviders';
 import useUser from '@/hooks/useUser';
 import LikePage from '@/components/page/LikePage';
 import userEvent from '@testing-library/user-event';

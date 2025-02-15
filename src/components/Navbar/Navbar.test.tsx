@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, test } from 'vitest';
 import Navbar from './Navbar';
-import { TestProviders } from '@/test/TestProviders';
+import { TestProviders } from '@/mock/TestProviders';
 import userEvent from '@testing-library/user-event';
 
 describe('Navbar Component', () => {

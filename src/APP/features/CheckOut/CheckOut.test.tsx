@@ -7,7 +7,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import { describe, expect, test } from 'vitest';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import CheckOut from './CheckOut';
-import { TestProviders } from '@/test/TestProviders';
+import { TestProviders } from '@/mock/TestProviders';
 
 
 
