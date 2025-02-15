@@ -160,7 +160,7 @@ const Details = ({
             <button
               className=" p-1 px-8 rounded-sm bg-red-600 text-white "
               onClick={  () => handelViewProduct()}
-              disabled={testmode}
+              disabled={!testmode}
             >
               Buy Now
             </button>

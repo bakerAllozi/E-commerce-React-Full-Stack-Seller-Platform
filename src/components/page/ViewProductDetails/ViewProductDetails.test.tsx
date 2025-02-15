@@ -32,7 +32,7 @@ vi.mock("react-router-dom", async () => {
   };
 });
 
-describe("ViewByCategory Component", () => {
+describe("ViewProductDetails Component", () => {
   it("يجب أن يعرض المنتجات التابعة للفئة المختارة", async () => {
     (useUser as vi.Mock).mockReturnValue({
       user: { id: "123", name: "Baker" },
@@ -83,7 +83,6 @@ describe("ViewByCategory Component", () => {
 
 
     expect(screen.getByText("Buy Now")).toBeInTheDocument();
-
     expect(screen.getByText("Product Reviews")).toBeInTheDocument();
 
     expect(screen.getByText(/منتج رائع!/i)).toBeInTheDocument();
