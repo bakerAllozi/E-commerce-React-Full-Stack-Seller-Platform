@@ -1,5 +1,5 @@
 import ShowProduct from '../ui/ShowProduct';
-import BoxBroduct from '../ui/BoxrPoduct';
+import BoxBroduct from '../../../../ui/BoxrPoduct';
 import useRedux from '@/hooks/useRedux';
 
 function ExploreProducts() {

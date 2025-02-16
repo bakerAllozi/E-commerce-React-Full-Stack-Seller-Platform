@@ -1,4 +1,4 @@
-import BoxBroduct from '../Homepage/ui/BoxrPoduct';
+import BoxBroduct from '../../../ui/BoxrPoduct';
 import ShowProduct from '../Homepage/ui/ShowProduct';
 import { gitCartItem } from '../Cart/CartSlice';
 import { deleteAllFromWishList } from './wishlistSlice';

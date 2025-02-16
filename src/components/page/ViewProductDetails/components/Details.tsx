@@ -10,7 +10,7 @@ import useRedux from '../../../../hooks/useRedux';
 import { MyProductType } from '@/types/product.type';
 import { gitCartItem } from '@/APP/features/Cart/CartSlice';
 import { showChatUser } from '@/APP/features/User/userSlice';
-import Stars from '@/APP/features/Homepage/ui/Stars';
+import Stars from '@/ui/Stars';
 
 const Details = ({
   ProductDetails,

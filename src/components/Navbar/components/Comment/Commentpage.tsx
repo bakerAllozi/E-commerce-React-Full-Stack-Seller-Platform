@@ -4,7 +4,7 @@ import Loading from '../../../../ui/Loading';
 import { useState } from 'react';
 import Form from './components/Form';
 import { CommentType } from '@/types/comment.type';
-import Stars from '@/APP/features/Homepage/ui/Stars';
+import Stars from '@/ui/Stars';
 
 function Commentpage() {
   const [sortBy, setSortBy] = useState<string>('From the latest');

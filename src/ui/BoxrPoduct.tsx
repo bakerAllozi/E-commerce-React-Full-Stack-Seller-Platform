@@ -2,7 +2,7 @@ import { faEye, faHeart, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Stars from "./Stars";
 import ImgEffects from "./ImgEffects";
-import { deleteFromWishList } from "../../Wishlist/wishlistSlice";
+import { deleteFromWishList } from "../APP/features/Wishlist/wishlistSlice";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import useRedux from "@/hooks/useRedux";

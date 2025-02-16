@@ -36,8 +36,8 @@ const AddNewProduct = lazy(
 const Wishlist = lazy(() => import('@/APP/features/Wishlist/Wishlist'));
 const UserPage = lazy(() => import('@/APP/features/User/UserPage'));
 
-const ContactPage = lazy(() => import('@/components/page/ContactPage'));
-const About = lazy(() => import('@/components/page/About'));
+const ContactPage = lazy(() => import('@/components/page/static/ContactPage'));
+const About = lazy(() => import('@/components/page/static/About'));
 const LikePage = lazy(() => import('@/components/page/LikePage'));
 const ViewByCategory = lazy(() => import('@/components/page/ViewByCategory'));
 const ViewProductDetails = lazy(

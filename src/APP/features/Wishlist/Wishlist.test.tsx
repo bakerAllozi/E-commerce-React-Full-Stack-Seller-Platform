@@ -4,8 +4,8 @@ import { TestProviders } from '@/mock/TestProviders';
 import LikePage from '@/components/page/LikePage';
 import Wishlist from './Wishlist';
 
-describe('Navbar Component', () => {
 
+describe('Navbar Component', () => {
 
    test('the iteam === 1 ',()=>{
      
@@ -16,6 +16,12 @@ describe('Navbar Component', () => {
     );
     expect(screen.getByText(/Move All To Cart/i)).toBeInTheDocument(); 
     expect(screen.getAllByTestId(/box/i).length).toBe(1)
+
+    // const moveAllButton = screen.getByText(/Move All To Cart/i);
+
+    // fireEvent.click(moveAllButton);
+
+
    })
 
   });
