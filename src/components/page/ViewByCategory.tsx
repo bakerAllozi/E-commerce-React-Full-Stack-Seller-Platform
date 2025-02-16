@@ -1,5 +1,5 @@
 import useRedux from '../../hooks/useRedux';
-import BoxBroduct from '@/APP/features/Homepage/ui/BoxBroduct';
+import BoxBroduct from '@/APP/features/Homepage/ui/BoxrPoduct';
 import { useParams } from 'react-router-dom';
 
 function ViewByCategory() {

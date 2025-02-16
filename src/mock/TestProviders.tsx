@@ -43,7 +43,28 @@ const store = configureStore({
   preloadedState: {
     cartItem: {
       cartData: [
-        { id: 1, title: 'منتج 1', price2: 100, quantity: 2, piecesRemaining: 5 },
+        {
+          created_at: new Date().toISOString(),
+          id: "93a9d2b7-c7ab-42eb-83ed-440d4ba83df4",
+          name: "Smartphone",
+          price: 100,
+          title: "Smartphone",
+          image: [], 
+          description: "A high-quality smartphone",
+          userId: "user_123",
+          piecesRemaining: 5,
+          category: "Electronics",
+          quantity: 2,
+          product_like: ["123"],
+          price2: 100,
+          stock: 10,
+          rating: {
+            rate: 4,
+            count: 5,
+          },
+          discount: 0,
+          color: {},
+        },
       ],
     },
     product: {
@@ -96,7 +117,28 @@ const store = configureStore({
     },
     wishlistData: {
       wishlistData: [
-        { id: 1, title: 'منتج 1', price2: 100, quantity: 2, piecesRemaining: 5 },
+        {
+          created_at: new Date().toISOString(),
+          id: "93a9d2b7-c7ab-42eb-83ed-440d4ba83df4",
+          name: "Smartphone",
+          price: 100,
+          title: "Smartphone",
+          image: [], 
+          description: "A high-quality smartphone",
+          userId: "user_123",
+          piecesRemaining: 5,
+          category: "Electronics",
+          quantity: 2,
+          product_like: ["123"],
+          price2: 100,
+          stock: 10,
+          rating: {
+            rate: 4,
+            count: 5,
+          },
+          discount: 0,
+          color: {},
+        },
       ],
     },
     UserData: {

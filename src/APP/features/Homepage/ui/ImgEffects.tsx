@@ -40,7 +40,6 @@ function ImgEffects({
         src={String(product.image)}
         alt={product.id}
       />
-
       {noButton || (
         <>
           {itemStatus !== 'in stack' ? (

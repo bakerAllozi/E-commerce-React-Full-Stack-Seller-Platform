@@ -46,6 +46,8 @@ function BoxBroduct({
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ type: "spring", stiffness: 50 }}
+      data-testid="box"
+      
     >
       <p className="absolute top-2 left-2 bg-red-600 text-white text-sm font-semibold px-2 py-1 rounded-md z-10">
         -{product.discount}%

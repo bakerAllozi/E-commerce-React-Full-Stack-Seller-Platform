@@ -1,4 +1,4 @@
-import BoxBroduct from '../Homepage/ui/BoxBroduct';
+import BoxBroduct from '../Homepage/ui/BoxrPoduct';
 import ShowProduct from '../Homepage/ui/ShowProduct';
 import { gitCartItem } from '../Cart/CartSlice';
 import { deleteAllFromWishList } from './wishlistSlice';
@@ -8,6 +8,7 @@ import useRedux from '@/hooks/useRedux';
 function Wishlist() {
   const { dispatch, appSelector } = useRedux();
   const { wishlistData } = appSelector((state) => state.wishlistData);
+
   const handelMoveAll = () => {
     dispatch(gitCartItem(wishlistData));
     dispatch(deleteAllFromWishList());
@@ -16,7 +17,7 @@ function Wishlist() {
   return (
     <div className="relative  pt-28 ">
       {wishlistData.length < 1 ? (
-        <div className="     flex justify-center  items-center ">
+        <div className="flex justify-center  items-center ">
           <Link
             to="/"
             className=" flex justify-center  items-center  bg-red-700 text-white text-sm sm:text-base p-2 rounded-sm"

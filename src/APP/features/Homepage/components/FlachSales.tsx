@@ -1,7 +1,7 @@
 import ShowProduct from '../ui/ShowProduct';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import BoxBroduct from '../ui/BoxBroduct';
+import BoxBroduct from '../ui/BoxrPoduct';
 import Time from '../ui/Time';
 import { FreeMode, Pagination } from 'swiper/modules';
 import useRedux from '@/hooks/useRedux';

@@ -7,7 +7,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { MyProductType } from '@/types/product.type';
 import useRedux from '@/hooks/useRedux';
 import ShowProduct from '@/APP/features/Homepage/ui/ShowProduct';
-import BoxBroduct from '@/APP/features/Homepage/ui/BoxBroduct';
+import BoxBroduct from '@/APP/features/Homepage/ui/BoxrPoduct';
 
 const YouMayLike = ({ ProductDetails }: { ProductDetails: MyProductType }) => {
   const { appSelector } = useRedux();
