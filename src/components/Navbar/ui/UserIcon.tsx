@@ -1,4 +1,4 @@
-import useLogout from '@/hooks/useLogout';
+import useLogout from '@/APP/features/auth/hooks/useLogout';
 import useUser from '@/hooks/useUser';
 import {
   faCircleUser,

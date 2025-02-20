@@ -23,7 +23,7 @@ const HomepageReducer = createSlice({
     fetchProductItem(state, action) {
       state.Data = action.payload;
     },
-    gitRandomProduct(state) {
+    getRandomProduct(state) {
       const randomNumbersArray = Array.from(
         { length: 5 },
         () => Math.floor(Math.random() * 20) + 1
@@ -33,7 +33,7 @@ const HomepageReducer = createSlice({
       );
     },
 
-    gitBestSellingProducts(state) {
+    getBestSellingProducts(state) {
       state.BestSellingProducts = state.Data.map((data) => data).sort(
         (a, b) => b.rating.rate - a.rating.rate
       );
@@ -61,8 +61,8 @@ const HomepageReducer = createSlice({
 export default HomepageReducer.reducer;
 export const {
   fetchProductItem,
-  gitRandomProduct,
-  gitBestSellingProducts,
+  getRandomProduct,
+  getBestSellingProducts,
   getProductsILiked,
   setProductDetails,
 } = HomepageReducer.actions;

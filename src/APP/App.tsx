@@ -56,8 +56,8 @@ import { MyProductType } from '../types/product.type';
 import ProtectedRoute from '@/APP/ProtectedRoute';
 import {
   fetchProductItem,
-  gitBestSellingProducts,
-  gitRandomProduct,
+  getBestSellingProducts,
+  getRandomProduct,
 } from '@/APP/features/Homepage/HomepageSlice';
 import {
   getDataChats,
@@ -99,8 +99,8 @@ function App() {
 
   useEffect(() => {
     if (Data && chatData && userId && ALLUserData) {
-      dispatch(gitRandomProduct());
-      dispatch(gitBestSellingProducts());
+      dispatch(getRandomProduct());
+      dispatch(getBestSellingProducts());
       dispatch(getProductToWishlist(Data));
       dispatch(getDataChats(chatData));
       dispatch(setNewAvatarUser(ALLUserData));

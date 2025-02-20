@@ -1,4 +1,4 @@
-import { signup as signupApi } from '../backend/apiAuth';
+import { signup as signupApi } from '@/backend/apiAuth';
 import { useMutation } from '@tanstack/react-query';
 function useSignup() {
   const { isLoading, mutate: signup } = useMutation({
