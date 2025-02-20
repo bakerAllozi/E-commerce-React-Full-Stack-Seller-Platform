@@ -1,4 +1,4 @@
-import Time from '../ui/Time';
+import Time from './Time';
 import Image from '@/assets/Frame 694.png';
 
 function MusicBox() {

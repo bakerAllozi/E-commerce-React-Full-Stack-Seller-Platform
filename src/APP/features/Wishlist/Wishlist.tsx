@@ -1,5 +1,5 @@
-import BoxBroduct from '../../../ui/BoxrPoduct';
-import ShowProduct from '../Homepage/ui/ShowProduct';
+import BoxBroduct from '../../../ui/boxProduct/BoxPoduct';
+import ShowProduct from '../../../ui/ShowProduct';
 import { gitCartItem } from '../Cart/CartSlice';
 import { deleteAllFromWishList } from './wishlistSlice';
 import { Link } from 'react-router-dom';

@@ -7,6 +7,8 @@ interface ShowProductProps {
   children?: React.ReactNode;
   noTextAbout?: boolean;
 }
+
+
 function ShowProduct({
   title,
   viewBecause,

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import useRedux from '../../hooks/useRedux';
 import useUser from '../../hooks/useUser';
-import BoxBroduct from '@/ui/BoxrPoduct';
+import BoxBroduct from '@/ui/boxProduct/BoxPoduct';
 function LikePage() {
   const { appSelector } = useRedux();
   const { Data } = appSelector((state) => state.product);

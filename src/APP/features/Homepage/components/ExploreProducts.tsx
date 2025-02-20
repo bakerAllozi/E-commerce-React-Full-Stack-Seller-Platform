@@ -1,5 +1,5 @@
-import ShowProduct from '../ui/ShowProduct';
-import BoxBroduct from '../../../../ui/BoxrPoduct';
+import ShowProduct from '../../../../ui/ShowProduct';
+import BoxPoduct from '../../../../ui/boxProduct/BoxPoduct';
 import useRedux from '@/hooks/useRedux';
 
 function ExploreProducts() {
@@ -16,7 +16,7 @@ function ExploreProducts() {
       <div className="flex    flex-row  flex-wrap  gap-16  h-[850px]  overflow-hidden  justify-center items-center   ">
         {Data.map((data) => (
           <div key={data.id} className="">
-            <BoxBroduct product={data} idItem={data.id} />
+            <BoxPoduct product={data} idItem={data.id} />
           </div>
         ))}
       </div>

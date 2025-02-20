@@ -1,8 +1,8 @@
-import ShowProduct from '../ui/ShowProduct';
+import ShowProduct from '../../../../ui/ShowProduct';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import BoxBroduct from '../../../../ui/BoxrPoduct';
-import Time from '../ui/Time';
+import BoxBroduct from '../../../../ui/boxProduct/BoxPoduct';
+import Time from './Time';
 import { FreeMode, Pagination } from 'swiper/modules';
 import useRedux from '@/hooks/useRedux';
 

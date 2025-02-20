@@ -158,7 +158,7 @@ avatar:"https://taqdpudyhenvaibczyar.supabase.co/storage/v1/object/public/avatar
         }
       ]
     },
-  },
+  }
 });
 
 

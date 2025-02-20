@@ -1,10 +1,9 @@
 import useRedux from '../../hooks/useRedux';
-import BoxBroduct from '@/ui/BoxrPoduct';
+import BoxPoduct from '@/ui/boxProduct/BoxPoduct';
 import { useParams } from 'react-router-dom';
 
 function ViewByCategory() {
   const { categoryName } = useParams();
-
   const { appSelector } = useRedux();
 
   const { Data } = appSelector((state) => state.product);
@@ -19,7 +18,7 @@ function ViewByCategory() {
     <div className="flex  flex-row  flex-wrap  gap-16 justify-evenly">
       {categoryProuduct.map((arr) => (
         <div key={arr.id}>
-          <BoxBroduct product={arr} idItem={arr.id} />
+          <BoxPoduct product={arr} idItem={arr.id} />
         </div>
       ))}
     </div>

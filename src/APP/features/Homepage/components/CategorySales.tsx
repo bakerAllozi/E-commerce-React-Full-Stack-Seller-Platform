@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import ShowProduct from '../ui/ShowProduct';
+import ShowProduct from '../../../../ui/ShowProduct';
 import {
   faBaby,
   faBowlFood,
