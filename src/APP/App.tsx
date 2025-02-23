@@ -65,6 +65,7 @@ import {
   setNewAvatarUser,
 } from '@/APP/features/User/userSlice';
 import { getProductToWishlist } from '@/APP/features/Wishlist/wishlistSlice';
+import WebRTC from './WebRTC';
 
 function App() {
   const { dispatch, appSelector } = useRedux();
@@ -139,6 +140,7 @@ function App() {
             <Route path="Messages" element={<MessageNotifications />} />
             <Route path="UserPage" element={<UserPage />} />
             <Route path="MyAccount" element={<MyAccount />} />
+            <Route path="WebRTC" element={<WebRTC />} />
             <Route path="/:categoryName" element={<ViewByCategory />} />
             <Route path="/:categoryName/:productId" element={<ViewProductDetails />} />
             <Route path="AddNewProduct" element={<AddNewProduct />} />
