@@ -5,7 +5,7 @@ import {
   faStore,
 } from '@fortawesome/free-solid-svg-icons';
 import { faMoneyBillAlt } from '@fortawesome/free-solid-svg-icons/faMoneyBillAlt';
-import BlackFridayImage from '../../assets/black-friday-elements-assortment_23-2149074075.png';
+import BlackFridayImage from '@/assets/black-friday-elements-assortment_23-2149074075.png';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import ShowProduct from '@/ui/ShowProduct';
 import Information from '@/APP/features/Homepage/components/Information';

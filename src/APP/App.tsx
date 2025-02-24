@@ -65,7 +65,7 @@ import {
   setNewAvatarUser,
 } from '@/APP/features/User/userSlice';
 import { getProductToWishlist } from '@/APP/features/Wishlist/wishlistSlice';
-import WebRTC from './WebRTC';
+import WebRTC from '../components/page/WebRTC';
 
 function App() {
   const { dispatch, appSelector } = useRedux();
