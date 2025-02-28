@@ -4,7 +4,7 @@ function ReceiverUser({
   handleNavigate,
   e,
   userId,
-  onlineUsers,
+  onlineUsers =[''],
 }: {
   handleNavigate: (receiverId: string) => void;
   e: ChatMessageType;

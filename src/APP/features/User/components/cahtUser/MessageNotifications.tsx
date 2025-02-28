@@ -1,22 +1,20 @@
 import { useNavigate } from 'react-router-dom';
 import { showChatUser } from '../../userSlice';
-
+import { useOnlineUser } from '@/hooks/useOnlineUser';
 import ReceiverUser from './ReceiverUser';
-import ChatComponent from './ChatComponent ';
-import { useState } from 'react';
 import useRedux from '@/hooks/useRedux';
 import useUser from '@/hooks/useUser';
 import Spinner from '@/ui/Spinner';
 import usePublicUser from '@/hooks/usePublicUser';
+import OnlineUser from './OnlineUser';
 
 function MessageNotifications() {
+  const navigate = useNavigate();
   const { appSelector, dispatch } = useRedux();
   const { ReceiverChat } = appSelector((state) => state.UserData);
   const { user } = useUser();
-  const navigate = useNavigate();
+  const {onlineUsers} = useOnlineUser()
   const userId = user?.id;
-  const [onlineUsersCount, setOnlineUsersCount] = useState<number>(0);
-  const [onlineUsers, setOnlineUsers] = useState<string[]>([]);
   const { data: ALLUserData, isLoading } = usePublicUser();
 
   const handleNavigate = (receiverId: string) => {
@@ -39,12 +37,7 @@ function MessageNotifications() {
 
   return (
     <div>
-      <ChatComponent
-        onlineUsersCount={onlineUsersCount}
-        setOnlineUsersCount={setOnlineUsersCount}
-        setOnlineUsers={setOnlineUsers}
-      />
-
+  <OnlineUser userNum={onlineUsers.length}/>
       {isLoading && onlineUsers.length > 0 ? (
         <Spinner />
       ) : ReceiverChat?.length > 0 ? (

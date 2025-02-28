@@ -11,7 +11,7 @@ const initialState: initialStateType = {
 };
 
 const wishlistReducer = createSlice({
-  name: ' Wishlist',
+  name: 'Wishlist',
   initialState,
   reducers: {
     getProductToWishlist(state, action) {

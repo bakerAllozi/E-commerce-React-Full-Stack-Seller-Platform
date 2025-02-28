@@ -8,9 +8,11 @@ import ExploreProducts from './components/ExploreProducts';
 import Information from './components/Information';
 import SearchBar from './components/Searsch/SearchBar';
 import { NavLink } from 'react-router-dom';
+// import { useOnlineUser } from '@/hooks/useOnlineUser';
 function Homepage() {
   return (
     <div className="flex flex-col gap-[500px] overflow-hidden">
+  
       <div className="flex justify-center items-center gap-4   flex-col">
         <div
           className={`
