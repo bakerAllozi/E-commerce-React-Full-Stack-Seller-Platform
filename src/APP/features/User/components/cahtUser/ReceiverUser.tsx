@@ -44,12 +44,10 @@ function ReceiverUser({
         <p className="font-extrabold text-center mb-1">{e.name}</p>
         {useOnline && (
           <p className="text-green-500 text-center text-sm font-semibold ">
-            متصل
+            online
           </p>
         )}
-        <p className="absolute top-2 right-2 text-gray-500 text-xs">
-          {String(e.created_at).slice(0, 10)}
-        </p>
+    
       </div>
     </div>
   );

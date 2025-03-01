@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { showChatUser } from '../../userSlice';
 import { useOnlineUser } from '@/hooks/useOnlineUser';
 import ReceiverUser from './ReceiverUser';
@@ -7,6 +7,8 @@ import useUser from '@/hooks/useUser';
 import Spinner from '@/ui/Spinner';
 import usePublicUser from '@/hooks/usePublicUser';
 import OnlineUser from './OnlineUser';
+import { FaPhoneAlt } from "react-icons/fa";
+
 
 function MessageNotifications() {
   const navigate = useNavigate();
@@ -26,7 +28,7 @@ function MessageNotifications() {
 
     dispatch(
       showChatUser({
-        receiverId,
+        receiverId, 
         userId,
         seller_name: dataUser.name,
         avatar: dataUser.avatar,
@@ -38,6 +40,8 @@ function MessageNotifications() {
   return (
     <div>
   <OnlineUser userNum={onlineUsers.length}/>
+<Link to="/WebRTC"><FaPhoneAlt /></Link>
+
       {isLoading && onlineUsers.length > 0 ? (
         <Spinner />
       ) : ReceiverChat?.length > 0 ? (
@@ -53,7 +57,7 @@ function MessageNotifications() {
           ))}
         </div>
       ) : (
-        <div className="text-center text-gray-500">لا توجد رسائل حالياً</div>
+        <div className="text-center text-gray-500">no chats</div>
       )}
     </div>
   );
