@@ -2,7 +2,7 @@ import { MyProductType } from '@/types/product.type';
 import useRedux from './useRedux';
 import useUpdateProduct from './useUpdateProduct';
 import useUser from './useUser';
-import { getProductsILiked } from '@/APP/features/Homepage/HomepageSlice';
+import { getProductsILiked } from '@/APP/store/features/Homepage/HomepageSlice';
 interface UseLikedProductsReturn {
   isLiked: boolean;
   handleLiked: () => void;

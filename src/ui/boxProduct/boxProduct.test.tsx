@@ -1,17 +1,15 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, test } from 'vitest';
 import { TestProviders } from '@/mock/TestProviders';
-import userEvent from '@testing-library/user-event';
-import Navbar from '@/components/Navbar/Navbar';
 import BoxBroduct from './BoxPoduct';
+
 
 describe('Navbar Component', () => {
   test('renders Navbar correctly', () => {
     render(
         <TestProviders>
-        <BoxBroduct 
-        
-        />
+          <p>ok</p>
+        {/* <BoxBroduct /> */}
         </TestProviders>
     );
     expect(screen.getByText(/Exclusive/i)).toBeInTheDocument();

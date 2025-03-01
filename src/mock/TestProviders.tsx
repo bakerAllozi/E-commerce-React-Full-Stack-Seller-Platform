@@ -3,28 +3,7 @@ import { Provider } from 'react-redux';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { loadStripe, Stripe } from '@stripe/stripe-js';
 import { configureStore } from '@reduxjs/toolkit';
-import AppLayout from "@/APP/AppLayout";
-import Login from "@/APP/features/auth/Login";
-import SignUp from "@/APP/features/auth/SignUp";
-import Cart from "@/APP/features/Cart/Cart";
-import CheckOut from "@/APP/features/CheckOut/CheckOut";
-import Homepage from "@/APP/features/Homepage/Homepage";
-import AddNewProduct from "@/APP/features/User/components/AddNewProduct";
-import ChatPage from "@/APP/features/User/components/cahtUser/ChatPage";
-import MessageNotifications from "@/APP/features/User/components/cahtUser/MessageNotifications";
-import MyAccount from "@/APP/features/User/components/MyAccount";
-import UserPage from "@/APP/features/User/UserPage";
-import Wishlist from "@/APP/features/Wishlist/Wishlist";
-import ProtectedRoute from "@/APP/ProtectedRoute";
-import Commentpage from "@/components/Navbar/components/Comment/Commentpage";
-import About from "@/components/page/static/About";
-import ContactPage from "@/components/page/static/ContactPage";
-import LikePage from "@/components/page/LikePage";
-import ViewByCategory from "@/components/page/ViewByCategory";
-import ViewProductDetails from "@/components/page/ViewProductDetails/ViewProductDetails";
-import Error from "@/ui/Error/Error";
-import Loading from "@/ui/Loading";
-import { Suspense } from "react";
+
 import {  MemoryRouter, Route, Routes } from "react-router-dom";
 import { Elements } from '@stripe/react-stripe-js';
 
@@ -97,7 +76,7 @@ const store = configureStore({
           name: "منتج 2",
           price: 100,
           title: "منتج 2",
-          image: [], // تحتاج إلى توفير ملفات حقيقية هنا
+          image: [], 
           description: "وصف المنتج 2",
           userId: "user_456",
           piecesRemaining: 5,

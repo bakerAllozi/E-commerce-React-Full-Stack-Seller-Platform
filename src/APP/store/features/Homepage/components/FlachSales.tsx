@@ -1,10 +1,10 @@
-import ShowProduct from '../../../../ui/ShowProduct';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import BoxBroduct from '../../../../ui/boxProduct/BoxPoduct';
 import Time from './Time';
 import { FreeMode, Pagination } from 'swiper/modules';
 import useRedux from '@/hooks/useRedux';
+import ShowProduct from '@/ui/ShowProduct';
+import BoxBroduct from '@/ui/boxProduct/BoxPoduct';
 
 function FlachSales() {
   const { appSelector } = useRedux();

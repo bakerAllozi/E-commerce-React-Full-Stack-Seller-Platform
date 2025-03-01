@@ -1,7 +1,6 @@
 import { faEye, faHeart, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Stars from "../Stars";
-import { deleteFromWishList } from "../../APP/features/Wishlist/wishlistSlice";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import useRedux from "@/hooks/useRedux";
@@ -9,6 +8,7 @@ import useLikedProducts from "@/hooks/useLikedProducts";
 import Spinner from "@/ui/Spinner";
 import { MyProductType } from "@/types/product.type";
 import ImgEffects from "./ImgEffects";
+import { deleteFromWishList } from "@/APP/store/features/Wishlist/wishlistSlice";
 
 interface BoxBroductProps {
   product: MyProductType;

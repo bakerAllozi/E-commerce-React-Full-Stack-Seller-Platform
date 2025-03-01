@@ -4,8 +4,9 @@ import useRedux from './useRedux';
 import { useQuery } from '@tanstack/react-query';
 import useUser from './useUser';
 import useReadChats from './useReadChats';
-import { fetchProductItem } from '@/APP/features/Homepage/HomepageSlice';
-import { getDataChats } from '@/APP/features/User/userSlice';
+import { fetchProductItem } from '@/APP/store/features/Homepage/HomepageSlice';
+import { getDataChats } from '@/APP/store/features/User/userSlice';
+
 
 interface ProductData {
   id: string;

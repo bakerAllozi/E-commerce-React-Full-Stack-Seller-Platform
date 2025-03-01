@@ -1,6 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { showChatUser } from '../../userSlice';
-import { useOnlineUser } from '@/hooks/useOnlineUser';
 import ReceiverUser from './ReceiverUser';
 import useRedux from '@/hooks/useRedux';
 import useUser from '@/hooks/useUser';
@@ -8,6 +7,7 @@ import Spinner from '@/ui/Spinner';
 import usePublicUser from '@/hooks/usePublicUser';
 import OnlineUser from './OnlineUser';
 import { FaPhoneAlt } from "react-icons/fa";
+import { useOnlineUser } from '@/hooks';
 
 
 function MessageNotifications() {

@@ -1,8 +1,8 @@
-import {
-  calcPrice,
+
+import {   calcPrice,
   decreaseQuantity,
-  increaseQuantity,
-} from '@/APP/features/Cart/CartSlice';
+  increaseQuantity, } from '@/APP/store/features/Cart/CartSlice';
+
 import useRedux from './useRedux';
 
 const useCartActions = () => {

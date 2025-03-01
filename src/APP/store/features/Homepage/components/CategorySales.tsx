@@ -1,5 +1,4 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import ShowProduct from '../../../../ui/ShowProduct';
 import {
   faBaby,
   faBowlFood,
@@ -14,6 +13,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 import useRedux from '@/hooks/useRedux';
+import ShowProduct from '@/ui/ShowProduct';
 
 function CategorySales() {
   return (

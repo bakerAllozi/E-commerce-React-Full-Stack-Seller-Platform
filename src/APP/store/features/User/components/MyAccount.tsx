@@ -1,10 +1,10 @@
 import { useForm } from 'react-hook-form';
 
 import { UserType } from '@/types/user.type';
-import { useUpdateUser } from '@/hooks/useUpdateUser';
 import useUser from '@/hooks/useUser';
 import Spinner from '@/ui/Spinner';
 import Input from '@/ui/Input/Input';
+import useUpdateUser from '@/hooks/useUpdateUser';
 type FormData = {
   name: string;
   image: string;

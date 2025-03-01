@@ -11,30 +11,30 @@ import { getDataOfProduct } from '../backend/apiDataOfProduct';
 const stripeUrl ='pk_test_51QPYMAKxnNgqIQklhBT5FTH7UU1rPPpPP78wG0n7dsGfze107LYUk1WhLbMs5mzZj6DPfYOpRkLQD88UvgZdbD6P00dGYGvcBE'
 ;
 
-const Cart = lazy(() => import('@/APP/features/Cart/Cart'));
+const Cart = lazy(() => import('@/APP/store/features/Cart/Cart'));
 const MyAccount = lazy(
-  () => import('@/APP/features/User/components/MyAccount')
+  () => import('@/APP/store/features/User/components/MyAccount')
 );
-const CheckOut = lazy(() => import('@/APP/features/CheckOut/CheckOut'));
+const CheckOut = lazy(() => import('@/APP/store/features/CheckOut/CheckOut'));
 const EditProducts = lazy(
-  () => import('@/APP/features/User/components/EditProducts')
+  () => import('@/APP/store/features/User/components/EditProducts')
 );
 const ChatPage = lazy(
-  () => import('@/APP/features/User/components/cahtUser/ChatPage')
+  () => import('@/APP/store/features/User/components/cahtUser/ChatPage')
 );
 
 const MessageNotifications = lazy(
-  () => import('@/APP/features/User/components/cahtUser/MessageNotifications')
+  () => import('@/APP/store/features/User/components/cahtUser/MessageNotifications')
 );
-const Login = lazy(() => import('@/APP/features/auth/Login'));
-const SignUp = lazy(() => import('@/APP/features/auth/SignUp'));
+const Login = lazy(() => import('@/APP/store/features/auth/Login'));
+const SignUp = lazy(() => import('@/APP/store/features/auth/SignUp'));
 
-const Homepage = lazy(() => import('@/APP/features/Homepage/Homepage'));
+const Homepage = lazy(() => import('@/APP/store/features/Homepage/Homepage'));
 const AddNewProduct = lazy(
-  () => import('@/APP/features/User/components/AddNewProduct')
+  () => import('@/APP/store/features/User/components/AddNewProduct')
 );
-const Wishlist = lazy(() => import('@/APP/features/Wishlist/Wishlist'));
-const UserPage = lazy(() => import('@/APP/features/User/UserPage'));
+const Wishlist = lazy(() => import('@/APP/store/features/Wishlist/Wishlist'));
+const UserPage = lazy(() => import('@/APP/store/features/User/UserPage'));
 
 const ContactPage = lazy(() => import('@/components/page/static/ContactPage'));
 const About = lazy(() => import('@/components/page/static/About'));
@@ -52,19 +52,19 @@ const Commentpage = lazy(
 import AppLayout from './AppLayout';
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe, Stripe } from '@stripe/stripe-js';
-import { MyProductType } from '../types/product.type';
+import { MyProductType } from '@/types/product.type';
 import ProtectedRoute from '@/APP/ProtectedRoute';
 import {
   fetchProductItem,
   getBestSellingProducts,
   getRandomProduct,
-} from '@/APP/features/Homepage/HomepageSlice';
+} from '@/APP/store/features/Homepage/HomepageSlice';
 import {
   getDataChats,
   splitDataChat,
   setNewAvatarUser,
-} from '@/APP/features/User/userSlice';
-import { getProductToWishlist } from '@/APP/features/Wishlist/wishlistSlice';
+} from '@/APP/store/features/User/userSlice';
+import { getProductToWishlist } from '@/APP/store/features/Wishlist/wishlistSlice';
 import WebRTC from '../components/page/WebRTC';
 
 function App() {

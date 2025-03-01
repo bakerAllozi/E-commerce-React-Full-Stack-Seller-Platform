@@ -6,29 +6,33 @@ interface UseOnlineUserReturn {
   onlineUsers: string[];
 }
 
-export const useOnlineUser = (): UseOnlineUserReturn  => {
+  const useOnlineUser = (): UseOnlineUserReturn  => {
   const [onlineUsers, setOnlineUsers] = useState<string[]>([]);
   const { user } = useUser();
 
 
-  const userId = user.id;
+  const userId = user?.id;
 
   useEffect(() => {
     let unsubscribe: (() => void) | null = null;
 
     const initPresence = async () => {
-      unsubscribe = await trackUserPresence(userId, (change, users) => {
-        setOnlineUsers((prevUsers: string[]) => {
-          if (change > 0) {
-            return [...prevUsers, ...users];
-          } else {
-            return prevUsers.filter((user) => !users.includes(user));
-          }
+      if (userId) {
+        unsubscribe = await trackUserPresence(userId, (change, users) => {
+          setOnlineUsers((prevUsers: string[]) => {
+            if (change > 0) {
+              return [...prevUsers, ...users];
+            } else {
+              return prevUsers.filter((user) => !users.includes(user));
+            }
+          });
         });
-      });
+      }
     };
 
-    initPresence();
+    if (userId) {
+      initPresence();
+    }
 
     return () => {
       if (unsubscribe) unsubscribe();
@@ -37,3 +41,4 @@ export const useOnlineUser = (): UseOnlineUserReturn  => {
 
   return { onlineUsers };
 };
+export default useOnlineUser;

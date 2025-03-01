@@ -1,6 +1,6 @@
+import ShowProduct from '@/ui/ShowProduct';
 import Image from '../../../assets/Frame2.png';
 import React from 'react';
-import ShowProduct from '../../../../ui/ShowProduct';
 
 function NewArrival() {
   return (

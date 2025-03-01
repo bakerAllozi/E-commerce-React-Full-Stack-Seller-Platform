@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { updateCurrentUser } from '../backend/apiAuth';
 
-export function useUpdateUser() {
+export default function useUpdateUser() {
   const queryClient = useQueryClient();
 
   const { mutate: updateUser, isLoading: isUpdating } = useMutation({

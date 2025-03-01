@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons';
 import Image from '@/assets/Side Image.png';
 import Input from '@/ui/Input/Input';
-import useSignup from './hooks/useSignup';
+import useSignup from '../../../../hooks/useSignup';
 
 function SignUp() {
   interface IFormInput {

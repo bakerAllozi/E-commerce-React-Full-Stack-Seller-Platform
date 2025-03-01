@@ -1,9 +1,10 @@
-import BoxBroduct from '../../../ui/boxProduct/BoxPoduct';
-import ShowProduct from '../../../ui/ShowProduct';
+
 import { gitCartItem } from '../Cart/CartSlice';
 import { deleteAllFromWishList } from './wishlistSlice';
 import { Link } from 'react-router-dom';
 import useRedux from '@/hooks/useRedux';
+import BoxBroduct from '@/ui/boxProduct/BoxPoduct';
+import ShowProduct from '@/ui/ShowProduct';
 
 function Wishlist() {
   const { dispatch, appSelector } = useRedux();
