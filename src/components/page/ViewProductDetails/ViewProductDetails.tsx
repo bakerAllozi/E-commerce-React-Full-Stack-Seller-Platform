@@ -5,7 +5,7 @@ import YouMayLike from './components/YouMayLike';
 import ProductReviews from './components/ProductReviews';
 import useReviews from '../../../hooks/useReviews';
 import { MyProductType } from '@/types/product.type';
-import Error from '@/ui/Error/Error';
+import TimePage from './components/TimePage';
 
 function ViewProductDetails({testmode = false}:{testmode?:boolean}) {
   const { appSelector } = useRedux();
@@ -22,6 +22,7 @@ function ViewProductDetails({testmode = false}:{testmode?:boolean}) {
   return (
     ProductDetails && (
     <div className="flex flex-col gap-8">
+      <TimePage />
       <div className="flex gap-2 sm:gap-10 justify-center items-center md:items-start md:h-[100vh] flex-col md:flex-row mb-4">
         <div className="h-[40vh] sm:h-[60vh] md:h-[80vh] w-[100%] md:w-[600px] lg:w-[700px] bg-black relative border-[30px]">
           <img

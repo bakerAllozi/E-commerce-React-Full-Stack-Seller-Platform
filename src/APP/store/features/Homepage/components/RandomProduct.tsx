@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import '../../../../../index.css';
+import '@/../index.css';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import useRedux from '@/hooks/useRedux';
 import Spinner from '@/ui/Spinner';

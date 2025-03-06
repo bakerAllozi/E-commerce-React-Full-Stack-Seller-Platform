@@ -3,6 +3,7 @@ import HomepageReducer from './features/Homepage/HomepageSlice';
 import wishlistSlice from './features/Wishlist/wishlistSlice';
 import CartSlice from './features/Cart/CartSlice';
 import userSlice from './features/User/userSlice';
+import RecommenderSlice from './features/RecommenderSystems/RecommenderSlice';
 
 const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ const store = configureStore({
     wishlistData: wishlistSlice,
     cartItem: CartSlice,
     UserData: userSlice,
+    RecommendData:RecommenderSlice
   },
 });
 

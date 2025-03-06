@@ -22,10 +22,9 @@ interface ProductToEditType {
     count: number;
   };
 }
+
 interface InitialStateType {
   ProductToEdit: ProductToEditType | any;
-  Senders: ChatMessageType[];
-  newMassage: ChatMessageType[];
   SenderChat: ChatMessageType[];
   ReceiverChat: ChatMessageType[];
   dataChats: ChatMessageType[];
@@ -37,18 +36,16 @@ interface InitialStateType {
 
 const initialState: InitialStateType = {
   ProductToEdit: null,
-  Senders: [],
-  newMassage: [],
   SenderChat: [],
   ReceiverChat: [],
   dataChats: [],
   NewDataChats: [],
+  ChatUser: [],
+  AllChat: [],
   forHowYouChat: {
     name: '',
     avatar: '',
   },
-  ChatUser: [],
-  AllChat: [],
 };
 
 const wishlistReducer = createSlice({
