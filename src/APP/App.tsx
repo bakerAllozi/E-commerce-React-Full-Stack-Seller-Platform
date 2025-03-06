@@ -66,6 +66,7 @@ import {
 } from '@/APP/store/features/User/userSlice';
 import { getProductToWishlist } from '@/APP/store/features/Wishlist/wishlistSlice';
 import WebRTC from '../components/page/WebRTC';
+import { fetchDataRecommender, getUserId } from './store/features/RecommenderSystems/RecommenderSlice';
 
 function App() {
   const { dispatch, appSelector } = useRedux();
@@ -91,6 +92,8 @@ function App() {
         quantity: 1,
       }));
       dispatch(fetchProductItem(updatedData));
+      dispatch(fetchDataRecommender(updatedData));
+
     }
   }, [data, dispatch]);
 
@@ -105,7 +108,8 @@ function App() {
       dispatch(getProductToWishlist(Data));
       dispatch(getDataChats(chatData));
       dispatch(setNewAvatarUser(ALLUserData));
-      dispatch(splitDataChat(userId));
+      dispatch(splitDataChat(userId));      
+      dispatch(getUserId(userId));      
     }
   }, [Data, chatData, dispatch, userId, ALLUserData]);
 
