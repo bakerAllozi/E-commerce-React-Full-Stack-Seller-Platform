@@ -1,5 +1,7 @@
+import useRedux from '@/hooks/useRedux';
 import { MyProductType } from '@/types/product.type';
 import { useNavigate } from 'react-router-dom';
+import { getSearchWorld } from '../../../RecommenderSystems/RecommenderSlice';
 
 function SearchPage({
   setSearchWorld,
@@ -9,9 +11,12 @@ function SearchPage({
   searchedProduct: MyProductType[];
 }) {
   const navigate = useNavigate();
+    const { dispatch } = useRedux();
+  
 
   function handelSetProductDetails(product: MyProductType) {
     navigate(`${product.category}/${product.id}`);
+    dispatch(getSearchWorld(product.category));
     setSearchWorld('');
   }
   return (

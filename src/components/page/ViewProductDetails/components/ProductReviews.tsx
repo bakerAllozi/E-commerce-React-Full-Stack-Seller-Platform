@@ -71,14 +71,14 @@ function ProductReviews({
               })}
             </div>
 
-            {/* <Replies review={review} /> */}
+            <Replies review={review} />
           </div>
         ))
       ) : (
         <p className="text-gray-500">No reviews available for this product.</p>
       )}
 
-      {/* <form
+      <form
         className="flex flex-col gap-4 p-4 mt-6 border-t border-gray-200"
         onSubmit={handleSubmit(onSubmit)}
       >
@@ -124,7 +124,7 @@ function ProductReviews({
         >
           Submit Review
         </button>
-      </form> */}
+      </form>
     </div>
   );
 }

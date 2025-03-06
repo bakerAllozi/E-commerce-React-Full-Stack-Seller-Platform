@@ -9,6 +9,7 @@ const initialState:{
   }[];
   userId: string;
   productlike: MyProductType[];
+  SearchWorld: string[];
   dataAfterSort :{
     timeSpent: number;
     productId: string;
@@ -20,6 +21,8 @@ const initialState:{
   userId:'',
   dataAfterSort: [],
   productlike: [],
+  SearchWorld: []
+
 };
 
 const RecommenderSlice = createSlice({
@@ -40,7 +43,9 @@ const RecommenderSlice = createSlice({
     getUserId(state, action) {
     state.userId = action.payload;
   },
-  
+  getSearchWorld(state, action) {
+    state.SearchWorld = [...state.SearchWorld, action.payload];
+  }
   },
 });
 
@@ -50,4 +55,5 @@ export const {
   fetchDataRecommender,
   getDataToRecommend,
   getUserId,
+  getSearchWorld
 } = RecommenderSlice.actions;
