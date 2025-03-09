@@ -114,7 +114,7 @@ function App() {
   }, [Data, chatData, dispatch, userId, ALLUserData]);
 
   const stripePromise: Promise<Stripe | null> = loadStripe(stripeUrl);
-
+  
   return (
     <BrowserRouter>
       <Suspense fallback={<Loading />}>

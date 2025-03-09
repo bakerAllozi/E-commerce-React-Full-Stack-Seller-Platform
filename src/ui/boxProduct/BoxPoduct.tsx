@@ -9,6 +9,8 @@ import Spinner from "@/ui/Spinner";
 import { MyProductType } from "@/types/product.type";
 import ImgEffects from "./ImgEffects";
 import { deleteFromWishList } from "@/APP/store/features/Wishlist/wishlistSlice";
+import useAddToFavorite from "@/hooks/useAddToFavorite";
+import useUser from "@/hooks/useUser";
 
 interface BoxBroductProps {
   product: MyProductType;
@@ -26,17 +28,31 @@ function BoxBroduct({
   noButton,
 }: BoxBroductProps) {
   const { dispatch } = useRedux();
-  const { isLiked, handleLiked, isLoading } = useLikedProducts(product);
+  const { mutate, isLoading } = useAddToFavorite();
+  const {user} = useUser()
+
+  // const { isLiked, handleLiked, isLoading } = useLikedProducts(product);
 
   const handleDelete = () => {
     dispatch(deleteFromWishList(idItem));
   };
 
+  const handleLiked = () => {
+    mutate({
+      userId: user.id,  
+      productId: idItem , 
+    });
+    
+
+  }
+
+  
+
   const calculateOriginalPrice = () =>
     (product.price + product.price * (product.discount / 100)).toFixed(0);
 
   const heartAnimation = {
-    scale: isLiked ? [1.1, 1.8, 1.1] : 1.1,
+    scale: true ? [1.1, 1.8, 1.1] : 1.1,
   };
 
   return (
@@ -65,13 +81,13 @@ function BoxBroduct({
           animate={heartAnimation}
           transition={{ delay: 0, type: "tween", duration: 0.4 }}
           className="absolute right-2 top-2 z-10 cursor-pointer"
-          onClick={handleLiked}
+          onClick={ ()=> handleLiked()}
         >
-          {!isLoading ? (
+          {!isLoading? (
             <FontAwesomeIcon
               icon={faHeart}
               className={`text-xl transition-all ${
-                isLiked ? "text-red-600" : "text-gray-400 hover:text-red-600"
+                false ? "text-red-600" : "text-gray-400 hover:text-red-600"
               }`}
             />
           ) : (
