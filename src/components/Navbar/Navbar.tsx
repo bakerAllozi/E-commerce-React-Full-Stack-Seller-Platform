@@ -6,6 +6,8 @@ import UserIcon from '@/components/Navbar/ui/UserIcon';
 import MessagesIcon from './ui/MessagesIcon';
 
 const Navbar = () => {
+
+  
   return (
     <div className="   h-14  flex   justify-around items-center  fixed top-0 left-0 w-full bg-white shadow  z-[100] ">
       <p className=" sm:text-xl  font-bold   sm:block  hidden">Exclusive</p>

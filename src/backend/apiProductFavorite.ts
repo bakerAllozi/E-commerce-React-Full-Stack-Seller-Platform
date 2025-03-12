@@ -1,6 +1,7 @@
+import { MyProductType } from "@/types/product.type";
 import supabase from "./supabase";
 
-export async function insertProductFavorite({ userId, productId }: { userId: string; productId: string }) {
+export async function insertProductFavorite({ userId, productId }: { userId: string; productId: string }):Promise<any> {
   const { data: existingData, error: checkError } = await supabase
     .from('ProductFavorite')
     .select('*')
@@ -44,3 +45,20 @@ export async function insertProductFavorite({ userId, productId }: { userId: str
     return data;
   }
 }
+
+export async function selectProductFavorite({ userId }: { userId: string }):Promise<any[]> {
+  try {
+    const { data: existingData, error: checkError } = await supabase
+    .from('ProductFavorite')
+    .select('DataOfProduct(*)') 
+    .eq('user_id', userId);
+
+    if (checkError) throw new Error(`Error retrieving favorites for user ${userId}: ${checkError.message}`);
+
+    return existingData;
+  } catch (error) {
+    console.error(error);
+    throw error; 
+  }
+}
+

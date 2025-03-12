@@ -2,25 +2,32 @@ import { Link } from 'react-router-dom';
 import useRedux from '../../hooks/useRedux';
 import useUser from '../../hooks/useUser';
 import BoxBroduct from '@/ui/boxProduct/BoxPoduct';
+import { useEffect, useState } from 'react';
+import { selectProductFavorite } from '@/backend/apiProductFavorite';
+import usefetchFavorites from '@/hooks/usefetchFavorites';
+import { MyProductType } from '@/types/product.type';
 function LikePage() {
-  const { appSelector } = useRedux();
-  const { Data } = appSelector((state) => state.product);
   const { user } = useUser();
   if (!user) return;
+ const {data , isLoading} =  usefetchFavorites(user.id);
+if(data === undefined) return <div>loading</div>
+if(isLoading) return <div>loading</div>
 
-  const productsILiked = Data.filter((e) => e.product_like?.includes(user.id));
+
+
+
 
   return (
     <>
-      {productsILiked.length > 0 ? (
+      {data.length > 0 ? (
         <div className=" mt-[100px]  bg-slate-800/20 backdrop-blur-sm  " >
           <h1 className="  text-center mb-12 text-red-700   font-bold text-[30px] ">
             Product Liked
           </h1>
           <div className="flex    flex-row  flex-wrap  gap-16 justify-evenly ">
-            {productsILiked.map((data) => (
-              <div key={data.id} data-testid="like-product">
-                <BoxBroduct product={data} idItem={data.id} noButton={true} />
+            {data.map((like) => (
+              <div key={like.DataOfProduct.id} data-testid="like-product">
+                <BoxBroduct product={like.DataOfProduct} idItem={like.DataOfProduct.id} noButton={true} />
               </div>
             ))}
           </div>

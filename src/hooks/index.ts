@@ -17,3 +17,4 @@ export { default as UseUpdateReviews } from "./useUpdateReviews";
 export { default as UseUpdateUser } from "./useUpdateUser";
 export { default as UseUser } from "./useUser";
 export { default as UseWishlistAndCart } from "./useWishlistAndCart";
+export { default as UseAddToFavorite } from "./useAddToFavorite";

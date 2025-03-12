@@ -25,7 +25,6 @@ const useLikedProducts = (product: MyProductType): UseLikedProductsReturn => {
       ? product.product_like
       : [];
 
-
     dispatch(getProductsILiked(product.id));
   };
 

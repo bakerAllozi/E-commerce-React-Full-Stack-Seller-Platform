@@ -24,4 +24,5 @@ export interface MyProductType {
     color1?: string;
     color2?: string;
   };
+  
 }
