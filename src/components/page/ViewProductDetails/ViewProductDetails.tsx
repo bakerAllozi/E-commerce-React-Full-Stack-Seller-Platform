@@ -20,6 +20,7 @@ function ViewProductDetails({testmode = false}:{testmode?:boolean}) {
   const productsILiked = Data.filter((e) => e.product_like?.includes(user.id));
 
 
+
   return (
     ProductDetails && (
     <div className="flex flex-col gap-8">

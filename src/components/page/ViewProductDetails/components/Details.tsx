@@ -12,6 +12,8 @@ import { MyProductType } from '@/types/product.type';
 import Stars from '@/ui/Stars';
 import { gitCartItem } from '@/APP/store/features/Cart/CartSlice';
 import { showChatUser } from '@/APP/store/features/User/userSlice';
+import { UseAddToFavorite } from '@/hooks';
+import usefetchFavorites from '@/hooks/usefetchFavorites';
 
 const Details = ({
   ProductDetails,
@@ -25,13 +27,25 @@ const Details = ({
   const navigate = useNavigate();
   const { user } = useUser();
   const { dispatch, appSelector } = useRedux();
-  const { isLiked, handleLiked } = useLikedProducts(ProductDetails);
   const { forHowYouChat } = appSelector((state) => state.UserData);
   const { checkIfItIsInCart, itemStatus } = useWishlistAndCart(ProductDetails);
   const { cartData, handelIncrease, handelDecrease } = useCartActions();
   const updateQuantity = cartData?.find((e) => e.id === productId);
+  const { mutate, isLoading } = UseAddToFavorite();
+  const {data} =  usefetchFavorites(user.id);
 
+  
 
+  const handleAddToFavorite = () => {
+    mutate({
+      userId: user.id,  
+      productId: productId , 
+    });
+
+  }
+
+  const isLiked = data?.find((e) => e.DataOfProduct.id === productId);
+  
 
   const handelViewProduct = () => {
     checkIfItIsInCart
@@ -170,7 +184,7 @@ const Details = ({
 
         <p
           className=" border-[1px] border-black flex justify-center items-center w-fit px-[5px]  cursor-pointer"
-          onClick={handleLiked}
+          onClick={()=> handleAddToFavorite()}
           data-testid='Liked'
           
         >

@@ -47,37 +47,6 @@ function ProductReviews({
     <div className="flex flex-col gap-6 p-6 border-t border-gray-300 bg-white rounded-md shadow-sm mt-10">
       <h2 className="text-xl font-semibold text-gray-800">Product Reviews</h2>
 
-      {sortedReviews && sortedReviews.length > 0 ? (
-        sortedReviews.map((review: CommentsOfProductType, index: number) => (
-          <div
-            key={review.id}
-            className="flex flex-col gap-3 p-4 border border-gray-200 rounded-lg shadow-sm bg-gray-50"
-          >
-            <div className="flex items-center gap-2">
-              <StarRating rating={review.rating} />
-              <span className="text-sm text-gray-600">
-                ({review.rating} / 5)
-              </span>
-            </div>
-            <p className="text-base text-gray-800">{review.comment}</p>
-            <p className="text-xs text-gray-500">By {review.name}</p>
-            <div className="text-xs text-gray-400">
-              {new Date(review.created_at).toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: 'short',
-                day: 'numeric',
-                hour: '2-digit',
-                minute: '2-digit',
-              })}
-            </div>
-
-            <Replies review={review} />
-          </div>
-        ))
-      ) : (
-        <p className="text-gray-500">No reviews available for this product.</p>
-      )}
-
       <form
         className="flex flex-col gap-4 p-4 mt-6 border-t border-gray-200"
         onSubmit={handleSubmit(onSubmit)}
@@ -125,6 +94,39 @@ function ProductReviews({
           Submit Review
         </button>
       </form>
+
+      {sortedReviews && sortedReviews.length > 0 ? (
+        sortedReviews.map((review: CommentsOfProductType, index: number) => (
+          <div
+            key={review.id}
+            className="flex flex-col gap-3 p-4 border border-gray-200 rounded-lg shadow-sm bg-gray-50"
+          >
+            <div className="flex items-center gap-2">
+              <StarRating rating={review.rating} />
+              <span className="text-sm text-gray-600">
+                ({review.rating} / 5)
+              </span>
+            </div>
+            <p className="text-base text-gray-800">{review.comment}</p>
+            <p className="text-xs text-gray-500">By {review.name}</p>
+            <div className="text-xs text-gray-400">
+              {new Date(review.created_at).toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+              })}
+            </div>
+
+            <Replies review={review} />
+          </div>
+        ))
+      ) : (
+        <p className="text-gray-500">No reviews available for this product.</p>
+      )}
+
+  
     </div>
   );
 }

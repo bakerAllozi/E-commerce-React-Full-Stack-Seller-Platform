@@ -11,6 +11,7 @@ import ImgEffects from "./ImgEffects";
 import { deleteFromWishList } from "@/APP/store/features/Wishlist/wishlistSlice";
 import useAddToFavorite from "@/hooks/useAddToFavorite";
 import useUser from "@/hooks/useUser";
+import usefetchFavorites from "@/hooks/usefetchFavorites";
 
 interface BoxBroductProps {
   product: MyProductType;
@@ -27,22 +28,22 @@ function BoxBroduct({
   WasteBasket = false,
   noButton,
 }: BoxBroductProps) {
+  const {user} = useUser()
   const { dispatch } = useRedux();
   const { mutate, isLoading } = useAddToFavorite();
-  const {user} = useUser()
+ const {data} =  usefetchFavorites(user.id);
 
-  // const { isLiked, handleLiked, isLoading } = useLikedProducts(product);
+const isLiked = data?.find((e) => e.DataOfProduct.id === idItem);
 
   const handleDelete = () => {
     dispatch(deleteFromWishList(idItem));
   };
 
-  const handleLiked = () => {
+  const handleAddToFavorite = () => {
     mutate({
       userId: user.id,  
       productId: idItem , 
     });
-    
 
   }
 
@@ -81,13 +82,13 @@ function BoxBroduct({
           animate={heartAnimation}
           transition={{ delay: 0, type: "tween", duration: 0.4 }}
           className="absolute right-2 top-2 z-10 cursor-pointer"
-          onClick={ ()=> handleLiked()}
+          onClick={ ()=> handleAddToFavorite()}
         >
           {!isLoading? (
             <FontAwesomeIcon
               icon={faHeart}
               className={`text-xl transition-all ${
-                false ? "text-red-600" : "text-gray-400 hover:text-red-600"
+                isLiked ? "text-red-600" : "text-gray-400 hover:text-red-600"
               }`}
             />
           ) : (

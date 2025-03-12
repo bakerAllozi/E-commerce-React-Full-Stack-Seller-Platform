@@ -5,16 +5,13 @@ import BoxBroduct from '@/ui/boxProduct/BoxPoduct';
 import { useEffect, useState } from 'react';
 import { selectProductFavorite } from '@/backend/apiProductFavorite';
 import usefetchFavorites from '@/hooks/usefetchFavorites';
-import { MyProductType } from '@/types/product.type';
 function LikePage() {
   const { user } = useUser();
   if (!user) return;
  const {data , isLoading} =  usefetchFavorites(user.id);
+
 if(data === undefined) return <div>loading</div>
 if(isLoading) return <div>loading</div>
-
-
-
 
 
   return (
