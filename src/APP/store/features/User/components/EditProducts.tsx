@@ -6,12 +6,15 @@ import { MyProductType } from '@/types/product.type';
 import useUpdateProduct from '@/hooks/useUpdateProduct';
 import useRedux from '@/hooks/useRedux';
 import Input from '@/ui/Input/Input';
+import { useNavigate } from 'react-router-dom';
 
 const Gg = () => {
   const [sortBy, setSortBy] = useState<string>('From the latest');
   const { updateProductById, isLoading } = useUpdateProduct();
   const { appSelector } = useRedux();
   const { ProductToEdit } = appSelector((state) => state.UserData);
+  const  navigate = useNavigate()
+
 
   const { register, handleSubmit, reset } = useForm<MyProductType>();
 
@@ -36,6 +39,7 @@ const Gg = () => {
 
     updateProductById({ id: ProductToEdit.id, EditRow });
     reset();
+    navigate('/UserPage')
   };
 
   const colors: string[] = [

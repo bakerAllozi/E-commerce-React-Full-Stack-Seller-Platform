@@ -1,6 +1,6 @@
 import Image from '@/assets/Vector.png';
 import Image2 from '@/assets/Vector (1).png';
-import React from 'react';
+
 
 function Stars({ numStare = 5 }) {
   const starsArray = Array.from({ length: 5 }, (e, i) => (

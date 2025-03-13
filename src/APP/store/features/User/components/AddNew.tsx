@@ -70,7 +70,7 @@ function AddNew({ product }: { product: MyProductType }) {
                 Edit
               </button>
               <Link
-                to={`/${product.id}`}
+                to={`/${product.category}/${product.id}`}
                 className="cursor-pointer bg-gray-300 text-gray-700 rounded-full px-4 py-2 text-sm font-semibold transition-all hover:bg-gray-400"
               >
                 View

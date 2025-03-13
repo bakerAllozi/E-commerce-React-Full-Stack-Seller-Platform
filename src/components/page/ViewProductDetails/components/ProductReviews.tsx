@@ -107,8 +107,8 @@ function ProductReviews({
                 ({review.rating} / 5)
               </span>
             </div>
-            <p className="text-base text-gray-800">{review.comment}</p>
-            <p className="text-xs text-gray-500">By {review.name}</p>
+            <p className=" text-gray-800 text-2xl">  {review.name}</p>
+            <p className="text-xs text-gray-500"> {review.comment}</p>
             <div className="text-xs text-gray-400">
               {new Date(review.created_at).toLocaleDateString('en-US', {
                 year: 'numeric',

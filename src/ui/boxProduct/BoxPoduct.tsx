@@ -4,7 +4,6 @@ import Stars from "../Stars";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import useRedux from "@/hooks/useRedux";
-import useLikedProducts from "@/hooks/useLikedProducts";
 import Spinner from "@/ui/Spinner";
 import { MyProductType } from "@/types/product.type";
 import ImgEffects from "./ImgEffects";
@@ -58,7 +57,7 @@ const isLiked = data?.find((e) => e.DataOfProduct.id === idItem);
 
   return (
     <motion.div
-      className="relative h-[400px] w-80 bg-white dark:bg-gray-900 rounded-2xl shadow-lg overflow-hidden 
+      className="relative h-[380px] w-80 bg-white rounded-2xl shadow-lg overflow-hidden 
                  transition-all duration-300 hover:shadow-2xl hover:-translate-y-2"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
@@ -72,7 +71,7 @@ const isLiked = data?.find((e) => e.DataOfProduct.id === idItem);
 
       {WasteBasket ? (
         <p
-          className="absolute right-2 top-2 z-10 cursor-pointer text-gray-700 dark:text-white hover:text-red-500 transition-all"
+          className="absolute right-2 top-2 z-10 cursor-pointer  dark:text-white hover:text-red-500 transition-all"
           onClick={handleDelete}
         >
           <FontAwesomeIcon icon={faTrashCan} size="lg" />

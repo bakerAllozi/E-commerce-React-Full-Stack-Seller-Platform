@@ -10,7 +10,6 @@ function UserPage() {
   const { appSelector } = useRedux();
   const { Data } = appSelector((state) => state.product);
   const { user } = useUser();
-
   const userProduct = Data.filter((arr) => arr.userId === user?.id);
   const { updateData } = useProductData();
   useEffect(() => {
@@ -39,7 +38,7 @@ function UserPage() {
         to="/AddNewProduct"
         className="inline-flex items-center justify-center px-5 py-3 mt-5 text-white bg-red-600 rounded-lg hover:bg-red-700 transition-all shadow-md focus:ring-2 focus:ring-red-500"
       >
-        <span className="mr-2">➕</span> Add New Product
+        <span className="mr-2 text-3xl">+ Add New Product</span> 
       </Link>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">

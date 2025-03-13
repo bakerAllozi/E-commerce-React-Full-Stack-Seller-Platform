@@ -1,6 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
-import useLikedProducts from '../../../../hooks/useLikedProducts';
 import { useNavigate } from 'react-router-dom';
 import useWishlistAndCart from '../../../../hooks/useWishlistAndCart';
 import useCartActions from '../../../../hooks/useCartActions';

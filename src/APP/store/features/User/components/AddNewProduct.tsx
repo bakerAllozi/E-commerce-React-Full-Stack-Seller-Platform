@@ -9,13 +9,14 @@ import useProductData from '@/hooks/useUpdateData';
 import { insertNewProduct } from '@/backend/apiDataOfProduct';
 import Alert from '@/ui/Alert/Alert';
 import Input from '@/ui/Input/Input';
+import { useNavigate } from 'react-router-dom';
 
 function AddNewProduct() {
   const [sortBy, setSortBy] = useState('From the latest');
   const [showAlert, setShowAlert] = useState(false);
 
   const { register, handleSubmit, reset } = useForm<MyProductType>();
-
+  const Navigate = useNavigate()
   const uniqueId = uuidv4();
   const queryClient = useQueryClient();
   const { user } = useUser();
@@ -26,10 +27,11 @@ function AddNewProduct() {
     onSuccess: () => {
       setShowAlert(true);
       updateData();
-
       queryClient.invalidateQueries(['DataOfProduct']);
       reset();
       setTimeout(() => setShowAlert(false), 3000);
+      Navigate('/UserPage')
+      
     },
     onError: (err) => alert((err as Error).message),
   });

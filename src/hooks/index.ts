@@ -2,7 +2,6 @@ export { default as UseInsertMassage } from './UseInsertMassage';
 export { default as UseCartActions } from "./useCartActions";
 export { default as UseDeleteProduct } from "./useDeleteProduct";
 export { default as UseInsertReviews } from "./useInsertReviews";
-export { default as UseLikedProducts } from "./useLikedProducts";
 export { default as UseLogin } from "./useLogin";
 export { default as UseLogout } from "./useLogout";
 export { default as useOnlineUser } from "./useOnlineUser";

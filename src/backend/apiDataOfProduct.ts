@@ -10,8 +10,7 @@ export async function getDataOfProduct() {
   return data;
 }
 
-export async function insertNewProduct(newRow: { image: File }) {
-  console.log(newRow);
+export async function insertNewProduct(newRow: { image: File })  {
 
   const imageName = `${Math.random()}-${newRow.image.name}`.replaceAll('/', '');
   const imagePath = `https://taqdpudyhenvaibczyar.supabase.co/storage/v1/object/public/baker1/${imageName}`;
