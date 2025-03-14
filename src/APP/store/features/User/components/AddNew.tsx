@@ -4,7 +4,6 @@ import { MyProductType } from '@/types/product.type';
 import useRedux from '@/hooks/useRedux';
 import useDeleteProduct from '@/hooks/useDeleteProduct';
 import Spinner from '@/ui/Spinner';
-
 function AddNew({ product }: { product: MyProductType }) {
   const { dispatch } = useRedux();
   const navigate = useNavigate();

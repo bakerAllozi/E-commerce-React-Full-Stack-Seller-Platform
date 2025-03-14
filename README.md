@@ -86,6 +86,20 @@ This platform is packed with features for store owners and customers, such as re
 
 ---
 
+
+🗄️ Database Structure & Optimizations
+Our platform leverages a Many-to-Many relationship and advanced indexing techniques to ensure optimal performance in critical features such as user favorites and the custom search engine.
+
+🔗 Many-to-Many Relationship: User Favorites
+Implemented via a pivot table (user_favorites) in Supabase to efficiently associate users with their favorite products.
+Enables users to seamlessly add, remove, and retrieve favorite products in real-time.
+Uses foreign key constraints to maintain data integrity and ensure efficient lookups.
+⚡ Search Engine Indexing for Performance
+Custom full-text search engine optimized with indexes on key fields (product_name, description, category, etc.).
+GIN (Generalized Inverted Index) and trigram indexes applied for fast, fuzzy search matching, improving user experience with instant search results.
+Enhances query speed, reducing response time for product searches even with a large dataset.
+
+
 ## 📂 Project Structure
 
 ```plaintext
@@ -139,6 +153,7 @@ To set up the project locally, follow these steps:
    ```
 
 ---
+
 
 ## 🎥 Screenshots
 
