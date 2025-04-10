@@ -5,6 +5,7 @@ import ChartsOverviewDemo from './components/RouteName';
 import useRedux from '@/hooks/useRedux';
 import useUser from '@/hooks/useUser';
 import useProductData from '@/hooks/useUpdateData';
+import UserProfile from './components/UserProfile';
 
 function UserPage() {
   const { appSelector } = useRedux();
@@ -32,6 +33,7 @@ function UserPage() {
           Inventory Statistics
         </p>
         <ChartsOverviewDemo userProduct={userProduct} />
+        <UserProfile />
       </div>
 
       <Link
