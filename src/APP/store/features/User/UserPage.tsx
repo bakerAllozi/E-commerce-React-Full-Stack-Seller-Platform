@@ -19,7 +19,7 @@ function UserPage() {
   const userName = user?.name;
   return (
     <div className="relative p-6 bg-gray-50 min-h-screen">
-      <div className="mb-8">
+      {/* <div className="mb-8">
         <h1 className="text-3xl sm:text-5xl font-bold text-center text-gray-800">
           My Store
         </h1>
@@ -52,7 +52,11 @@ function UserPage() {
             <AddNew product={product} />
           </div>
         ))}
-      </div>
+      </div> */}
+       
+
+       <UserProfile />
+
     </div>
   );
 }

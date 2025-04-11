@@ -1,107 +1,191 @@
-import React, { useState } from "react";
-import { motion, Reorder } from "framer-motion";
+// import Tabs from '@mui/material/Tabs';
+// import Tab from '@mui/material/Tab';
+// import Typography from '@mui/material/Typography';
+// import Box from '@mui/material/Box';
+// import { useState } from 'react';
+// import { DndContext } from '@dnd-kit/core';
 
-const UserProfile: React.FC = () => {
-  const user = {
-    name: "Bakr Al-Lozi",
-    avatarUrl: "https://via.placeholder.com/150",
-    salesCount: 128,
-  };
 
-  const initialProducts = [
-    { id: 1, name: "منتج 1", price: 50, image: "https://via.placeholder.com/300x200" },
-    { id: 2, name: "منتج 2", price: 70, image: "https://via.placeholder.com/300x200" },
-    { id: 3, name: "منتج 3", price: 120, image: "https://via.placeholder.com/300x200" },
-    { id: 4, name: "منتج 4", price: 90, image: "https://via.placeholder.com/300x200" },
-    // { id: 5, name: "منتج 5", price: 60, image: "https://via.placeholder.com/300x200" },
-    // { id: 6, name: "منتج 6", price: 80, image: "https://via.placeholder.com/300x200" },
-    // { id: 7, name: "منتج 7", price: 110, image: "https://via.placeholder.com/300x200" },
-    // { id: 8, name: "منتج 8", price: 95, image: "https://via.placeholder.com/300x200" },
-  ];
 
-  const [products, setProducts] = useState(initialProducts);
+// interface TabPanelProps {
+//   children?: React.ReactNode;
+//   index: number;
+//   value: number;
+// }
 
-  const chunkArray = (arr: any[], size: number) =>
-    Array.from({ length: Math.ceil(arr.length / size) }, (_, i) => arr.slice(i * size, i * size + size));
+// function TabPanel(props: TabPanelProps) {
+//   const { children, value, index, ...other } = props;
 
-  const productRows = chunkArray(products, 4);
+//   return (
+//     <div
+//       role="tabpanel"
+//       hidden={value !== index}
+//       id={`vertical-tabpanel-${index}`}
+//       aria-labelledby={`vertical-tab-${index}`}
+//       {...other}
+//     >
+//       {value === index && (
+//         <Box sx={{ p: 3 }}>
+//           <Typography>{children}</Typography>
+//         </Box>
+//       )}
+//     </div>
+//   );
+// }
 
-  return (
-    <div
-      className="min-h-screen bg-cover bg-center bg-no-repeat p-8 space-y-20"
-      style={{
-        backgroundImage:
-          "url('https://images.unsplash.com/photo-1616627459511-2db569f32514?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80')",
-      }}
-    >
-      {/* بطاقة المستخدم */}
-      <div className="backdrop-blur-sm bg-white/30 rounded-xl shadow-xl p-8 flex items-center space-x-6">
-        <img
-          src={user.avatarUrl}
-          alt={user.name}
-          className="w-24 h-24 rounded-full border-4 border-yellow-800 shadow-md"
-        />
-        <div>
-          <h1 className="text-3xl font-bold text-yellow-900">{user.name}</h1>
-          <p className="text-yellow-700">المبيعات: {user.salesCount}</p>
-        </div>
-      </div>
+// function a11yProps(index: number) {
+//   return {
+//     id: `vertical-tab-${index}`,
+//     'aria-controls': `vertical-tabpanel-${index}`,
+//   };
+// }
+// const ItemHeader = () =>{
+//   return (
+//     <div className="flex items-center justify-between p-4 bg-gray-100 rounded-lg shadow-md">
+//       <h2 className="text-xl font-semibold">Item Header</h2>
+//     </div>
+//   );
+// }
 
-      {/* المنتجات على رفوف */}
-      <div className="space-y-24">
-        <h2 className="text-3xl font-bold text-center text-yellow-800 drop-shadow-md">
-          مكتبة المنتجات
-        </h2>
+// export default function VerticalTabs() {
+//   const [value, setValue] =useState<number>(0);
 
-        {productRows.map((row, index) => (
-          <div key={index} className="relative mb-20">
-            {/* المنتجات */}
-            <Reorder.Group
-              axis="x"
-              values={products}
-              onReorder={setProducts}
-              className="flex justify-center gap-16 flex-wrap relative z-10"
-            >
-              {row.map((product) => (
-                <Reorder.Item
-                  key={product.id}
-                  value={product}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-white shadow-2xl rounded-lg overflow-hidden w-48 cursor-grab active:cursor-grabbing"
-                  style={{ boxShadow: "0 6px 15px rgba(0,0,0,0.2)" }}
-                >
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="w-full h-40 object-cover"
-                  />
-                  <div className="p-4 text-center">
-                    <h3 className="text-lg font-semibold text-gray-800">
-                      {product.name}
-                    </h3>
-                    <p className="text-gray-600">{product.price} $</p>
-                    <button className="w-full py-2 mt-3 bg-yellow-800 text-white rounded hover:bg-yellow-900 transition">
-                      عرض المنتج
-                    </button>
-                  </div>
-                </Reorder.Item>
-              ))}
-            </Reorder.Group>
+//   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+//     setValue(newValue);
+//   };
 
-            {/* رف خشبي */}
-            <div
-              className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[95%] h-8 rounded-full shadow-lg"
-              style={{
-                background: "linear-gradient(90deg, #8B5E3C, #A97454, #8B5E3C)",
-                boxShadow: "0 4px 10px rgba(0,0,0,0.3)",
-              }}
-            ></div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
+//   return (
+//     <Box
+//       sx={{ flexGrow: 1, bgcolor: 'background.paper', display: 'flex', height: 500 }}
+//     >
+//       <Tabs
+//         orientation="vertical"
+//         variant="scrollable"
+//         value={value}
+//         onChange={handleChange}
+//         aria-label="Vertical tabs example"
+//         sx={{ borderRight: 1, borderColor: 'divider' }}
+//       >
+//         <Tab label="Item header" {...a11yProps(0)} />
+//         <Tab label="Item Two" {...a11yProps(1)} />
+//         <Tab label="Item Three" {...a11yProps(2)} />
+//         <Tab label="Item Four" {...a11yProps(3)} />
+//         <Tab label="Item Five" {...a11yProps(4)} />
+//         <Tab label="Item Six" {...a11yProps(5)} />
+//         <Tab label="Item Seven" {...a11yProps(6)} />
+//       </Tabs>
+
+      
+//       <TabPanel value={value} index={0}>
+//         <DndContext>
+//         <ItemHeader/>
+//         </DndContext>
+//       </TabPanel>
+//       <TabPanel value={value} index={1}>
+//         Item Two
+//       </TabPanel>
+//       <TabPanel value={value} index={2}>
+//         Item Three
+//       </TabPanel>
+//       <TabPanel value={value} index={3}>
+//         Item Four
+//       </TabPanel>
+//       <TabPanel value={value} index={4}>
+//         Item Five
+//       </TabPanel>
+//       <TabPanel value={value} index={5}>
+//         Item Six
+//       </TabPanel>
+//       <TabPanel value={value} index={6}>
+//         Item Seven
+//       </TabPanel>
+//     </Box>
+//   );
+// }
+
+
+import  { useState } from 'react';
+import { motion } from 'framer-motion';
+
+function App() {
+  const [droppedItems, setDroppedItems] = useState<{
+    id: number;
+    x: number;
+    y: number;
+  }[]>([]);
+  const [save , setSave] = useState(false); // حالة حفظ العناصر المسقطة
+  const [initialPosition, setInitialPosition] = useState({ x: 0, y: 0 });  // تخزين الموقع الأصلي
+console.log(droppedItems)
+const handleDragEnd = (event: any, info: any, id: number) => {
+  const { x, y } = info.point; // إحداثيات الإسقاط على الشاشة
+
+  setDroppedItems((prevItems) => {
+    const existingIndex = prevItems.findIndex((e) => e.id === id);
+
+    if (existingIndex !== -1) {
+      // إذا العنصر موجود، نقوم بتحديث الإحداثيات فقط
+      const updatedItems = [...prevItems];
+      updatedItems[existingIndex] = { ...updatedItems[existingIndex], x, y };
+      return updatedItems;
+    } else {
+      // إذا غير موجود، نضيفه جديد
+      return [...prevItems, { id, x, y }];
+    }
+  });
+
+  // إعادة العنصر إلى مكانه الأصلي
+  setInitialPosition({ x: 0, y: 0 });
 };
 
-export default UserProfile;
+
+  return (
+    <div className=" bg-red-700 ">
+     
+    {
+      save ? 
+    
+  <motion.div
+className="w-10 h-10 bg-blue-500 flex justify-center items-center rounded-lg cursor-grab mb-4"
+drag
+dragConstraints={{ top: 0, left: 0, right: 300, bottom: 300 }}
+onDragEnd={(event, info) => handleDragEnd(event, info, 1)}  // استدعاء الدالة عند انتهاء السحب
+// whileDrag={{ scale: 2.1 }} 
+// initial={{ x: initialPosition.x, y: initialPosition.y }}  // تحديد الموقع الأصلي
+// animate={{ x: initialPosition.x, y: initialPosition.y }}  // إعادة المربع إلى الموقع الأصلي
+dragTransition={{ power: 0, timeConstant: 0, bounceStiffness: 0, bounceDamping: 0 }} // تعطيل القصور الذاتي
+>
+عنصر 1
+</motion.div>
+
+   
+
+      
+      :
+      droppedItems.map((item) => (
+          <motion.div
+            key={item.id}
+            className="w-10 h-10 bg-blue-500 flex justify-center items-center rounded-lg cursor-grab mb-4"
+            // initial={{ x:item.x , y: item.y }} 
+            // animate={{ x:item.x , y: item.y }}  
+            drag={false}
+            style={{ position: 'absolute', top: item.y, left: item.x }}
+        
+          >
+            {`عنصر ${item.id}`}
+          </motion.div>
+        ))
+      
+        
+        }
+
+    
+        <button
+        onClick={() => setSave(!save)}
+        >
+Save
+        </button>
+      </div>
+  );
+}
+
+export default App;
