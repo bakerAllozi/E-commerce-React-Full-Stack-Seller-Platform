@@ -113,6 +113,17 @@ function App() {
     }
   }, [Data, chatData, dispatch, userId, ALLUserData]);
 
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      // dispatch(getRandomProduct());
+      // console.log('Interval running...');
+    }, 30000); 
+
+    return () => clearInterval(interval);
+  }, []); 
+
+
   const stripePromise: Promise<Stripe | null> = loadStripe(stripeUrl);
   
   return (

@@ -1,3 +1,4 @@
+import { UseSendBehavior } from '@/hooks';
 import { MyProductType } from '@/types/product.type';
 import { createSlice } from '@reduxjs/toolkit';
 const initialState:{
@@ -45,7 +46,12 @@ const RecommenderSlice = createSlice({
   },
   getSearchWorld(state, action) {
     state.SearchWorld = [...state.SearchWorld, action.payload];
+  },
+  sendBehaviorData (state) {
+    UseSendBehavior (state.userId , 'category'  )
   }
+
+
   },
 });
 

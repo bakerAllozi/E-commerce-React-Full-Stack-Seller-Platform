@@ -16,7 +16,6 @@ function ProductReviews({
 }) {
   const uniqueId = uuidv4();
   const { user } = useUser();
-
   const { mutate } = useInsertNewReview();
   const {
     register,
