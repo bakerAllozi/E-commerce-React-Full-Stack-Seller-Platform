@@ -1,3 +1,4 @@
+import { useLinkClickHandler } from "react-router-dom";
 import supabase from "./supabase";
 
 export async function upsertProductFavorite({
@@ -7,7 +8,7 @@ export async function upsertProductFavorite({
   userId: string;
   Category: string;
 }): Promise<void> {
-  // تحقق هل السجل موجود
+  // تحقق هل السجل 
   const { data: existing, error: checkError } = await supabase
     .from("Recommended-data")
     .select("id")
@@ -21,6 +22,7 @@ export async function upsertProductFavorite({
   }
 
   if (existing) {
+   
     // ✅ موجود بالفعل، نحدثه (مثلاً تحديث تاريخ أو أي شيء آخر)
     const { error: updateError } = await supabase
       .from("Recommended-data")

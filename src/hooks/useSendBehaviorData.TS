@@ -2,10 +2,10 @@ import { upsertProductFavorite } from '../backend/apiRecommenderSlice';
 
 import { useQuery } from '@tanstack/react-query';
 
-const useSendBehavior = (id: string, category :string) => {
+const useSendBehavior = (news) => {
   const { data, isLoading } = useQuery({
     queryKey: ['Reviews'],
-    queryFn: () => upsertProductFavorite({userId: id  , Category: 'Reviews'}),
+    queryFn: () => upsertProductFavorite({userId: news.user_id  , Category: news.category}),
     // refetchInterval: 5000,
   });
   return { data, isLoading };

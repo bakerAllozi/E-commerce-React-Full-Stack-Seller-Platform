@@ -78,7 +78,7 @@ function SignUp() {
             Already have account? <Link to="/LogIn">Log in</Link>
           </p>
         </form>
-        <img src={Image} className=" hidden lg:block   " />
+        <img src={Image} className=" hidden lg:block " />
       </div>
     </div>
   );

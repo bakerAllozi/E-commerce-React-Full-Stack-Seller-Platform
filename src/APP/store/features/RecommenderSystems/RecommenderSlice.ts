@@ -48,7 +48,7 @@ const RecommenderSlice = createSlice({
     state.SearchWorld = [...state.SearchWorld, action.payload];
   },
   sendBehaviorData (state) {
-    UseSendBehavior (state.userId , 'category'  )
+    UseSendBehavior ({user_id:state.userId , category: 'Reviews'});
   }
 
 
