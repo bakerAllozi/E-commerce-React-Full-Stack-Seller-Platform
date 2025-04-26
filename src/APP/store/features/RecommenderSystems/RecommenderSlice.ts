@@ -1,4 +1,3 @@
-import { UseSendBehavior } from '@/hooks';
 import { MyProductType } from '@/types/product.type';
 import { createSlice } from '@reduxjs/toolkit';
 const initialState:{
@@ -22,7 +21,8 @@ const initialState:{
   userId:'',
   dataAfterSort: [],
   productlike: [],
-  SearchWorld: []
+  SearchWorld: [],
+  BehaviorData: {}
 
 };
 
@@ -40,6 +40,8 @@ const RecommenderSlice = createSlice({
         acc[item.category] = (acc[item.category] || 0) + 1;
         return acc;
       }, {});
+      state.BehaviorData = {user_id:state.userId , category: 'Reviews'}
+
         },
     getUserId(state, action) {
     state.userId = action.payload;
@@ -47,9 +49,8 @@ const RecommenderSlice = createSlice({
   getSearchWorld(state, action) {
     state.SearchWorld = [...state.SearchWorld, action.payload];
   },
-  sendBehaviorData (state) {
-    UseSendBehavior ({user_id:state.userId , category: 'Reviews'});
-  }
+  // sendBehaviorData (state) {
+  // }
 
 
   },
@@ -61,5 +62,6 @@ export const {
   fetchDataRecommender,
   getDataToRecommend,
   getUserId,
-  getSearchWorld
+  getSearchWorld,
+  
 } = RecommenderSlice.actions;

@@ -103,3 +103,29 @@
 //   );
 // }
 
+
+import { useDrag } from 'react-dnd';
+
+
+ const DraggableBox = ({ id  } :{
+    id: number;
+ }) => {
+  const [{ isDragging }, drag] = useDrag(() => ({
+    type: 'box',
+    collect: (monitor) => ({
+      isDragging: !!monitor.isDragging(),
+    }),
+  }));
+
+  return (
+    <div
+      ref={drag}
+      className="w-24 h-24 bg-blue-500 text-white flex justify-center items-center cursor-grab"
+      style={{ opacity: isDragging ? 0.5 : 1 }}
+    >
+      عنصر {id}
+    </div>
+  );
+};
+export default DraggableBox;
+

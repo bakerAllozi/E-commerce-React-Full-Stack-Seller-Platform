@@ -8,7 +8,9 @@ export async function upsertProductFavorite({
   userId: string;
   Category: string;
 }): Promise<void> {
+  
   // تحقق هل السجل 
+  
   const { data: existing, error: checkError } = await supabase
     .from("Recommended-data")
     .select("id")

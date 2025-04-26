@@ -1,13 +1,13 @@
+import { useMutation } from '@tanstack/react-query';
 import { upsertProductFavorite } from '../backend/apiRecommenderSlice';
 
-import { useQuery } from '@tanstack/react-query';
-
-const useSendBehavior = (news) => {
-  const { data, isLoading } = useQuery({
-    queryKey: ['Reviews'],
-    queryFn: () => upsertProductFavorite({userId: news.user_id  , Category: news.category}),
-    // refetchInterval: 5000,
+const useSendBehavior = () => {
+  const mutation = useMutation({
+    mutationFn: ({ user_id, category }) =>
+      upsertProductFavorite({ userId: user_id, Category: category }),
   });
-  return { data, isLoading };
+
+  return mutation.mutate; 
 };
+
 export default useSendBehavior;

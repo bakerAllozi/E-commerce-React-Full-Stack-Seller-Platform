@@ -66,7 +66,11 @@ import {
 } from '@/APP/store/features/User/userSlice';
 import { getProductToWishlist } from '@/APP/store/features/Wishlist/wishlistSlice';
 import WebRTC from '../components/page/WebRTC';
-import { fetchDataRecommender, getUserId } from './store/features/RecommenderSystems/RecommenderSlice';
+import { fetchDataRecommender, getUserId, sendBehaviorData } from './store/features/RecommenderSystems/RecommenderSlice';
+import { HTML5Backend } from 'react-dnd-html5-backend';
+import { DndProvider } from 'react-dnd';
+import { UseSendBehavior } from '@/hooks';
+import { upsertProductFavorite } from '@/backend/apiRecommenderSlice';
 
 function App() {
   const { dispatch, appSelector } = useRedux();
@@ -113,15 +117,17 @@ function App() {
     }
   }, [Data, chatData, dispatch, userId, ALLUserData]);
 
+  const { BehaviorData } = appSelector((state) => state.RecommendData);
+
 
   useEffect(() => {
     const interval = setInterval(() => {
-      // dispatch(getRandomProduct());
-      // console.log('Interval running...');
-    }, 30000); 
+   upsertProductFavorite({ userId: BehaviorData.user_id, Category: BehaviorData.category })
+
+    }, 3000); 
 
     return () => clearInterval(interval);
-  }, []); 
+  }, [BehaviorData]); 
 
 
   const stripePromise: Promise<Stripe | null> = loadStripe(stripeUrl);
@@ -153,7 +159,13 @@ function App() {
             <Route path="LikePage" element={<LikePage />} />
             <Route path="Wishlist" element={<Wishlist />} />
             <Route path="Messages" element={<MessageNotifications />} />
-            <Route path="UserPage" element={<UserPage />} />
+            <Route path="UserPage" element={
+              
+              
+          <DndProvider backend={HTML5Backend}>
+             <UserPage />
+          </DndProvider>
+             } />
             <Route path="MyAccount" element={<MyAccount />} />
             <Route path="WebRTC" element={<WebRTC />} />
             <Route path="/:categoryName" element={<ViewByCategory />} />
