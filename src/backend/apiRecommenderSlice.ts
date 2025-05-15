@@ -1,5 +1,6 @@
 import { useLinkClickHandler } from "react-router-dom";
 import supabase from "./supabase";
+import { C } from "vitest/dist/chunks/reporters.QZ837uWx";
 
 export async function upsertProductFavorite({
   userId,
@@ -9,13 +10,11 @@ export async function upsertProductFavorite({
   Category: string;
 }): Promise<void> {
   
-  // تحقق هل السجل 
   
   const { data: existing, error: checkError } = await supabase
     .from("Recommended-data")
     .select("id")
     .eq("user_id", userId)
-    .eq("Category", Category)
     .single();
 
   if (checkError && checkError.code !== "PGRST116") {
@@ -29,7 +28,7 @@ export async function upsertProductFavorite({
     const { error: updateError } = await supabase
       .from("Recommended-data")
       .update({
-        updated_at: new Date().toISOString(), 
+        Categorys: Category, // تحديث الفئة
       })
       .eq("id", existing.id); 
 

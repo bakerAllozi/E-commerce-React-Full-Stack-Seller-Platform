@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import useRedux from './useRedux';
 import { MyProductType } from '@/types/product.type';
-import { getWishlistData } from '@/APP/store/features/Wishlist/wishlistSlice';
+import { getWishlistData } from '@/store/features/Wishlist/wishlistSlice';
 
 const useWishlistAndCart = (ProductDetails: MyProductType) => {
   const idItem = ProductDetails.id;
